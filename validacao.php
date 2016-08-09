@@ -13,12 +13,11 @@
     $senha = mysqli_real_escape_string($mysqli, $_POST['senha']);
 
     // Validação do usuário/senha digitados
-    $sql = "SELECT `id`, `nome`, `nivel` FROM `usuarios` WHERE (`usuario` = '".$usuario ."') AND (`senha` = '". sha1($senha) ."') AND (`ativo` = 1) LIMIT 1";
+    $sql = "SELECT `id`, `nome`, `nivel` FROM `usuarios` WHERE (`usuario` = '".$usuario ."') AND (`senha` = '". sha1($senha) ."') LIMIT 1";
     $query = $mysqli->query($sql);
     if ($query->num_rows != 1) {
         // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
         echo "Login inválido!";
-        header("Location: index.php"); exit;
     } else {
         // Salva os dados encontados na variável $resultado
         $resultado = mysqli_fetch_array($query);
@@ -32,8 +31,22 @@
         $_SESSION['UsuarioNivel'] = $resultado['nivel'];
       
         // Redireciona o visitante
-        header("Location: restrito.php"); exit;
-    }
+        switch ($_SESSION['UsuarioNivel']) {
+        	case '1':
+        		header("Location: admin.html");
+        		break;
+        	case '2':
+        		header("Location: professor.html");
+        		break;
+        	case '3':
+        		header("Location: aluno.html");
+        		break;
+        	default:
+        		echo "OPÇÂO INVÁLIDA";
+        		break;
+        }
+        }
+    
 
 
 

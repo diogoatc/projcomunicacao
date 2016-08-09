@@ -13,6 +13,16 @@ $senha = mysqli_real_escape_string($mysqli, $_POST['senha']);
 $nome = mysqli_real_escape_string($mysqli, $_POST['nome']);
 $email = mysqli_real_escape_string($mysqli, $_POST['email']);
 $nivel = mysqli_real_escape_string($mysqli, $_POST['tipodeusuario']);
+$id=null;
+$csenha = sha1($senha);
 
-echo $nivel;
+$stmt = $mysqli->prepare("INSERT INTO usuarios (id,nome,usuario,senha,email,nivel) VALUES(?, ?, ?, ?, ?, ?)");
+$stmt->bind_param('issssi', $id, $nome, $usuario, $csenha, $email, $nivel);
+if($stmt->execute()){
+    print "Sucesso!";
+}else{
+    die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+}
+$stmt->close();
+
 ?>
