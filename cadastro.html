@@ -3,25 +3,35 @@
 <head>
 	<title>Cadastro de Usuário</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<h1>Cadastro de Usuários</h1>
+		<div class="container">
+			<div class="header">
+            	<img src="assets/img/Comunica%C3%A7%C3%A3o.png" alt="logo unasp">
+       		</div>
+       			<div class="content">
+            		<div class="login">Cadastro de Usuários</div>
+            		<div class="form">
 
-	<form action="cadastro.php" id="cadastro" method="post">
-		<label for="txUsuario">Usuário</label>
-        <input type="text" name="usuario" id="txUsuario" maxlength="25" /> <br/><br/>
-        <label for="txSenha">Senha</label>
-        <input type="password" name="senha" id="txSenha" /> <br/><br/>
-        <label for="txNome">Nome Completo</label>
-        <input type="text" name="nome" id="txNome" /> <br/><br/>
-        <label for="txEmail">Email</label>
-        <input type="email" name="email" id="txemail" /> <br/><br/>
-        <label for="txTipo">Selecione o Tipo de Usuário</label>
-        <select name="tipodeusuario" id="txTipo">
-    		<option value="2">Professor</option>
-    		<option value="3">Aluno</option>
-  		</select> <br/><br/>
-  		<input type="submit" value="Cadastrar" />
-	</form>
+				<form action="cadastro.php" id="cadastro" method="post">
+					<label for="txUsuario">Usuário</label>
+        			<input type="text" name="usuario" id="txUsuario" maxlength="25" /> <br/>
+        			<label for="txSenha">Senha</label>
+        			<input type="password" name="senha" id="txSenha" /> <br/>
+        			<label for="txNome">Nome Completo</label>
+        			<input type="text" name="nome" id="txNome" /> <br/>
+        			<label for="txEmail">Email</label>
+        			<input type="email" name="email" id="txemail" /> <br/>
+        			<label for="txTipo">Selecione o Tipo de Usuário</label>
+        			<select name="tipodeusuario" id="txTipo">
+    					<option value="2">Professor</option>
+    					<option value="3">Aluno</option>
+  					</select> 
+  					<input type="submit" value="Cadastrar" />
+				</form>
+				  </div>
+        	</div>
+		</div>
 </body>
 </html>

@@ -1,0 +1,75 @@
+* {
+    outline: none;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.container .header {
+    width: 100%;
+    height: 80px;
+    background: #333366;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.container .content {
+    width: 450px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -225px;
+    margin-top: -150px;
+    border: 1px solid #eeeeee;
+    box-shadow: 5px 5px 5px #eee;
+}
+
+.container .content .login {
+    width: 100%;
+    height: auto;
+    background: #faaf5f;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0 10px;
+}
+
+.container .content input {
+    padding: 15px;
+    width: 80%;
+    height: 10px;
+    margin-top: 20px;
+    border: none;
+    border-bottom: 1px solid #faaf5f;
+}
+
+.container .content .form {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-left: -160.79px;
+}
+
+.container .content .button {
+    padding: 9px;
+    margin-top: 20px;
+    text-align: center;
+    width: 60px;
+    font-family: 'Lato', sans-serif;
+    background-color: #333366;
+    color: #fff;
+    border: 1px solid #333366;
+}
+
+.container .content .button:hover {
+    background-color: #fff;
+    color: #333366;
+    border: 1px solid #333366;
+}
