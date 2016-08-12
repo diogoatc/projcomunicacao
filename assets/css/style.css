@@ -42,7 +42,6 @@
     padding: 10px 0 10px;
 }
 
-
 .container .content input {
     padding: 15px;
     width: 80%;
@@ -56,27 +55,6 @@
     top: 18%;
     left: 50%;
     margin-left: -160.79px;
-}
-
-.container .content .button {
-    padding: 9px;
-    margin-top: 20px;
-    text-align: center;
-    width: 60px;
-    font-family: 'Lato', sans-serif;
-    background-color: #333366;
-    color: #fff;
-    border: 1px solid #333366;
-    cursor: pointer;
-    float: right;
-    margin-right: 77px;
-}
-
-.container .content .button:hover {
-    background-color: #fff;
-    color: #333366;
-    border: 1px solid #333366;
-    transition: 0.3s ease-in;
 }
 
 .container .content label {
@@ -111,4 +89,25 @@
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
+}
+
+.container .content .button {
+    padding: 9px;
+    margin-top: 20px;
+    text-align: center;
+    width: 60px;
+    font-family: 'Lato', sans-serif;
+    background-color: #333366;
+    color: #fff;
+    border: 1px solid #333366;
+    cursor: pointer;
+    float: right;
+    margin-right: 77px;
+}
+
+.container .content .button:hover {
+    background-color: #fff;
+    color: #333366;
+    border: 1px solid #333366;
+    transition: 0.3s ease-in;
 }
