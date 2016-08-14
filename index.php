@@ -1,11 +1,11 @@
 <?php
-<!DOCTYPE html>
+echo "<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <title></title>
   </head>
   <body>
-
+  	<h1> Teste </h1>
   </body>
-</html>
+</html>";
