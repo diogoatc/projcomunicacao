@@ -17,5 +17,6 @@
       
     <h1>Página restrita</h1>
     <p>Olá, <?php echo $_SESSION['UsuarioNome']; ?>!</p>
-
+    <br/>
+    <h3><a href="cadastro.php"> Fazer cadastro de novo Professor </a></h3>
 
