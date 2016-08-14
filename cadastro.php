@@ -51,36 +51,36 @@ $email = $_POST['email'];
 $id=null;
 $nivel = 2;
 
+$conn = $PDO->prepare("SELECT `usuario` FROM `usuario` WHERE `usuario` = :usuario AND `flgativo` = :flgativo LIMIT 1");
+$conn->bindParam(":usuario",$usuario, PDO::PARAM_STR);
+$flgativo=1;
+$conn->bindParam(":flgativo", $flgativo, PDO::PARAM_INT);
+$conn->execute();
+$resultado = $conn->fetch(PDO::FETCH_ASSOC);
+$conn = null;
 
-$tb = $PDO->prepare("INSERT INTO usuario (id, nome, usuario, senha, email, nivel) VALUES(:id, :nome, :usuario, :senha, :email, :nivel)");
-
-$tb->bindParam(":id",$id,PDO::PARAM_INT);
-$tb->bindParam(":nome",$nome,PDO::PARAM_STR);
-$tb->bindParam(":usuario",$usuario,PDO::PARAM_STR);
-$tb->bindParam(":senha",$senha,PDO::PARAM_STR);
-$tb->bindParam(":email",$email,PDO::PARAM_STR);
-$tb->bindParam(":nivel",$nivel,PDO::PARAM_INT);
-
-if($tb->execute()){
-	echo "<script> alert('Cadastro Efetuado Com Sucesso');</script>";
+if(!empty($resultado)){
+		echo "<script> alert('Este usuário já existe.');</script>";
 }else{
-	echo "<script> alert('ERRO');</script>";
+	$tb = $PDO->prepare("INSERT INTO usuario (id, nome, usuario, senha, email, nivel) VALUES(:id, :nome, :usuario, :senha, :email, :nivel)");
+
+	$tb->bindParam(":id",$id,PDO::PARAM_INT);
+	$tb->bindParam(":nome",$nome,PDO::PARAM_STR);
+	$tb->bindParam(":usuario",$usuario,PDO::PARAM_STR);
+	$tb->bindParam(":senha",$senha,PDO::PARAM_STR);
+	$tb->bindParam(":email",$email,PDO::PARAM_STR);
+	$tb->bindParam(":nivel",$nivel,PDO::PARAM_INT);
+
+	if($tb->execute()){
+		echo "<script> alert('Cadastro Efetuado Com Sucesso');</script>";
+	}else{
+		echo "<script> alert('ERRO');</script>";
+	}
+
+	$tb=null;
+}
 }
 
-$tb=null;
 
-
-}
-/*$stmt = $mysqli->prepare("INSERT INTO usuario (id, nome, usuario, senha, email, nivel) VALUES(?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('issssi', $id, $nome, $usuario, $senha, $email, $nivel);
-
-if($stmt->execute()){
-    echo "Sucesso!";
-}else{
-    die('Error : ('. $mysqli->errno .') '. $mysqli->error);
-}
-
-$stmt->close();
-*/
 
 ?>
