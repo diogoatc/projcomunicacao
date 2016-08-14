@@ -9,22 +9,66 @@
    include('conexao.php');
 
 
-    $usuario = mysqli_real_escape_string($mysqli, $_POST['usuario']);
-    $senha = mysqli_real_escape_string($mysqli, $_POST['senha']);
+    $usuario =($_POST['usuario']);
+    $senha = ($_POST['senha']);
 
     // Validação do usuário/senha digitados
-    $sql = "SELECT `id`, `nome`, `nivel` FROM `usuario` WHERE (`usuario` = '".$usuario ."') AND (`senha` = '". sha1($senha) ."') AND `flgativo` = 1 LIMIT 1";
 
-    $query = $mysqli->query($sql);
-    if ($query->num_rows != 1) {
+    //$sql = "SELECT `id`, `nome`, `nivel` FROM `usuario` WHERE (`usuario` = '".$usuario ."') AND (`senha` = '". sha1($senha) ."') AND `flgativo` = 1 LIMIT 1";
+
+    $conn = $PDO->prepare("SELECT `id`, `nome`, `nivel` FROM `usuario` WHERE `usuario` = :usuario AND `senha` = :senha AND `flgativo` = :flgativo LIMIT 1");
+    $conn->bindParam(":usuario",$usuario, PDO::PARAM_STR);
+    $encsenha = sha1($senha);   //PDO Não aceita como parametro sha1($senha)
+    $conn->bindParam(":senha", $encsenha, PDO::PARAM_STR);
+    $flgativo=1;   //PDO não aceita int direta como parâmetro
+    $conn->bindParam(":flgativo", $flgativo, PDO::PARAM_INT);
+    $conn->execute();
+    $resultado = $conn->fetch(PDO::FETCH_ASSOC);
+    $conn= null;
+    
+
+    //$query = $mysqli->query($sql);
+
+    //Verifica se retornou algum resultado
+    if(!empty($resultado)){
+
+        // Se a sessão não existir, inicia uma
+        if (!isset($_SESSION)) session_start();
+
+        // Salva os dados encontrados na sessão
+        $_SESSION['UsuarioID'] = $resultado['id'];
+        $_SESSION['UsuarioNome'] = $resultado['nome'];
+        $_SESSION['UsuarioNivel'] = $resultado['nivel'];
+
+        // Redireciona o visitante
+        switch ($_SESSION['UsuarioNivel']) {
+            case '1':
+                header("Location: admin.php");
+                break;
+            case '2':
+                header("Location: professor.php");
+                break;
+            case '3':
+                header("Location: aluno.html");
+                break;
+            default:
+                echo "OPÇÂO INVÁLIDA";
+                break;
+        }
+    }else{
+
+        echo "<script> alert('Login Falhou');</script>";
+
+    }
+   /* if ($query->num_rows != 1) {
         // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
         echo "Login inválido!";
     } else {
         // Salva os dados encontados na variável $resultado
+                
         $resultado = mysqli_fetch_array($query);
-
         // Se a sessão não existir, inicia uma
-        if (!isset($_SESSION)) session_start();
+        if (!isset($_SESSI)ON) session_start();
 
         // Salva os dados encontrados na sessão
         $_SESSION['UsuarioID'] = $resultado['id'];
@@ -46,7 +90,7 @@
         		echo "OPÇÂO INVÁLIDA";
         		break;
         }
-        }
+        } */
 
 
 
