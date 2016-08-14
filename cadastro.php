@@ -15,7 +15,7 @@ $email = mysqli_real_escape_string($mysqli, $_POST['email']);
 $id=null;
 $nivel = 2;
 
-$stmt = $mysqli->prepare("INSERT INTO usuarios (id,nome,usuario,senha,email,nivel) VALUES(?, ?, ?, ?, ?, ?)");
+$stmt = $mysqli->prepare("INSERT INTO usuario (id, nome, usuario, senha, email, nivel) VALUES(?, ?, ?, ?, ?, ?)");
 $stmt->bind_param('issssi', $id, $nome, $usuario, $senha, $email, $nivel);
 
 if($stmt->execute()){
