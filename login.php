@@ -17,8 +17,8 @@
             <div class="login">Login</div>
             <div class="form">
                 <form action="validacao.php" method="post">
-                  <input type="text" name="usuario" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
-                  <input type="password" name="senha" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'">
+                  <input type="text" name="usuario" required="Favor Preencher o campo com o seu usuário" placeholder="usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                  <input type="password" name="senha" required="Favor Preencher o campo com a sua senha" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'">
                 <br/>
                 <button class="button">Enviar</button>
                 </form>

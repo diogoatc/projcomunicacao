@@ -36,7 +36,7 @@
         		header("Location: admin.html");
         		break;
         	case '2':
-        		header("Location: professor.html");
+        		header("Location: professor.php");
         		break;
         	case '3':
         		header("Location: aluno.html");
