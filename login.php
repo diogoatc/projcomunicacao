@@ -12,7 +12,6 @@
         <div class="header">
             <img src="assets/img/UNASP.png" alt="logo unasp">
         </div>
-
         <div class="content">
             <div class="login">Login</div>
             <div class="form">
@@ -24,8 +23,6 @@
                 </form>
             </div>
         </div>
-
-
     </div>
 </body>
 
