@@ -1,5 +1,5 @@
 <?php  
-include '../conexao.php';
+include '../model/conexao.php';
 
 	class questao {
 		private $id;

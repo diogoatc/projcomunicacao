@@ -1,5 +1,5 @@
 <?php  
-include '../conexao.php';
+include '../Conexao/conexao.php';
 
 	class usuario {
 		private $id;
@@ -66,12 +66,12 @@ include '../conexao.php';
 			return $this->flgativo = $flgativo;
 		}
 
-		function registrarAluno($nome, $usuario, $senha, $email, $nivel, $flgativo){
+		function registrarAluno($nome, $usuario, $senha, $email, $nivel, $flgativo){  //DEPRECATED
 			@mysql_query("INSERT INTO usuario (id, nome, usuario, senha, email, nivel, flgativo)
 				VALUES ( NULL ,'$nome','$usuario','$senha','$email','1','$flgativo')");
 		}
 
-		function registrarProfessor($nome, $usuario, $senha, $email, $nivel, $flgativo){
+		function registrarProfessor($nome, $usuario, $senha, $email, $nivel, $flgativo){ //DEPRECATED
 			@mysql_query("INSERT INTO usuario (id, nome, usuario, senha, email, nivel, flgativo)
 				VALUES ( NULL ,'$nome','$usuario','$senha','$email','2','$flgativo')");
 		}

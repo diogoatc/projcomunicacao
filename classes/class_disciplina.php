@@ -1,5 +1,5 @@
 <?php  
-include '../conexao.php';
+include '../model/conexao.php';
 
 	class disciplina {
 		private $id;
@@ -45,6 +45,15 @@ include '../conexao.php';
 		function registrarDisciplina($idusuario, $nome, $flgativo){
 			@mysql_query("INSERT INTO disciplina (id, idusuario, nome, flgativo)
 				VALUES ( NULL ,'$idusuario','$nome','$flgativo')");
+		}
+		//Funcão para funcionar o select ativo
+		public function selectAtivo($PDO){
+			
+			$conn = $PDO->query("SELECT * FROM disciplina");
+				return $conn->fetchAll(PDO::FETCH_ASSOC)) 
+
+
+				
 		}
 	}
 ?>

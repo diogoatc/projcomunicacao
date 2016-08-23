@@ -43,10 +43,10 @@
         // Redireciona o visitante
         switch ($_SESSION['UsuarioNivel']) {
             case '1':
-                header("Location: admin.php");
+                header("Location:Admin/admin.php");
                 break;
             case '2':
-                header("Location: professor.php");
+                header("Location:Professor/professor.php");
                 break;
             case '3':
                 header("Location: aluno.html");

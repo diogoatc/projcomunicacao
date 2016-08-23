@@ -11,7 +11,7 @@
         echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
         session_destroy();
         // Redireciona o visitante de volta pro login
-        header("Location: index.php"); exit;
+        header("Location: ../index.php"); exit;
     }
       
     ?>
@@ -19,7 +19,7 @@
     <h1>Página restrita</h1>
     <p>Olá, <?php echo $_SESSION['UsuarioNome']; ?>!</p>
     <br/>
-    <h3><a href="cadastro.php"> Fazer cadastro de novo Professor </a></h3>
-     <h3><a href="logout.php"> SAIR </a></h3>
+    <h3><a href="cadastro-professor.php"> Fazer cadastro de novo Professor </a></h3>
+     <h3><a href="../logout.php"> SAIR </a></h3>
 
 

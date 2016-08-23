@@ -3,18 +3,18 @@
 <head>
 	<title>Cadastro de Usuário</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 		<div class="container">
 			<div class="header">
-            	<img src="assets/img/Comunica%C3%A7%C3%A3o.png" alt="logo unasp">
+            	<img src="../assets/img/Comunica%C3%A7%C3%A3o.png" alt="logo unasp">
        		</div>
        			<div class="content">
             		<div class="login">Cadastro de Professores</div>
             		<div class="form">
 
-				<form action="cadastro.php" id="cadastro" method="post">
+				<form action="cadastro-professor.php" id="cadastro" method="post">
 					<label for="txUsuario">Usuário</label>
         			<input type="text" required="Favor Preencher o campo com o seu usuário" name="usuario" id="txUsuario" maxlength="25" /> <br/>
         			<label for="txSenha">Senha</label>
@@ -38,11 +38,11 @@ if(isset($_POST['enviar'])){
 
 if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha']) OR empty($_POST['nome']) OR empty($_POST['email']))) {
 
-	header("Location: index.php"); exit;
+	header("Location: ../index.php"); exit;
 
 }
 
-include('conexao.php');
+include('../model/conexao.php');
 
 $usuario = $_POST['usuario'];
 $senha = sha1($_POST['senha']);
