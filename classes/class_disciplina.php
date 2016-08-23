@@ -1,5 +1,5 @@
 <?php  
-include '../model/conexao.php';
+require_once('../model/conexao.php'); 
 
 	class disciplina {
 		private $id;
@@ -47,10 +47,10 @@ include '../model/conexao.php';
 				VALUES ( NULL ,'$idusuario','$nome','$flgativo')");
 		}
 		//Funcão para funcionar o select ativo
-		public function selectAtivo($PDO){
+		public function selectAtivo($pdo){
 			
-			$conn = $PDO->query("SELECT * FROM disciplina");
-				return $conn->fetchAll(PDO::FETCH_ASSOC)) 
+			$conn = $pdo->query("SELECT * FROM disciplina");
+				return $conn->fetchAll(PDO::FETCH_ASSOC);
 
 
 				

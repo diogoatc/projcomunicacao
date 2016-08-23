@@ -15,7 +15,7 @@
 		define( 'MYSQL_HOST', '169.44.117.18:3306' );
 		define( 'MYSQL_USER', 'root' );
 		define( 'MYSQL_PASSWORD', 'unasp' );
-		define( 'MYSQL_DB_NAME', '' );  //TODO: inserir o DB name quando criar o banco
+		define( 'MYSQL_DB_NAME', 'projcomunicacao' );  //TODO: inserir o DB name quando criar o banco
 
 		try
 		{

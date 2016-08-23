@@ -1,5 +1,5 @@
 <?php  
-include '../model/conexao.php';
+
 
 	class questao {
 		private $id;
@@ -82,9 +82,28 @@ include '../model/conexao.php';
 			return $this->respostacorreta = $respostacorreta;
 		}
 
-		function registrarQuestoes($iddisciplina, $titulo, $resposta1, $resposta2, $resposta3, $resposta4, $resposta5, $respostacorreta){
-			@mysql_query("INSERT INTO questao (id, iddisciplina, titulo, resposta1, resposta2, resposta3, resposta4, resposta5, respostacorreta)
-				VALUES ( NULL ,'$iddisciplina','$titulo','$resposta1',,'$resposta2','$resposta3','$resposta4','$resposta5','$respostacorreta')");
-		}
+		function registrarQuestoes($con,$iddisciplina, $titulo, $resposta1, $resposta2, $resposta3, $resposta4, $resposta5, $respostacorreta){
+			$tb = $con->prepare("INSERT INTO questao (id, iddisciplina, titulo, resposta1, resposta2, resposta3,resposta4,resposta5, respostacorreta) VALUES(:id, :iddisciplina, :titulo, :resposta1, :resposta2, :resposta3, :resposta4, :resposta5, :respostacorreta)");
+
+				$tb->bindParam(":id",$id,PDO::PARAM_INT);
+				$tb->bindParam(":iddisciplina",$iddisciplina,PDO::PARAM_STR);
+				$tb->bindParam(":titulo",$titulo,PDO::PARAM_STR);
+				$tb->bindParam(":resposta1",$resposta1,PDO::PARAM_STR);
+				$tb->bindParam(":resposta2",$resposta2,PDO::PARAM_STR);
+				$tb->bindParam(":resposta3",$resposta3,PDO::PARAM_STR);
+				$tb->bindParam(":resposta4",$resposta4,PDO::PARAM_STR);
+				$tb->bindParam(":resposta5",$resposta5,PDO::PARAM_STR);
+				$tb->bindParam(":respostacorreta",$respostacorreta,PDO::PARAM_STR);
+
+				if($tb->execute()){
+					echo "<script> alert('Questão Cadastrada Com Sucesso');</script>";
+					//redireciona
+				}else{
+					echo "<script> alert('ERRO');</script>";
 	}
+
+	$tb=null;
+		}
+}
+	
 ?>
