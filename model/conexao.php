@@ -1,5 +1,4 @@
 <?php
-
 /*	$servidor = 'sql3.freemysqlhosting.net:3306';
 	$usuario = 'sql3130819';
 	$senha = 'P9fRUQZbwv';
@@ -8,7 +7,7 @@
 	$mysqli = new mysqli($servidor, $usuario, $senha, $banco);
 
   if (mysqli_connect_errno()) trigger_error(mysqli_connect_error());
-		
+
 			*/
 
 
@@ -19,11 +18,13 @@
 
 		try
 		{
-    		$PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB_NAME, MYSQL_USER, MYSQL_PASSWORD );
+    		$PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB_NAME,
+				MYSQL_USER, MYSQL_PASSWORD,
+				array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 		}
 		catch ( PDOException $e )
 		{
     		echo 'Erro ao conectar com o MySQL: ' . $e->getMessage();
 		}
-	
+
 ?>
