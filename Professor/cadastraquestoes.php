@@ -1,4 +1,19 @@
 <?php
+
+/*// A sessão precisa ser iniciada em cada página diferente
+    if (!isset($_SESSION)) session_start();
+      
+    $nivel_necessario = 2;  // 2 é o nível Professor
+      
+    // Verifica se não há a variável da sessão que identifica o usuário
+    if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
+         echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
+        // Destrói a sessão por segurança
+        session_destroy();
+        // Redireciona o visitante de volta pro login
+        header("Location: index.php"); exit;
+     */
+
 include('../model/conexao.php');
 include('../classes/class_disciplina.php');
 ?>
@@ -21,6 +36,7 @@ include('../classes/class_disciplina.php');
 			<label for="disciplina">Disciplina: </label>
 			<select name="disciplina" id="disciplina" >
 			<?php
+			
 			$x = new disciplina();
 			$retorno = $x->selectAtivo($PDO);
 			foreach ($retorno as $key) {
@@ -51,6 +67,9 @@ include('../classes/class_disciplina.php');
 
 
 <?php
+
+
+//TODO: Filtrar e validar os inputs, receber o form e chamar a função questao->registrarQuestoes()
 
 
 

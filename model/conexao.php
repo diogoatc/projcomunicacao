@@ -12,10 +12,10 @@
 			*/
 
 
-		define( 'MYSQL_HOST', 'sql3.freemysqlhosting.net:3306' );
-		define( 'MYSQL_USER', 'sql3130819' );
-		define( 'MYSQL_PASSWORD', 'P9fRUQZbwv' );
-		define( 'MYSQL_DB_NAME', 'sql3130819' );
+		define( 'MYSQL_HOST', '169.44.117.18:3306' );
+		define( 'MYSQL_USER', 'root' );
+		define( 'MYSQL_PASSWORD', 'unasp' );
+		define( 'MYSQL_DB_NAME', '' );  //TODO: inserir o DB name quando criar o banco
 
 		try
 		{
