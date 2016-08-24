@@ -18,10 +18,22 @@
                 <li><a href="cadastraquestoes.php">Cadastrar Questões</a></li>
                 <li><a href="notasalunos.php">Notas Alunos</a></li>
                 <li><a href="alterarsenha.php">Alterar Senha</a></li>
-
             </ul>
         </nav>
 
+        <header id="cabecalho">
+
+            <hgroup>
+                <h1>ÁREA DO PROFESSOR</h1>
+                <h2>Seja bem-vindo</h2>
+            </hgroup>
+
+
+        <footer id="rodape">
+
+            <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva<br>
+
+        </footer>
     </div>
 </div>
 </body>
