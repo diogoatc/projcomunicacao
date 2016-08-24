@@ -2,9 +2,9 @@
 
 /*// A sessão precisa ser iniciada em cada página diferente
     if (!isset($_SESSION)) session_start();
-      
+
     $nivel_necessario = 2;  // 2 é o nível Professor
-      
+
     // Verifica se não há a variável da sessão que identifica o usuário
     if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
          echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
@@ -25,24 +25,18 @@ include('../classes/class_questao.php');
 </head>
 <body>
 		<form id="questcad" action="cadastraquestoes.php" method="post">
-			<label for="habilita">Habilitação em:
-			<input required="" id="habilita" type="radio" name="habilita" value="rtv"> RTV 
-			<input required="" id="habilita" type="radio" name="habilita" value="pp"> PP <br/>
-			</label>
-			<label for="turno">Turno:
-			<input id="turno" required="" type="radio" name="turno" value="diurno"> Diurno 
-			<input id="turno" required="" type="radio" name="turno" value="noturno"> Noturno <br/>
-			</label>
 			<label for="disciplina">Disciplina: </label>
 			<select required="" name="disciplina" id="disciplina" >
 			<?php
-			
+
 			$x = new disciplina();
 			$retorno = $x->selectAtivo($PDO);
 			foreach ($retorno as $key) {
-    			
+
 			?>
-			<option value="<?php echo $key['id'];?>" ><?php echo $key['nome'];?></option>
+			<option value="<?php echo $key['id'];?>" >
+        <?php echo $key['nome']." - ".$key['habilitacao']." - ".$key['turno'];?>
+      </option>
 			<?php
 		}
 		?>
@@ -79,8 +73,6 @@ include('../classes/class_questao.php');
 
 if(isset($_POST['envia'])){
 
-		$habilitacao = $_POST['habilita'];
-		$turno = $_POST['turno'];
 		$disciplina = $_POST['disciplina'];
 		$titulo = $_POST['titulo'];
 		$resp1 = $_POST['resp1'];
@@ -92,19 +84,12 @@ if(isset($_POST['envia'])){
 
 		$x = new questao();
 		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
-	
+
 }
 
-	
+
 
 ?>
 
 </body>
 </html>
-
-
-
-
-
-
-

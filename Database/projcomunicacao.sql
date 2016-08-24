@@ -41,7 +41,7 @@ CREATE TABLE `disciplina` (
 
 LOCK TABLES `disciplina` WRITE;
 /*!40000 ALTER TABLE `disciplina` DISABLE KEYS */;
-INSERT INTO `disciplina` VALUES (1,2,'Programação','','',1),(2,2,'HIC','','',1);
+INSERT INTO `disciplina` VALUES (1,2,'Programação','PP','Noturno',1),(2,2,'HIC','RTV','Matutino',1);
 /*!40000 ALTER TABLE `disciplina` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,18 +109,18 @@ DROP TABLE IF EXISTS `questao`;
 CREATE TABLE `questao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddisciplina` int(11) NOT NULL,
-  `titulo` varchar(45) NOT NULL,
+  `titulo` varchar(512) NOT NULL,
   `imagem` varchar(50) DEFAULT NULL,
-  `resposta1` varchar(45) NOT NULL,
-  `resposta2` varchar(45) NOT NULL COMMENT '	',
-  `resposta3` varchar(45) NOT NULL,
-  `resposta4` varchar(45) NOT NULL,
-  `resposta5` varchar(45) NOT NULL,
+  `resposta1` varchar(255) NOT NULL,
+  `resposta2` varchar(255) NOT NULL COMMENT '	',
+  `resposta3` varchar(255) NOT NULL,
+  `resposta4` varchar(255) NOT NULL,
+  `resposta5` varchar(255) NOT NULL,
   `respostacorreta` varchar(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_questao_disciplina1_idx` (`iddisciplina`),
   CONSTRAINT `fk_questao_disciplina1` FOREIGN KEY (`iddisciplina`) REFERENCES `disciplina` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +129,7 @@ CREATE TABLE `questao` (
 
 LOCK TABLES `questao` WRITE;
 /*!40000 ALTER TABLE `questao` DISABLE KEYS */;
-INSERT INTO `questao` VALUES (1,1,'Porque o céu é azul?',NULL,'Porque sim','Porque não','Não sei','Vai saber','NDA','B'),(2,1,'Qual a melhor linguagem?',NULL,'Java','Python','PHP','Ruby','Pascal','A');
+INSERT INTO `questao` VALUES (1,1,'Porque o céu é azul?',NULL,'Porque sim','Porque não','Não sei','Vai saber','NDA','B'),(2,1,'Qual a melhor linguagem?',NULL,'Java','Python','PHP','Ruby','Pascal','A'),(3,2,'Porque a gente veste a calça e calça a bota?',NULL,'Se joga','de lá pra cá','de lá pra lá','Sacos plásticos','Dilma vez','A');
 /*!40000 ALTER TABLE `questao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,4 +172,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-23 20:07:53
+-- Dump completed on 2016-08-23 22:01:29
