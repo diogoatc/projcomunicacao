@@ -1,18 +1,5 @@
 <?php
 
-/*// A sessão precisa ser iniciada em cada página diferente
-    if (!isset($_SESSION)) session_start();
-
-    $nivel_necessario = 2;  // 2 é o nível Professor
-
-    // Verifica se não há a variável da sessão que identifica o usuário
-    if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
-         echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
-        // Destrói a sessão por segurança
-        session_destroy();
-        // Redireciona o visitante de volta pro login
-        header("Location: index.php"); exit;
-     */
 
 include('../classes/class_disciplina.php');
 include('../classes/class_questao.php');
@@ -22,6 +9,8 @@ include('../classes/class_questao.php');
 <head>
 	<title>Cadastro de questões</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="../assets/css/style.css">
+
 </head>
 <body>
 		<form id="questcad" action="cadastraquestoes.php" method="post">
@@ -84,7 +73,6 @@ if(isset($_POST['envia'])){
 
 		$x = new questao();
 		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
-
 }
 
 

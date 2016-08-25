@@ -4,13 +4,16 @@
     <title>Área do Professor</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/css/style.css">
+
 </head>
 <body>
+
 
 
 <div class="container">
     <div class="header">
         <img src="../assets/img/UNASP.png" alt="logo unasp">
+
 
         <nav id="menu">
             <h1>Menu Principal</h1>
@@ -36,5 +39,6 @@
         </footer>
     </div>
 </div>
+
 </body>
 </html>

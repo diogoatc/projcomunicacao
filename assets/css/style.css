@@ -82,11 +82,14 @@ nav#menu {
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu ul {
+    font-family: 'Cabin', sans-serif;
+    font-size: 12pt;
     list-style: none;
     text-transform: uppercase;
     position: absolute;
-    top: 6%;
+    top: 5%;
     left: 62%;
+
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu li {
@@ -122,14 +125,18 @@ header#cabecalho h1{
     text-shadow:1px 1px 1px rgba(0,0,0,.6);
     padding: 0px;
     margin-bottom: 0px;
+    text-align: center;
 }
+/* ---------------------------------------------------------------------------------------------------------------*/
 header#cabecalho h2{
     font-family:FonteLogo, sans-serif;
     color: #000;
     font-size: 15pt;
     padding: 0px;
     margin-top: 10%;
+    text-align: center;
 }
+/* ---------------------------------------------------------------------------------------------------------------*/
 footer#rodape { /*Separação do rodapé*/
     font-family: 'Cabin', sans-serif;
     color: #ffffff;
@@ -142,6 +149,8 @@ footer#rodape { /*Separação do rodapé*/
     background:#333366;
 
 }
+/* ---------------------------------------------------------------------------------------------------------------*/
 footer#rodape p {
     text-align: center;
 }
+/* ---------------------------------------------------------------------------------------------------------------*/
