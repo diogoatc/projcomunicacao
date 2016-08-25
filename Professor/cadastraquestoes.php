@@ -28,7 +28,7 @@ include('../classes/class_questao.php');
 			<label for="disciplina">Disciplina: </label>
 			<select required="" name="disciplina" id="disciplina" >
 			<?php
-
+			
 			$x = new disciplina();
 			$retorno = $x->selectAtivo($PDO);
 			foreach ($retorno as $key) {
@@ -37,10 +37,21 @@ include('../classes/class_questao.php');
 			<option value="<?php echo $key['id'];?>" >
         <?php echo $key['nome']." - ".$key['habilitacao']." - ".$key['turno'];?>
       </option>
+
 			<?php
 		}
 		?>
-			</select><br/>
+			</select>
+			<select required="" name="semestre" id="semestre">
+				<option value="1">1º Semestre</option>
+				<option value="2">2º Semestre</option>
+				<option value="3">3º Semestre</option>
+				<option value="4">4º Semestre</option>
+				<option value="5">5º Semestre</option>
+				<option value="6">6º Semestre</option>
+				<option value="7">7º Semestre</option>
+				<option value="8">8º Semestre</option>
+			</select>
 			<p>Enunciado da Questão:</p>
 			<textarea required="" name="titulo" id="titulo" rows="10" cols="40">Enunciado da Questão</textarea> <br/>
 			<label for="resp1">Alternativa 1:</label>

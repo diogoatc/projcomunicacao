@@ -26,8 +26,9 @@ CREATE TABLE `disciplina` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `habilitacao` varchar(45) NOT NULL,
+  `curso` varchar(45) NOT NULL,
   `turno` varchar(20) NOT NULL,
+  `semestre` int(11) NOT NULL,
   `flgativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_disciplina_usuario_idx` (`idusuario`),
@@ -41,8 +42,35 @@ CREATE TABLE `disciplina` (
 
 LOCK TABLES `disciplina` WRITE;
 /*!40000 ALTER TABLE `disciplina` DISABLE KEYS */;
-INSERT INTO `disciplina` VALUES (1,2,'Programação','PP','Noturno',1),(2,2,'HIC','RTV','Matutino',1);
+INSERT INTO `disciplina` VALUES (1,2,'Programação','PP','Noturno',0,1),(2,2,'HIC','RTV','Matutino',0,1);
 /*!40000 ALTER TABLE `disciplina` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `itemdisciplina`
+--
+
+DROP TABLE IF EXISTS `itemdisciplina`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `itemdisciplina` (
+  `iditemdisciplina` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `curso` varchar(45) NOT NULL,
+  `turno` varchar(20) NOT NULL,
+  `flgativo` tinyint(1) NOT NULL,
+  `credito` int(11) NOT NULL,
+  PRIMARY KEY (`iditemdisciplina`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `itemdisciplina`
+--
+
+LOCK TABLES `itemdisciplina` WRITE;
+/*!40000 ALTER TABLE `itemdisciplina` DISABLE KEYS */;
+/*!40000 ALTER TABLE `itemdisciplina` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -55,9 +83,9 @@ DROP TABLE IF EXISTS `prova`;
 CREATE TABLE `prova` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ra` int(11) NOT NULL,
-  `curso` varchar(45) NOT NULL,
-  `semestre` int(11) NOT NULL,
   `nota` double NOT NULL,
+  `dtainicio` datetime DEFAULT NULL,
+  `dtafim` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -68,7 +96,7 @@ CREATE TABLE `prova` (
 
 LOCK TABLES `prova` WRITE;
 /*!40000 ALTER TABLE `prova` DISABLE KEYS */;
-INSERT INTO `prova` VALUES (1,89696,'Sistemas',6,10);
+INSERT INTO `prova` VALUES (1,89696,10,'2016-08-24 20:44:56',NULL);
 /*!40000 ALTER TABLE `prova` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,4 +200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-23 22:01:29
+-- Dump completed on 2016-08-24 22:11:15
