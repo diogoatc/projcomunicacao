@@ -82,16 +82,19 @@ nav#menu {
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu ul {
+    font-family: 'Cabin', sans-serif;
+    font-size: 10pt;
     list-style: none;
     text-transform: uppercase;
     position: absolute;
-    top: 39px;
-    left: -35px;
+    top: 6%;
+    left: 67%;
+
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu li {
     display: inline-block;
-    background-color: coral;
+    background-color: #333366;
     padding:3px; /* separador de palavras*/
     margin: 2px; /*margem entre os botões */
     transition: background-color 1s;
@@ -99,7 +102,7 @@ nav#menu li {
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu li:hover {
-    background-color: midnightblue;
+    background-color: #f79f38;
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu h1 {
@@ -107,10 +110,47 @@ nav#menu h1 {
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu a{
-    color:black;
+    color:white;
     text-decoration: none;
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu a:hover {
-    color: white;
+    color: black;
 }
+/* ---------------------------------------------------------------------------------------------------------------*/
+header#cabecalho h1{
+    font-family: 'Cabin', sans-serif;
+    color: #000;
+    font-size: 22pt;
+    text-shadow:1px 1px 1px rgba(0,0,0,.6);
+    padding: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+/* ---------------------------------------------------------------------------------------------------------------*/
+header#cabecalho h2{
+    font-family:FonteLogo, sans-serif;
+    color: #000;
+    font-size: 15pt;
+    padding: 0px;
+    margin-top: 10%;
+    text-align: center;
+}
+/* ---------------------------------------------------------------------------------------------------------------*/
+footer#rodape { /*Separação do rodapé*/
+    font-family: 'Cabin', sans-serif;
+    color: #ffffff;
+    font-size: 10pt;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    clear:both;
+    border-top: 1px solid #606060;
+    background:#333366;
+
+}
+/* ---------------------------------------------------------------------------------------------------------------*/
+footer#rodape p {
+    text-align: center;
+}
+/* ---------------------------------------------------------------------------------------------------------------*/
