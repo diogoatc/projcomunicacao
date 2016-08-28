@@ -1,5 +1,19 @@
 <?php
 
+// A sessão precisa ser iniciada em cada página diferente
+    if (!isset($_SESSION)) session_start();
+      
+    $nivel_necessario = 2;  //2 é o nível Professor
+      
+    // Verifica se não há a variável da sessão que identifica o usuário
+    if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
+        // Destrói a sessão por segurança
+        echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
+        session_destroy();
+        // Redireciona o visitante de volta pro login
+        header("Location: ../index.php"); exit;
+    }
+      
 
 include('../classes/class_disciplina.php');
 include('../classes/class_questao.php');
@@ -41,17 +55,19 @@ include('../classes/class_questao.php');
 				<option value="7">7º Semestre</option>
 				<option value="8">8º Semestre</option>
 			</select>
+
+			<input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
 			<p>Enunciado da Questão:</p>
 			<textarea required="" name="titulo" id="titulo" rows="10" cols="40">Enunciado da Questão</textarea> <br/>
-			<label for="resp1">Alternativa 1:</label>
+			<label for="resp1">Alternativa A:</label>
 			<input required="" type="text" name="resp1"> <br/>
-			<label for="resp2">Alternativa 2:</label>
+			<label for="resp2">Alternativa B:</label>
 			<input required="" type="text" name="resp2"> <br/>
-			<label for="resp3">Alternativa 3:</label>
+			<label for="resp3">Alternativa C:</label>
 			<input required="" type="text" name="resp3"> <br/>
-			<label for="resp4">Alternativa 4:</label>
+			<label for="resp4">Alternativa D:</label>
 			<input required="" type="text" name="resp4"> <br/>
-			<label for="resp5">Alternativa 5:</label>
+			<label for="resp5">Alternativa E:</label>
 			<input required="" type="text" name="resp5"> <br/>
 			<label for="respcorreta"><h3>Alternativa Correta</h3></label>
 			<select required="" name="respcorreta" id="respcorreta">
@@ -62,6 +78,7 @@ include('../classes/class_questao.php');
 				<option value="E">E</option>
 
 			</select> <br/>
+			
 			<input type="submit" name="envia">
 		</form>
 
@@ -81,9 +98,12 @@ if(isset($_POST['envia'])){
 		$resp4 = $_POST['resp4'];
 		$resp5 = $_POST['resp5'];
 		$respcorreta = $_POST['respcorreta'];
-
+		$semestre = $_POST['semestre'];
+		$idusuario = $_POST['idusuario'];
+		
 		$x = new questao();
 		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
+
 }
 
 

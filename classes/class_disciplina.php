@@ -49,7 +49,7 @@ require_once('../model/conexao.php');
 		//Funcão para funcionar o select ativo
 		public function selectAtivo($pdo){
 			
-			$conn = $pdo->query("SELECT * FROM disciplina");
+			$conn = $pdo->query("SELECT * FROM itemdisciplina");
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 
 

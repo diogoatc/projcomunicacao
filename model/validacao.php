@@ -12,9 +12,7 @@
     $usuario =($_POST['usuario']);
     $senha = ($_POST['senha']);
 
-    // Validação do usuário/senha digitados
-
-    //$sql = "SELECT `id`, `nome`, `nivel` FROM `usuario` WHERE (`usuario` = '".$usuario ."') AND (`senha` = '". sha1($senha) ."') AND `flgativo` = 1 LIMIT 1";
+   
 
     $conn = $PDO->prepare("SELECT `id`, `nome`, `nivel` FROM `usuario` WHERE `usuario` = :usuario AND `senha` = :senha AND `flgativo` = :flgativo LIMIT 1");
     $conn->bindParam(":usuario",$usuario, PDO::PARAM_STR);
