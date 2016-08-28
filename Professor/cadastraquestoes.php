@@ -24,7 +24,7 @@ include('../classes/class_questao.php');
 
 			?>
 			<option value="<?php echo $key['id'];?>" >
-        <?php echo $key['nome']." - ".$key['habilitacao']." - ".$key['turno'];?>
+        <?php echo $key['nome']." - ".$key['curso']." - ".$key['turno'];?>
       </option>
 
 			<?php

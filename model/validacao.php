@@ -43,13 +43,10 @@
         // Redireciona o visitante
         switch ($_SESSION['UsuarioNivel']) {
             case '1':
-                header("Location:Admin/admin.php");
+                header("Location:../Admin/index.php");
                 break;
             case '2':
-                header("Location:Professor/professor.php");
-                break;
-            case '3':
-                header("Location: aluno.html");
+                header("Location:../Professor/index.php");
                 break;
             default:
                 echo "OPÇÂO INVÁLIDA";
@@ -60,37 +57,7 @@
         echo "<script> alert('Login Falhou');</script>";
 
     }
-   /* if ($query->num_rows != 1) {
-        // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
-        echo "Login inválido!";
-    } else {
-        // Salva os dados encontados na variável $resultado
-                
-        $resultado = mysqli_fetch_array($query);
-        // Se a sessão não existir, inicia uma
-        if (!isset($_SESSI)ON) session_start();
-
-        // Salva os dados encontrados na sessão
-        $_SESSION['UsuarioID'] = $resultado['id'];
-        $_SESSION['UsuarioNome'] = $resultado['nome'];
-        $_SESSION['UsuarioNivel'] = $resultado['nivel'];
-
-        // Redireciona o visitante
-        switch ($_SESSION['UsuarioNivel']) {
-        	case '1':
-        		header("Location: admin.php");
-        		break;
-        	case '2':
-        		header("Location: professor.php");
-        		break;
-        	case '3':
-        		header("Location: aluno.html");
-        		break;
-        	default:
-        		echo "OPÇÂO INVÁLIDA";
-        		break;
-        }
-        } */
+ 
 
 
 

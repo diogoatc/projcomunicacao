@@ -1,36 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Cadastro de Usuário</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
-		<div class="container">
-			<div class="header">
-            	<img src="../assets/img/Comunica%C3%A7%C3%A3o.png" alt="logo unasp">
-       		</div>
-       			<div class="content">
-            		<div class="login">Cadastro de Professores</div>
-            		<div class="form">
-
-				<form action="cadastro-professor.php" id="cadastro" method="post">
-					<label for="txUsuario">Usuário</label>
-        			<input type="text" required="Favor Preencher o campo com o seu usuário" name="usuario" id="txUsuario" maxlength="25" /> <br/>
-        			<label for="txSenha">Senha</label>
-        			<input type="password" required="Favor Preencher o campo com a sua senha" name="senha" id="txSenha" /> <br/>
-        			<label for="txNome">Nome Completo</label>
-        			<input type="text" required="Favor Preencher o campo com o seu nome completo" name="nome" id="txNome" /> <br/>
-        			<label for="txEmail">Email</label>
-        			<input type="email" required="Favor Preencher o campo com o seu email" name="email" id="txemail" /> <br/>
-  					<input type="submit" name="enviar" value="Cadastrar" />
-				</form>
-				  </div>
-        	</div>
-		</div>
-</body>
-</html>
-
 
 <?php
 
@@ -43,41 +10,25 @@ if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha']) OR em
 }
 
 include('../model/conexao.php');
-
+include('../classes/class_usuario.php');
 $usuario = $_POST['usuario'];
 $senha = sha1($_POST['senha']);
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$id=null;
 $nivel = 2;
+$flgativo = 1;
 
-$conn = $PDO->prepare("SELECT `usuario` FROM `usuario` WHERE `usuario` = :usuario AND `flgativo` = :flgativo LIMIT 1");
-$conn->bindParam(":usuario",$usuario, PDO::PARAM_STR);
-$flgativo=1;
-$conn->bindParam(":flgativo", $flgativo, PDO::PARAM_INT);
-$conn->execute();
-$resultado = $conn->fetch(PDO::FETCH_ASSOC);
-$conn = null;
+ $y= new usuario();
+ $resultado = $y->verificaExistente($PDO,$usuario);
+
+
 
 if(!empty($resultado)){
 		echo "<script> alert('Este usuário já existe.');</script>";
+		header("Location: cadastro-professor.html"); exit;
 }else{
-	$tb = $PDO->prepare("INSERT INTO usuario (id, nome, usuario, senha, email, nivel) VALUES(:id, :nome, :usuario, :senha, :email, :nivel)");
 
-	$tb->bindParam(":id",$id,PDO::PARAM_INT);
-	$tb->bindParam(":nome",$nome,PDO::PARAM_STR);
-	$tb->bindParam(":usuario",$usuario,PDO::PARAM_STR);
-	$tb->bindParam(":senha",$senha,PDO::PARAM_STR);
-	$tb->bindParam(":email",$email,PDO::PARAM_STR);
-	$tb->bindParam(":nivel",$nivel,PDO::PARAM_INT);
-
-	if($tb->execute()){
-		echo "<script> alert('Cadastro Efetuado Com Sucesso');</script>";
-	}else{
-		echo "<script> alert('ERRO');</script>";
-	}
-
-	$tb=null;
+	$y->registrarProfessor($PDO, $nome, $usuario, $senha, $email, $nivel, $flgativo);
 }
 }
 
