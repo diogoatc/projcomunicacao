@@ -52,7 +52,7 @@
 
             <hgroup>
                 <h1>ÁREA DO PROFESSOR</h1>
-                <h2>Seja bem-vindo</h2>
+                <h2>Seja bem-vindo professor(a): <?php echo $_SESSION['UsuarioNome'];?></h2>
             </hgroup>
 
 
