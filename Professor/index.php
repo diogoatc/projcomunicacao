@@ -20,10 +20,16 @@
             <ul type="disc">
                 <li><a href="cadastraquestoes.php">Cadastrar Questões</a></li>
                 <li><a href="notasalunos.php">Notas Alunos</a></li>
-                <li><a href="alterarsenha.php">Alterar Senha</a></li>
-                <li><a href="../logout.php">Logout</a></li>
+                                
+            </ul>
+
+            <ul id="logout" type="disc">
+            <li><a href="alterarsenha.php">Alterar Senha</a></li>
+           <li><a href="../logout.php">Logout</a></li>
+
             </ul>
         </nav>
+
 
         <header id="cabecalho">
 

@@ -81,6 +81,7 @@ nav#menu {
     display: block;
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
+
 nav#menu ul {
     font-family: 'Cabin', sans-serif;
     font-size: 10pt;
@@ -88,9 +89,32 @@ nav#menu ul {
     text-transform: uppercase;
     position: absolute;
     top: 6%;
-    left: 65%;
+    left: -2%;
 
 }
+nav#menu ul#logout {
+    font-family: 'Cabin', sans-serif;
+    font-size: 10pt;
+    list-style: none;
+    text-transform: uppercase;
+    position: absolute;
+    top: 6%;
+    left: 81%;
+
+}
+
+nav#menu ul#aluno-link {
+    font-family: 'Cabin', sans-serif;
+    font-size: 45pt;
+    list-style: none;
+    text-transform: uppercase;
+    position: absolute;
+    top: 40%;
+    left: 15%;
+
+}
+
+
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu li {
     display: inline-block;
@@ -100,8 +124,19 @@ nav#menu li {
     transition: background-color 1s;
     -webkit-transition: background-color 1s;
 }
+nav#menu li#link-aluno {
+    display: inline-block;
+    background-color: #333366;
+    padding:3px; /* separador de palavras*/
+    margin: 2px; /*margem entre os botões */
+    transition: background-color 2s;
+    -webkit-transition: background-color 2s;
+}
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu li:hover {
+    background-color: #f79f38;
+}
+nav#menu li#link-aluno:hover {
     background-color: #f79f38;
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
@@ -113,8 +148,15 @@ nav#menu a{
     color:white;
     text-decoration: none;
 }
+nav#menu a#link-aluno{
+    color:white;
+    text-decoration: none;
+}
 /* ---------------------------------------------------------------------------------------------------------------*/
 nav#menu a:hover {
+    color: black;
+}
+nav#menu a#link-aluno:hover {
     color: black;
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
@@ -192,3 +234,4 @@ footer#rodape p {
     padding:-12%; /* separador de palavras*/
 }
 
+/*----------------------------------------------------------------------------------------------------------------*/

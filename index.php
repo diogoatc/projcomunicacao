@@ -1,13 +1,53 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
+
+<head>
+    <title>Inicio</title>
     <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-  	<h1> <a href="login.php">Login Admin e Professor </a> </h1><br/>
-  	<h1> <a href="aluno.php">Login Aluno </a> </h1><br/>
-  	
-  </body>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+
+
+<div class="container">
+    <div class="header">
+        <img src="assets/img/UNASP.png" alt="logo unasp">
+
+
+        <nav id="menu">
+            <h1>Menu Principal</h1>
+
+            <ul id="aluno-link" type="disc">
+            <li id="link-aluno"><a id="link-aluno" href="aluno.php">Seguir para Prova Unificada</a></li>
+            </ul>
+
+            <ul type="disc">
+                <li> <a href="login.php">Login Admin e Professor </a> </li><br/>
+                                                
+            </ul>
+
+        </nav>
+
+
+            
+            
+         
+        <header id="cabecalho">
+
+            <hgroup>
+                
+                <h1>Seja bem-vindo</h1>
+            </hgroup>
+
+
+            <footer id="rodape">
+
+                <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva<br>
+
+            </footer>
+    </div>
+</div>
+
+</body>
 </html>
