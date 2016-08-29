@@ -112,5 +112,30 @@ include '../model/conexao.php';
 		}
 
 		}
+
+		function alterarsenha($pdo,$usuarioid,$senhanova){
+
+
+			$tb = $pdo->prepare("UPDATE usuario SET senha = :senhanova WHERE id = :id ");
+
+			$tb->bindParam(":senhanova", $senhanova, PDO::PARAM_STR);
+			$tb->bindParam(":id",$usuarioid, PDO::PARAM_INT);
+
+			if($tb->execute()){
+
+				echo "
+            <script>
+            
+            alert('SENHA ALTERADA COM SUCESSO!');
+            window.location='alterarsenha.html';
+        
+            </script>
+        
+            ";
+			}else{
+				echo "ERRO, SENHA NÃO ALTERADA";
+			}
+
+		}
 	}
 ?>

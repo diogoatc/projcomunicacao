@@ -52,7 +52,15 @@
         }
     }else{
 
-        echo "<script> alert('Login Falhou');</script>";
+        echo "
+            <script>
+            
+            alert('Usuário e/ou senha incorretos');
+            window.location='../login.php';
+        
+            </script>
+        
+            ";
 
     }
  

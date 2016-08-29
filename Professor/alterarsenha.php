@@ -1,50 +1,65 @@
-<!DOCTYPE html>
+<?php 
 
-<head>
-    <title>Alterar Senha</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/css/style.css">
+	include_once('../model/conexao.php');
+	include_once('../classes/class_usuario.php');
 
-</head>
-<body>
+  //A sessão precisa ser iniciada em cada página diferente
+    if (!isset($_SESSION)) session_start();
+      
+    $nivel_necessario = 2;  //2 é o nível professor
+      
+    // Verifica se não há a variável da sessão que identifica o usuário
+    if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
+        // Destrói a sessão por segurança
+        echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
+        session_destroy();
+        // Redireciona o visitante de volta pro login
+        header("Location: ../index.php"); exit;
+    }
+
+	if(isset($_POST['envia'])){
 
 
+		$idusuario         = $_SESSION['UsuarioID'];
+    	$senha_atual       = sha1(($_POST['senhaatual']));
+   		$senha_nova        = sha1(($_POST['novasenha']));
+    	$confirme_senha    = sha1(($_POST['confsenha']));
 
-<div class="container">
-    <div class="header">
-        <img src="../assets/img/UNASP.png" alt="logo unasp">
+    	$conn = $PDO->query("SELECT senha FROM usuario WHERE id = $idusuario");
+			$senha_banco = $conn->fetch();
 
+			
 
-        <nav id="menu">
-            <h1>Menu Principal</h1>
-            <ul type="disc">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="cadastraquestoes.php">Cadastrar Questões</a></li>
-                <li><a href="notasalunos.php">Notas Alunos</a></li>
-            </ul>
-        </nav>
+		if($senha_atual != $senha_banco[0]){
 
-        <div class="content">
-            <div class="login">Alterar Senha</div>
-            <div class="form">
-                <form action="#" method="post">
-                    <input type="password" name="senhaatual" required="Digite a senha atual" placeholder="Digite a Senha Atual" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite a senha atual'">
-                    <input type="password" name="novasenha" required="Digite nova senha" placeholder="Digite a Nova Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite nova senha'">
-                    <input type="password" name="confsenha" required="Confirme a senha" placeholder="Confirme a Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirme a senha'">
-                    <br/>
-                    <button class="button">OK</button>
-                </form>
-            </div>
+			echo "
+            <script>
+            
+            alert('Senha atual INCORRETA');
+            window.location='alterarsenha.html';
+        
+            </script>
+        
+            ";
 
-            </div>
+		}elseif($senha_nova != $confirme_senha){
 
-            <footer id="rodape">
+			echo "
+            <script>
+            
+            alert('As senhas não conferem');
+            window.location='alterarsenha.html';
+        
+            </script>
+        
+            ";
 
-                <p><b>Copyright &copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva<br>
+		}elseif($senha_atual == $senha_banco[0]){
 
-            </footer>
-    </div>
-</div>
+			$x=new usuario();
+			$alterasenha = $x->alterarsenha($PDO, $idusuario, $senha_nova);
 
-</body>
-</html>
+		}
+	
+	}
+	
