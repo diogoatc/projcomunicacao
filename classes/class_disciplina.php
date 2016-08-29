@@ -2,41 +2,57 @@
 require_once('../model/conexao.php'); 
 
 	class disciplina {
-		private $id;
-		private $idusuario;
+		private $iditemdisciplina;
 		private $nome;
+		private $curso;
+		private $turno;
+		private $credito;
 		private $flgativo;
 
 		function _construct() {
-			$this->id = "";
-			$this->idusuario = "";
+			$this->iditemdisciplina= "";
 			$this->nome = "";
+			$this->curso = "";
+			$this->turno = "";
+			$this->credito = "";
 			$this->flgativo = "";
 		}
 
 		//metodos Gets
-		public function getId($id){
-			return $this->id = $id;
-		}
-		public function getIdusuario($idusuario){
-			return $this->idusuario = $idusuario;
+		public function getIditemdisciplina($iditemdisciplina){
+			return $this->iditemdisciplina = $iditemdisciplina;
 		}
 		public function getNome($nome){
 			return $this->nome = $nome;
+		}
+		public function getCurso($curso){
+			return $this->curso = $curso;
+		}
+		public function getTurno($turno){
+			return $this->turno = $turno;
+		}
+		public function getCredito($credito){
+			return $this->credito = $credito;
 		}
 		public function getFlgativo($flgativo){
 			return $this->flgativo = $flgativo;
 		}
 
 		//metodos Sets
-		public function setId($id){
-			return $this->id = $id;
-		}
-		public function setIdusuario($idusuario){
-			return $this->idusuario = $idusuario;
+		public function setIditemdisciplina($iditemdisciplina){
+			return $this->iditemdisciplina = $iditemdisciplina;
 		}
 		public function setNome($nome){
 			return $this->nome = $nome;
+		}
+		public function setCurso($curso){
+			return $this->curso = $curso;
+		}
+		public function setTurno($turno){
+			return $this->turno = $turno;
+		}
+		public function setCredito($credito){
+			return $this->credito = $credito;
 		}
 		public function setFlgativo($flgativo){
 			return $this->flgativo = $flgativo;
@@ -51,9 +67,25 @@ require_once('../model/conexao.php');
 			
 			$conn = $pdo->query("SELECT * FROM itemdisciplina");
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
+		}
 
+		function Reg_disciplina($con,$iditemdisciplina, $nome, $curso, $turno, $credito){
+			$disc = $con->prepare("INSERT INTO itemdisciplina (iditemdisciplina, nome, curso, turno, credito) VALUES(:iddisciplina, :nome, :curso, :turno, :credito)");
 
-				
+				$disc->bindParam(":iditemdisciplina",$iditemdisciplina,PDO::PARAM_STR);
+				$disc->bindParam(":nome",$nome,PDO::PARAM_STR);
+				$disc->bindParam(":curso",$curso,PDO::PARAM_STR);
+				$disc->bindParam(":turno",$turno,PDO::PARAM_STR);
+				$disc->bindParam(":credito",$credito,PDO::PARAM_STR);
+
+				if($disc->execute()){
+					echo "<script> alert('Disciplina Cadastrada Com Sucesso');</script>";
+					//redireciona
+				}else{
+					echo "<script> alert('ERRO');</script>";
+				}
+
+			$disc=null;
 		}
 	}
 ?>
