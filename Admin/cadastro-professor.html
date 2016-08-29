@@ -29,30 +29,49 @@
             	<img src="../assets/img/UNASP.png" alt="logo unasp">
 
        		</div>
-       			    <div class="content">
-            		<div class="login">Cadastro de Professores</div>
+       			    <div id="cad-prof" class="content">
 
-					<div class="form">
+            		<div id="cadastro-prof" class="login">Cadastro de Professores</div>
+
+					<div id="form-cad-prof" class="form">
 
 				    <form action="cadastro-professor.php" id="cadastro" method="post">
+
+
+
 					<label for="txUsuario">Usuário</label>
+        			<input type="text" required="Favor Preencher o campo com o seu usuário" name="usuario" id="txUsuario" maxlength="25" /> </br>
 
-        			<input type="text" required="Favor Preencher o campo com o seu usuário" name="usuario" id="txUsuario" maxlength="25" /> <br/>
-        			<label for="txSenha">Senha</label>
 
-        			<input type="password" required="Favor Preencher o campo com a sua senha" name="senha" id="txSenha" /> <br/>
-        			<label for="txNome">Nome Completo</label>
 
-        			<input type="text" required="Favor Preencher o campo com o seu nome completo" name="nome" id="txNome" /> <br/>
-        			<label for="txEmail">Email</label>
+					<label for="txSenha">Senha</label>
+        			<input type="password" required="Favor Preencher o campo com a sua senha" name="senha" id="txSenha" /></br>
 
-        			<input type="email" required="Favor Preencher o campo com o seu email" name="email" id="txemail" /> <br/>
-  					<input type="submit" name="enviar" value="Cadastrar"/>
 
-				</form>
+
+					<label id="nome" for="txNome">Nome Completo</label>
+        			<input type="text" required="Favor Preencher o campo com o seu nome completo" name="nome" id="txNome" /></br>
+
+
+
+					<label for="txEmail">E-mail</label>
+        			<input type="email" required="Favor Preencher o campo com o seu email" name="email" id="txemail" /></br></br>
+
+
+
+  					<input id="btn-cad" type="submit" name="enviar" value="Cadastrar"/>
+
+
+					</form>
 
 				</div>
         	</div>
+		<footer id="rodape">
+
+		<p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva<br>
+
+</footer>
 		</div>
+
 </body>
 </html>
