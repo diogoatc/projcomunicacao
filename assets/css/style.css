@@ -21,15 +21,15 @@
 }
 
 .container .content {
-    width: 450px;
-    height: 300px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -225px;
-    margin-top: -150px;
-    border: 1px solid #eeeeee;
-    box-shadow: 5px 5px 5px #eee;
+width: 450px;
+height: 300px;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-left: -225px;
+margin-top: -150px;
+border: 1px solid #eeeeee;
+box-shadow: 5px 5px 5px #eee;
 }
 
 .container .content .login {
@@ -154,3 +154,10 @@ footer#rodape p {
     text-align: center;
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
+.container .content .form {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    margin-left: -160.79px;
+}
+/*---------------------------------------------------------------------------------------------------------------*/

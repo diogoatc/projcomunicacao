@@ -26,24 +26,32 @@
 <body>
 		<div class="container">
 			<div class="header">
-            	<img src="../assets/img/Comunica%C3%A7%C3%A3o.png" alt="logo unasp">
-       		</div>
-       			<div class="content">
-            		<div class="login">Cadastro de Professores</div>
-            		<div class="form">
+            	<img src="../assets/img/UNASP.png" alt="logo unasp">
 
-				<form action="cadastro-professor.php" id="cadastro" method="post">
+       		</div>
+       			    <div class="content">
+            		<div class="login">Cadastro de Professores</div>
+
+					<div class="form">
+
+				    <form action="cadastro-professor.php" id="cadastro" method="post">
 					<label for="txUsuario">Usuário</label>
+
         			<input type="text" required="Favor Preencher o campo com o seu usuário" name="usuario" id="txUsuario" maxlength="25" /> <br/>
         			<label for="txSenha">Senha</label>
+
         			<input type="password" required="Favor Preencher o campo com a sua senha" name="senha" id="txSenha" /> <br/>
         			<label for="txNome">Nome Completo</label>
+
         			<input type="text" required="Favor Preencher o campo com o seu nome completo" name="nome" id="txNome" /> <br/>
         			<label for="txEmail">Email</label>
+
         			<input type="email" required="Favor Preencher o campo com o seu email" name="email" id="txemail" /> <br/>
-  					<input type="submit" name="enviar" value="Cadastrar" />
+  					<input type="submit" name="enviar" value="Cadastrar"/>
+
 				</form>
-				  </div>
+
+				</div>
         	</div>
 		</div>
 </body>
