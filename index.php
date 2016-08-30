@@ -19,24 +19,24 @@
             <h1>Menu Principal</h1>
 
             <ul id="aluno-link" type="disc">
-            <li id="link-aluno"><a id="link-aluno" href="aluno.php">Seguir para Prova Unificada</a></li>
+            <li id="link-aluno"><a id="link-aluno" href="aluno/index.php">Seguir para Prova Unificada</a></li>
             </ul>
 
             <ul type="disc">
                 <li> <a href="login.php">Login Admin e Professor </a> </li><br/>
-                                                
+
             </ul>
 
         </nav>
 
 
-            
-            
-         
+
+
+
         <header id="cabecalho">
 
             <hgroup>
-                
+
                 <h1>Seja bem-vindo</h1>
             </hgroup>
 
