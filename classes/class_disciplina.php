@@ -73,7 +73,7 @@ require_once('../model/conexao.php');
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 		}
 
-		function Reg_disciplina($con, $nome, $curso, $turno, $credito, $flgativo){
+		function cadastra_itemdisciplina($con, $nome, $curso, $turno, $credito, $flgativo){
 			$disc = $con->prepare("INSERT INTO itemdisciplina (nome, curso, turno, credito, flgativo) VALUES(:nome, :curso, :turno, :credito, :flgativo)");
 
 				
@@ -98,6 +98,13 @@ require_once('../model/conexao.php');
 				}
 
 			$disc=null;
+		}
+
+		function cadastra_disciplina(){
+
+
+
+			
 		}
 	}
 ?>

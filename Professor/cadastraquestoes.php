@@ -105,6 +105,7 @@ if(isset($_POST['envia'])){
 		$x = new questao();
 		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
 
+		echo "<h1>".$curso."</h1>";
 }
 
 

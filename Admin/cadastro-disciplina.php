@@ -46,7 +46,7 @@
     $flgativo = 1;
 
     $x = new disciplina();
-    $cadDisciplina = $x->Reg_disciplina($PDO, $nome, $curso, $turno, $credito, $flgativo);
+    $cadDisciplina = $x->cadastra_itemdisciplina($PDO, $nome, $curso, $turno, $credito, $flgativo);
 
     
   }
