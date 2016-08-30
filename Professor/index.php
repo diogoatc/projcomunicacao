@@ -35,7 +35,7 @@
         <nav id="menu">
             <h1>Menu Principal</h1>
             <ul type="disc">
-                <li><a href="cadastraquestoes.php">Cadastrar Questões</a></li>
+                <li><a href="pre-cadastra.php">Cadastrar Questões</a></li>
                 <li><a href="notasalunos.php">Notas Alunos</a></li>
                                 
             </ul>

@@ -66,10 +66,7 @@ include '../model/conexao.php';
 			return $this->flgativo = $flgativo;
 		}
 
-		function registrarAluno($nome, $usuario, $senha, $email, $nivel, $flgativo){  //DEPRECATED
-			@mysql_query("INSERT INTO usuario (id, nome, usuario, senha, email, nivel, flgativo)
-				VALUES ( NULL ,'$nome','$usuario','$senha','$email','1','$flgativo')");
-		}
+		
 
 		function verificaExistente($pdo,$usuario){
 
@@ -84,32 +81,31 @@ include '../model/conexao.php';
 
 		function registrarProfessor($pdo,$nome, $usuario, $senha, $email, $nivel, $flgativo){ 
 			
-			try
-		{
-			$tb = $pdo->prepare("INSERT INTO usuario (nome, usuario, senha, email, nivel, flgativo) VALUES( :nome, :usuario, :senha, :email, :nivel, :flgativo)");
+			try{
+				$tb = $pdo->prepare("INSERT INTO usuario (nome, usuario, senha, email, nivel, flgativo) VALUES( :nome, :usuario, :senha, :email, :nivel, :flgativo)");
 
-			$tb->bindParam(":nome",$nome,PDO::PARAM_STR);
-			$tb->bindParam(":usuario",$usuario,PDO::PARAM_STR);
-			$tb->bindParam(":senha",$senha,PDO::PARAM_STR);
-			$tb->bindParam(":email",$email,PDO::PARAM_STR);
-			$tb->bindParam(":nivel",$nivel,PDO::PARAM_INT);
-			$tb->bindParam(":flgativo",$flgativo,PDO::PARAM_INT);
+				$tb->bindParam(":nome",$nome,PDO::PARAM_STR);
+				$tb->bindParam(":usuario",$usuario,PDO::PARAM_STR);
+				$tb->bindParam(":senha",$senha,PDO::PARAM_STR);
+				$tb->bindParam(":email",$email,PDO::PARAM_STR);
+				$tb->bindParam(":nivel",$nivel,PDO::PARAM_INT);
+				$tb->bindParam(":flgativo",$flgativo,PDO::PARAM_INT);
 
 
-				if($tb->execute()){
-					echo "CADASTRO EFETUADO COM SUCESSO!  <a href='index.php'>Voltar para a area do admin</a>";
-				}else{
-					$erro = PDOException();
-					echo "ERRO, usuário não cadastrado: ". $erro->getMessage();
+					if($tb->execute()){
+						echo "CADASTRO EFETUADO COM SUCESSO!  <a href='index.php'>Voltar para a area do admin</a>";
+					}else{
+						$erro = PDOException();
+						echo "ERRO, usuário não cadastrado: ". $erro->getMessage();
 
-			}
+					}
 
 				$tb=null;
 
-			}catch ( PDOException $e )
-		{
+			}catch ( PDOException $e ){
+
     		echo 'Erro ao cadastrar usuario: ' . $e->getMessage();
-		}
+			}
 
 		}
 
@@ -124,14 +120,14 @@ include '../model/conexao.php';
 			if($tb->execute()){
 
 				echo "
-            <script>
+            		<script>
             
-            alert('SENHA ALTERADA COM SUCESSO!');
-            window.location='alterarsenha.html';
+            		alert('SENHA ALTERADA COM SUCESSO!');
+            		window.location='alterarsenha.html';
         
-            </script>
+           			 </script>
         
-            ";
+            	";
 			}else{
 				echo "ERRO, SENHA NÃO ALTERADA";
 			}

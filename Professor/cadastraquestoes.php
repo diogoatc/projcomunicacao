@@ -1,5 +1,5 @@
 <?php
-
+if(isset($_GET)){
 // A sessão precisa ser iniciada em cada página diferente
     if (!isset($_SESSION)) session_start();
       
@@ -14,7 +14,8 @@
         header("Location: ../index.php"); exit;
     }
       
-
+$curso = $_GET['curso'];
+$turno = $_GET['turno'];
 include('../classes/class_disciplina.php');
 include('../classes/class_questao.php');
 ?>
@@ -33,12 +34,12 @@ include('../classes/class_questao.php');
 			<?php
 			
 			$x = new disciplina();
-			$retorno = $x->selectAtivo($PDO);
+			$retorno = $x->selectAtivo($PDO,$curso,$turno);
 			foreach ($retorno as $key) {
 
 			?>
-			<option value="<?php echo $key['id'];?>" >
-        <?php echo $key['nome']." - ".$key['curso']." - ".$key['turno'];?>
+			<option value="<?php echo $key['iditemdisciplina'];?>" >
+        <?php echo $key['nome'];?>
       </option>
 
 			<?php
@@ -107,7 +108,12 @@ if(isset($_POST['envia'])){
 }
 
 
+}else{
 
+	header("Location pre-cadastra.php");
+
+
+}
 ?>
 
 </body>

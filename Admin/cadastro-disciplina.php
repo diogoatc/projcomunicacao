@@ -21,16 +21,15 @@
       			<input type="text" name="nome" placeholder="Exemplo: Programação Web I">
             <input type="text" name="curso" placeholder="Exemplo: Sistemas Para Internet"><br/>
             <select class="form-group" type="text" name="turno">
-              <option value="A">Manhã</option>
-              <option value="B">Tarde</option>
-              <option value="C">Noite</option>
+              <option value="Matutino">Manhã</option>
+              <option value="Noturno">Noite</option>
             </select> <br/>
             <select class="form-group" type="text" name="credito">
-              <option value="A">1</option>
-              <option value="B">2</option>
-              <option value="C">3</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="4">4</option>
             </select> <br/>
-					  <input type="submit" name="enviar" value="Cadastrar" />
+					  <input type="submit" name="envia" value="Cadastrar" />
   				</form>
   		  </div>
     	</div>
@@ -44,9 +43,12 @@
     $curso = $_POST['curso'];
     $turno = $_POST['turno'];
     $credito = $_POST['credito'];
+    $flgativo = 1;
 
     $x = new disciplina();
-    $cadDisciplina = $x->Reg_disciplina($PDO,$nome, $curso, $turno, $credito);
+    $cadDisciplina = $x->Reg_disciplina($PDO, $nome, $curso, $turno, $credito, $flgativo);
+
+    
   }
 
 ?>
