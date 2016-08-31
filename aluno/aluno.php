@@ -18,18 +18,15 @@ include('../classes/class_disciplina.php');
   </head>
   <body>
     <label for="disciplina">Disciplinas: </label>
-    <select required="" name="disciplina" id="disciplina" >
     <?php
     $x = new disciplina();
     $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);
 
     foreach ($retorno as $key) {
     ?>
-    <option value="" >
-      <?php echo $key['nome'];?>
-    </option>
-
+    <input type="checkbox" name="name" value="">
     <?php
+    echo $key['nomedisciplina']." | ".$key['nomeprofessor']." | ".$key['curso']." | ".$key['turno'];
   }
   ?>
   </body>

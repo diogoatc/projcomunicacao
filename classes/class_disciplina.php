@@ -71,7 +71,8 @@ require_once('../model/conexao.php');
 		}
 
 		function selectDisciplinaByAluno($pdo, $curso, $turno, $semestre){
-			$conn = $pdo->prepare("SELECT D.nome, D.curso, D.turno, D.semestre, P.nome
+			$conn = $pdo->prepare("SELECT D.nome as 'nomedisciplina', D.curso, D.turno,
+															D.semestre, P.nome as 'nomeprofessor'
 															FROM disciplina D	INNER JOIN usuario P
 															ON D.idusuario = P.id
 															WHERE D.flgativo = 1
@@ -79,11 +80,11 @@ require_once('../model/conexao.php');
 															AND D.turno = :turno
 															AND D.semestre = :semestre");
 
-				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
-				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
-				$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
-				$conn->execute();
-				return $conn->fetchAll(PDO::FETCH_ASSOC);
+			$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+			$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+			$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
+			$conn->execute();
+			return $conn->fetchAll(PDO::FETCH_ASSOC);
 		}
 
 		function cadastra_itemdisciplina($con, $nome, $curso, $turno, $credito, $flgativo){
@@ -138,12 +139,17 @@ require_once('../model/conexao.php');
 
 				echo "
             		<script>
-            
+
             		alert('DISCIPLINA CADASTRADA COM SUCESSO!');
+<<<<<<< HEAD
             		
         
+=======
+            		window.location='../Admin/cadastro-disciplina.php';
+
+>>>>>>> origin/master
            			 </script>
-        
+
             	";
 			}else{
 
