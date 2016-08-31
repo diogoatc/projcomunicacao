@@ -15,11 +15,55 @@
     }
       
     ?>
-      
-    <h1>Página restrita</h1>
-    <p>Olá, <?php echo $_SESSION['UsuarioNome']; ?>!</p>
-    <br/>
-    <h3><a href="cadastro-professor.html"> Fazer cadastro de novo Professor </a></h3>
-     <h3><a href="../logout.php"> SAIR </a></h3>
+
+<!DOCTYPE html> 
+
+<head>
+    <title>Área do Professor</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body>
 
 
+
+<div class="container">
+    <div class="header">
+        <img src="../assets/img/UNASP.png" alt="logo unasp">
+
+
+        <nav id="menu">
+            <h1>Menu Principal</h1>
+            <ul type="disc">
+                <li><a href="cadastra-disciplina.php">Cadastrar Disciplina</a></li>
+                <li><a href="cadastro-professor.html">Notas Alunos</a></li>
+                 <li><a href="#">Relatórios</a></li>
+                                
+            </ul>
+
+            <ul id="logout" type="disc">
+            <li><a href="../logout.php">Logout</a></li>
+
+            </ul>
+        </nav>
+
+
+        <header id="cabecalho">
+
+            <hgroup>
+                <h1>ÁREA DO ADMINISTRADOR</h1>
+                <h2>Seja bem-vindo Administrador(a): <?php echo $_SESSION['UsuarioNome'];?></h2>
+            </hgroup>
+
+
+            <footer id="rodape">
+
+                <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
+
+            </footer>
+    </div>
+</div>
+
+</body>
+</html>
