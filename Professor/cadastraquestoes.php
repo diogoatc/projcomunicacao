@@ -1,5 +1,5 @@
 <?php
-if(isset($_GET)){
+
 // A sessão precisa ser iniciada em cada página diferente
     if (!isset($_SESSION)) session_start();
       
@@ -14,8 +14,7 @@ if(isset($_GET)){
         header("Location: ../index.php"); exit;
     }
       
-$curso = $_GET['curso'];
-$turno = $_GET['turno'];
+
 include('../classes/class_disciplina.php');
 include('../classes/class_questao.php');
 ?>
@@ -33,6 +32,9 @@ include('../classes/class_questao.php');
 			<select required="" name="disciplina" id="disciplina" >
 			<?php
 			
+			$curso=$_COOKIE['curso'];
+			$turno=$_COOKIE['turno'];
+
 			$x = new disciplina();
 			$retorno = $x->selectAtivo($PDO,$curso,$turno);
 			foreach ($retorno as $key) {
@@ -83,7 +85,7 @@ include('../classes/class_questao.php');
 			<input type="submit" name="envia">
 		</form>
 
-
+		<h1><a href="pre-cadastra.php">Pré-cadastra</a></h1>
 
 
 <?php
@@ -104,17 +106,11 @@ if(isset($_POST['envia'])){
 		
 		$x = new questao();
 		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
-
-		echo "<h1>".$curso."</h1>";
+		
 }
 
 
-}else{
 
-	header("Location pre-cadastra.php");
-
-
-}
 ?>
 
 </body>

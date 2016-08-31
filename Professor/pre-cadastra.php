@@ -1,7 +1,8 @@
 <?php
 
 
-
+setcookie('curso');
+setcookie('turno');
 
 
 
@@ -46,6 +47,10 @@ if (isset($_POST['envia'])){
 $curso = $_POST['curso'];
 $turno = $_POST['turno'];
 
-header("Location: cadastraquestoes.php?curso=$curso&turno=$turno"); exit;
+
+setcookie('curso', $curso);
+setcookie('turno', $turno);
+
+header("Location: cadastraquestoes.php"); exit;
 }
 ?>
