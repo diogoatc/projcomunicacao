@@ -100,17 +100,30 @@ require_once('../model/conexao.php');
 			$disc=null;
 		}
 
-		function cadastra_disciplina(){
+		function cadastra_disciplina($con,$idusuario,$nome,$curso,$turno,$semestre){
 
-			$disc = $con->prepare("INSERT INTO disciplina (idusuario, nome, curso, turno, semestre, flgativo) VALUES(:idusuario,:nome, :curso, :turno, :semestre, :flgativo)");
+			$disc = $con->prepare("INSERT INTO disciplina (idusuario, nome, curso, turno, semestre) VALUES(:idusuario,:nome, :curso, :turno, :semestre)");
 			$disc->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
 			$disc->bindParam(":nome",$nome,PDO::PARAM_STR);
 			$disc->bindParam(":curso",$curso,PDO::PARAM_STR);
 			$disc->bindParam(":turno",$turno,PDO::PARAM_STR);
 			$disc->bindParam(":semestre",$semestre,PDO::PARAM_STR);
-			$disc->bindParam(":flgativo",$flgativo,PDO::PARAM_INT);
 
-			$disc->execute();
+			if($disc->execute()){
+
+				echo "
+            		<script>
+            
+            		alert('DISCIPLINA CADASTRADA COM SUCESSO!');
+            		window.location='../Admin/cadastro-disciplina.php';
+        
+           			 </script>
+        
+            	";
+			}else{
+
+				echo "<script> alert('ERRO CADASTRA DISCIPLINA');</script>";
+			}
 
 		}
 	}
