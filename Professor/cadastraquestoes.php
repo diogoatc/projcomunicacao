@@ -103,12 +103,15 @@ if(isset($_POST['envia'])){
 		$respcorreta = $_POST['respcorreta'];
 		$semestre = $_POST['semestre'];
 		$idusuario = $_POST['idusuario'];
-		
+		$curso=$_COOKIE['curso'];
+		$turno=$_COOKIE['turno'];
 		$x = new questao();
 		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
 		
-}
+		$y = new disciplina();
+		$cadastradiscicplina = $y->cadastra_disciplina($PDO, $idusuario, , $curso, $turno,$semestre);
 
+}
 
 
 ?>

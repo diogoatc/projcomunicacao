@@ -7,6 +7,11 @@
 		$pswrd = "root";
 		$dbname = "projcomunicacao";
 
+		/*$host = "127.0.0.1:3306";
+		$user ="root";
+		$pswrd = "";
+		$dbname = "projcomunicacao"; 
+		*/
 		try
 		{
     		$PDO = new PDO( 'mysql:host=' . $host . ';dbname=' . $dbname,
