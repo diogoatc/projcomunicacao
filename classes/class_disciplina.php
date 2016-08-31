@@ -71,7 +71,7 @@ require_once('../model/conexao.php');
 		}
 
 		function selectDisciplinaByAluno($pdo, $curso, $turno, $semestre){
-			$conn = $pdo->prepare("SELECT D.nome as 'nomedisciplina', D.curso, D.turno,
+			$conn = $pdo->prepare("SELECT D.id, D.nome as 'nomedisciplina', D.curso, D.turno,
 															D.semestre, P.nome as 'nomeprofessor'
 															FROM disciplina D	INNER JOIN usuario P
 															ON D.idusuario = P.id

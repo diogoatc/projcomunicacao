@@ -24,7 +24,7 @@ include('../classes/class_disciplina.php');
 
     foreach ($retorno as $key) {
     ?>
-    <input type="checkbox" name="name" value="">
+    <input type="checkbox" name="name" value="<?php echo $key['id'] ?>">
     <?php
     echo $key['nomedisciplina']." | ".$key['nomeprofessor']." | ".$key['curso']." | ".$key['turno'];
   }
