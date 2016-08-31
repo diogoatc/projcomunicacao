@@ -99,7 +99,7 @@
 					echo "<script> alert('Questão Cadastrada Com Sucesso');</script>";
 					//redireciona
 				}else{
-					echo "<script> alert('ERRO');</script>";
+					echo "<script> alert('ERRO CADASTRA QUESTÃO');</script>";
 	}
 
 	$tb=null;

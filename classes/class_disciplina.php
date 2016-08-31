@@ -58,10 +58,7 @@ require_once('../model/conexao.php');
 			return $this->flgativo = $flgativo;
 		}
 
-		function registrarDisciplina($idusuario, $nome, $flgativo){
-			@mysql_query("INSERT INTO disciplina (id, idusuario, nome, flgativo)
-				VALUES ( NULL ,'$idusuario','$nome','$flgativo')");
-		}
+		
 		//Funcão para funcionar o select ativo
 		public function selectAtivo($pdo,$curso,$turno){
 
@@ -110,15 +107,27 @@ require_once('../model/conexao.php');
 
             	";
 				}else{
-					echo "<script> alert('ERRO');</script>";
+					echo "<script> alert('ERRO CADASTRO DISCIPLINA');</script>";
 				}
 
 			$disc=null;
 		}
 
-		function cadastra_disciplina($con,$idusuario,$nome,$curso,$turno,$semestre){
+		function verifica_disciplina_cadastrada($con, $id){
 
-			$disc = $con->prepare("INSERT INTO disciplina (idusuario, nome, curso, turno, semestre) VALUES(:idusuario,:nome, :curso, :turno, :semestre)");
+			$q= $con->query("SELECT * FROM disciplina WHERE id='$id'");
+
+			return $q->fetch(PDO::FETCH_ASSOC);
+
+		}
+
+		function cadastra_disciplina($con,$iddisciplina,$idusuario,$curso,$turno,$semestre){
+
+			$q= $con->query("SELECT nome FROM itemdisciplina WHERE iditemdisciplina=$iddisciplina");
+			$nome = $q->fetchColumn();
+
+			$disc = $con->prepare("INSERT INTO disciplina (id,idusuario, nome, curso, turno, semestre) VALUES(:id,:idusuario,:nome, :curso, :turno, :semestre)");
+			$disc->bindParam(":id",$iddisciplina,PDO::PARAM_INT);
 			$disc->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
 			$disc->bindParam(":nome",$nome,PDO::PARAM_STR);
 			$disc->bindParam(":curso",$curso,PDO::PARAM_STR);
@@ -131,7 +140,7 @@ require_once('../model/conexao.php');
             		<script>
             
             		alert('DISCIPLINA CADASTRADA COM SUCESSO!');
-            		window.location='../Admin/cadastro-disciplina.php';
+            		
         
            			 </script>
         

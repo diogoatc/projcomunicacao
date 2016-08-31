@@ -93,7 +93,7 @@ include('../classes/class_questao.php');
 
 if(isset($_POST['envia'])){
 
-		$disciplina = $_POST['disciplina'];
+		$iddisciplina = $_POST['disciplina'];
 		$titulo = $_POST['titulo'];
 		$resp1 = $_POST['resp1'];
 		$resp2 = $_POST['resp2'];
@@ -105,11 +105,24 @@ if(isset($_POST['envia'])){
 		$idusuario = $_POST['idusuario'];
 		$curso=$_COOKIE['curso'];
 		$turno=$_COOKIE['turno'];
+
 		$x = new questao();
-		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
+		$cadastraquestao = $x->registrarQuestoes($PDO, $iddisciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
 		
 		$y = new disciplina();
-		$cadastradiscicplina = $y->cadastra_disciplina($PDO, $idusuario, , $curso, $turno,$semestre);
+
+		$verificaDisciplinaExistente = $y->verifica_disciplina_cadastrada($PDO,$iddisciplina);
+
+		if(!empty($verificaDisciplinaExistente)){
+		
+		
+
+		}else{
+
+		$cadastradiscicplina = $y->cadastra_disciplina($PDO, $iddisciplina, $idusuario, $curso, $turno, $semestre);
+}
+
+		
 
 }
 
