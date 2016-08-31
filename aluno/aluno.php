@@ -8,11 +8,32 @@ if (isset($_POST['fazerprova'])) {
   $timezone=date_default_timezone_set('America/Sao_Paulo');
   $horainicio = date('H:i:s');
 
-  echo $nome;
-  echo $ra;
-  echo $semestre;
-  echo $curso;
-  echo $turno;
-  echo $horainicio;
+include('../classes/class_disciplina.php');
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <label for="disciplina">Disciplinas: </label>
+    <select required="" name="disciplina" id="disciplina" >
+    <?php
+    $x = new disciplina();
+    $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);
+
+    foreach ($retorno as $key) {
+    ?>
+    <option value="" >
+      <?php echo $key['nome'];?>
+    </option>
+
+    <?php
+  }
+  ?>
+  </body>
+</html>
+<?php
 }
 ?>

@@ -1,5 +1,5 @@
-<?php  
-require_once('../model/conexao.php'); 
+<?php
+require_once('../model/conexao.php');
 
 	class disciplina {
 		private $iditemdisciplina;
@@ -64,7 +64,7 @@ require_once('../model/conexao.php');
 		}
 		//Funcão para funcionar o select ativo
 		public function selectAtivo($pdo,$curso,$turno){
-			
+
 			$conn = $pdo->prepare("SELECT * FROM itemdisciplina WHERE curso=:curso AND turno=:turno");
 
 				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
@@ -73,10 +73,26 @@ require_once('../model/conexao.php');
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 		}
 
+		function selectDisciplinaByAluno($pdo, $curso, $turno, $semestre){
+			$conn = $pdo->prepare("SELECT D.nome, D.curso, D.turno, D.semestre, P.nome
+															FROM disciplina D	INNER JOIN usuario P
+															ON D.idusuario = P.id
+															WHERE D.flgativo = 1
+															AND D.curso = :curso
+															AND D.turno = :turno
+															AND D.semestre = :semestre");
+
+				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+				$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
+				$conn->execute();
+				return $conn->fetchAll(PDO::FETCH_ASSOC);
+		}
+
 		function cadastra_itemdisciplina($con, $nome, $curso, $turno, $credito, $flgativo){
 			$disc = $con->prepare("INSERT INTO itemdisciplina (nome, curso, turno, credito, flgativo) VALUES(:nome, :curso, :turno, :credito, :flgativo)");
 
-				
+
 				$disc->bindParam(":nome",$nome,PDO::PARAM_STR);
 				$disc->bindParam(":curso",$curso,PDO::PARAM_STR);
 				$disc->bindParam(":turno",$turno,PDO::PARAM_STR);
@@ -86,12 +102,12 @@ require_once('../model/conexao.php');
 				if($disc->execute()){
 					echo "
             		<script>
-            
+
             		alert('DISCIPLINA CADASTRADA COM SUCESSO!');
             		window.location='../Admin/cadastro-disciplina.php';
-        
+
            			 </script>
-        
+
             	";
 				}else{
 					echo "<script> alert('ERRO');</script>";
@@ -104,7 +120,7 @@ require_once('../model/conexao.php');
 
 
 
-			
+
 		}
 	}
 ?>
