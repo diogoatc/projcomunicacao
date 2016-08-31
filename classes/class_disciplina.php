@@ -140,14 +140,10 @@ require_once('../model/conexao.php');
 				echo "
             		<script>
 
-            		alert('DISCIPLINA CADASTRADA COM SUCESSO!');
-<<<<<<< HEAD
-            		
+            		alert('DISCIPLINA CADASTRADA COM SUCESSO!');           		
         
-=======
-            		window.location='../Admin/cadastro-disciplina.php';
+            		
 
->>>>>>> origin/master
            			 </script>
 
             	";
