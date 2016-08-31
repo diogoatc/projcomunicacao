@@ -102,9 +102,16 @@ require_once('../model/conexao.php');
 
 		function cadastra_disciplina(){
 
+			$disc = $con->prepare("INSERT INTO disciplina (idusuario, nome, curso, turno, semestre, flgativo) VALUES(:idusuario,:nome, :curso, :turno, :semestre, :flgativo)");
+			$disc->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
+			$disc->bindParam(":nome",$nome,PDO::PARAM_STR);
+			$disc->bindParam(":curso",$curso,PDO::PARAM_STR);
+			$disc->bindParam(":turno",$turno,PDO::PARAM_STR);
+			$disc->bindParam(":semestre",$semestre,PDO::PARAM_STR);
+			$disc->bindParam(":flgativo",$flgativo,PDO::PARAM_INT);
 
+			$disc->execute();
 
-			
 		}
 	}
 ?>

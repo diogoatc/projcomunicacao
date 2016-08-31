@@ -104,13 +104,14 @@ if(isset($_POST['envia'])){
 		$semestre = $_POST['semestre'];
 		$idusuario = $_POST['idusuario'];
 		
-		$x = new questao();
-		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
 		
+		
+
 }
 
-
-
+		$x = new questao();
+		$cadastraquestao = $x->registrarQuestoes($PDO,$disciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
+		echo "<h1>".$semestre."</h1>";
 ?>
 
 </body>
