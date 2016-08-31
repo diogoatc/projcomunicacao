@@ -114,23 +114,32 @@ require_once('../model/conexao.php');
 			$disc=null;
 		}
 
-		function verifica_disciplina_cadastrada($con, $id){
+		function verifica_disciplina_cadastrada($con,$nome, $curso, $turno, $idusuario){
 
-			$q= $con->query("SELECT * FROM disciplina WHERE id='$id'");
+			$q= $con->prepare("SELECT id FROM disciplina WHERE nome=:nome AND curso=:curso AND turno=:turno AND idusuario=:idusuario AND flgativo=1" );
 
-			return $q->fetch(PDO::FETCH_ASSOC);
+			$q->bindParam(":nome",$nome,PDO::PARAM_STR);
+			$q->bindParam(":curso",$curso,PDO::PARAM_STR);
+			$q->bindParam(":turno",$turno,PDO::PARAM_STR);
+			$q->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
 
+
+			if($q->execute()){
+
+			 return $q->fetchColumn();
+
+		}else{
+
+			echo "<script> alert('ERRO VERIFICA DISCIPLINA');</script>";
 		}
+	}
 
-		function cadastra_disciplina($con,$iddisciplina,$idusuario,$curso,$turno,$semestre){
+		function cadastra_disciplina($con,$nomedisciplina,$idusuario,$curso,$turno,$semestre){
 
-			$q= $con->query("SELECT nome FROM itemdisciplina WHERE iditemdisciplina=$iddisciplina");
-			$nome = $q->fetchColumn();
-
-			$disc = $con->prepare("INSERT INTO disciplina (id,idusuario, nome, curso, turno, semestre) VALUES(:id,:idusuario,:nome, :curso, :turno, :semestre)");
-			$disc->bindParam(":id",$iddisciplina,PDO::PARAM_INT);
+			$disc = $con->prepare("INSERT INTO disciplina (idusuario, nome, curso, turno, semestre) 
+				VALUES(:idusuario,:nome, :curso, :turno, :semestre)");
 			$disc->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
-			$disc->bindParam(":nome",$nome,PDO::PARAM_STR);
+			$disc->bindParam(":nome",$nomedisciplina,PDO::PARAM_STR);
 			$disc->bindParam(":curso",$curso,PDO::PARAM_STR);
 			$disc->bindParam(":turno",$turno,PDO::PARAM_STR);
 			$disc->bindParam(":semestre",$semestre,PDO::PARAM_STR);

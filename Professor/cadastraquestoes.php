@@ -40,7 +40,7 @@ include('../classes/class_questao.php');
 			foreach ($retorno as $key) {
 
 			?>
-			<option value="<?php echo $key['iditemdisciplina'];?>" >
+			<option value="<?php echo $key['nome'];?>" >
         <?php echo $key['nome'];?>
       </option>
 
@@ -93,7 +93,7 @@ include('../classes/class_questao.php');
 
 if(isset($_POST['envia'])){
 
-		$iddisciplina = $_POST['disciplina'];
+		$nomedisciplina = $_POST['disciplina'];
 		$titulo = $_POST['titulo'];
 		$resp1 = $_POST['resp1'];
 		$resp2 = $_POST['resp2'];
@@ -106,24 +106,20 @@ if(isset($_POST['envia'])){
 		$curso=$_COOKIE['curso'];
 		$turno=$_COOKIE['turno'];
 
-		$x = new questao();
-		$cadastraquestao = $x->registrarQuestoes($PDO, $iddisciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
+		
 		
 		$y = new disciplina();
 
-		$verificaDisciplinaExistente = $y->verifica_disciplina_cadastrada($PDO,$iddisciplina);
+		$iddisciplina = $y->verifica_disciplina_cadastrada($PDO,$nomedisciplina, $curso, $turno, $idusuario);
 
-		if(!empty($verificaDisciplinaExistente)){
+		if(empty($iddisciplina)){
+		$cadastradiscicplina = $y->cadastra_disciplina($PDO, $nomedisciplina, $idusuario, $curso, $turno, $semestre);
+		$iddisciplina = $y->verifica_disciplina_cadastrada($PDO,$nomedisciplina, $curso, $turno, $idusuario);
+		}
+
+		$x = new questao();
+		$cadastraquestao = $x->registrarQuestoes($PDO, $iddisciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
 		
-		
-
-		}else{
-
-		$cadastradiscicplina = $y->cadastra_disciplina($PDO, $iddisciplina, $idusuario, $curso, $turno, $semestre);
-}
-
-		
-
 }
 
 
