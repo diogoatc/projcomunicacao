@@ -10,11 +10,22 @@
 	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+
 		<div class="container">
 			<div class="header">
       	<img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
    		</div>
+
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul type="disc">
+                    <li><a href="index.php">MENU</a></li>
+
+
+                </ul>
+
  			<div class="content" style="top: 44%; height: 445px;">
+
     		<div class="login">Cadastro de Disciplina</div>
     		<div class="form" style="top: 12%;">
   				<form action="" id="cadastro" method="post">
@@ -33,6 +44,11 @@
   				</form>
   		  </div>
     	</div>
+                <footer id="rodape">
+
+                    <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
+
+                </footer>
 		</div>
 </body>
 </html>

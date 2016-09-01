@@ -19,7 +19,7 @@
 <!DOCTYPE html> 
 
 <head>
-    <title>Área do Professor</title>
+    <title>Área do Administrador</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/css/style.css">
 
@@ -36,8 +36,8 @@
         <nav id="menu">
             <h1>Menu Principal</h1>
             <ul type="disc">
-                <li><a href="cadastra-disciplina.php">Cadastrar Disciplina</a></li>
-                <li><a href="cadastro-professor.html">Notas Alunos</a></li>
+                <li><a href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
+                <li><a href="cadastro-professor.html">Cadastrar Professor</a></li>
                  <li><a href="#">Relatórios</a></li>
                                 
             </ul>
