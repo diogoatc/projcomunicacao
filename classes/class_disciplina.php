@@ -60,7 +60,7 @@ require_once('../model/conexao.php');
 
 		
 		//Funcão para funcionar o select ativo
-		public function selectAtivo($pdo,$curso,$turno){
+		 function selectAtivo($pdo,$curso,$turno){
 
 			$conn = $pdo->prepare("SELECT * FROM itemdisciplina WHERE curso=:curso AND turno=:turno");
 
@@ -69,6 +69,17 @@ require_once('../model/conexao.php');
 				$conn->execute();
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 		}
+
+		function selectDisciplinaByProfessor($pdo, $id){
+
+			$conn = $pdo->prepare("SELECT * FROM disciplina WHERE idusuario=:id AND flgativo=1");
+			$conn->bindParam(":id",$id,PDO::PARAM_INT);
+
+			$conn->execute();
+			return $conn->fetchAll(PDO::FETCH_ASSOC);
+
+		}
+
 
 		function selectDisciplinaByAluno($pdo, $curso, $turno, $semestre){
 			$conn = $pdo->prepare("SELECT D.id, D.nome as 'nomedisciplina', D.curso, D.turno,
