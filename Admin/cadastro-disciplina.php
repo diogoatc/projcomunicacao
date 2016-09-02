@@ -29,15 +29,23 @@
     		<div class="login">Cadastro de Disciplina</div>
     		<div class="form" style="top: 12%;">
   				<form action="" id="cadastro" method="post">
-      			<input type="text" name="nome" placeholder="Exemplo: Programação Web I">
-            <input type="text" name="curso" placeholder="Exemplo: Sistemas Para Internet"><br/>
+            <label for="nome">Nome da Disciplina: </label>
+      			<input type="text" name="nome" placeholder="Exemplo: Atendimento Publicitário"><br/>
+            <label for="curso">Curso: </label>
+            <select class="form-group" type="text" name="curso">
+              <option value="PP">PP</option>
+              <option value="RTV">RTV</option>
+            </select> <br/>
+            <label for="turno">Turno: </label>
             <select class="form-group" type="text" name="turno">
               <option value="Matutino">Manhã</option>
               <option value="Noturno">Noite</option>
             </select> <br/>
+            <label for="credito">Quantidade de créditos da Disciplina: </label>
             <select class="form-group" type="text" name="credito">
               <option value="1">1</option>
               <option value="2">2</option>
+              <option value="3">3</option>
               <option value="4">4</option>
             </select> <br/>
 					  <input type="submit" name="envia" value="Cadastrar" />

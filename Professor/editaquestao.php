@@ -1,14 +1,14 @@
 <?php
-include('../classes/class_disciplina.php');
-include('../classes/class_questao.php');
+include_once('../classes/class_disciplina.php');
+include_once('../classes/class_questao.php');
+
+$idquestao=$_GET['id'];
+$iddisciplina = $_GET['iddisciplina'];
 
 if(isset($_GET['deleta'])){
 
-$id=$_GET['id'];
-$iddiscplina = $_GET['iddisciplina'];
 $x = new questao();
-$retorno = $x->deletaQuestao($PDO,$id,$iddisciplina);
-
+$retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 
 
 }else{
@@ -24,6 +24,8 @@ $retorno = $x->deletaQuestao($PDO,$id,$iddisciplina);
         session_destroy();
         // Redireciona o visitante de volta pro login
         header("Location: ../index.php"); exit;
+
+       
     }
       
 
@@ -38,39 +40,12 @@ $retorno = $x->deletaQuestao($PDO,$id,$iddisciplina);
 
 </head>
 <body>
-		<form id="questcad" action="cadastraquestoes.php" method="post">
-			<label for="disciplina">Disciplina: </label>
-			<select required="" name="disciplina" id="disciplina" >
-			<?php
-			
-			$curso=$_COOKIE['curso'];
-			$turno=$_COOKIE['turno'];
+		<form id="questcad" action="editaquestao.php" method="post">
+						
+		
 
-			$x = new disciplina();
-			$retorno = $x->selectAtivo($PDO,$curso,$turno);
-			foreach ($retorno as $key) {
-
-			?>
-			<option value="<?php echo $key['nome'];?>" >
-        <?php echo $key['nome'];?>
-      </option>
-
-			<?php
-		}
-		?>
-			</select>
-			<select required="" name="semestre" id="semestre">
-				<option value="1">1º Semestre</option>
-				<option value="2">2º Semestre</option>
-				<option value="3">3º Semestre</option>
-				<option value="4">4º Semestre</option>
-				<option value="5">5º Semestre</option>
-				<option value="6">6º Semestre</option>
-				<option value="7">7º Semestre</option>
-				<option value="8">8º Semestre</option>
-			</select>
-
-			<input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
+			<input type="hidden" name="iddisciplina" value="<?php echo $iddisciplina ?>"/>
+			<input type="hidden" name="idquestao" value="<?php echo $idquestao ?>"/>
 			<p>Enunciado da Questão:</p>
 			<textarea required="" name="titulo" id="titulo" rows="10" cols="40">Enunciado da Questão</textarea> <br/>
 			<label for="resp1">Alternativa A:</label>
@@ -96,7 +71,7 @@ $retorno = $x->deletaQuestao($PDO,$id,$iddisciplina);
 			<input type="submit" name="envia">
 		</form>
 
-		<h1><a href="pre-cadastra.php">Pré-cadastra</a></h1>
+		
 
 
 <?php
@@ -104,7 +79,8 @@ $retorno = $x->deletaQuestao($PDO,$id,$iddisciplina);
 
 if(isset($_POST['envia'])){
 
-		$nomedisciplina = $_POST['disciplina'];
+		$idquestao = $_POST['idquestao'];
+		$iddisciplina = $_POST['iddisciplina'];
 		$titulo = $_POST['titulo'];
 		$resp1 = $_POST['resp1'];
 		$resp2 = $_POST['resp2'];
@@ -112,10 +88,11 @@ if(isset($_POST['envia'])){
 		$resp4 = $_POST['resp4'];
 		$resp5 = $_POST['resp5'];
 		$respcorreta = $_POST['respcorreta'];
-		$semestre = $_POST['semestre'];
-		$idusuario = $_POST['idusuario'];
-		$curso=$_COOKIE['curso'];
-		$turno=$_COOKIE['turno'];
+		
+		
+		$x = new questao();
+		$editaquestao = $x->editaQuestaoById($PDO,$idquestao,$iddisciplina,$titulo,$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta);
+
 
 	}
 }

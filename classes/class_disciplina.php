@@ -58,7 +58,40 @@ require_once('../model/conexao.php');
 			return $this->flgativo = $flgativo;
 		}
 
-		
+		function editaDisciplinaByID($pdo,$iddisciplina,$semestre,$curso,$turno){
+
+			$conn = $pdo->prepare("UPDATE disciplina SET 
+												 curso = :curso,
+												 turno = :turno, 
+												 semestre = :semestre
+												 
+												   WHERE id=:id");
+
+			$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+			$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+			$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
+			$conn->bindParam(":id",$iddisciplina,PDO::PARAM_INT);
+
+			if($conn->execute()){
+					echo "
+            		<script>
+
+            		alert('DISCIPLINA EDITADA COM SUCESSO!');
+            		window.location='../Professor/listadisciplinas.php';
+
+           			 </script>
+
+            	";
+				}else{
+					echo "<script> alert('ERRO EDITA DISCIPLINA');</script>";
+				}
+
+			
+		$conn=null;
+
+
+		}
+
 		//Funcão para funcionar o select ativo
 		 function selectAtivo($pdo,$curso,$turno){
 
@@ -68,6 +101,7 @@ require_once('../model/conexao.php');
 				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
 				$conn->execute();
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
+				$conn=null;
 		}
 
 		function selectDisciplinaByProfessor($pdo, $id){
@@ -96,19 +130,20 @@ require_once('../model/conexao.php');
 			$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
 			$conn->execute();
 			return $conn->fetchAll(PDO::FETCH_ASSOC);
+			$conn=null;
 		}
 
 		function cadastra_itemdisciplina($con, $nome, $curso, $turno, $credito, $flgativo){
-			$disc = $con->prepare("INSERT INTO itemdisciplina (nome, curso, turno, credito, flgativo) VALUES(:nome, :curso, :turno, :credito, :flgativo)");
+			$conn = $con->prepare("INSERT INTO itemdisciplina (nome, curso, turno, credito, flgativo) VALUES(:nome, :curso, :turno, :credito, :flgativo)");
 
 
-				$disc->bindParam(":nome",$nome,PDO::PARAM_STR);
-				$disc->bindParam(":curso",$curso,PDO::PARAM_STR);
-				$disc->bindParam(":turno",$turno,PDO::PARAM_STR);
-				$disc->bindParam(":credito",$credito,PDO::PARAM_INT);
-				$disc->bindParam(":flgativo",$flgativo,PDO::PARAM_INT);
+				$conn->bindParam(":nome",$nome,PDO::PARAM_STR);
+				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+				$conn->bindParam(":credito",$credito,PDO::PARAM_INT);
+				$conn->bindParam(":flgativo",$flgativo,PDO::PARAM_INT);
 
-				if($disc->execute()){
+				if($conn->execute()){
 					echo "
             		<script>
 
@@ -122,22 +157,22 @@ require_once('../model/conexao.php');
 					echo "<script> alert('ERRO CADASTRO DISCIPLINA');</script>";
 				}
 
-			$disc=null;
+			$conn=null;
 		}
 
 		function verifica_disciplina_cadastrada($con,$nome, $curso, $turno, $idusuario){
 
-			$q= $con->prepare("SELECT id FROM disciplina WHERE nome=:nome AND curso=:curso AND turno=:turno AND idusuario=:idusuario AND flgativo=1" );
+			$conn= $con->prepare("SELECT id FROM disciplina WHERE nome=:nome AND curso=:curso AND turno=:turno AND idusuario=:idusuario AND flgativo=1" );
 
-			$q->bindParam(":nome",$nome,PDO::PARAM_STR);
-			$q->bindParam(":curso",$curso,PDO::PARAM_STR);
-			$q->bindParam(":turno",$turno,PDO::PARAM_STR);
-			$q->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
+			$conn->bindParam(":nome",$nome,PDO::PARAM_STR);
+			$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+			$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+			$conn->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
 
 
-			if($q->execute()){
+			if($conn->execute()){
 
-			 return $q->fetchColumn();
+			 return $conn->fetchColumn();
 
 		}else{
 
@@ -147,15 +182,15 @@ require_once('../model/conexao.php');
 
 		function cadastra_disciplina($con,$nomedisciplina,$idusuario,$curso,$turno,$semestre){
 
-			$disc = $con->prepare("INSERT INTO disciplina (idusuario, nome, curso, turno, semestre) 
+			$conn = $con->prepare("INSERT INTO disciplina (idusuario, nome, curso, turno, semestre) 
 				VALUES(:idusuario,:nome, :curso, :turno, :semestre)");
-			$disc->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
-			$disc->bindParam(":nome",$nomedisciplina,PDO::PARAM_STR);
-			$disc->bindParam(":curso",$curso,PDO::PARAM_STR);
-			$disc->bindParam(":turno",$turno,PDO::PARAM_STR);
-			$disc->bindParam(":semestre",$semestre,PDO::PARAM_STR);
+			$conn->bindParam(":idusuario",$idusuario,PDO::PARAM_INT);
+			$conn->bindParam(":nome",$nomedisciplina,PDO::PARAM_STR);
+			$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+			$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+			$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
 
-			if($disc->execute()){
+			if($conn->execute()){
 
 				echo "
             		<script>

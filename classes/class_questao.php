@@ -106,6 +106,42 @@
 
 
 		}
+
+		function editaQuestaoById($pdo,$idquestao,$iddisciplina,$titulo,$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta){
+
+
+			$conn = $pdo->prepare("UPDATE questao SET iddisciplina = :iddisciplina,
+												 titulo = :titulo, 
+												 resposta1 = :resposta1,
+												 resposta2 = :resposta2, 
+												 resposta3 = :resposta3,
+												 resposta4 = :resposta4,
+												 resposta5 = :resposta5,
+												 respostacorreta = :respostacorreta
+												   WHERE id=:id");
+
+
+				$conn->bindParam(":iddisciplina",$iddisciplina,PDO::PARAM_STR);
+				$conn->bindParam(":titulo",$titulo,PDO::PARAM_STR);
+				$conn->bindParam(":resposta1",$resp1,PDO::PARAM_STR);
+				$conn->bindParam(":resposta2",$resp2,PDO::PARAM_STR);
+				$conn->bindParam(":resposta3",$resp3,PDO::PARAM_STR);
+				$conn->bindParam(":resposta4",$resp4,PDO::PARAM_STR);
+				$conn->bindParam(":resposta5",$resp5,PDO::PARAM_STR);
+				$conn->bindParam(":respostacorreta",$respcorreta,PDO::PARAM_STR);
+				$conn->bindParam(":id",$idquestao,PDO::PARAM_INT);
+
+				if($conn->execute()){
+					echo "<script> alert('Questão Editada Com Sucesso');
+								window.location='listaquestoes.php?id=".$iddisciplina."';
+					</script>";
+					//redireciona
+				}else{
+					echo "<script> alert('ERRO EDITA QUESTÃO');</script>";
+	}
+		$conn=null;
+
+		}
 		
 
 		function selectQuestaoByDisciplina($pdo,$id){
@@ -119,26 +155,26 @@
 		}
 
 		function registrarQuestoes($con,$iddisciplina, $titulo, $resposta1, $resposta2, $resposta3, $resposta4, $resposta5, $respostacorreta){
-			$tb = $con->prepare("INSERT INTO questao (id, iddisciplina, titulo, resposta1, resposta2, resposta3,resposta4,resposta5, respostacorreta) VALUES(:id, :iddisciplina, :titulo, :resposta1, :resposta2, :resposta3, :resposta4, :resposta5, :respostacorreta)");
+			$conn = $con->prepare("INSERT INTO questao (id, iddisciplina, titulo, resposta1, resposta2, resposta3,resposta4,resposta5, respostacorreta) VALUES(:id, :iddisciplina, :titulo, :resposta1, :resposta2, :resposta3, :resposta4, :resposta5, :respostacorreta)");
 
-				$tb->bindParam(":id",$id,PDO::PARAM_INT);
-				$tb->bindParam(":iddisciplina",$iddisciplina,PDO::PARAM_STR);
-				$tb->bindParam(":titulo",$titulo,PDO::PARAM_STR);
-				$tb->bindParam(":resposta1",$resposta1,PDO::PARAM_STR);
-				$tb->bindParam(":resposta2",$resposta2,PDO::PARAM_STR);
-				$tb->bindParam(":resposta3",$resposta3,PDO::PARAM_STR);
-				$tb->bindParam(":resposta4",$resposta4,PDO::PARAM_STR);
-				$tb->bindParam(":resposta5",$resposta5,PDO::PARAM_STR);
-				$tb->bindParam(":respostacorreta",$respostacorreta,PDO::PARAM_STR);
+				$conn->bindParam(":id",$id,PDO::PARAM_INT);
+				$conn->bindParam(":iddisciplina",$iddisciplina,PDO::PARAM_STR);
+				$conn->bindParam(":titulo",$titulo,PDO::PARAM_STR);
+				$conn->bindParam(":resposta1",$resposta1,PDO::PARAM_STR);
+				$conn->bindParam(":resposta2",$resposta2,PDO::PARAM_STR);
+				$conn->bindParam(":resposta3",$resposta3,PDO::PARAM_STR);
+				$conn->bindParam(":resposta4",$resposta4,PDO::PARAM_STR);
+				$conn->bindParam(":resposta5",$resposta5,PDO::PARAM_STR);
+				$conn->bindParam(":respostacorreta",$respostacorreta,PDO::PARAM_STR);
 
-				if($tb->execute()){
+				if($conn->execute()){
 					echo "<script> alert('Questão Cadastrada Com Sucesso');</script>";
 					//redireciona
 				}else{
 					echo "<script> alert('ERRO CADASTRA QUESTÃO');</script>";
 	}
 
-	$tb=null;
+	$conn=null;
 		}
 }
 	
