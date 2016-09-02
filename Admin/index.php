@@ -38,7 +38,7 @@
             <ul type="disc">
                 <li><a href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
                 <li><a href="cadastro-professor.html">Cadastrar Professor</a></li>
-                 <li><a href="#">Relatórios</a></li>
+                 <li><a href="relatorio.php">Relatórios</a></li>
                                 
             </ul>
 
