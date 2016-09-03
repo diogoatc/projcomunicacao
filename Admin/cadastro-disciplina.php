@@ -21,34 +21,44 @@
                 <ul type="disc">
                     <li><a href="index.php">MENU</a></li>
 
-
                 </ul>
+                            <ul id="logout" type="disc">
+           <li><a href="../logout.php">Logout</a></li>
 
- 			<div class="content" style="top: 44%; height: 445px;">
+            </ul>
 
-    		<div class="login">Cadastro de Disciplina</div>
-    		<div class="form" style="top: 12%;">
+ 			<div class="content" style="top: 44%; height: 390px;">
+
+    		<div class="login" style="font-family:sans-serif; font-size:20pt;">Cadastro de Disciplina</div>
+
+    		<div class="form" style="top: 20%; width: 62%;left:60%;">
+
   				<form action="" id="cadastro" method="post">
-            <label for="nome">Nome da Disciplina: </label>
-      			<input type="text" name="nome" placeholder="Exemplo: Atendimento Publicitário"><br/>
-            <label for="curso">Curso: </label>
-            <select class="form-group" type="text" name="curso">
+
+            <label style="font-size:20px;font-family: sans-serif;" for="nome">Nome da Disciplina: </label>
+      			<input type="text" name="nome" placeholder="Exemplo: Atendimento Publicitário"><br/></br>
+
+            <label style="font-size:20px;font-family: sans-serif;height: 10%;" for="curso">Curso: </label>
+            <select class="imobSelect" type="text" name="curso">
               <option value="PP">PP</option>
               <option value="RTV">RTV</option>
             </select> <br/>
-            <label for="turno">Turno: </label>
-            <select class="form-group" type="text" name="turno">
+
+            <label style="font-size:20px;font-family: sans-serif;" for="turno">Turno: </label>
+            <select class="imobSelect" type="text" name="turno">
               <option value="Matutino">Manhã</option>
               <option value="Noturno">Noite</option>
             </select> <br/>
-            <label for="credito">Quantidade de créditos da Disciplina: </label>
-            <select class="form-group" type="text" name="credito">
+
+            <label style="font-size:20px;font-family: sans-serif;" for="credito">Quantidade de créditos da Disciplina: </label>
+            <select class="imobSelect" type="text" name="credito">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
             </select> <br/>
-					  <input type="submit" name="envia" value="Cadastrar" />
+					  <input style="font-size:18px;" type="submit" name="envia" value="Cadastrar" />
+
   				</form>
   		  </div>
     	</div>
@@ -60,6 +70,7 @@
 		</div>
 </body>
 </html>
+
 <?php  
   
   if(isset($_POST['envia'])){

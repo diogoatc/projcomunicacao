@@ -235,3 +235,43 @@ footer#rodape p {
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
+.imobSelect select {
+font-family: sans-serif;
+font-size: 20px;
+background: transparent;
+width: 233px;
+color: #474747;
+padding: 8px 5px 5px 5px;
+line-height: 1;
+border: 0;
+border-radius: 0;
+height: 34px;
+-webkit-appearance: none;
+
+}
+
+.imobSelect option {
+    height: 30px;
+    border: 1px solid #cbcbcb;
+    padding-left: 17px;
+    padding-top: 12px;
+    
+}
+
+.imobSelect {
+    width: 100px;
+    height: 34px;
+    overflow: hidden;
+    background: url(../img/arrow.jpg) no-repeat right;
+    border-radius: 3px;
+    
+}
+
+    select{
+    width: 250px;
+    height: 50px;
+    background: #f2f2f3;
+    padding-left: 0px;
+    font-size:25px;
+
+}
