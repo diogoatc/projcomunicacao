@@ -7,7 +7,7 @@ include('../classes/class_questao.php');
 if(!empty($_POST['check_list'])) {
 
     $questoes = array();
-    $contador = 0;
+    $contador = 1;
 
     foreach($_POST['check_list'] as $id) {
             $questao = new questao();
@@ -25,14 +25,17 @@ if(!empty($_POST['check_list'])) {
     <title>Prova Unificada</title>
   </head>
   <body>
-    <h3>Questão <?php echo $contador+1?></h3>
-    <h3><?php print_r($questoes[$contador]['titulo']) ?></h3>
-    <input type="checkbox" name="resposta" value="A"><?php print_r($questoes[$contador]['resposta1']) ?><br>
-    <input type="checkbox" name="resposta" value="B"><?php print_r($questoes[$contador]['resposta2']) ?><br>
-    <input type="checkbox" name="resposta" value="C"><?php print_r($questoes[$contador]['resposta3']) ?><br>
-    <input type="checkbox" name="resposta" value="D"><?php print_r($questoes[$contador]['resposta4']) ?><br>
-    <input type="checkbox" name="resposta" value="E"><?php print_r($questoes[$contador]['resposta5']) ?><br>
-    <input type="submit" name="proxima" value="Próxima Questão">
+    <h3>Prova Unificada</h3>
+    <?php foreach ($questoes as $key) {
+      echo "<h4>Questão ".$contador++."</h4>";
+      echo $key['titulo'];?><br>
+      <input type="radio" name="resposta" value="A"><?php print_r($key['resposta1']) ?><br>
+      <input type="radio" name="resposta" value="B"><?php print_r($key['resposta2']) ?><br>
+      <input type="radio" name="resposta" value="C"><?php print_r($key['resposta3']) ?><br>
+      <input type="radio" name="resposta" value="D"><?php print_r($key['resposta4']) ?><br>
+      <input type="radio" name="resposta" value="E"><?php print_r($key['resposta5']) ?><br>
+    <?php } ?><br>
+    <input type="submit" name="finalizar" value="Finalizar Prova">
   </body>
 </html>
 <?php
