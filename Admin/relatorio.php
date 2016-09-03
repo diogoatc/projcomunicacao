@@ -31,9 +31,10 @@
     <nav id="menu">
         <h1>Gerar relatorios</h1>
         <ul type="disc">
+        <li><a href="index.php">MENU</a></li>
             <li><a href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
             <li><a href="cadastro-professor.html">Cadastrar Professor</a></li>
-             <li><a href="relatorio.php">Relatórios</a></li>
+             
                             
         </ul>
 
