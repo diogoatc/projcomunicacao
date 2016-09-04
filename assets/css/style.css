@@ -183,7 +183,7 @@ footer#rodape { /*Separação do rodapé*/
     font-family: 'Cabin', sans-serif;
     color: #ffffff;
     font-size: 10pt;
-    position:absolute;
+    position:fixed;
     bottom:0;
     width:100%;
     clear:both;
@@ -274,4 +274,14 @@ height: 34px;
     padding-left: 0px;
     font-size:25px;
 
+}
+textarea{ 
+    width:510px; 
+    margin-top:5px; 
+    border-radius:15px; 
+    padding: 5px 15px
+}
+html, body {
+    height: 100%;
+    margin: 0;
 }
