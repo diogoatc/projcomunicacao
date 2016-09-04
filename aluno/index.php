@@ -29,7 +29,7 @@
           <input type="text" name="nome" value="" placeholder="Nome"><br>
           <input type="number" name="ra" value="" placeholder="RA"><br></br>
 
-          <select class="imobSelect" style="font-size: 28px;width:65%;" required="" name="semestre" id="semestre">
+          <select class="imobSelect" style="font-size: 28px;width:68%;" required="" name="semestre" id="semestre">
     				<option value="1">1º Semestre</option>
     				<option value="2">2º Semestre</option>
     				<option value="3">3º Semestre</option>
@@ -40,18 +40,19 @@
     				<option value="8">8º Semestre</option>
     			</select></br>
 
-          <select class="imobSelect" style="font-size: 28px;width:65%" name="curso" id="curso">
+          <select class="imobSelect" style="font-size: 28px;width:68%" name="curso" id="curso">
         		<option value="PP">PP</option>
         		<option value="RTV">RTV</option>
       		</select><br>
 
-          <select class="imobSelect" style="font-size: 28px;width:65%" name="turno" id="turno">
+          <select class="imobSelect" style="font-size: 28px;width:68%" name="turno" id="turno">
         		<option value="Matutino">Matutino</option>
         		<option value="Noturno">Noturno</option>
       		</select>
 
 
-          <input style="width:60%; font-size:22px;left:35px;padding:15px;"type="submit" name="fazerprova" value="Fazer prova">
+          <input style="width:60%; font-size:22px;left:35px;padding:15px;"
+          type="submit" name="fazerprova" value="Fazer prova">
         </form>
       </div>
                
