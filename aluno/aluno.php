@@ -1,7 +1,8 @@
 <?php
 //TODO verificar se o aluno fez o pré registro para fazer a prova
-
+include('../classes/class_disciplina.php');
 if (isset($_POST['fazerprova'])) {
+
   $nome = $_POST['nome'];
   $ra = $_POST['ra'];
   $semestre = $_POST['semestre'];
@@ -10,7 +11,16 @@ if (isset($_POST['fazerprova'])) {
   $timezone=date_default_timezone_set('America/Sao_Paulo');
   $horainicio = date('H:i:s');
 
-include('../classes/class_disciplina.php');
+  $x = new disciplina();
+  $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);
+
+  if ($retorno == null) {
+    echo "
+    <script>
+      alert('Não há nenhuma prova disponível');
+      window.location='index.php';
+    </script>";
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,8 +32,6 @@ include('../classes/class_disciplina.php');
     <form class="" action="prova.php" method="post">
       <label for="disciplina">Selecione as disciplinas: </label><br>
       <?php
-      $x = new disciplina();
-      $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);
 
       foreach ($retorno as $key) {
       ?>

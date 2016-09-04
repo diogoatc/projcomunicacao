@@ -7,15 +7,20 @@ include('../classes/class_questao.php');
 if(!empty($_POST['check_list'])) {
 
     $questoes = array();
-    $contador = 1;
+    $numResposta = 1;
+    $numQuestao = 1;
 
     foreach($_POST['check_list'] as $id) {
-            $questao = new questao();
-            $retorno = $questao->selectQuestaoByDisciplina($PDO,$id);
+        $questao = new questao();
+        $retorno = $questao->selectQuestaoByDisciplina($PDO,$id);
 
-            foreach ($retorno as $key) {
-              array_push($questoes, $key);
-            }
+        foreach ($retorno as $key) {
+          array_push($questoes, $key);
+        }
+
+        if (!isset($_SESSION)) session_start();
+        $_SESSION['questoes'] = $questoes;
+
     }
 ?>
 <!DOCTYPE html>
@@ -27,15 +32,17 @@ if(!empty($_POST['check_list'])) {
   <body>
     <h3>Prova Unificada</h3>
     <?php foreach ($questoes as $key) {
-      echo "<h4>Questão ".$contador++."</h4>";
+      echo "<h4>Questão ".$numQuestao++."</h4>";
       echo $key['titulo'];?><br>
-      <input type="radio" name="resposta" value="A"><?php print_r($key['resposta1']) ?><br>
-      <input type="radio" name="resposta" value="B"><?php print_r($key['resposta2']) ?><br>
-      <input type="radio" name="resposta" value="C"><?php print_r($key['resposta3']) ?><br>
-      <input type="radio" name="resposta" value="D"><?php print_r($key['resposta4']) ?><br>
-      <input type="radio" name="resposta" value="E"><?php print_r($key['resposta5']) ?><br>
-    <?php } ?><br>
-    <input type="submit" name="finalizar" value="Finalizar Prova">
+      <form class="" action="nota.php" method="post">
+        <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="A" required><?php print_r($key['resposta1']) ?><br>
+        <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="B"><?php print_r($key['resposta2']) ?><br>
+        <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="C"><?php print_r($key['resposta3']) ?><br>
+        <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="D"><?php print_r($key['resposta4']) ?><br>
+        <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="E"><?php print_r($key['resposta5']) ?><br>
+        <?php $numResposta++;} ?><br>
+        <input type="submit" name="finalizar" value="Finalizar Prova">
+      </form>
   </body>
 </html>
 <?php
