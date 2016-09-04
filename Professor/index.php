@@ -26,26 +26,36 @@
 <body>
 
 
-
 <div class="container">
     <div class="header">
         <img src="../assets/img/UNASP.png" alt="logo unasp">
-
 
         <nav id="menu">
             <h1>Menu Principal</h1>
             <ul type="disc">
                 <li><a href="pre-cadastra.php">Cadastrar Questões</a></li>
                 <li><a href="notasalunos.php">Notas Alunos</a></li>
-                                
+
+    <div class="dropdown">
+  <button class="dropbtn" style="">EDITAR</button>
+  <div class="dropdown-content">
+    <a href="editaquestao.php">Editar Questões</a></li>
+    <a href="editadisciplina.php">Editar Disciplina</a></li>
+  </div>
+</div>
+
+                               
             </ul>
 
             <ul id="logout" type="disc">
             <li><a href="alterarsenha.html">Alterar Senha</a></li>
            <li><a href="../logout.php">Logout</a></li>
 
+
             </ul>
+    
         </nav>
+
 
 
         <header id="cabecalho">

@@ -285,3 +285,51 @@ html, body {
     height: 100%;
     margin: 0;
 }
+/*----------------------------------------------------------------------------------------------------------------*/
+.dropbtn {
+    background-color: #333366;
+    color: white;
+    padding: 12px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    height: 10px;
+    position: fixed;
+    
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    left: 330px;
+    top:-25%;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333366;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f79f38;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #f79f38;
+}
