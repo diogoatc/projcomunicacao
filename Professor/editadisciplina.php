@@ -43,9 +43,9 @@ $iddisciplina = $_GET['id'];
             </ul>
             </nav>
             <div class="content" style="top: 44%; height: 300px;
-            width: 900px; left:40%">
+            width: 900px; left:35%">
 
-            <div class="login" style="font-family:sans-serif; font-size:16pt;">SELECIONE O SEMESTRE, CURSO E O TURNO QUE DESEJA ALTERAR	 AS QUESTÕES</div>
+            <div class="login" style="font-family:sans-serif; font-size:16pt;">ALTERE O SEMESTRE,CURSO OU TURNO DA DISCIPLINA SELECIONADA</div>
 
             <div class="form" style="top: 26%; width: 50%;left:40%;">
 

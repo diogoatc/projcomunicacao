@@ -76,20 +76,17 @@ require_once('../model/conexao.php');
 					echo "
             		<script>
 
-            		alert('DISCIPLINA EDITADA COM SUCESSO!');
-            		window.location='../Professor/listadisciplinas.php';
+            		alert('DISCIPLINA CADASTRADA COM SUCESSO!');
+            		window.location='../Admin/cadastro-disciplina.php';
 
            			 </script>
 
             	";
 				}else{
-					echo "<script> alert('ERRO EDITA DISCIPLINA');</script>";
+					echo "<script> alert('ERRO CADASTRO DISCIPLINA');</script>";
 				}
 
-			
-		$conn=null;
-
-
+			$conn=null;
 		}
 
 		//Funcão para funcionar o select ativo
