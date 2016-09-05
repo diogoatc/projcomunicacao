@@ -34,16 +34,8 @@
             <h1>Menu Principal</h1>
             <ul type="disc">
                 <li><a href="pre-cadastra.php">Cadastrar Questões</a></li>
-                <li><a href="notasalunos.php">Notas Alunos</a></li>
-
-    <div class="dropdown">
-  <button class="dropbtn" style="">EDITAR</button>
-  <div class="dropdown-content">
-    <a href="editaquestao.php">Editar Questões</a></li>
-    <a href="editadisciplina.php">Editar Disciplina</a></li>
-  </div>
-</div>
-
+              <li><a href="notasalunos.php">Notas Alunos</a></li>
+              <li><a href="editadisciplina.php">Editar Questões</a></li>
                                
             </ul>
 

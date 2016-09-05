@@ -24,14 +24,37 @@ $iddisciplina = $_GET['id'];
 <head>
 	<title>Editar Disciplina</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+<div class="container">
+			<div class="header">
+      	<img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
+   		</div>
+
+   		<nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul type="disc">
+          <li><a href="index.php">MENU</a></li>
+                      </ul>
+           <ul id="logout" type="disc">
+           <li><a href="../logout.php">Logout</a></li>
+
+            </ul>
+            </nav>
+            <div class="content" style="top: 44%; height: 300px;
+            width: 900px; left:40%">
+
+            <div class="login" style="font-family:sans-serif; font-size:16pt;">SELECIONE O SEMESTRE, CURSO E O TURNO QUE DESEJA ALTERAR	 AS QUESTÕES</div>
+
+            <div class="form" style="top: 26%; width: 50%;left:40%;">
 
 	<form method="post" action="editadisciplina.php">
 
 		<input type="hidden" name="iddisciplina" value="<?php echo $iddisciplina; ?>">
-		<label for="semestre">Semestre:</label>
-			<select required="" name="semestre" id="semestre">
+		<label style="font-size:28;margin-left: -15px;
+    padding:-12%;" for="semestre">Semestre:</label>
+			<select class="imobSelect" style="width:40%;font-size: 28px;" required="" name="semestre" id="semestre">
 					<option value="1">1º Semestre</option>
 					<option value="2">2º Semestre</option>
 					<option value="3">3º Semestre</option>
@@ -41,19 +64,27 @@ $iddisciplina = $_GET['id'];
 					<option value="7">7º Semestre</option>
 					<option value="8">8º Semestre</option>
 			</select><br/>
-		<label for="curso">Curso:</label>
-			<select required="" name="curso" id="curso">
+		<label style="font-size:28; padding:10px;" for="curso">Curso:</label>
+			<select class="imobSelect" style="width:40%;font-size: 28px;" required="" name="curso" id="curso">
 				<option value="PP">PP</option>
 				<option value="RTV">RTV</option>
 			</select><br/>
-		<label for="turno">Turno:</label>
-			<select required="" name="turno" id="turno">
+		<label style="font-size:28; padding:10px;" for="turno">Turno:</label>
+			<select class="imobSelect" style="width:40%;font-size: 28px;" required="" name="turno" id="turno">
 					<option value="Diurno">Diurno</option>
 					<option value="Noturno">Noturno</option>
-			</select><br/>
-		<input type="submit" name="envia">
+			</select><br/></br>
+		<input style="width:41%; font-size:22px;margin-left:20%;" type="submit" name="envia">
 		
 	</form>
+</div>
+</div>
+ <footer id="rodape">
+
+                    <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
+
+                </footer>
+</div>
 
 </body>
 </html

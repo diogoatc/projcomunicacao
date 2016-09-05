@@ -2,7 +2,7 @@
 include_once('../classes/class_disciplina.php');
 include_once('../classes/class_questao.php');
 
-$idquestao=$_GET['id'];
+	
 $iddisciplina = $_GET['iddisciplina'];
 
 if(isset($_GET['deleta'])){
@@ -40,26 +40,56 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 
 </head>
 <body>
-		<form id="questcad" action="editaquestao.php" method="post">
-						
-		
 
+<div class="container">
+			<div class="header">
+      	<img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
+   		</div>
+<nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul type="disc">
+                    <li><a href="index.php">MENU</a></li>
+
+                </ul>
+                            <ul id="logout" type="disc">
+           <li><a href="../logout.php">Logout</a></li>
+
+            </ul>
+            </nav>
+
+            <div class="content" style="top: 40%; height: 980px; width:600px; left:48%;">
+
+            <div class="login" style="font-family:sans-serif; font-size:20pt;">Cadastro de Questões</div>
+
+            <div class="form" style="top:8%; width: 90%;left:30%;height: 980px;">
+
+		<form id="questcad" action="editaquestao.php" method="post">
+				
 			<input type="hidden" name="iddisciplina" value="<?php echo $iddisciplina ?>"/>
+
 			<input type="hidden" name="idquestao" value="<?php echo $idquestao ?>"/>
-			<p>Enunciado da Questão:</p>
-			<textarea required="" name="titulo" id="titulo" rows="10" cols="40">Enunciado da Questão</textarea> <br/>
-			<label for="resp1">Alternativa A:</label>
-			<input required="" type="text" name="resp1"> <br/>
-			<label for="resp2">Alternativa B:</label>
-			<input required="" type="text" name="resp2"> <br/>
-			<label for="resp3">Alternativa C:</label>
-			<input required="" type="text" name="resp3"> <br/>
-			<label for="resp4">Alternativa D:</label>
-			<input required="" type="text" name="resp4"> <br/>
-			<label for="resp5">Alternativa E:</label>
-			<input required="" type="text" name="resp5"> <br/>
-			<label for="respcorreta"><h3>Alternativa Correta</h3></label>
-			<select required="" name="respcorreta" id="respcorreta">
+
+			<p style="font-size:20px;font-family: sans-serif;">Enunciado da Questão</p>
+
+			<textarea required="" name="titulo" id="titulo" rows="10" cols="74" placeholder="Enunciado da Questão"></textarea> <br/><br/>
+			<label style="font-size:20px;font-family: sans-serif;" for="resp1">Alternativa A:</label>
+			<input style="height: 0px;width:500px;" required="" type="text" name="resp1"> <br/></br>
+
+			<label style="font-size:20px;font-family: sans-serif;" for="resp2">Alternativa B:</label>
+			<input style="height: 0px;width:500px;" required="" type="text" name="resp2"> <br/></br>
+
+			<label style="font-size:20px;font-family: sans-serif;" for="resp3">Alternativa C:</label>
+			<input style="height: 0px;width:500px;" required="" type="text" name="resp3"> <br/></br>
+
+			<label style="font-size:20px;font-family: sans-serif;" for="resp4">Alternativa D:</label>
+			<input style="height: 0px;width:500px;" required="" type="text" name="resp4"> <br/></br>
+
+			<label style="font-size:20px;font-family: sans-serif;" for="resp5">Alternativa E:</label>
+			<input style="height: 0px;width:500px;" required="" type="text" name="resp5"> <br/></br></br>
+
+			<label style="font-size:25px;font-family: sans-serif;color:black;" for="respcorreta">Alternativa Correta:</label>
+
+			<select  class="imobSelect" style="font-size:35px;font-family: sans-serif; width:50px; height:45px;top:40px; border-radius:10px;" required="" name="respcorreta" id="respcorreta">
 				<option value="A">A</option>
 				<option value="B">B</option>
 				<option value="C">C</option>
@@ -68,10 +98,24 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 
 			</select> <br/>
 			
-			<input type="submit" name="envia">
+			<input style="font-size:35px;font-family: sans-serif; width:150px; height:60px;top:40px; border-radius:10px;padding:10px" type="submit" name="envia">
 		</form>
+</div>
+</div>
+   <footer id="rodape">
 
+                    <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
+
+                </footer>
+</div>
+</body>
+</html>
 		
+
+
+
+
+
 
 
 <?php
