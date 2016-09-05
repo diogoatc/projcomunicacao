@@ -28,9 +28,35 @@ if(!empty($_POST['check_list'])) {
   <head>
     <meta charset="utf-8">
     <title>Prova Unificada</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
   </head>
   <body>
-    <h3>Prova Unificada</h3>
+   <div class="container">
+      <div class="header">
+        <img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
+      </div>
+
+      <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul type="disc">
+          <li><a href="index.php">MENU</a></li>
+                      </ul>
+           <ul id="logout" type="disc">
+           <li><a href="../logout.php">Logout</a></li>
+
+            </ul>
+
+            <div class="content" style="top: 44%; height: 200px;
+            width: 800px; left:40%">
+
+            <div class="login" style="font-family:sans-serif; font-size:16pt;">Prova Unificada</div>
+
+            <div class="form" style="top: 36%; width: 50%;left:55%;">
+
+
+
+
+
     <?php foreach ($questoes as $key) {
       echo "<h4>Questão ".$numQuestao++."</h4>";
       echo $key['titulo'];?><br>
