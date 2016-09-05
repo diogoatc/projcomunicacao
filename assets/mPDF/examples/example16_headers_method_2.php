@@ -1,8 +1,8 @@
 <?php
 
-include("../mpdf.php");
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$mpdf=new mPDF('c','A4','','',32,25,47,47,10,10); 
+$mpdf = new mPDF('c','A4','','',32,25,47,47,10,10);
 
 $mpdf->mirrorMargins = 1;	// Use different Odd/Even headers and footers and mirror margins
 
@@ -21,8 +21,8 @@ $headerE = '
 </tr></table>
 ';
 
-$footer = '<div align="center">See <a href="http://mpdf1.com/manual/index.php">documentation manual</a></div>';
-$footerE = '<div align="center">See <a href="http://mpdf1.com/manual/index.php">documentation manual</a></div>';
+$footer = '<div align="center">See <a href="http://mpdf.github.io">documentation manual</a></div>';
+$footerE = '<div align="center">See <a href="http://mpdf.github.io">documentation manual</a></div>';
 
 
 $mpdf->SetHTMLHeader($header);
@@ -45,5 +45,3 @@ $mpdf->WriteHTML($html);
 
 $mpdf->Output();
 exit;
-
-?>
