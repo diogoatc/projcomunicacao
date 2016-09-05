@@ -1,5 +1,5 @@
 <?php
-//TODO verificar se o aluno fez o pré registro para fazer a prova
+if (!empty($_POST['nome']) and !empty($_POST['ra'])){
 include('../classes/class_disciplina.php');
 if (isset($_POST['fazerprova'])) {
 
@@ -10,6 +10,8 @@ if (isset($_POST['fazerprova'])) {
   $turno = $_POST['turno'];
   $timezone=date_default_timezone_set('America/Sao_Paulo');
   $horainicio = date('H:i:s');
+  setcookie('nome', $nome);
+  setcookie('ra',$ra);
 
   $x = new disciplina();
   $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);
@@ -79,5 +81,10 @@ if (isset($_POST['fazerprova'])) {
 
 
 <?php
+}
+}else{
+
+  header('Location: index.php');
+
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-//TODO verificar se o aluno fez o pré registro para fazer a prova
+if (!empty($_COOKIE['nome']) and !empty($_COOKIE['ra'])){
 
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
@@ -46,5 +46,12 @@ if(!empty($_POST['check_list'])) {
   </body>
 </html>
 <?php
+}
+setcookie('nome');
+setcookie('ra');
+
+}else{
+
+  header('Location: index.php');
 }
 ?>

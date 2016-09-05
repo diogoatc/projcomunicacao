@@ -27,7 +27,7 @@
 
         <form class="" action="aluno.php" method="post">
           <input type="text" name="nome" value="" placeholder="Nome"><br>
-          <input type="number" name="ra" value="" placeholder="RA"><br></br>
+          <input type="text" name="ra" value="" placeholder="RA"><br></br>
 
           <select class="imobSelect" style="font-size: 28px;width:68%;" required="" name="semestre" id="semestre">
     				<option value="1">1º Semestre</option>

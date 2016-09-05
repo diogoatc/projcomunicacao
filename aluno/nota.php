@@ -1,4 +1,5 @@
 <?php
+
 if (!isset($_SESSION)) session_start();
 
 if (isset($_POST['finalizar'])) {
@@ -37,3 +38,4 @@ if (isset($_POST['finalizar'])) {
     <h3>Sua nota é: <?php echo round($nota, 1); ?></h3>
   </body>
 </html>
+
