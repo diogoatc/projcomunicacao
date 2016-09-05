@@ -12,6 +12,12 @@
         <div class="header">
             <img src="assets/img/UNASP.png" alt="logo unasp">
         </div>
+<nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul type="disc">
+          <li><a href="index.php">MENU</a></li>
+                      </ul>
+        
         <div class="content">
             <div class="login">Login</div>
             <div class="form">
