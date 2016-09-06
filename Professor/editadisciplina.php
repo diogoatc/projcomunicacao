@@ -87,7 +87,7 @@ $iddisciplina = $_GET['id'];
 </div>
 
 </body>
-</html
+</html>
 
 <?php 
 
@@ -99,7 +99,7 @@ if(isset($_POST['envia'])){
 	$turno = $_POST['turno'];
 
 	$x = new disciplina();
-	$editadisciplina = $x->editaDisciplinaByID($PDO,$iddisciplina,$semestre,$curso,$turno);
+	$x->editaDisciplinaByID($PDO,$iddisciplina,$semestre,$curso,$turno);
 
 }
 

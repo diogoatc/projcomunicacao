@@ -76,8 +76,8 @@ require_once('../model/conexao.php');
 					echo "
             		<script>
 
-            		alert('DISCIPLINA CADASTRADA COM SUCESSO!');
-            		window.location='../Admin/cadastro-disciplina.php';
+            		alert('DISCIPLINA ALTERADA COM SUCESSO!');
+            		window.location='index.php';
 
            			 </script>
 

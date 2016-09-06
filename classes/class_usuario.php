@@ -93,7 +93,15 @@ include '../model/conexao.php';
 
 
 					if($tb->execute()){
-						echo "CADASTRO EFETUADO COM SUCESSO!  <a href='index.php'>Voltar para a area do admin</a>";
+						echo "
+            		<script>
+            
+            		alert('USUARIO CRIADO COM SUCESSO!');
+            		window.location='index.php';
+        
+           			 </script>
+        
+            	";
 					}else{
 						
 						echo "ERRO, usuário não cadastrado: ";
