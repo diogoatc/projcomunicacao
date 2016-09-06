@@ -29,6 +29,12 @@
     <div class="header">
         <img src="../assets/img/UNASP.png" alt="logo unasp">
     </div>
+    
+            <header id="cabecalho">
+                <hgroup>
+                <h1>RELATÓRIOS</h1>
+                </hgroup>    
+                </header>
 
         <nav id="menu">
         <h1>Gerar relatorios</h1>
@@ -45,12 +51,6 @@
             </ul>
 
         </nav>
-
-            <header id="cabecalho">
-                <hgroup>
-                <h1>RELATÓRIOS</h1>
-                </hgroup>    
-                </header>
 
         <nav style="margin-left:630px; margin-top:10px;">
             <a href="../classes/class_relatorio_teste.php">
