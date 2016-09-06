@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 5.7.13, for Linux (x86_64)
+CREATE DATABASE  IF NOT EXISTS `projcomunicacao` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `projcomunicacao`;
+-- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: projcomunicacao
+-- Host: 127.0.0.1    Database: projcomunicacao
 -- ------------------------------------------------------
--- Server version	5.7.13-0ubuntu0.16.04.2
+-- Server version	5.6.28-0ubuntu0.15.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -42,7 +44,7 @@ CREATE TABLE `disciplina` (
 
 LOCK TABLES `disciplina` WRITE;
 /*!40000 ALTER TABLE `disciplina` DISABLE KEYS */;
-INSERT INTO `disciplina` VALUES (1,2,'Programação','PP','Noturno',0,1),(2,2,'HIC','RTV','Matutino',0,1);
+INSERT INTO `disciplina` VALUES (1,2,'Programação','PP','Noturno',1,1),(2,2,'HIC','RTV','Matutino',1,1);
 /*!40000 ALTER TABLE `disciplina` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,6 +85,7 @@ DROP TABLE IF EXISTS `prova`;
 CREATE TABLE `prova` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ra` int(11) NOT NULL,
+  `nomealuno` varchar(45) NOT NULL,
   `nota` double NOT NULL,
   `dtainicio` datetime DEFAULT NULL,
   `dtafim` datetime DEFAULT NULL,
@@ -96,7 +99,7 @@ CREATE TABLE `prova` (
 
 LOCK TABLES `prova` WRITE;
 /*!40000 ALTER TABLE `prova` DISABLE KEYS */;
-INSERT INTO `prova` VALUES (1,89696,10,'2016-08-24 20:44:56',NULL);
+INSERT INTO `prova` VALUES (1,89696,'',10,'2016-08-24 20:44:56',NULL);
 /*!40000 ALTER TABLE `prova` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,6 +127,7 @@ CREATE TABLE `prova_disciplina` (
 
 LOCK TABLES `prova_disciplina` WRITE;
 /*!40000 ALTER TABLE `prova_disciplina` DISABLE KEYS */;
+INSERT INTO `prova_disciplina` VALUES (1,1);
 /*!40000 ALTER TABLE `prova_disciplina` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,6 +163,36 @@ LOCK TABLES `questao` WRITE;
 /*!40000 ALTER TABLE `questao` DISABLE KEYS */;
 INSERT INTO `questao` VALUES (1,1,'Porque o céu é azul?',NULL,'Porque sim','Porque não','Não sei','Vai saber','NDA','B'),(2,1,'Qual a melhor linguagem?',NULL,'Java','Python','PHP','Ruby','Pascal','A'),(3,2,'Porque a gente veste a calça e calça a bota?',NULL,'Se joga','de lá pra cá','de lá pra lá','Sacos plásticos','Dilma vez','A');
 /*!40000 ALTER TABLE `questao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `questoes_aluno`
+--
+
+DROP TABLE IF EXISTS `questoes_aluno`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `questoes_aluno` (
+  `id` int(11) NOT NULL,
+  `idprova` int(11) NOT NULL,
+  `idquestao` int(11) NOT NULL,
+  `respostaaluno` varchar(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_questoes_aluno_prova1_idx` (`idprova`),
+  KEY `fk_questoes_aluno_questao1_idx` (`idquestao`),
+  CONSTRAINT `fk_questoes_aluno_prova1` FOREIGN KEY (`idprova`) REFERENCES `prova` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_questoes_aluno_questao1` FOREIGN KEY (`idquestao`) REFERENCES `questao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `questoes_aluno`
+--
+
+LOCK TABLES `questoes_aluno` WRITE;
+/*!40000 ALTER TABLE `questoes_aluno` DISABLE KEYS */;
+INSERT INTO `questoes_aluno` VALUES (1,1,1,'A'),(2,1,2,'B');
+/*!40000 ALTER TABLE `questoes_aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -200,4 +234,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-24 22:11:15
+-- Dump completed on 2016-09-05 22:04:00
