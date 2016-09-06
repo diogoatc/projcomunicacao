@@ -24,36 +24,33 @@ include('../classes/class_questao.php');
 	<title>Cadastro de questões</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../assets/css/style.css">
-
 </head>
+
 <body>
 
 	<div class="container">
-			<div class="header">
-      	<img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
-   		</div>
-<nav id="menu">
+	<div class="header">
+    	<img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
+   	</div>
+			<nav id="menu">
                 <h1>Menu Principal</h1>
                 <ul type="disc">
                     <li><a href="index.php">MENU</a></li>
-
                 </ul>
-                            <ul id="logout" type="disc">
-           <li><a href="../logout.php">Logout</a></li>
-
-            </ul>
+           
+                <ul id="logout" type="disc">
+		           <li><a href="../logout.php">Logout</a></li>
+		        </ul>
             </nav>
 
             <div class="content" style="top: 40%; height: 980px; width:600px; left:48%;">
-
             <div class="login" style="font-family:sans-serif; font-size:20pt;">Cadastro de Questões</div>
-
             <div class="form" style="top:8%; width: 90%;left:30%;height: 980px;">
 
-		<form id="questcad" action="cadastraquestoes.php" method="post">
-			<label style="font-size:20px;font-family: sans-serif;height: 50%;" for="disciplina">Disciplina: </label>
+			<form id="questcad" action="cadastraquestoes.php" method="post">
+				<label style="font-size:20px;font-family: sans-serif;height: 50%;" for="disciplina">Disciplina: </label>
 
-			<select class="imobSelect" style="font-size:25px;font-family: sans-serif;height: 35%;width:46%;" required="" name="disciplina" id="disciplina" >
+				<select class="imobSelect" style="font-size:25px;font-family: sans-serif;height: 35%;width:46%;" required="" name="disciplina" id="disciplina" >
 
 			<?php
 			
@@ -73,6 +70,7 @@ include('../classes/class_questao.php');
 		}
 		?>
 			</select>
+
 			<select  class="imobSelect" style="font-size:25px;font-family: sans-serif;height: 35%;width:35%;" required="" name="semestre" id="semestre">
 				<option value="1">1º Semestre</option>
 				<option value="2">2º Semestre</option>
@@ -159,13 +157,10 @@ if(isset($_POST['envia'])){
 ?>
 
 </div>
-
 </div>
    <footer id="rodape">
-
-                    <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
-
-                </footer>
+         <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
+    </footer>
  </div>
 
 </body>

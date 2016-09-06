@@ -24,59 +24,60 @@ if (isset($_POST['fazerprova'])) {
     </script>";
   }
 ?>
+
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Prova Unificada</title>
   </head>
-  <body>
 
-<div class="container">
+<body>
+
+      <div class="container">
       <div class="header">
         <img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
       </div>
 
-<nav id="menu">
-                <h1>Menu Principal</h1>
-                <ul type="disc">
-          <li><a href="../index.php">MENU</a></li>
-</ul>
-            </nav>
+          <nav id="menu">
+              <h1>Menu Principal</h1>
+            <ul type="disc">
+              <li><a href="../index.php">MENU</a></li>
+            </ul>
+          </nav>
 
-            <div class="content" style="top: 44%; height: 220px;
-            width: 480px; left:50%">
-
-                        <div class="login" style="font-family:sans-serif; font-size:18pt;">Prova Unificada</div>
-                                <div class="form" style="top: 30%; width:70%;left:60%;">
+      <div class="content" style="top: 44%; height: 220px;width: 480px; left:50%">
+      <div class="login" style="font-family:sans-serif; font-size:18pt;">Prova Unificada</div>
+      <div class="form" style="top: 30%; width:70%;left:60%;">
 
 
 
-    <form class="" action="prova.php" method="post">
+          <form class="" action="prova.php" method="post">
 
-      <label style="left:40px;font-size:22px;font-family:sans-serif;" for="disciplina">Selecione as disciplinas</label><br>
-      <?php
+            <label style="left:40px;font-size:22px;font-family:sans-serif;" for="disciplina">Selecione as disciplinas</label><br/>
+<?php
+foreach ($retorno as $key) {
+?>
 
-      foreach ($retorno as $key) {
-      ?>
+            <input style="width:3%;" type="checkbox" name="check_list[]" value="<?php echo $key['id'] ?>">
+<?php
+echo $key['nomedisciplina']." | ".$key['nomeprofessor']." | ".$key['curso']." | ".$key['turno']." | ".$key['id'];
+echo "<br>";
+}
+?>
 
-      <input style="width:3%;" type="checkbox" name="check_list[]" value="<?php echo $key['id'] ?>">
-      <?php
-      echo $key['nomedisciplina']." | ".$key['nomeprofessor']." | ".$key['curso']." | ".$key['turno']." | ".$key['id'];
-      echo "<br>";
-    }
-    ?>
-    <input style="width:60%; font-size:22px;left:35px;padding:15px;" type="submit" name="prova" value="Avançar">
-    </form>
+            <input style="width:60%; font-size:22px;left:35px;padding:15px;" type="submit" name="prova" value="Avançar">
+          </form>
 
-  </body>
-  </div>
- </div>
-  <footer id="rodape">
-
-                    <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br></b></p></footer>
-  </div>
+</body>
+      </div>
+      </div>
+          <footer id="rodape">
+            <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.</b></p><br>
+          </footer>
+      </div>
 </html>
 
 

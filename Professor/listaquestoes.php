@@ -27,9 +27,28 @@ $retorno = $x->selectQuestaoByDisciplina($PDO,$iddisciplina);
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Lista de Questões</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+ 	<div class="container">
+    <div class="header">
+        <img src="../assets/img/UNASP.png" alt="logo unasp">
+    </div>    
+
+    <nav id="menu">
+              <h1>Menu Principal</h1>
+            <ul type="disc">
+              <li><a href="index.php">MENU</a></li>
+            </ul>
+                
+            <ul id="logout" type="disc">
+              <li><a href="../logout.php">Logout</a></li>
+            </ul>
+     </nav>
+
+
 
 <table border='1' cellspacing='3' cellpadding='2'>
 <thead> 
@@ -59,6 +78,13 @@ $retorno = $x->selectQuestaoByDisciplina($PDO,$iddisciplina);
 <?php } ?>
 
 </table>
+
+            <footer id="rodape">
+
+                <p><b>Copyright &copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
+
+            </footer>
+</div>
 </body>
 
 </html>
