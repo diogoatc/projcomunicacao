@@ -51,6 +51,12 @@
             <a href="../classes/class_relatorio_teste.php">
                <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;">
             </a>
+            <a href="../assets/mPDF/examples/example09_forms.php">
+               <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;">
+            </a>
+             <a href="../assets/mPDF/examples/example16_headers_method_2.php">
+               <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;">
+            </a>
         </hgroup>
 
         <footer id="rodape">
