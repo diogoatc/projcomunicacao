@@ -50,6 +50,7 @@
                 <h1>ÁREA DO ADMINISTRADOR</h1>
                 <h2>Seja bem-vindo Administrador(a): <?php echo $_SESSION['UsuarioNome'];?></h2>
             </hgroup>
+        </header>
 
             <footer id="rodape">
                 <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>

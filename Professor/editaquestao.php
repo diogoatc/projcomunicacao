@@ -102,7 +102,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 	</div>
 	</div>
   		<footer id="rodape">
-	          <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.</b></p><br>
+	          <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
         </footer>
 	</div>
 	

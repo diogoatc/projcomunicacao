@@ -45,23 +45,26 @@
             </ul>
 
         </nav>
-    
+
             <header id="cabecalho">
                 <hgroup>
-                <h1>ÁREA DO ADMINISTRADOR</h1>
+                <h1>RELATÓRIOS</h1>
+                </hgroup>    
+                </header>
 
-                <a href="../classes/class_relatorio_teste.php">
-                    <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;"></a>
+        <nav style="margin-left:630px; margin-top:10px;">
+            <a href="../classes/class_relatorio_teste.php">
+                <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;"></a>
+            <a href="../assets/mPDF/examples/example09_forms.php">
+                <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;"></a>
+            <a href="../assets/mPDF/examples/example16_headers_method_2.php">
+                <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;"></a>
+        </nav>
 
-                <a href="../assets/mPDF/examples/example09_forms.php">
-                    <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;"></a>
 
-                <a href="../assets/mPDF/examples/example16_headers_method_2.php">
-                    <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;"></a>
-                </hgroup>
 
     <footer id="rodape">
-        <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.</b></p>
+        <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<b>
     </footer>
 </div>
 
