@@ -5,7 +5,7 @@
 </head>
 <body>
 	<form enctype="multipart/form-data" action="testeimagem.php" method="post" >
-	<input type="hidden" name="MAX_FILE_SIZE" value="300000" />
+	<input type="hidden" name="MAX_FILE_SIZE" value="3000000"/>
 		<p>IMAGEM:</p>
 		<input type="file" data-max-size="2048" name="imagem"> <br/>
 		<input type="submit" name="envia">
@@ -18,7 +18,8 @@
 if(isset($_POST['envia'])){
 
 	$imagem = $_FILES["imagem"];
-	echo $imagem['error'];
+	echo $imagem['size']."<br/>";
+	echo $imagem['error']."<br/>";
 	var_dump($imagem);
 	$img_src = $imagem['tmp_name'];
 	$imgbinary = fread(fopen($img_src, "r"), filesize($img_src));

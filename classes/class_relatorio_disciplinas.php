@@ -27,8 +27,8 @@
           $idusuario= $_GET['idusuario'];
           $consulta = $PDO->query("SELECT D.nome, D.curso, D.turno, D.semestre,P.ra, P.nomealuno, P.nota 
                                     FROM disciplina D INNER JOIN prova_disciplina PD ON D.id = PD.iddisciplina INNER JOIN prova P
-                                    ON P.id = PD.idprova WHERE D.idusuario = :idusuario");
-            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                                    ON P.id = PD.idprova WHERE D.idusuario = $idusuario");
+            while ($linha = $consulta->fetchAll(PDO::FETCH_ASSOC)) {
               
               $html .= '
               <tr>';
