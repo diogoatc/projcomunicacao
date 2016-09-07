@@ -1,7 +1,9 @@
 <?php
 if (!empty($_POST['nome']) and !empty($_POST['ra'])){
-  if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION)) session_start();
+
 include('../classes/class_disciplina.php');
+
 if (isset($_POST['fazerprova'])) {
 
   $nome = $_POST['nome'];
@@ -15,22 +17,17 @@ if (isset($_POST['fazerprova'])) {
   $_SESSION['nome'] = $nome;
   $_SESSION['ra'] = $ra;
   $_SESSION['dtainicio'] = $dtainicio;
-  
-
- 
 
   $x = new disciplina();
   $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);
 
   if ($retorno == null) {
-    echo "
-    <script>
-      alert('Não há nenhuma prova disponível');
-      window.location='index.php';
+    echo "<script>
+    alert('Não há nenhuma prova disponível');
+    window.location='index.php';
     </script>";
   }
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -90,8 +87,6 @@ echo "<br>";
 <?php
 }
 }else{
-
   header('Location: index.php');
-
 }
 ?>

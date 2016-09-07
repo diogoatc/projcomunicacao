@@ -7,23 +7,21 @@ include('../classes/class_questao.php');
 
 if(!empty($_POST['check_list'])) {
 
-    $questoes = array();
-    $numResposta = 1;
-    $numQuestao = 1;
-    $check_list=$_POST['check_list'];
-    foreach($check_list as $id) {
-        $questao = new questao();
-        $retorno = $questao->selectQuestaoByDisciplina($PDO,$id);
+  $questoes = array();
+  $numResposta = 1;
+  $numQuestao = 1;
+  $check_list=$_POST['check_list'];
 
-        foreach ($retorno as $key) {
-          array_push($questoes, $key);
-        }
+  foreach($check_list as $id) {
+    $questao = new questao();
+    $retorno = $questao->selectQuestaoByDisciplina($PDO,$id);
 
-        
- }
- setcookie('questoes',serialize($questoes));
- setcookie('check_list',serialize($check_list));
-
+    foreach ($retorno as $key) {
+      array_push($questoes, $key);
+    }
+  }
+  setcookie('questoes',serialize($questoes));
+  setcookie('check_list',serialize($check_list));
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,11 +43,11 @@ if(!empty($_POST['check_list'])) {
                 <ul type="disc">
                     <li><a href="index.php">MENU</a></li>
                 </ul>
-           
+
                 <ul id="logout" type="disc">
                     <li><a href="../logout.php">Logout</a></li>
                 </ul>
-          </nav>         
+          </nav>
 
       <div class="content" style="top: 44%; height: 200px;width: 800px; left:40%">
       <div class="login" style="font-family:sans-serif; font-size:16pt;">Prova Unificada</div>
@@ -75,16 +73,13 @@ if(!empty($_POST['check_list'])) {
           <footer id="rodape">
              <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
           </footer>
-      </div>  
+      </div>
 
 </body>
 </html>
 <?php
 }
-
-
-}else{
-
+}else {
   header('Location: index.php');
 }
 ?>
