@@ -112,7 +112,7 @@ class usuario {
 		if($tb->execute()){
 			echo "<script>
 			alert('SENHA ALTERADA COM SUCESSO!');
-			window.location='alterarsenha.html';
+			window.location='index.php';
 			</script>";
 		}else{
 			echo "ERRO, SENHA NÃO ALTERADA";

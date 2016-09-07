@@ -49,7 +49,7 @@
             </ul>
 
             <ul id="logout" type="disc">
-                <li><a href="alterarsenha.html">Alterar Senha</a></li>
+                <li><a href="alterarsenha.php">Alterar Senha</a></li>
                 <li><a href="../logout.php">Logout</a></li>
             </ul>
         </nav>
