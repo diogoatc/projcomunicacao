@@ -22,10 +22,12 @@
           <tbody>';
           include '../model/conexao.php';
           $idusuario = $_GET['idusuario'];
-          $consulta = $PDO->query("SELECT D.nome, D.curso, D.turno, D.semestre,P.ra, P.nomealuno, P.nota 
-                                    FROM disciplina D INNER JOIN prova_disciplina PD ON D.id = PD.iddisciplina INNER JOIN prova P
-
-                                    ON P.id = PD.idprova WHERE D.idusuario = $idusuario");
+          $consulta = $PDO->query("SELECT D.nome, D.curso, D.turno, D.semestre,P.ra, P.nomealuno, ROUND(P.nota, 1) AS nota
+                                    FROM disciplina D
+                                    INNER JOIN prova_disciplina PD
+                                    ON D.id = PD.iddisciplina
+                                    INNER JOIN prova P
+                                    ON P.id = PD.idprova WHERE D.idusuario = 2");
             $consulta->execute();
             $resultado=$consulta->fetchAll(PDO::FETCH_ASSOC);
 
@@ -65,5 +67,3 @@
 
   $css = file_get_contents('../assets/reports/css/style.css');
   $pdf->WriteHTML($css,1);
-
-  
