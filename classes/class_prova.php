@@ -66,7 +66,6 @@ include '../model/conexao.php';
 			}
 
 			$lastId = $pdo->lastInsertId();
-			echo "<script>alert('".$lastId."');</script>";
 
 			//Insere na tabela de relacionamento prova_disciplina
 			$conn = $pdo->prepare("INSERT INTO prova_disciplina (idprova, iddisciplina)
@@ -82,8 +81,6 @@ include '../model/conexao.php';
 					echo "ERRO SALVAR PROVA_DISCIPLINA: ".$key;
 				}
 			}
-
-			echo "<script>alert('".$lastId."');</script>";
 
 			//Insere na tabela de relacionamento questoes_aluno
 			$conn = $pdo->prepare("INSERT INTO questoes_aluno (idprova, idquestao, respostaaluno)
