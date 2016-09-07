@@ -1,6 +1,7 @@
-<?php  
-  include('../classes/class_disciplina.php');
-  include('../model/conexao.php');
+<?php
+include('verifica_sessao_admin.php');
+include('../classes/class_disciplina.php');
+include('../model/conexao.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@
             <ul type="disc">
               <li><a href="index.php">MENU</a></li>
             </ul>
-                
+
             <ul id="logout" type="disc">
               <li><a href="../logout.php">Logout</a></li>
             </ul>
@@ -39,7 +40,7 @@
       			     <input type="text" name="nome" required="Nome da Disciplina Obrigatório" placeholder="Exemplo: Atendimento Publicitário"><br/></br>
 
                  <label style="font-size:20px;font-family: sans-serif;height: 10%;" for="curso">Curso: </label>
-                
+
                 <select class="imobSelect" type="text" name="curso">
                  <option value="PP">PP</option>
                  <option value="RTV">RTV</option>
@@ -71,9 +72,7 @@
 
 </body>
 </html>
-
-<?php  
-  
+<?php
   if(isset($_POST['envia'])){
     $nome = $_POST['nome'];
     $curso = $_POST['curso'];
@@ -83,7 +82,5 @@
 
     $x = new disciplina();
     $cadDisciplina = $x->cadastra_itemdisciplina($PDO, $nome, $curso, $turno, $credito, $flgativo);
-   
   }
-
 ?>

@@ -1,22 +1,8 @@
 <?php
-      
-    // A sessão precisa ser iniciada em cada página diferente
-    if (!isset($_SESSION)) session_start();
-      
-    $nivel_necessario = 1;  //1 é o nível Admin
-      
-    // Verifica se não há a variável da sessão que identifica o usuário
-    if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
-        // Destrói a sessão por segurança
-        echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
-        session_destroy();
-        // Redireciona o visitante de volta pro login
-        header("Location: ../index.php"); exit;
-    }
-      
+include('verifica_sessao_admin.php');
 ?>
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 
 <head>
     <title>Área do Administrador</title>
@@ -29,11 +15,11 @@
     <div class="header">
         <img src="../assets/img/UNASP.png" alt="logo unasp">
     </div>
-    
+
             <header id="cabecalho">
                 <hgroup>
                 <h1>RELATÓRIOS</h1>
-                </hgroup>    
+                </hgroup>
                 </header>
 
         <nav id="menu">
@@ -42,8 +28,8 @@
             <ul type="disc">
                  <li><a href="index.php">MENU</a></li>
                  <li><a href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
-                 <li><a href="cadastro-professor.html">Cadastrar Professor</a></li>
-                           
+                 <li><a href="cadastro-professor.php">Cadastrar Professor</a></li>
+
             </ul>
 
              <ul id="logout" type="disc">
