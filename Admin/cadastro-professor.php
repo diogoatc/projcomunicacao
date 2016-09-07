@@ -1,20 +1,8 @@
 <?php
-
-  //A sessão precisa ser iniciada em cada página diferente
-    if (!isset($_SESSION)) session_start();
-      
-    $nivel_necessario = 2;  //2 é o nível professor 
-      
-    // Verifica se não há a variável da sessão que identifica o usuário
-    if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
-        // Destrói a sessão por segurança
-        echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
-        session_destroy();
-        // Redireciona o visitante de volta pro login
-        header("Location: ../index.php"); exit;
-    }
-        ?>
-
+include('verifica_sessao_admin.php');
+include('../model/conexao.php');
+include('../classes/class_usuario.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +21,7 @@
 		          <li><a href="index.php">MENU</a></li>
 		     </ul>
         </nav>
-       	
+
        	<div id="cad-prof" class="content">
         <div id="cadastro-prof" class="login">Cadastro de Professores</div>
 		<div id="form-cad-prof" class="form">
@@ -65,3 +53,31 @@
 
 </body>
 </html>
+<?php
+if(isset($_POST['enviar'])){
+
+	if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha'])
+	OR empty($_POST['nome']) OR empty($_POST['email']))) {
+
+		header("Location: ../index.php");
+		exit;
+	}
+
+	$usuario = $_POST['usuario'];
+	$senha = sha1($_POST['senha']);
+	$nome = $_POST['nome'];
+	$email = $_POST['email'];
+	$nivel = 2;
+	$flgativo = 1;
+
+	$y= new usuario();
+	$resultado = $y->verificaExistente($PDO,$usuario);
+
+	if(!empty($resultado)){
+		echo "<script> alert('Este usuário já existe.');</script>";
+		header("Location: cadastro-professor.php"); exit;
+	}else{
+		$y->registrarProfessor($PDO, $nome, $usuario, $senha, $email, $nivel, $flgativo);
+	}
+}
+?>
