@@ -1,4 +1,4 @@
-<?php  
+<?php
 include '../model/conexao.php';
 
 	class prova {
@@ -50,70 +50,34 @@ include '../model/conexao.php';
 			return $this->nota = $nota;
 		}
 
-
-		function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio){
-
+		function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas){
 			$conn = $pdo->prepare("INSERT INTO prova (ra,nomealuno,nota,dtainicio,dtafim)
-								 VALUES (:ra, :nomealuno, :nota, :dtainicio, now()) ");
+			VALUES (:ra, :nomealuno, :nota, :dtainicio, now()) ");
 
 			$conn->bindParam(":ra", $ra, PDO::PARAM_INT);
 			$conn->bindParam(":nomealuno", $nomealuno, PDO::PARAM_STR);
 			$conn->bindParam(":nota", $nota, PDO::PARAM_STR);
 			$conn->bindParam(":dtainicio", $dtainicio, PDO::PARAM_STR);
-			
-			if($conn->execute()){
-				echo "
-            		<script>
-            
-            		alert('PROVA SALVA');
-            		
-        
-           			 </script>
-        
-            	";
-			}else{
 
+			if($conn->execute()){
+				echo "<script>alert('PROVA SALVA');</script>";
+			}else{
 				echo "ERRO SALVAR PROVA";
 			}
-		}
 
-		function retornaIdProva($pdo,$ra,$nome){
-			$conn = $pdo->prepare("SELECT id FROM prova WHERE ra=:ra and nomealuno=:nomealuno");
-			$conn->bindParam(":ra", $ra, PDO::PARAM_INT);
-			$conn->bindParam(":nomealuno", $nomealuno, PDO::PARAM_STR);
-
-			if($conn->execute()){
-
-			 return $conn->fetchColumn();
-
-			}else{
-
-			echo "<script> alert('ERRO RETORNA ID');</script>";
-			}
-		}
-
-		function relacionaProvaDisciplina($pdo,$idprova,$iddisciplina){
-
+			//Insere na tabela de relacionamento prova_disciplina
 			$conn = $pdo->prepare("INSERT INTO prova_disciplina (idprova, iddisciplina)
-								 VALUES (:idprova, :iddisciplina)");
-			$conn->bindParam(":idprova", $idprova, PDO::PARAM_INT);
-			$conn->bindParam(":iddisciplina", $iddisciplina, PDO::PARAM_INT);
+			VALUES (LAST_INSERT_ID(), :iddisciplina)");
 
-			if($conn->execute()){
-				echo "
-            		<script>
-            
-            		alert('PROVA_DISCIPLINA SALVA');
-            		
-        
-           			 </script>
-        
-            	";
-			}else{
+			foreach ($disciplinas as $key) {
+				$conn->bindParam(":iddisciplina", $key, PDO::PARAM_INT);
 
-				echo "ERRO SALVAR PROVA_DISCIPLINA";
+				if($conn->execute()){
+					echo "<script>alert('PROVA_DISCIPLINA SALVA');</script>";
+				}else{
+					echo "ERRO SALVAR PROVA_DISCIPLINA: ".$key;
+				}
 			}
-
 		}
 	}
 ?>

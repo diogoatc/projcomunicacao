@@ -1,5 +1,4 @@
-<?php  
-
+<?php
 
 	class questao {
 		private $id;
@@ -88,15 +87,15 @@
 			$conn->bindParam(":id",$id,PDO::PARAM_INT);
 
 			if($conn->execute()){
-					
+
 					echo "
             		<script>
-            
+
             		alert('Questão Excluída com Sucesso');
             		window.location='listaquestoes.php?id=".$iddisciplina."';
-        
+
            			 </script>
-        
+
             	";
 				}else{
 					echo "<script> alert('ERRO EXCLUI QUESTÃO');</script>";
@@ -111,9 +110,9 @@
 
 
 			$conn = $pdo->prepare("UPDATE questao SET iddisciplina = :iddisciplina,
-												 titulo = :titulo, 
+												 titulo = :titulo,
 												 resposta1 = :resposta1,
-												 resposta2 = :resposta2, 
+												 resposta2 = :resposta2,
 												 resposta3 = :resposta3,
 												 resposta4 = :resposta4,
 												 resposta5 = :resposta5,
@@ -142,7 +141,7 @@
 		$conn=null;
 
 		}
-		
+
 
 		function selectQuestaoByDisciplina($pdo,$id){
 
@@ -177,5 +176,5 @@
 	$conn=null;
 		}
 }
-	
+
 ?>
