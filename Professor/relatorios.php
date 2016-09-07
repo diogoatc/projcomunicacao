@@ -25,7 +25,6 @@
 </head>
 <body>
 
-
     <div class="container">
     <div class="header">
         <img src="../assets/img/UNASP.png" alt="logo unasp">
@@ -34,9 +33,10 @@
         <header id="cabecalho">
             <hgroup>
                 <h1>ÁREA DO PROFESSOR</h1>
-                <!--a href="../classes/class_relatorio_teste.php">
-                   <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;">
-                </a-->
+                <a href="../classes/class_relatorio_teste.php">
+                    teste
+                </a>
+                |
                 <a href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
                     Relatorios de todas as disciplinas
                 </a>
