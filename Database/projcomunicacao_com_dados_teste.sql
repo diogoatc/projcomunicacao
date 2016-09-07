@@ -26,7 +26,7 @@ INSERT INTO `disciplina` (`id`, `idusuario`, `nome`, `curso`, `turno`, `semestre
 (4,	4,	'Atendimento Publicitário',	'PP',	'Diurno',	1,	1),
 (5,	4,	'Dramaturgia Dir. Atores',	'RTV',	'Noturno',	2,	1),
 (6,	4,	'Psicologia da Comunicação',	'PP',	'Noturno',	1,	1),
-(7,	9,	'Batatões',	'PP',	'Diurno',	1,	1),
+(7,	9,	'Batatões',	'PP',	'Noturno',	1,	1),
 (8,	4,	'exemplo',	'PP',	'Diurno',	1,	1);
 
 DROP TABLE IF EXISTS `itemdisciplina`;
@@ -103,7 +103,9 @@ INSERT INTO `prova` (`id`, `ra`, `nomealuno`, `nota`, `dtainicio`, `dtafim`) VAL
 (32,	24125,	'asdgasdg',	3.3333333333333,	'2016-09-07 12:22:25',	'2016-09-07 15:22:35'),
 (33,	23512,	'Gasdgas',	6.6666666666667,	'2016-09-07 12:28:22',	'2016-09-07 15:28:35'),
 (34,	23512,	'Gasdgas',	6.6666666666667,	'2016-09-07 12:28:22',	'2016-09-07 15:28:38'),
-(35,	12412,	'gadgasdg',	6.6666666666667,	'2016-09-07 12:30:50',	'2016-09-07 15:31:03');
+(35,	12412,	'gadgasdg',	6.6666666666667,	'2016-09-07 12:30:50',	'2016-09-07 15:31:03'),
+(36,	104696,	'Diogo Lopes',	0,	'2016-09-07 14:36:15',	'2016-09-07 17:36:33'),
+(37,	79256,	'ANA CARLA MORAES',	0,	'2016-09-07 18:18:44',	'2016-09-07 21:20:22');
 
 DROP TABLE IF EXISTS `prova_disciplina`;
 CREATE TABLE `prova_disciplina` (
@@ -129,6 +131,7 @@ INSERT INTO `prova_disciplina` (`idprova`, `iddisciplina`) VALUES
 (33,	1),
 (34,	1),
 (35,	1),
+(36,	1),
 (24,	6),
 (25,	6),
 (26,	6),
@@ -139,14 +142,16 @@ INSERT INTO `prova_disciplina` (`idprova`, `iddisciplina`) VALUES
 (32,	6),
 (33,	6),
 (34,	6),
-(35,	6);
+(35,	6),
+(36,	6),
+(37,	6);
 
 DROP TABLE IF EXISTS `questao`;
 CREATE TABLE `questao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddisciplina` int(11) NOT NULL,
   `titulo` varchar(512) NOT NULL,
-  `imagem` varchar(50) DEFAULT NULL,
+  `imagem` longtext,
   `resposta1` varchar(255) NOT NULL,
   `resposta2` varchar(255) NOT NULL COMMENT '	',
   `resposta3` varchar(255) NOT NULL,
@@ -188,7 +193,11 @@ CREATE TABLE `questoes_aluno` (
 INSERT INTO `questoes_aluno` (`id`, `idprova`, `idquestao`, `respostaaluno`) VALUES
 (1,	35,	1,	'B'),
 (2,	35,	2,	'A'),
-(3,	35,	15,	'E');
+(3,	35,	15,	'E'),
+(4,	36,	1,	'C'),
+(5,	36,	2,	'D'),
+(6,	36,	15,	'B'),
+(7,	37,	15,	'C');
 
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
@@ -207,7 +216,7 @@ INSERT INTO `usuario` (`id`, `nome`, `usuario`, `senha`, `email`, `nivel`, `flga
 (1,	'Teste Teste',	'teste',	'teste',	'teste@mail.com',	1,	1),
 (2,	'Percival Lucena',	'Percival',	'f6c651682660a72dc794d2081ccb1241a2ea4b67',	'percival@gmail.com',	1,	1),
 (3,	'Testando',	'teste2',	'162c79263d0f38233aa91dfd9900026664846739',	'testetes@teste.com',	2,	1),
-(4,	'Diogo Lopes',	'diogo',	'47da36337c9140e2e9f1517a0ddeb0025e0c3310',	'diogol_l@hotmail.com',	2,	1),
+(4,	'Diogo Lopes',	'diogo',	'8cb2237d0679ca88db6464eac60da96345513964',	'diogol_l@hotmail.com',	2,	1),
 (5,	'Professor Batata',	'batata',	'8cb2237d0679ca88db6464eac60da96345513964',	'123@123.com',	2,	1),
 (6,	'Diogo teste 3',	'teste3',	'8cb2237d0679ca88db6464eac60da96345513964',	'diogol_l@hotmail.com',	2,	1),
 (7,	'Diogo Lopes',	'Batatões',	'8cb2237d0679ca88db6464eac60da96345513964',	'123@123.com',	2,	1),
@@ -215,4 +224,4 @@ INSERT INTO `usuario` (`id`, `nome`, `usuario`, `senha`, `email`, `nivel`, `flga
 (9,	'Gabriel Tagliari',	'gabriel',	'18a98c35f49808b45edadc75fb1b25ebfd4037d6',	'gabriel@gabriel.com',	2,	1),
 (10,	'Gabriel Teste',	'testegabriel',	'330a496768518ccc7883d0d2d696d250f7a23aba',	'gabrielteste@teste.com',	2,	1);
 
--- 2016-09-07 15:33:14
+-- 2016-09-07 21:55:20

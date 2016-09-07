@@ -61,7 +61,7 @@ CREATE TABLE `questao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddisciplina` int(11) NOT NULL,
   `titulo` varchar(512) NOT NULL,
-  `imagem` varchar(50) DEFAULT NULL,
+  `imagem` longtext,
   `resposta1` varchar(255) NOT NULL,
   `resposta2` varchar(255) NOT NULL COMMENT '	',
   `resposta3` varchar(255) NOT NULL,
@@ -102,4 +102,4 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2016-09-07 15:33:11
+-- 2016-09-07 21:55:12
