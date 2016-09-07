@@ -1,5 +1,6 @@
 <?php
 if (!empty($_POST['nome']) and !empty($_POST['ra'])){
+  if (!isset($_SESSION)) session_start();
 include('../classes/class_disciplina.php');
 if (isset($_POST['fazerprova'])) {
 
@@ -9,22 +10,14 @@ if (isset($_POST['fazerprova'])) {
   $curso = $_POST['curso'];
   $turno = $_POST['turno'];
   $timezone=date_default_timezone_set('America/Sao_Paulo');
-  $horainicio = date('Y-m-d H:i:s');
+  $dtainicio = date('Y-m-d H:i:s');
 
-  setcookie('nome', $nome);
-  setcookie('ra', $ra);
-  setcookie('semestre', $semestre);
-  setcookie('curso', $curso);
-  setcookie('turno', $turno);
-  setcookie('horainicio', $horainicio);
+  $_SESSION['nome'] = $nome;
+  $_SESSION['ra'] = $ra;
+  $_SESSION['dtainicio'] = $dtainicio;
+  
 
-  echo "
-      <script>
-      alert('".$_COOKIE['nome']."');
-      alert('".$_COOKIE['semestre']."');
-
-      </script>
-  ";
+ 
 
   $x = new disciplina();
   $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);

@@ -1,12 +1,19 @@
 <?php
 
-
+if (!isset($_SESSION)) session_start();
 if (isset($_POST['finalizar'])) {
   $questoes = unserialize($_COOKIE['questoes']);
   $disciplinas = unserialize($_COOKIE['check_list']);
   $numQuestoes = count($questoes);
   $respostaAluno = array();
   $respIncorretas = 0;
+
+  echo "
+        <script>
+        alert('".var_dump($disciplinas)."');
+        </script>
+  
+      ";
 
   for ($i=1; $i < $numQuestoes+1; $i++) {
     array_push($respostaAluno, $_POST['respQuestao'.$i.'']);
@@ -43,15 +50,15 @@ if (isset($_POST['finalizar'])) {
 require_once('../classes/class_prova.php');
 include ('../model/conexao.php');
 $x = new prova();
-$ra = $_COOKIE['ra'];
-$nome = $_COOKIE['nome'];
-$horainicio = $_COOKIE['horainicio'];
+$ra = $_SESSION['ra'];
+$nome = $_SESSION['nome'];
+$dtainicio = $_SESSION['dtainicio'];
 
-$x->salvarProva($PDO,$ra,$nome,$nota, $horainicio);
+$x->salvarProva($PDO,$ra,$nome,$nota, $dtainicio);
 $idprova = $x->retornaIdProva($PDO,$ra, $nome);
 foreach ($disciplinas as $key) {
-  $x->relacionaProvaDisciplina($PDO, $idprova,$key['id']);
+  $x->relacionaProvaDisciplina($PDO, $idprova,$key);
 }
-
+  
 
 ?>

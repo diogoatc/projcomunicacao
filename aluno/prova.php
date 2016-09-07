@@ -1,5 +1,6 @@
 <?php
-if (!empty($_COOKIE['nome']) and !empty($_COOKIE['ra'])){
+if (!isset($_SESSION)) session_start();
+if (!empty($_SESSION['nome']) and !empty($_SESSION['ra'])){
 
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
