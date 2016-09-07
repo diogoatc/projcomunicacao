@@ -27,9 +27,9 @@
 
                                     ON P.id = PD.idprova WHERE D.idusuario = $idusuario");
             $consulta->execute();
-            $consulta->fetchAll(PDO::FETCH_ASSOC);
+            $resultado=$consulta->fetchAll(PDO::FETCH_ASSOC);
 
-             foreach ($consulta as $linha) {
+             foreach ($resultado as $linha) {
               $html .= '
               <tr>';
                 $html .= '
