@@ -34,7 +34,13 @@
         <header id="cabecalho">
             <hgroup>
                 <h1>ÁREA DO PROFESSOR</h1>
-                <h2>Seja bem-vindo professor(a): <?php echo $_SESSION['UsuarioNome'];?></h2>
+                <!--a href="../classes/class_relatorio_teste.php">
+                   <img src="../assets/img/pdf.png" height="60" width="60" alt="" style=" margin-top: 5%;">
+                </a-->
+                <a href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
+                    Relatorios de todas as disciplinas
+                </a>
+                
             </hgroup>
         </header> 
            
