@@ -44,6 +44,6 @@ $ra = $_SESSION['ra'];
 $nome = $_SESSION['nome'];
 $dtainicio = $_SESSION['dtainicio'];
 
-$x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas);
+$x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas, $questoes, $respostaAluno);
 
 ?>

@@ -50,7 +50,7 @@ include '../model/conexao.php';
 			return $this->nota = $nota;
 		}
 
-		function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas){
+		function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas,$questoes,$respostaAluno){
 			$conn = $pdo->prepare("INSERT INTO prova (ra,nomealuno,nota,dtainicio,dtafim)
 			VALUES (:ra, :nomealuno, :nota, :dtainicio, now()) ");
 
@@ -65,17 +65,39 @@ include '../model/conexao.php';
 				echo "ERRO SALVAR PROVA";
 			}
 
+			$lastId = $pdo->lastInsertId();
+			echo "<script>alert('".$lastId."');</script>";
+
 			//Insere na tabela de relacionamento prova_disciplina
 			$conn = $pdo->prepare("INSERT INTO prova_disciplina (idprova, iddisciplina)
-			VALUES (LAST_INSERT_ID(), :iddisciplina)");
+			VALUES (:lastId, :iddisciplina)");
 
 			foreach ($disciplinas as $key) {
+				$conn->bindParam(":lastId",$lastId, PDO::PARAM_INT);
 				$conn->bindParam(":iddisciplina", $key, PDO::PARAM_INT);
 
 				if($conn->execute()){
 					echo "<script>alert('PROVA_DISCIPLINA SALVA');</script>";
 				}else{
 					echo "ERRO SALVAR PROVA_DISCIPLINA: ".$key;
+				}
+			}
+
+			echo "<script>alert('".$lastId."');</script>";
+
+			//Insere na tabela de relacionamento questoes_aluno
+			$conn = $pdo->prepare("INSERT INTO questoes_aluno (idprova, idquestao, respostaaluno)
+			VALUES (:lastId, :idquestao, :respostaaluno)");
+
+			for ($i=0; $i < count($questoes); $i++) {
+				$conn->bindParam(":lastId", $lastId, PDO::PARAM_INT);
+				$conn->bindParam(":idquestao", $questoes[$i]['id'], PDO::PARAM_INT);
+				$conn->bindParam(":respostaaluno", $respostaAluno[$i], PDO::PARAM_STR);
+
+				if($conn->execute()){
+					echo "<script>alert('QUESTOES_ALUNO SALVA');</script>";
+				}else{
+					echo "ERRO SALVAR QUESTOES_ALUNO";
 				}
 			}
 		}
