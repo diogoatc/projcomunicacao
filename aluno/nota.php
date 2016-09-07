@@ -1,9 +1,9 @@
 <?php
 
-if (!isset($_SESSION)) session_start();
 
 if (isset($_POST['finalizar'])) {
-  $questoes = $_SESSION['questoes'];
+  $questoes = unserialize($_COOKIE['questoes']);
+  $disciplinas = unserialize($_COOKIE['check_list']);
   $numQuestoes = count($questoes);
   $respostaAluno = array();
   $respIncorretas = 0;
@@ -39,3 +39,19 @@ if (isset($_POST['finalizar'])) {
   </body>
 </html>
 
+<?php
+require_once('../classes/class_prova.php');
+include ('../model/conexao.php');
+$x = new prova();
+$ra = $_COOKIE['ra'];
+$nome = $_COOKIE['nome'];
+$horainicio = $_COOKIE['horainicio'];
+
+$x->salvarProva($PDO,$ra,$nome,$nota, $horainicio);
+$idprova = $x->retornaIdProva($PDO,$ra, $nome);
+foreach ($disciplinas as $key) {
+  $x->relacionaProvaDisciplina($PDO, $idprova,$key['id']);
+}
+
+
+?>

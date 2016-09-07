@@ -1,5 +1,5 @@
 <?php  
-include '../conexao.php';
+include '../model/conexao.php';
 
 	class prova {
 		private $id;
@@ -50,9 +50,70 @@ include '../conexao.php';
 			return $this->nota = $nota;
 		}
 
-		function registrarProva($ra, $curso, $semestre, $nota){
-			@mysql_query("INSERT INTO prova (id, ra, curso, semestre, nota)
-				VALUES ( NULL ,'$ra','$curso','$semestre','$nota')");
+
+		function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio){
+
+			$conn = $pdo->prepare("INSERT INTO prova (ra,nomealuno,nota,dtainicio,dtafim)
+								 VALUES (:ra, :nomealuno, :nota, :dtainicio, now()) ");
+
+			$conn->bindParam(":ra", $ra, PDO::PARAM_INT);
+			$conn->bindParam(":nomealuno", $nomealuno, PDO::PARAM_STR);
+			$conn->bindParam(":nota", $nota, PDO::PARAM_STR);
+			$conn->bindParam(":dtainicio", $dtainicio, PDO::PARAM_STR);
+			
+			if($conn->execute()){
+				echo "
+            		<script>
+            
+            		alert('PROVA SALVA');
+            		
+        
+           			 </script>
+        
+            	";
+			}else{
+
+				echo "ERRO SALVAR PROVA";
+			}
+		}
+
+		function retornaIdProva($pdo,$ra,$nome){
+			$conn = $pdo->prepare("SELECT id FROM prova WHERE ra=:ra and nomealuno=:nomealuno");
+			$conn->bindParam(":ra", $ra, PDO::PARAM_INT);
+			$conn->bindParam(":nomealuno", $nomealuno, PDO::PARAM_STR);
+
+			if($conn->execute()){
+
+			 return $conn->fetchColumn();
+
+			}else{
+
+			echo "<script> alert('ERRO RETORNA ID');</script>";
+			}
+		}
+
+		function relacionaProvaDisciplina($pdo,$idprova,$iddisciplina){
+
+			$conn = $pdo->prepare("INSERT INTO prova_disciplina (idprova, iddisciplina)
+								 VALUES (:idprova, :iddisciplina)");
+			$conn->bindParam(":idprova", $idprova, PDO::PARAM_INT);
+			$conn->bindParam(":iddisciplina", $iddisciplina, PDO::PARAM_INT);
+
+			if($conn->execute()){
+				echo "
+            		<script>
+            
+            		alert('PROVA_DISCIPLINA SALVA');
+            		
+        
+           			 </script>
+        
+            	";
+			}else{
+
+				echo "ERRO SALVAR PROVA_DISCIPLINA";
+			}
+
 		}
 	}
 ?>

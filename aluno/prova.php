@@ -9,8 +9,8 @@ if(!empty($_POST['check_list'])) {
     $questoes = array();
     $numResposta = 1;
     $numQuestao = 1;
-
-    foreach($_POST['check_list'] as $id) {
+    $check_list=$_POST['check_list'];
+    foreach($check_list as $id) {
         $questao = new questao();
         $retorno = $questao->selectQuestaoByDisciplina($PDO,$id);
 
@@ -18,10 +18,11 @@ if(!empty($_POST['check_list'])) {
           array_push($questoes, $key);
         }
 
-        if (!isset($_SESSION)) session_start();
-        $_SESSION['questoes'] = $questoes;
+        
+ }
+ setcookie('questoes',serialize($questoes));
+ setcookie('check_list',serialize($check_list));
 
-    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -79,8 +80,7 @@ if(!empty($_POST['check_list'])) {
 </html>
 <?php
 }
-setcookie('nome');
-setcookie('ra');
+
 
 }else{
 

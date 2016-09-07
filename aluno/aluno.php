@@ -9,9 +9,22 @@ if (isset($_POST['fazerprova'])) {
   $curso = $_POST['curso'];
   $turno = $_POST['turno'];
   $timezone=date_default_timezone_set('America/Sao_Paulo');
-  $horainicio = date('H:i:s');
+  $horainicio = date('Y-m-d H:i:s');
+
   setcookie('nome', $nome);
-  setcookie('ra',$ra);
+  setcookie('ra', $ra);
+  setcookie('semestre', $semestre);
+  setcookie('curso', $curso);
+  setcookie('turno', $turno);
+  setcookie('horainicio', $horainicio);
+
+  echo "
+      <script>
+      alert('".$_COOKIE['nome']."');
+      alert('".$_COOKIE['semestre']."');
+
+      </script>
+  ";
 
   $x = new disciplina();
   $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);

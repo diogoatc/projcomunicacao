@@ -36,7 +36,7 @@
   				  <form action="" id="cadastro" method="post">
 
                  <label style="font-size:20px;font-family: sans-serif;" for="nome">Nome da Disciplina: </label>
-      			     <input type="text" name="nome" placeholder="Exemplo: Atendimento Publicitário"><br/></br>
+      			     <input type="text" name="nome" required="Nome da Disciplina Obrigatório" placeholder="Exemplo: Atendimento Publicitário"><br/></br>
 
                  <label style="font-size:20px;font-family: sans-serif;height: 10%;" for="curso">Curso: </label>
                 
