@@ -5,9 +5,9 @@
 </head>
 <body>
 	<form enctype="multipart/form-data" action="testeimagem.php" method="post" >
-	<input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>  <!-- Valor fixo para tamanho máximo de imagem: 2MB. Acima disso tem que alterar no PHP.ini -->
+	<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini -->
 		<p>IMAGEM:</p>
-		<input type="file" data-max-size="2048" name="imagem"> <br/>
+		<input type="file" name="imagem"> <br/>
 		<input type="submit" name="envia">
 	</form>
 </body>
@@ -22,7 +22,7 @@ if(isset($_POST['envia'])){
 
 		echo "
 			<script>
-				alert('O tamanho da imagem é maior que o suportado. Por favor insira uma imagem de até 2MB');
+				alert('O tamanho da imagem é maior que o suportado. Por favor insira uma imagem de até 1MB');
 				window.location='testeimagem.php';
 			</script>
 
