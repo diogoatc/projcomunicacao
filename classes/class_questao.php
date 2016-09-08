@@ -135,13 +135,14 @@ class questao {
 		}
 
 		function registrarQuestoes($con,$iddisciplina, $titulo, $resposta1,
-		$resposta2, $resposta3, $resposta4, $resposta5, $respostacorreta){
-			$conn = $con->prepare("INSERT INTO questao (id, iddisciplina, titulo, resposta1, resposta2, resposta3,resposta4,resposta5, respostacorreta)
-			VALUES(:id, :iddisciplina, :titulo, :resposta1, :resposta2,:resposta3, :resposta4, :resposta5, :respostacorreta)");
+		$resposta2, $resposta3, $resposta4, $resposta5, $respostacorreta,$imagem){
+			$conn = $con->prepare("INSERT INTO questao (id, iddisciplina, titulo,imagem, resposta1, resposta2, resposta3,resposta4,resposta5, respostacorreta)
+			VALUES(:id, :iddisciplina, :titulo, :imagem, :resposta1, :resposta2,:resposta3, :resposta4, :resposta5, :respostacorreta)");
 
 			$conn->bindParam(":id",$id,PDO::PARAM_INT);
 			$conn->bindParam(":iddisciplina",$iddisciplina,PDO::PARAM_STR);
 			$conn->bindParam(":titulo",$titulo,PDO::PARAM_STR);
+			$conn->bindParam(":imagem",$imagem,PDO::PARAM_STR);
 			$conn->bindParam(":resposta1",$resposta1,PDO::PARAM_STR);
 			$conn->bindParam(":resposta2",$resposta2,PDO::PARAM_STR);
 			$conn->bindParam(":resposta3",$resposta3,PDO::PARAM_STR);

@@ -50,7 +50,6 @@
             <h1>Menu Principal</h1>
             <ul type="disc">
                 <li><a href="pre-cadastra.php">Cadastrar Questões</a></li>
-                <li><a href="notasalunos.php">Notas Alunos</a></li>
                 <li><a href="listadisciplinas.php">Editar Questões</a></li>                          
                 <li><a href="relatorios.php">Relatórios</a></li>                          
             </ul>

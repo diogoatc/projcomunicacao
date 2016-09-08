@@ -47,7 +47,7 @@ include('../classes/class_questao.php');
             <div class="login" style="font-family:sans-serif; font-size:20pt;">Cadastro de Questões</div>
             <div class="form" style="top:8%; width: 90%;left:30%;height: 980px;">
 
-			<form id="questcad" action="cadastraquestoes.php" method="post">
+			<form id="questcad" enctype="multipart/form-data" action="cadastraquestoes.php" method="post">
 				<label style="font-size:20px;font-family: sans-serif;height: 50%;" for="disciplina">Disciplina: </label>
 
 				<select class="imobSelect" style="font-size:25px;font-family: sans-serif;height: 35%;width:46%;" required="" name="disciplina" id="disciplina" >
@@ -81,7 +81,7 @@ include('../classes/class_questao.php');
 				<option value="7">7º Semestre</option>
 				<option value="8">8º Semestre</option>
 			</select>
-
+			<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini -->
 			<input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
 
 			<p style="font-size:20px;font-family: sans-serif;">Enunciado da Questão:</p>
@@ -113,7 +113,8 @@ include('../classes/class_questao.php');
 				<option value="E">E</option>
 
 			</select> <br/>
-			
+			<label for="img" >Imagem: (Não Obrigatório) </label>
+			<input type="file" id="img" name="imagem"> <br/>
 			<input style="font-size:35px;font-family: sans-serif; width:150px; height:60px;top:40px; border-radius:10px;padding:10px" type="submit" name="envia">
 		</form>
 
@@ -124,6 +125,20 @@ include('../classes/class_questao.php');
 
 if(isset($_POST['envia'])){
 
+	$imagem = $_FILES["imagem"];
+	if($imagem['error'] == 1 or $imagem['error'] == 2){
+
+		echo "
+			<script>
+				alert('O tamanho da imagem é maior que o suportado. Por favor insira uma imagem de até 1MB');
+				window.location='cadastraquestoes.php';
+			</script>
+
+		";
+	}else{
+		$img_src = $imagem['tmp_name'];
+		$imgbinary = fread(fopen($img_src, "r"), filesize($img_src));
+		$img_base64 = base64_encode($imgbinary);
 		$nomedisciplina = $_POST['disciplina'];
 		$titulo = $_POST['titulo'];
 		$resp1 = $_POST['resp1'];
@@ -149,8 +164,8 @@ if(isset($_POST['envia'])){
 		}
 
 		$x = new questao();
-		$cadastraquestao = $x->registrarQuestoes($PDO, $iddisciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta);
-		
+		$cadastraquestao = $x->registrarQuestoes($PDO, $iddisciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta,$img_base64);
+	}	
 }
 
 
