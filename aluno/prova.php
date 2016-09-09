@@ -60,7 +60,13 @@ if(!empty($_POST['check_list'])) {
 
     <?php foreach ($questoes as $key) {
       echo "<h4>Questão ".$numQuestao++."</h4>";
-      echo $key['titulo'];?><br>
+      echo $key['titulo'];
+      if (!empty($key['imagem'])){
+        echo'<img src="data:image/jpg;base64,'.$key['imagem'].'" />';
+      }else{
+        echo "";
+      }
+      ?><br>
 
           <form class="" action="nota.php" method="post">
               <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="A" required><?php print_r($key['resposta1']) ?><br>
@@ -75,11 +81,11 @@ if(!empty($_POST['check_list'])) {
             </form>
       </div>
       </div>
+          
+      </div>
           <footer id="rodape">
              <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
           </footer>
-      </div>
-
 </body>
 </html>
 <?php
