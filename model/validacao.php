@@ -41,6 +41,8 @@ if(!empty($resultado)){
     break;
   }
 }else{
+  error_log("Big trouble, we're all out of FOOs!", 1,
+               "diogol_l@hotmail.com");
   echo "<script>
   alert('Usuário e/ou senha incorretos');
   window.location='../login.php';
