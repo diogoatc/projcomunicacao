@@ -1,14 +1,14 @@
 <?php
-$host = "169.44.117.18:3306";
+/*$host = "169.44.117.18:3306";
 $user ="root";
 $pswrd = "unasp";
 $dbname = "projcomunicacao";
-
-/*$host = "127.0.0.1:3306";
+*/
+$host = "127.0.0.1:3306";
 $user ="root";
 $pswrd = "";
 $dbname = "projcomunicacao";
-*/
+
 try{
 	$PDO = new PDO( 'mysql:host=' . $host . ';dbname=' . $dbname,
 	$user, $pswrd,

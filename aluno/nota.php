@@ -1,9 +1,10 @@
 <?php
 if (!isset($_SESSION)) session_start();
 if (isset($_POST['finalizar'])) {
-  $questoes = unserialize($_COOKIE['questoes']);
+  $idquestoes = unserialize($_COOKIE['idquestoes']);
+  $respquestoes = unserialize($_COOKIE['respquestoes']);
   $disciplinas = unserialize($_COOKIE['check_list']);
-  $numQuestoes = count($questoes);
+  $numQuestoes = count($respquestoes);
   $respostaAluno = array();
   $respIncorretas = 0;
 
@@ -12,7 +13,7 @@ if (isset($_POST['finalizar'])) {
   }
 
   for ($i=0; $i < $numQuestoes; $i++) {
-    if ($respostaAluno[$i] !== $questoes[$i]['respostacorreta']) {
+    if ($respostaAluno[$i] !== $respquestoes[$i]) {
       $respIncorretas++;
     }
   }
@@ -30,8 +31,8 @@ if (isset($_POST['finalizar'])) {
   <h3>Suas respostas: <?php foreach ($respostaAluno as $key) {
     echo $key." | ";
   } ?></h3>
-  <h3>Respostas corretas: <?php foreach ($questoes as $key) {
-    echo $key['respostacorreta']." | ";
+  <h3>Respostas corretas: <?php foreach ($respquestoes as $key) {
+    echo $key." | ";
   } ?></h3>
   <h3>Sua nota é: <?php echo round($nota, 1); ?></h3>
 </body>
@@ -44,6 +45,6 @@ $ra = $_SESSION['ra'];
 $nome = $_SESSION['nome'];
 $dtainicio = $_SESSION['dtainicio'];
 
-$x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas, $questoes, $respostaAluno);
+$x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas, $idquestoes, $respostaAluno);
 
 ?>

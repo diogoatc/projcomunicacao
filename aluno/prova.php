@@ -8,6 +8,8 @@ include('../classes/class_questao.php');
 if(!empty($_POST['check_list'])) {
 
   $questoes = array();
+  $respcorretaquestoes = array();
+  $idquestoes = array();
   $numResposta = 1;
   $numQuestao = 1;
   $check_list=$_POST['check_list'];
@@ -18,9 +20,12 @@ if(!empty($_POST['check_list'])) {
 
     foreach ($retorno as $key) {
       array_push($questoes, $key);
+      array_push($respcorretaquestoes,$key['respostacorreta']);
+      array_push($idquestoes, $key['id']);
     }
   }
-  setcookie('questoes',serialize($questoes));
+  setcookie('idquestoes',serialize($idquestoes));
+  setcookie('respquestoes',serialize($respcorretaquestoes));
   setcookie('check_list',serialize($check_list));
 ?>
 <!DOCTYPE html>

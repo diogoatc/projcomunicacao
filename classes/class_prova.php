@@ -50,7 +50,7 @@ class prova {
 		return $this->nota = $nota;
 	}
 
-	function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas,$questoes,$respostaAluno){
+	function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas,$idquestoes,$respostaAluno){
 		$conn = $pdo->prepare("INSERT INTO prova (ra,nomealuno,nota,dtainicio,dtafim)
 		VALUES (:ra, :nomealuno, :nota, :dtainicio, now()) ");
 
@@ -86,9 +86,9 @@ class prova {
 		$conn = $pdo->prepare("INSERT INTO questoes_aluno (idprova, idquestao, respostaaluno)
 		VALUES (:lastId, :idquestao, :respostaaluno)");
 
-		for ($i=0; $i < count($questoes); $i++) {
+		for ($i=0; $i < count($idquestoes); $i++) {
 			$conn->bindParam(":lastId", $lastId, PDO::PARAM_INT);
-			$conn->bindParam(":idquestao", $questoes[$i]['id'], PDO::PARAM_INT);
+			$conn->bindParam(":idquestao", $idquestoes[$i], PDO::PARAM_INT);
 			$conn->bindParam(":respostaaluno", $respostaAluno[$i], PDO::PARAM_STR);
 
 			if($conn->execute()){
