@@ -46,6 +46,6 @@
             </div>
         </div>
     </div>
-    <footer class="footer">Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</footer>
+    <footer>Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</footer>
 </body>
 </html>

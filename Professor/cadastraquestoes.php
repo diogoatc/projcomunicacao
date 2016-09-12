@@ -2,9 +2,9 @@
 
 	// A sessão precisa ser inicaida em cada página diferente
 	    if (!isset($_SESSION)) session_start();
-	      
+
 	    $nivel_necessario = 2;  //2 é o nível Professor
-	      
+
 	    // Verifica se não há a variável da sessão que identifica o usuário
 	    if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
 	        // Destrói a sessão por segurança
@@ -21,7 +21,6 @@
 	<head>
 		<title>Cadastro de Questões</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../assets/css/style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	    <script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	      <link rel="stylesheet" href="../assets/css/normalize.css">
@@ -42,9 +41,9 @@
 
 	<body>
 
-		<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;"> 
+		<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
-	   
+
 	    <div class="container-fluid">
 
 	      <div class="col-sm-3">
@@ -68,12 +67,12 @@
 
 	  		<!--
 				<form id="questcad" enctype="multipart/form-data" action="cadastraquestoes.php" method="post">
-					<div class="form-group"> 	
+					<div class="form-group">
 					<label for="disciplina">Disciplina: </label>
 					<select required="" name="disciplina" id="disciplina" >
 
 				<?php
-				
+
 				$curso=$_COOKIE['curso'];
 				$turno=$_COOKIE['turno'];
 
@@ -149,7 +148,7 @@
 
 			</form>
 
-			
+
 
 	<?php
 
@@ -183,8 +182,8 @@
 			$curso=$_COOKIE['curso'];
 			$turno=$_COOKIE['turno'];
 
-			
-			
+
+
 			$y = new disciplina();
 
 			$iddisciplina = $y->verifica_disciplina_cadastrada($PDO,$nomedisciplina, $curso, $turno, $idusuario);
@@ -196,7 +195,7 @@
 
 			$x = new questao();
 			$cadastraquestao = $x->registrarQuestoes($PDO, $iddisciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta,$img_base64);
-		}	
+		}
 	}
 
 
@@ -206,15 +205,11 @@
 	</div>
 	</div>
 	-->
+	<legend class="text-center">Cadastrar de Questão</legend>
 
-
-	<form class="form-horizontal" id="questcad" enctype="multipart/form-data" action="cadastraquestoes.php" method="post"> 
+	<form class="form-horizontal" id="questcad" enctype="multipart/form-data" action="cadastraquestoes.php" method="post">
 
 	<fieldset>
-
-	<!-- Form Name -->
-	<legend class="text-center" style="font-size:20pt;">Cadastrar de Questão</legend>
-
 	<!-- Select Basic -->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="disciplina">Disciplina</label>
@@ -257,59 +252,59 @@
 	    </select>
 	  </div>
 	</div>
-<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini --> 
+<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini -->
 <input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
 			</div>
 	<!-- Textarea -->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textarea">Enunciado da Questão:</label>
-	  <div class="col-md-4">                     
+	  <div class="col-md-4">
 	    <textarea required="" class="form-control" id="titulo" name="titulo" cols="74" placeholder="Insira a Questão"></textarea>
 	  </div>
 	</div>
 
 	<!-- Text input-->
 	<div class="form-group">
-	  <label class="col-md-4 control-label" for="resp1">Alternativa A:</label>  
+	  <label class="col-md-4 control-label" for="resp1">Alternativa A:</label>
 	  <div class="col-md-4">
 	  <input name="resp1" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>  
+	  <span class="help-block">Insira a questão</span>
 	  </div>
 	</div>
 
 	<!-- Text input-->
 	<div class="form-group">
-	  <label class="col-md-4 control-label" for="resp2">Alternativa B:</label>  
+	  <label class="col-md-4 control-label" for="resp2">Alternativa B:</label>
 	  <div class="col-md-4">
 	  <input name="resp2" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>  
+	  <span class="help-block">Insira a questão</span>
 	  </div>
 	</div>
 
 	<!-- Text input-->
 	<div class="form-group">
-	  <label class="col-md-4 control-label" for="resp3">Alternativa C:</label>  
+	  <label class="col-md-4 control-label" for="resp3">Alternativa C:</label>
 	  <div class="col-md-4">
 	  <input name="resp3" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>  
+	  <span class="help-block">Insira a questão</span>
 	  </div>
 	</div>
 
 	<!-- Text input-->
 	<div class="form-group">
-	  <label class="col-md-4 control-label" for="resp4">Alternativa D:</label>  
+	  <label class="col-md-4 control-label" for="resp4">Alternativa D:</label>
 	  <div class="col-md-4">
 	  <input name="resp4" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>  
+	  <span class="help-block">Insira a questão</span>
 	  </div>
 	</div>
 
 	<!-- Text input-->
 	<div class="form-group">
-	  <label class="col-md-4 control-label" for="resp5">Alternativa E:</label>  
+	  <label class="col-md-4 control-label" for="resp5">Alternativa E:</label>
 	  <div class="col-md-4">
 	  <input name="resp5" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>  
+	  <span class="help-block">Insira a questão</span>
 	  </div>
 	</div>
 
@@ -327,7 +322,7 @@
 	  </div>
 	</div>
 
-	<!-- File Button --> 
+	<!-- File Button -->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="img">Imagem: (Não Obrigatório)</label>
 	  <div class="col-md-4">
@@ -379,8 +374,8 @@
 			$curso=$_COOKIE['curso'];
 			$turno=$_COOKIE['turno'];
 
-			
-			
+
+
 			$y = new disciplina();
 
 			$iddisciplina = $y->verifica_disciplina_cadastrada($PDO,$nomedisciplina, $curso, $turno, $idusuario);
@@ -392,18 +387,14 @@
 
 			$x = new questao();
 			$cadastraquestao = $x->registrarQuestoes($PDO, $iddisciplina, $titulo, $resp1, $resp2, $resp3, $resp4, $resp5, $respcorreta,$img_base64);
-		}	
+		}
 	}
 
 
 	?>
 	</form>
 
- <footer class="footer" style="background:#20205a;position:relative;width:100%;height:29px;">
-      <div class="container">
-        <p class="text-muted" style="color:white;">Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</p>
-      </div>
-    </footer>
+ 		<footer>Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</footer>
 
 	</body>
 	</html>

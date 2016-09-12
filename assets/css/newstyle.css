@@ -92,15 +92,14 @@ section {
 footer {
     font-family: 'Cabin', sans-serif;
     color: #fff;
-    position: fixed;
     bottom: 0;
+    display: table;
     width: 100%;
     font-size: 10pt;
     height: auto;
     background-color: #20205a;
     padding: 10px 0 10px;
     text-align: center;
-        
 }
 
 .areadoprofessor{
@@ -121,3 +120,15 @@ footer {
     background:#333366;
 }
 
+.form-group{
+  width: 100% !important;
+}
+
+.form-horizontal{
+  padding: 30px 0 30px;
+}
+
+legend{
+  font-size:20pt !important;
+  padding-bottom: 25px !important;
+}
