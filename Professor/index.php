@@ -74,7 +74,7 @@
         </div> 
   </div>
 
- <footer class="footer" style="border-radius:0px; background:#20205a;position:fixed;width:100%;">
+ <footer class="footer" style="border-radius:0px; background:#20205a;position:fixed;width:100%;height:29px;">
       <div class="container">
         <p class="text-muted" style="color:white;">Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</p>
       </div>
