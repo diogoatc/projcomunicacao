@@ -27,7 +27,7 @@
         <div class="login-area">
             <div class="container">
                 <div class="box-texto">
-                    <h1>Bem Vindo</h1>
+                    <h1>Bem-vindo</h1>
                     <br>Se você for aluno, basta clicar na imagem para fazer a prova. Se for professor ou administrador, apenas faça o Login.
                 </div>
                 <div class="form">
@@ -46,6 +46,6 @@
             </div>
         </div>
     </div>
-    <footer>Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</footer>
+    <footer class="footer">Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</footer>
 </body>
 </html>

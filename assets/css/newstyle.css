@@ -99,3 +99,21 @@ footer {
     color: #fff;
     font-family: 'lato', sans-serif;
 }
+
+.areadoprofessor{
+ font-family:arial;
+ font-size:14pt;
+ color:white !important;
+}
+
+.rodape{
+    font-family: 'Cabin', sans-serif;
+    color: #ffffff;
+    font-size: 10pt;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    clear:both;
+    border-top: 1px solid #606060;
+    background:#333366;
+{
