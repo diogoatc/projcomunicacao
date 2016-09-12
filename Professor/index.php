@@ -55,9 +55,9 @@
       <div class="col-sm-6">
       <ul class="nav navbar-nav">
 
-        <li ><a style="color:white;" href="cadastraquestoes.php">Cadastrar Questões</a></li>
-        <li><a style="color:white;" href="notasalunos.php">Notas Alunos</a></li>
-        <li><a style="color:white;" href="editaquestao.php">Editar Questões</a></li>
+        <li ><a style="color:white;" href="pre-cadastra.php">Cadastrar Questões</a></li>
+        <li><a style="color:white;" href="relatorios.php">Relatorio de Provas</a></li>
+        <li><a style="color:white;" href="listadisciplinas.php">Editar Questões</a></li>
         <li><a style="color:white;" href="alterarsenha.php">Alterar Senha</a></li>
         <li><a style="color:white;" href="../logout.php">Logout</a></li>
       </ul>
