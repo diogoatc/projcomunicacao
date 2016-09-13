@@ -46,20 +46,20 @@
    
     <div class="container-fluid">
 
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
       </div>
       <div class="col-sm-3">
         <h3 class="areadoprofessor">ÁREA DO PROFESSOR</h3>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-7">
       <ul class="nav navbar-nav">
-
-        <li ><a style="color:white;" href="pre-cadastra.php">Cadastrar Questões</a></li>
-        <li><a style="color:white;" href="relatorios.php">Relatorio de Provas</a></li>
-        <li><a style="color:white;" href="listadisciplinas.php">Editar Questões</a></li>
-        <li><a style="color:white;" href="alterarsenha.php">Alterar Senha</a></li>
-        <li><a style="color:white;" href="../logout.php">Logout</a></li>
+        <li class="active"><a id="ativo"style="color:white;" href="index.php">Home</a></li>
+        <li ><a id="font-white" href="pre-cadastra.php">Cadastrar Questões</a></li>
+        <li><a id="font-white" href="relatorios.php">Relatorio de Provas</a></li>
+        <li><a id="font-white" href="listadisciplinas.php">Editar/Visualizar Questões</a></li>
+        <li><a id="font-white" href="alterarsenha.php">Alterar Senha</a></li>
+        <li><a id="font-white" href="../logout.php">Logout</a></li>
       </ul>
       </div>
       </div>

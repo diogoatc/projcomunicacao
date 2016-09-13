@@ -46,20 +46,20 @@
 
 	    <div class="container-fluid">
 
-	      <div class="col-sm-3">
+	      <div class="col-sm-2">
 	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
 	      </div>
 	      <div class="col-sm-3">
 	        <h3 class="areadoprofessor">ÁREA DO PROFESSOR</h3>
 	      </div>
-	      <div class="col-sm-6">
+	      <div class="col-sm-7">
 	      <ul class="nav navbar-nav">
-
-	        <li class="active"><a style="color:black;background: #f79f38; font-family:sans-serif; border-radius:8px;" href="cadastraquestoes.php">Cadastrar Questões</a></li>
-	        <li><a style="color:white;" href="notasalunos.php">Notas Alunos</a></li>
-	        <li><a style="color:white;" href="editaquestao.php">Editar Questões</a></li>
-	        <li><a style="color:white;" href="alterarsenha.php">Alterar Senha</a></li>
-	        <li><a style="color:white;" href="../logout.php">Logout</a></li>
+					<li><a id="font-white" href="index.php">Home</a></li>
+	        <li class="active"><a id="ativo" href="pre-cadastra.php">Cadastrar Questões</a></li>
+	        <li><a id="font-white" href="relatorios.php">Relatório de Provas</a></li>
+	        <li><a id="font-white" href="listadisciplinas.php">Editar/Visualizar Questões</a></li>
+	        <li><a id="font-white" href="alterarsenha.php">Alterar Senha</a></li>
+	        <li><a id="font-white" href="../logout.php">Logout</a></li>
 	      </ul>
 	      </div>
 	      </div>
@@ -215,7 +215,7 @@
 	  <label class="col-md-4 control-label" for="disciplina">Disciplina</label>
 	  <div class="col-md-4">
 	    <select required="" id="disciplina" name="disciplina" class="form-control">
-
+			<option value="">Selecione uma das opções</option>
 	    <?php
 			$curso=$_COOKIE['curso'];
 			$turno=$_COOKIE['turno'];
@@ -241,7 +241,8 @@
 	  <label class="col-md-4 control-label" for="semestre">Semestre</label>
 	  <div class="col-md-4">
 	    <select required="" id="semestre" name="semestre" class="form-control">
-	      <option value="1">1º Semestre</option>
+	      <option value="">Selecione uma das opções</option>
+				<option value="1">1º Semestre</option>
 	      <option value="2">2º Semestre</option>
 	      <option value="3">3º Semestre</option>
 	      <option value="4">4º Semestre</option>
