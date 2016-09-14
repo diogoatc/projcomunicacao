@@ -60,13 +60,13 @@ DROP TABLE IF EXISTS `questao`;
 CREATE TABLE `questao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddisciplina` int(11) NOT NULL,
-  `titulo` varchar(512) NOT NULL,
+  `titulo` mediumtext NOT NULL,
   `imagem` longtext,
-  `resposta1` varchar(255) NOT NULL,
-  `resposta2` varchar(255) NOT NULL COMMENT '	',
-  `resposta3` varchar(255) NOT NULL,
-  `resposta4` varchar(255) NOT NULL,
-  `resposta5` varchar(255) NOT NULL,
+  `resposta1` mediumtext NOT NULL,
+  `resposta2` mediumtext NOT NULL COMMENT '	',
+  `resposta3` mediumtext NOT NULL,
+  `resposta4` mediumtext NOT NULL,
+  `resposta5` mediumtext NOT NULL,
   `respostacorreta` varchar(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_questao_disciplina1_idx` (`iddisciplina`),
@@ -94,7 +94,6 @@ CREATE TABLE `usuario` (
   `nome` varchar(128) NOT NULL,
   `usuario` varchar(128) NOT NULL,
   `senha` varchar(512) NOT NULL,
-  `email` varchar(50) NOT NULL,
   `nivel` tinyint(1) NOT NULL,
   `flgativo` tinyint(1) NOT NULL DEFAULT '1' COMMENT '		',
   PRIMARY KEY (`id`),
@@ -102,4 +101,4 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2016-09-07 21:55:12
+-- 2016-09-14 22:51:08
