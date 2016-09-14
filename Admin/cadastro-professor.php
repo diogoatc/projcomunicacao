@@ -37,8 +37,6 @@ include('../classes/class_usuario.php');
 				<label id="nome" for="txNome">Nome Completo</label>
         			<input type="text" required="Favor Preencher o campo com o seu nome completo" name="nome" id="txNome" /></br>
 
-				<label for="txEmail">E-mail</label>
-        			<input type="email" required="Favor Preencher o campo com o seu email" name="email" id="txemail" /></br></br>
 
   				<input id="btn-cad" type="submit" name="enviar" value="Cadastrar"/>
 
@@ -57,7 +55,7 @@ include('../classes/class_usuario.php');
 if(isset($_POST['enviar'])){
 
 	if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha'])
-	OR empty($_POST['nome']) OR empty($_POST['email']))) {
+	OR empty($_POST['nome']))) {
 
 		header("Location: ../index.php");
 		exit;
@@ -66,7 +64,6 @@ if(isset($_POST['enviar'])){
 	$usuario = $_POST['usuario'];
 	$senha = sha1($_POST['senha']);
 	$nome = $_POST['nome'];
-	$email = $_POST['email'];
 	$nivel = 2;
 	$flgativo = 1;
 
@@ -77,7 +74,7 @@ if(isset($_POST['enviar'])){
 		echo "<script> alert('Este usuário já existe.');</script>";
 		header("Location: cadastro-professor.php"); exit;
 	}else{
-		$y->registrarProfessor($PDO, $nome, $usuario, $senha, $email, $nivel, $flgativo);
+		$y->registrarProfessor($PDO, $nome, $usuario, $senha, $nivel, $flgativo);
 	}
 }
 ?>

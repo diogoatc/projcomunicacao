@@ -6,7 +6,6 @@ class usuario {
 	private $nome;
 	private $usuario;
 	private $senha;
-	private $email;
 	private $nivel;
 	private $flgativo;
 
@@ -15,7 +14,6 @@ class usuario {
 		$this->nome = "";
 		$this->usuario = "";
 		$this->senha  = "";
-		$this->email = "";
 		$this->nivel = "";
 		$this->flgativo = "";
 	}
@@ -32,9 +30,6 @@ class usuario {
 	}
 	public function getSenha($senha){
 		return $this->senha = $senha;
-	}
-	public function getEmail($email){
-		return $this->email = $email;
 	}
 	public function getNivel($nivel){
 		return $this->nivel = $nivel;
@@ -56,9 +51,6 @@ class usuario {
 	public function setSenha($senha){
 		return $this->senha = $senha;
 	}
-	public function setEmail($email){
-		return $this->email = $email;
-	}
 	public function setNivel($nivel){
 		return $this->nivel = $nivel;
 	}
@@ -76,16 +68,15 @@ class usuario {
 		return $conn->fetch(PDO::FETCH_ASSOC);
 	}
 
-	function registrarProfessor($pdo,$nome, $usuario, $senha, $email,
+	function registrarProfessor($pdo,$nome, $usuario, $senha,
 	$nivel, $flgativo){
 		try{
-			$tb = $pdo->prepare("INSERT INTO usuario (nome, usuario, senha, email, nivel, flgativo)
-			VALUES( :nome, :usuario, :senha, :email, :nivel, :flgativo)");
+			$tb = $pdo->prepare("INSERT INTO usuario (nome, usuario, senha, nivel, flgativo)
+			VALUES( :nome, :usuario, :senha, :nivel, :flgativo)");
 
 			$tb->bindParam(":nome",$nome,PDO::PARAM_STR);
 			$tb->bindParam(":usuario",$usuario,PDO::PARAM_STR);
 			$tb->bindParam(":senha",$senha,PDO::PARAM_STR);
-			$tb->bindParam(":email",$email,PDO::PARAM_STR);
 			$tb->bindParam(":nivel",$nivel,PDO::PARAM_INT);
 			$tb->bindParam(":flgativo",$flgativo,PDO::PARAM_INT);
 
