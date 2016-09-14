@@ -151,7 +151,12 @@ class questao {
 			$conn->bindParam(":respostacorreta",$respostacorreta,PDO::PARAM_STR);
 
 			if($conn->execute()){
-				echo "<script> alert('Questão Cadastrada Com Sucesso');</script>";
+				echo "<script> if(confirm('Questão Cadastrada Com Sucesso. Se deseja inserir mais questões, clique em OK. Se quiser voltar para o menu principal, clique em CANCELAR')){
+								window.location='cadastraquestoes.php';
+								}else{
+									window.location='index.php';
+								}
+					</script>";
 			}else{
 				echo "<script> alert('ERRO CADASTRA QUESTÃO');</script>";
 			}
