@@ -34,7 +34,7 @@ setcookie('turno');
         </nav>
 
         <div class="content" style="top: 44%; height: 200px;width: 800px; left:40%">
-        <div class="login" style="font-family:sans-serif; font-size:16pt;">SELECIONE O CURSO E O TURNO QUE DESEJA INSERIR AS QUESTÕES</div>
+        <div class="login" style="font-family:sans-serif; font-size:16pt;">SELECIONE O CURSO, O TURNO E O SEMESTRE QUE DESEJA INSERIR AS QUESTÕES</div>
         <div class="form" style="top: 36%; width: 50%;left:55%;">
 
 
@@ -49,7 +49,19 @@ setcookie('turno');
 				<select class="imobSelect" style="width:35%;font-size: 28px;" name="turno" id="turno">
 					<option value="Matutino">Matutino</option>
 					<option value="Noturno">Noturno</option>
-				</select>
+				</select> 
+
+				<select class="imobSelect" style="width:35%;font-size: 28px;" required="" id="semestre" name="semestre" class="form-control">
+	      			<option value="">Selecione uma das opções</option>
+					<option value="1">1º Semestre</option>
+	      			<option value="2">2º Semestre</option>
+	      			<option value="3">3º Semestre</option>
+	      			<option value="4">4º Semestre</option>
+	      			<option value="5">5º Semestre</option>
+	      			<option value="6">6º Semestre</option>
+	      			<option value="7">7º Semestre</option>
+	      			<option value="8">8º Semestre</option>
+	    		</select>
 
 				<input style="width:41%; font-size:22px;left:30%;" type="submit" name="envia">
 
@@ -71,10 +83,12 @@ if (isset($_POST['envia'])){
 
 $curso = $_POST['curso'];
 $turno = $_POST['turno'];
+$semestre = $_POST['semestre'];
 
 
 setcookie('curso', $curso);
 setcookie('turno', $turno);
+setcookie('semestre', $semestre);
 
 header("Location: cadastraquestoes.php"); exit;
 }

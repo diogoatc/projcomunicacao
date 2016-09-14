@@ -79,9 +79,10 @@
 	    <?php
 			$curso=$_COOKIE['curso'];
 			$turno=$_COOKIE['turno'];
+			$semestre=$_COOKIE['semestre'];
 
 			$x = new disciplina();
-			$retorno = $x->selectAtivo($PDO,$curso,$turno);
+			$retorno = $x->selectAtivo($PDO,$curso,$turno,$semestre);
 			foreach ($retorno as $key) {
 		?>
 		<option value="<?php echo $key['nome'];?>" >
@@ -97,24 +98,8 @@
 	</div>
 
 	<!-- Select Basic -->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="semestre">Semestre</label>
-	  <div class="col-md-3">
-	    <select required="" id="semestre" name="semestre" class="form-control">
-	      <option value="">Selecione uma das opções</option>
-				<option value="1">1º Semestre</option>
-	      <option value="2">2º Semestre</option>
-	      <option value="3">3º Semestre</option>
-	      <option value="4">4º Semestre</option>
-	      <option value="5">5º Semestre</option>
-	      <option value="6">6º Semestre</option>
-	      <option value="7">7º Semestre</option>
-	      <option value="8">8º Semestre</option>
-	    </select>
-	  </div>
-	</div>
-<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini -->
-<input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
+	<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini -->
+	<input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
 			</div>
 	<!-- Textarea -->
 	<div class="form-group">

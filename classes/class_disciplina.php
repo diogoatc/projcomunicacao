@@ -81,12 +81,13 @@ class disciplina {
 			$conn=null;
 		}
 		
-		function selectAtivo($pdo,$curso,$turno){
+		function selectAtivo($pdo,$curso,$turno,$semestre){
 			$conn = $pdo->prepare("SELECT * FROM itemdisciplina
-				WHERE curso=:curso AND turno=:turno");
+				WHERE curso=:curso AND turno=:turno AND semestre=:semestre");
 
 				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
 				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+				$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
 				$conn->execute();
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 				$conn=null;
@@ -119,14 +120,15 @@ class disciplina {
 				$conn=null;
 		}
 
-		function cadastra_itemdisciplina($con, $nome, $curso, $turno, $credito, $flgativo){
-			$conn = $con->prepare("INSERT INTO itemdisciplina (nome, curso, turno, credito, flgativo)
-			VALUES(:nome, :curso, :turno, :credito, :flgativo)");
+		function cadastra_itemdisciplina($con, $nome, $curso, $turno, $credito, $semestre, $flgativo){
+			$conn = $con->prepare("INSERT INTO itemdisciplina (nome, curso, turno, credito, semestre, flgativo)
+			VALUES(:nome, :curso, :turno, :credito, :semestre :flgativo)");
 
 			$conn->bindParam(":nome",$nome,PDO::PARAM_STR);
 			$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
 			$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
 			$conn->bindParam(":credito",$credito,PDO::PARAM_INT);
+			$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
 			$conn->bindParam(":flgativo",$flgativo,PDO::PARAM_INT);
 
 			if($conn->execute()){
