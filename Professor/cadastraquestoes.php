@@ -213,7 +213,7 @@
 	<!-- Select Basic -->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="disciplina">Disciplina</label>
-	  <div class="col-md-4">
+	  <div class="col-md-3">
 	    <select required="" id="disciplina" name="disciplina" class="form-control">
 			<option value="">Selecione uma das opções</option>
 	    <?php
@@ -239,7 +239,7 @@
 	<!-- Select Basic -->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="semestre">Semestre</label>
-	  <div class="col-md-4">
+	  <div class="col-md-3">
 	    <select required="" id="semestre" name="semestre" class="form-control">
 	      <option value="">Selecione uma das opções</option>
 				<option value="1">1º Semestre</option>
@@ -260,16 +260,21 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textarea">Enunciado da Questão:</label>
 	  <div class="col-md-4">
-	    <textarea required="" class="form-control" id="titulo" name="titulo" cols="74" placeholder="Insira a Questão"></textarea>
+	    <textarea required="" class="form-control" rows="10" id="titulo" name="titulo"  placeholder="Insira o Enunciado da Questão"></textarea>
 	  </div>
 	</div>
-
+	<!-- File Button -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="img">Imagem: (Não Obrigatório)</label>
+	  <div class="col-md-4">
+	    <input id="img" name="imagem" class="input-file" type="file">
+	  </div>
+	</div>
 	<!-- Text input-->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp1">Alternativa A:</label>
 	  <div class="col-md-4">
-	  <input name="resp1" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>
+	  <textarea required="" class="form-control" rows="10" name="resp1" type="textarea" placeholder="Insira Alternativa A"></textarea>
 	  </div>
 	</div>
 
@@ -277,8 +282,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp2">Alternativa B:</label>
 	  <div class="col-md-4">
-	  <input name="resp2" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>
+	  <textarea required="" class="form-control" rows="10" name="resp2" type="textarea" placeholder="Insira Alternativa B"></textarea>
 	  </div>
 	</div>
 
@@ -286,8 +290,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp3">Alternativa C:</label>
 	  <div class="col-md-4">
-	  <input name="resp3" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>
+	  <textarea required="" class="form-control" rows="10" name="resp3" type="textarea" placeholder="Insira Alternativa C"></textarea>
 	  </div>
 	</div>
 
@@ -295,8 +298,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp4">Alternativa D:</label>
 	  <div class="col-md-4">
-	  <input name="resp4" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>
+	  <textarea required="" class="form-control" rows="10" name="resp4" type="textarea" placeholder="Insira Alternativa D"></textarea>
 	  </div>
 	</div>
 
@@ -304,17 +306,17 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp5">Alternativa E:</label>
 	  <div class="col-md-4">
-	  <input name="resp5" type="text" placeholder="Insira a questão" class="form-control input-md" required="">
-	  <span class="help-block">Insira a questão</span>
+	  <textarea required="" class="form-control" rows="10" name="resp5" type="textarea" placeholder="Insira Alternativa E"></textarea>
 	  </div>
 	</div>
 
 	<!-- Select Basic -->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="respcorreta">Alternativa Correta:</label>
-	  <div class="col-md-4">
-	    <select id="respcorreta" name="respcorreta" class="form-control">
-	    			<option value="A">A</option>
+	  <div class="col-md-3">
+	    <select id="respcorreta" name="respcorreta" class="form-control" style="font-size:14pt;">
+	    		<option value="">Selecione uma alternativa</option>
+					<option value="A">A</option>
 					<option value="B">B</option>
 					<option value="C">C</option>
 					<option value="D">D</option>
@@ -323,21 +325,11 @@
 	  </div>
 	</div>
 
-	<!-- File Button -->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="img">Imagem: (Não Obrigatório)</label>
-	  <div class="col-md-4">
-	    <input id="img" name="imagem" class="input-file" type="file">
-	  </div>
-	</div>
-
-
-
 	<!-- Button -->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="singlebutton"></label>
-	  <div class="col-md-4">
-	    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Enviar</button>
+	  <div class="col-md-1">
+	    <button style="font-size:13pt;" type="submit" class="btn btn-primary">ENVIAR</button>
 	  </div>
 	</div>
 
