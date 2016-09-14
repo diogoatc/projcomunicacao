@@ -61,6 +61,7 @@ $retorno = $x->selectQuestaoByDisciplina($PDO,$iddisciplina);
 	<td>Resposta Certa</td>
 	<td></td>
 	<td></td>
+    <td></td>
 
 </thead>
 <?php foreach ($retorno as $key) {   ?>
@@ -74,6 +75,7 @@ $retorno = $x->selectQuestaoByDisciplina($PDO,$iddisciplina);
 		<td> <?php echo $key['respostacorreta']; ?></td>
 		<td> <a href="editaquestao.php?iddisciplina=<?php echo $iddisciplina; ?>&id=<?php echo $key['id']; ?>">Editar</a></td>
 		<td> <a href="editaquestao.php?iddisciplina=<?php echo $iddisciplina; ?>&deleta=1&id=<?php echo $key['id']; ?>">Excluir</a></td>
+        <td> <a href="visualizaquestao.php?iddisciplina=<?php echo $iddisciplina; ?>&idquestao=<?php echo $key['id']; ?>">Visualizar</a></td>
 	</tr>
 <?php } ?>
 
