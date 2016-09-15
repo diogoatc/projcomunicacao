@@ -174,7 +174,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="singlebutton"></label>
 	  <div class="col-md-1">
-	    <input style="font-size:13pt;" name="envia" type="submit" class="btn btn-primary">ENVIAR</input>
+	    <input style="font-size:18pt;" name="envia" type="submit" class="btn btn-primary"></input>
 	  </div>
 	</div>
 
