@@ -90,9 +90,10 @@ include('../model/conexao.php');
     $curso = $_POST['curso'];
     $turno = $_POST['turno'];
     $credito = $_POST['credito'];
+    $semestre = $_POST['semestre'];
     $flgativo = 1;
 
     $x = new disciplina();
-    $cadDisciplina = $x->cadastra_itemdisciplina($PDO, $nome, $curso, $turno, $credito, $flgativo);
+    $cadDisciplina = $x->cadastra_itemdisciplina($PDO, $nome, $curso, $turno, $credito, $semestre, $flgativo);
   }
 ?>
