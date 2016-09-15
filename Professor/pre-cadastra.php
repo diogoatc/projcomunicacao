@@ -50,8 +50,20 @@ setcookie('turno');
 					<option value="Matutino">Matutino</option>
 					<option value="Noturno">Noturno</option>
 				</select> 
-
-							<input style="width:41%; font-size:22px;left:30%;" type="submit" name="envia">
+				
+				 <select class="imobSelect" style="width:70%;font-size:20px;" required="" id="semestre" name="semestre" class="form-control">
+                <label for="semestre">Semestre: </label> 
+              <option value="">Selecione uma das opções</option>
+              <option value="1">1º Semestre</option>
+              <option value="2">2º Semestre</option>
+              <option value="3">3º Semestre</option>
+              <option value="4">4º Semestre</option>
+              <option value="5">5º Semestre</option>
+              <option value="6">6º Semestre</option>
+              <option value="7">7º Semestre</option>
+              <option value="8">8º Semestre</option>
+          </select>
+				<input style="width:41%; font-size:22px;left:30%;" type="submit" name="envia">
 
 				</form>
 		</div>
