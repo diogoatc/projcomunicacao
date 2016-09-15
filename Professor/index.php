@@ -40,7 +40,7 @@
   </head>
 
   <body>
-  
+  <div id="wrap">
   <nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;"> 
 
    
@@ -74,11 +74,16 @@
         </div> 
   </div>
 
- <footer class="footer" style="border-radius:0px; background:#20205a;position:fixed;width:100%;height:29px;">
+
+</div>
+<div id="push"></div>
+    </div>
+
+    <div id="footer">
       <div class="container">
-        <p class="text-muted" style="color:white;">Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</p>
+        <p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
       </div>
-    </footer>
+    </div>
 
    </body>
   </html>
