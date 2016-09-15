@@ -41,28 +41,29 @@ CREATE TABLE `itemdisciplina` (
   `nome` varchar(45) NOT NULL,
   `curso` varchar(45) NOT NULL,
   `turno` varchar(20) NOT NULL,
+  `semestre` int(11) NOT NULL,
   `flgativo` tinyint(1) NOT NULL DEFAULT '1',
   `credito` int(11) NOT NULL,
   PRIMARY KEY (`iditemdisciplina`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `itemdisciplina` (`iditemdisciplina`, `nome`, `curso`, `turno`, `flgativo`, `credito`) VALUES
-(1,	'Programação',	'PP',	'Noturno',	1,	4),
-(2,	'HIC',	'RTV',	'Noturno',	1,	4),
-(3,	'Antropologia Cristã',	'PP',	'Noturno',	1,	2),
-(4,	'Atendimento Publicitário',	'PP',	'Noturno',	1,	4),
-(5,	'Dramaturgia Dir. Atores',	'RTV',	'Noturno',	1,	4),
-(6,	'',	'',	'Matutino',	1,	1),
-(7,	'Algotitimos',	'Sistemas Para Internet',	'Matutino',	1,	2),
-(8,	'Batatões',	'PP',	'Noturno',	1,	4),
-(9,	'Psicologia da Comunicação',	'PP',	'Noturno',	1,	3),
-(10,	'',	'PP',	'Matutino',	1,	1),
-(11,	'exemplo',	'PP',	'Matutino',	1,	1),
-(12,	'',	'PP',	'Matutino',	1,	1),
-(13,	'',	'PP',	'Matutino',	1,	1),
-(14,	'Atendimento ao Percival',	'PP',	'Matutino',	1,	1),
-(15,	'aa',	'PP',	'Matutino',	1,	1),
-(16,	'Atendimento Publicitário',	'PP',	'Matutino',	1,	1);
+INSERT INTO `itemdisciplina` (`iditemdisciplina`, `nome`, `curso`, `turno`, `semestre`, `flgativo`, `credito`) VALUES
+(1,	'Programação',	'PP',	'Noturno',	0,	1,	4),
+(2,	'HIC',	'RTV',	'Noturno',	0,	1,	4),
+(3,	'Antropologia Cristã',	'PP',	'Noturno',	0,	1,	2),
+(4,	'Atendimento Publicitário',	'PP',	'Noturno',	0,	1,	4),
+(5,	'Dramaturgia Dir. Atores',	'RTV',	'Noturno',	0,	1,	4),
+(6,	'',	'',	'Matutino',	0,	1,	1),
+(7,	'Algotitimos',	'Sistemas Para Internet',	'Matutino',	0,	1,	2),
+(8,	'Batatões',	'PP',	'Noturno',	0,	1,	4),
+(9,	'Psicologia da Comunicação',	'PP',	'Noturno',	0,	1,	3),
+(10,	'',	'PP',	'Matutino',	0,	1,	1),
+(11,	'exemplo',	'PP',	'Matutino',	0,	1,	1),
+(12,	'',	'PP',	'Matutino',	0,	1,	1),
+(13,	'',	'PP',	'Matutino',	0,	1,	1),
+(14,	'Atendimento ao Percival',	'PP',	'Matutino',	0,	1,	1),
+(15,	'aa',	'PP',	'Matutino',	0,	1,	1),
+(16,	'Atendimento Publicitário',	'PP',	'Matutino',	0,	1,	1);
 
 DROP TABLE IF EXISTS `prova`;
 CREATE TABLE `prova` (
@@ -273,6 +274,7 @@ INSERT INTO `usuario` (`id`, `nome`, `usuario`, `senha`, `nivel`, `flgativo`) VA
 (9,	'Gabriel Tagliari',	'gabriel',	'18a98c35f49808b45edadc75fb1b25ebfd4037d6',	2,	1),
 (10,	'Gabriel Teste',	'testegabriel',	'330a496768518ccc7883d0d2d696d250f7a23aba',	2,	1),
 (11,	'ana carla',	'carlinha',	'b9154c25c8540e0ac725da7235d3693aa9ebacd7',	2,	1),
-(12,	'Allan Macedo de Novaes',	'allan.novaes',	'3467d2f86b976ae9f474f73a80f3bfe04b85d8af',	2,	1);
+(12,	'Allan Macedo de Novaes',	'allan.novaes',	'3467d2f86b976ae9f474f73a80f3bfe04b85d8af',	2,	1),
+(13,	'Diogo Lopes da Costa',	'NovoProfessor',	'8cb2237d0679ca88db6464eac60da96345513964',	2,	1);
 
--- 2016-09-14 22:52:43
+-- 2016-09-14 23:16:00

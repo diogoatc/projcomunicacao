@@ -26,6 +26,7 @@ CREATE TABLE `itemdisciplina` (
   `nome` varchar(45) NOT NULL,
   `curso` varchar(45) NOT NULL,
   `turno` varchar(20) NOT NULL,
+  `semestre` int(11) NOT NULL,
   `flgativo` tinyint(1) NOT NULL DEFAULT '1',
   `credito` int(11) NOT NULL,
   PRIMARY KEY (`iditemdisciplina`)
@@ -101,4 +102,4 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2016-09-14 22:51:08
+-- 2016-09-14 23:15:52
