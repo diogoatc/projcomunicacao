@@ -28,11 +28,11 @@ include('../model/conexao.php');
             </ul>
           </nav>
 
- 			<div class="content" style="top: 44%; height: 390px;">
+ 			<div class="content" style="top: 44%; height: 500px;">
 
     	<div class="login" style="font-family:sans-serif; font-size:20pt;">Cadastro de Disciplina</div>
 
-    	<div class="form" style="top: 20%; width: 62%;left:60%;">
+    	<div class="form" style="top: 20%; width: 80%;left:60%;">
 
   				  <form action="" id="cadastro" method="post">
 
@@ -60,6 +60,18 @@ include('../model/conexao.php');
                   <option value="4">4</option>
                 </select> <br/>
 
+                <select class="imobSelect" style="width:70%;font-size:20px;" required="" id="semestre" name="semestre" class="form-control">
+                <label for="semestre">Semestre: </label> 
+              <option value="">Selecione uma das opções</option>
+              <option value="1">1º Semestre</option>
+              <option value="2">2º Semestre</option>
+              <option value="3">3º Semestre</option>
+              <option value="4">4º Semestre</option>
+              <option value="5">5º Semestre</option>
+              <option value="6">6º Semestre</option>
+              <option value="7">7º Semestre</option>
+              <option value="8">8º Semestre</option>
+          </select>
 					      <input style="font-size:18px;" type="submit" name="envia" value="Cadastrar" />
 
   				</form>
