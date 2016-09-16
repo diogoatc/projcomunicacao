@@ -4,6 +4,7 @@ include_once('../classes/class_questao.php');
 include('verifica_sessao_professor.php');
 	
 $iddisciplina = $_GET['iddisciplina'];
+$idquestao = $_GET['id'];
 
 if(isset($_GET['deleta'])){
 
@@ -12,24 +13,9 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 
 
 }else{
-// A sessão precisa ser iniciada em cada página diferente
-    if (!isset($_SESSION)) session_start();
-      
-    $nivel_necessario = 2;  //2 é o nível Professor
-      
-    // Verifica se não há a variável da sessão que identifica o usuário
-    if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] !=$nivel_necessario)) {
-        // Destrói a sessão por segurança
-        echo "<script> alert('Você precisa estar logado para acessar essa página');</script>";
-        session_destroy();
-        // Redireciona o visitante de volta pro login
-        header("Location: ../index.php"); exit;
 
-       
-    }
-      
-
-
+$x= new questao();
+    $key = $x->selectQuestaoById($PDO,$idquestao);
 ?>
 
 	<!DOCTYPE html>
@@ -84,18 +70,20 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 
 	<legend class="text-center">Editar Questão</legend>
 
-	<form class="form-horizontal" id="questcad" enctype="multipart/form-data" action="cadastraquestoes.php" method="post">
+	<form class="form-horizontal" id="questcad" enctype="multipart/form-data" action="editaquestao.php" method="post">
 
 	<fieldset>
 	<!-- Select Basic -->
 	<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini -->
 	<input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
+	<input type="hidden" name="iddisciplina" value="<?php echo $iddisciplina; ?>"/>
+	<input type="hidden" name="idquestao" value="<?php echo $idquestao; ?>"/>
 			</div>
 	<!-- Textarea -->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textarea">Enunciado da Questão:</label>
 	  <div class="col-md-4">
-	    <textarea required="" class="form-control" rows="20" id="titulo" name="titulo"  placeholder="Insira o Enunciado da Questão"></textarea>
+	    <textarea required="" class="form-control" rows="20" id="titulo" name="titulo"  placeholder="Insira o Enunciado da Questão"><?php echo $key[0]['titulo']; ?></textarea>
 	  </div>
 	</div>
 	<!-- File Button -->
@@ -109,7 +97,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp1">Alternativa A:</label>
 	  <div class="col-md-4">
-	  <textarea required="" class="form-control" rows="10" name="resp1" type="textarea" placeholder="Insira Alternativa A"></textarea>
+	  <textarea required="" class="form-control" rows="10" name="resp1" type="textarea" placeholder="Insira Alternativa A"><?php echo $key[0]['resposta1']; ?></textarea>
 	  </div>
 	</div>
 
@@ -117,7 +105,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp2">Alternativa B:</label>
 	  <div class="col-md-4">
-	  <textarea required="" class="form-control" rows="10" name="resp2" type="textarea" placeholder="Insira Alternativa B"></textarea>
+	  <textarea required="" class="form-control" rows="10" name="resp2" type="textarea" placeholder="Insira Alternativa B"><?php echo $key[0]['resposta2']; ?></textarea>
 	  </div>
 	</div>
 
@@ -125,7 +113,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp3">Alternativa C:</label>
 	  <div class="col-md-4">
-	  <textarea required="" class="form-control" rows="10" name="resp3" type="textarea" placeholder="Insira Alternativa C"></textarea>
+	  <textarea required="" class="form-control" rows="10" name="resp3" type="textarea" placeholder="Insira Alternativa C"><?php echo $key[0]['resposta3']; ?></textarea>
 	  </div>
 	</div>
 
@@ -133,7 +121,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp4">Alternativa D:</label>
 	  <div class="col-md-4">
-	  <textarea required="" class="form-control" rows="10" name="resp4" type="textarea" placeholder="Insira Alternativa D"></textarea>
+	  <textarea required="" class="form-control" rows="10" name="resp4" type="textarea" placeholder="Insira Alternativa D"><?php echo $key[0]['resposta4']; ?></textarea>
 	  </div>
 	</div>
 
@@ -141,7 +129,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="resp5">Alternativa E:</label>
 	  <div class="col-md-4">
-	  <textarea required="" class="form-control" rows="10" name="resp5" type="textarea" placeholder="Insira Alternativa E"></textarea>
+	  <textarea required="" class="form-control" rows="10" name="resp5" type="textarea" placeholder="Insira Alternativa E"><?php echo $key[0]['resposta5']; ?></textarea>
 	  </div>
 	</div>
 
@@ -198,7 +186,7 @@ if(isset($_POST['envia'])){
 		
 		
 		$x = new questao();
-		$editaquestao = $x->editaQuestaoById($PDO,$idquestao,$iddisciplina,$titulo,$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta);
+		$edita = $x->editaQuestaoById($PDO,$idquestao,$iddisciplina,$titulo,$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta);
 
 
 	}

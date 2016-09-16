@@ -13,9 +13,9 @@
     $x= new questao();
     $key = $x->selectQuestaoById($PDO,$idquestao);
     
-    echo $key[0]['titulo'];
+    echo $key[0]['titulo']."<br/>";
       if (!empty($key[0]['imagem'])){
-        echo'<img src="data:image/jpg;base64,'.$key['imagem'].'" />';
+        echo'<img height="100" width="100" src="data:image/jpg;base64,'.$key[0]['imagem'].'" />';
       }else{
         echo "";
       }
