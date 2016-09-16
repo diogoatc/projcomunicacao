@@ -1,7 +1,7 @@
 <?php
 include_once('../classes/class_disciplina.php');
 include_once('../classes/class_questao.php');
-
+include('verifica_sessao_professor.php');
 	
 $iddisciplina = $_GET['iddisciplina'];
 

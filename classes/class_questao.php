@@ -132,6 +132,15 @@ class questao {
 			$conn->bindParam(":id",$id,PDO::PARAM_INT);
 			$conn->execute();
 			return $conn->fetchAll(PDO::FETCH_ASSOC);
+			$conn=null;
+		}
+
+		function selectQuestaoById($pdo,$id){
+			$conn = $pdo->prepare("SELECT * FROM questao WHERE id=:id");
+			$conn->bindParam(":id",$id,PDO::PARAM_INT);
+			$conn->execute();
+			return $conn->fetchAll(PDO::FETCH_ASSOC);
+			$conn=null;
 		}
 
 		function registrarQuestoes($con,$iddisciplina, $titulo, $resposta1,

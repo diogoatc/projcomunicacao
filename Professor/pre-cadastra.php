@@ -1,12 +1,23 @@
 <?php
+include('verifica_sessao_professor.php');
+if(isset($_POST['envia'])){
+	
+
+$curso = $_POST['curso'];
+$turno = $_POST['turno'];
+$semestre = $_POST['semestre'];
+echo $curso;
+echo $turno;
+echo $semestre;
 
 
-setcookie('curso');
-setcookie('turno');
 
+setcookie('curso', $curso);
+setcookie('turno', $turno);
+setcookie('semestre', $semestre);
 
-
-
+header("Location: cadastraquestoes.php"); exit;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -124,22 +135,6 @@ setcookie('turno');
         <p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
       </div>
     </div>
-			
 </body>
 </html>
 
-<?php
-if (isset($_POST['envia'])){
-
-$curso = $_POST['curso'];
-$turno = $_POST['turno'];
-$semestre = $_POST['semestre'];
-
-
-setcookie('curso', $curso);
-setcookie('turno', $turno);
-setcookie('semestre', $semestre);
-
-header("Location: cadastraquestoes.php"); exit;
-}
-?>

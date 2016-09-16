@@ -87,7 +87,7 @@ class disciplina {
 
 				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
 				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
-				$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
+				$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
 				$conn->execute();
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 				$conn=null;
