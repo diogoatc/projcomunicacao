@@ -82,7 +82,8 @@ $retorno = $x->selectDisciplinaByProfessor($PDO, $idusuario);
 <?php } ?>
 
 	</table>
-</div>
+	</div>
+	</div>
 
 
 	<div id="push"></div>

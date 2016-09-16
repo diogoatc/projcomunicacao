@@ -23,7 +23,7 @@
 
 	<body>
 
-<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;>
+<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
   <div class="container-fluid">
     
@@ -37,8 +37,8 @@
 
     <div class="col-sm-7">
     <ul class="nav navbar-nav">
-      <li class="active"><a id="ativo" href="index.php">Home</a></li>
-<li><a id="font-white" href="pre-cadastra.php">Cadastrar Questões</a></li>
+      <li ><a id="font-white" href="index.php">Home</a></li>
+<li class="active"><a id="ativo" href="pre-cadastra.php">Cadastrar Questões</a></li>
       <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">

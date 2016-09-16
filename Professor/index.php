@@ -22,7 +22,7 @@
 
   <body>
 
-<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;>
+<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
   <div class="container-fluid">
     
