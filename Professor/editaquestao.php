@@ -32,89 +32,181 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Cadastro de questões</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="../assets/css/style.css">
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Cadastro de Questões</title>
+		<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	    <script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+	      <link rel="stylesheet" href="../assets/css/normalize.css">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+	      <link rel="stylesheet" href="../assets/css/newstyle.css">
+	</head>
 
-</head>
-<body>
+	<body>
 
-		<div class="container">
-		<div class="header">
-      		<img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
-   		</div>
+<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
-			<nav id="menu">
-                <h1>Menu Principal</h1>
-                <ul type="disc">
-                    <li><a href="index.php">MENU</a></li>
+  <div class="container-fluid">
+    
+	      <div class="col-sm-2">
+	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+	     </div>
+          
+	      <div class="col-sm-3">
+	        <h3 class="areadoprofessor">ÁREA DO PROFESSOR</h3>
+	      </div>
 
-                </ul>
-              
-                <ul id="logout" type="disc">
-           			<li><a href="../logout.php">Logout</a></li>
-	            </ul>
-            </nav>
+    <div class="col-sm-7">
+    <ul class="nav navbar-nav">
+      <li ><a id="font-white" href="index.php">Home</a></li>
+<li class="active"><a id="ativo" href="pre-cadastra.php">Cadastrar Questões</a></li>
+      <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
+                    Relatorios de todas as disciplinas
+                </a></li>
+           </ul>
+      </li>
+      <li><a id="font-white" href="listadisciplinas.php">Editar/Visualizar Questões</a></li>
+	        <li><a id="font-white" href="alterarsenha.php">Alterar Senha</a></li>
+	        <li><a id="font-white" href="../logout.php">Logout</a></li>
+    </ul>
+  </div>
+  </div>
+</nav>
 
-        <div class="content" style="top: 40%; height: 980px; width:600px; left:48%;">
-        <div class="login" style="font-family:sans-serif; font-size:20pt;">Cadastro de Questões</div>
-        <div class="form" style="top:8%; width: 90%;left:30%;height: 980px;">
+	<legend class="text-center">Cadastrar de Questão</legend>
 
-			<form id="questcad" action="editaquestao.php" method="post">
-				
-				<input type="hidden" name="iddisciplina" value="<?php echo $iddisciplina ?>"/>
-				<input type="hidden" name="idquestao" value="<?php echo $idquestao ?>"/>
+	<form class="form-horizontal" id="questcad" enctype="multipart/form-data" action="cadastraquestoes.php" method="post">
 
-						<p style="font-size:20px;font-family: sans-serif;">Enunciado da Questão</p>
+	<fieldset>
+	<!-- Select Basic -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="disciplina">Disciplina</label>
+	  <div class="col-md-3">
+	    <select required="" id="disciplina" name="disciplina" class="form-control">
+			<option value="">Selecione uma das opções</option>
+	    <?php
+			$curso=$_COOKIE['curso'];
+			$turno=$_COOKIE['turno'];
+			$semestre=$_COOKIE['semestre'];
 
-						<textarea required="" name="titulo" id="titulo" rows="10" cols="74" placeholder="Enunciado da Questão"></textarea> <br/><br/>
-					<label style="font-size:20px;font-family: sans-serif;" for="resp1">Alternativa A:</label>
-					<input style="height: 0px;width:500px;" required="" type="text" name="resp1"> <br/></br>
+			$x = new disciplina();
+			$retorno = $x->selectAtivo($PDO,$curso,$turno,$semestre);
+			foreach ($retorno as $key) {
+		?>
+		<option value="<?php echo $key['nome'];?>" >
+	    <?php echo $key['nome'];?>
+	     </option>
 
-					<label style="font-size:20px;font-family: sans-serif;" for="resp2">Alternativa B:</label>
-					<input style="height: 0px;width:500px;" required="" type="text" name="resp2"> <br/></br>
+				<?php
+			}
+			?>
 
-					<label style="font-size:20px;font-family: sans-serif;" for="resp3">Alternativa C:</label>
-					<input style="height: 0px;width:500px;" required="" type="text" name="resp3"> <br/></br>
+	    </select>
+	  </div>
+	</div>
 
-					<label style="font-size:20px;font-family: sans-serif;" for="resp4">Alternativa D:</label>
-					<input style="height: 0px;width:500px;" required="" type="text" name="resp4"> <br/></br>
+	<!-- Select Basic -->
+	<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini -->
+	<input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
+			</div>
+	<!-- Textarea -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="textarea">Enunciado da Questão:</label>
+	  <div class="col-md-4">
+	    <textarea required="" class="form-control" rows="20" id="titulo" name="titulo"  placeholder="Insira o Enunciado da Questão"></textarea>
+	  </div>
+	</div>
+	<!-- File Button -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="img">Imagem: (Não Obrigatório)</label>
+	  <div class="col-md-4">
+	    <input id="img" name="imagem" class="input-file" type="file">
+	  </div>
+	</div>
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="resp1">Alternativa A:</label>
+	  <div class="col-md-4">
+	  <textarea required="" class="form-control" rows="10" name="resp1" type="textarea" placeholder="Insira Alternativa A"></textarea>
+	  </div>
+	</div>
 
-					<label style="font-size:20px;font-family: sans-serif;" for="resp5">Alternativa E:</label>
-					<input style="height: 0px;width:500px;" required="" type="text" name="resp5"> <br/></br></br>
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="resp2">Alternativa B:</label>
+	  <div class="col-md-4">
+	  <textarea required="" class="form-control" rows="10" name="resp2" type="textarea" placeholder="Insira Alternativa B"></textarea>
+	  </div>
+	</div>
 
-					<label style="font-size:25px;font-family: sans-serif;color:black;" for="respcorreta">Alternativa Correta:</label>
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="resp3">Alternativa C:</label>
+	  <div class="col-md-4">
+	  <textarea required="" class="form-control" rows="10" name="resp3" type="textarea" placeholder="Insira Alternativa C"></textarea>
+	  </div>
+	</div>
 
-				<select  class="imobSelect" style="font-size:35px;font-family: sans-serif; width:50px; height:45px;top:40px; border-radius:10px;" required="" name="respcorreta" id="respcorreta">
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="resp4">Alternativa D:</label>
+	  <div class="col-md-4">
+	  <textarea required="" class="form-control" rows="10" name="resp4" type="textarea" placeholder="Insira Alternativa D"></textarea>
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="resp5">Alternativa E:</label>
+	  <div class="col-md-4">
+	  <textarea required="" class="form-control" rows="10" name="resp5" type="textarea" placeholder="Insira Alternativa E"></textarea>
+	  </div>
+	</div>
+
+	<!-- Select Basic -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="respcorreta">Alternativa Correta:</label>
+	  <div class="col-md-3">
+	    <select id="respcorreta" name="respcorreta" class="form-control" style="font-size:14pt;">
+	    		<option value="">Selecione uma alternativa</option>
 					<option value="A">A</option>
 					<option value="B">B</option>
 					<option value="C">C</option>
 					<option value="D">D</option>
 					<option value="E">E</option>
+	    </select>
+	  </div>
+	</div>
 
-				</select> <br/>
-			
-					<input style="font-size:35px;font-family: sans-serif; width:150px; height:60px;top:40px; border-radius:10px;padding:10px" type="submit" name="envia">
-		</form>
+	<!-- Button -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="singlebutton"></label>
+	  <div class="col-md-1">
+	    <input style="font-size:13pt;" name="envia" type="submit" class="btn btn-primary"></input>
+	  </div>
 	</div>
-	</div>
-  		<footer id="rodape">
-	          <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
-        </footer>
-	</div>
+
+	</fieldset>
+	</form>
 	
-</body>
-</html>
-		
-
-
-
-
-
-
+<div id="push"></div>
+    </div>
+ 		 <div id="footer">
+      <div class="container">
+        <p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+      </div>
+    </div>
+	</body>
+	</html>
 
 <?php
 
