@@ -60,7 +60,8 @@ $retorno = $x->selectQuestaoByDisciplina($PDO,$iddisciplina);
 </nav>
 
 <div id="wrap">
-       <legend class="text-center">Editar, Excluir ou Visualizar Questões</legend>
+       <legend id="noline" class="text-center">Editar, Excluir ou Visualizar Questões</legend>
+       <h4 id="min" class="text-right">Para visualizar a imagem inserida na Questão, click em "Visualizar"</h4>
   <div class="table-responsive">
   <table class="table table-bordered table table-hover">
 

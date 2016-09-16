@@ -88,33 +88,6 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 
 	<fieldset>
 	<!-- Select Basic -->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="disciplina">Disciplina</label>
-	  <div class="col-md-3">
-	    <select required="" id="disciplina" name="disciplina" class="form-control">
-			<option value="">Selecione uma das opções</option>
-	    <?php
-			$curso=$_COOKIE['curso'];
-			$turno=$_COOKIE['turno'];
-			$semestre=$_COOKIE['semestre'];
-
-			$x = new disciplina();
-			$retorno = $x->selectAtivo($PDO,$curso,$turno,$semestre);
-			foreach ($retorno as $key) {
-		?>
-		<option value="<?php echo $key['nome'];?>" >
-	    <?php echo $key['nome'];?>
-	     </option>
-
-				<?php
-			}
-			?>
-
-	    </select>
-	  </div>
-	</div>
-
-	<!-- Select Basic -->
 	<input type="hidden" name="MAX_FILE_SIZE" value="1048576"/>  <!-- Valor fixo para tamanho máximo de imagem: 1MB. Acima de 2MB tem que alterar no PHP.ini -->
 	<input type="hidden" name="idusuario" value="<?php echo $_SESSION['UsuarioID']; ?>"/>
 			</div>

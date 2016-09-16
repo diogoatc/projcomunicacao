@@ -124,7 +124,15 @@ section {
 
 legend{
   font-size:20pt !important;
-  padding-bottom: 25px !important;
+  padding-bottom: 25px;
+}
+legend#noline{
+  font-size:20pt !important;
+
+}
+h4#min{
+  font-size:10pt !important;
+  color:red;
 }
 a#ativo{
 color:#000000 !important;

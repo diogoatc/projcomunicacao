@@ -63,10 +63,10 @@ $retorno = $x->selectDisciplinaByProfessor($PDO, $idusuario);
   <table class="table table-hover">
    		
 		<thead>
-			<td>Nome</td>
-			<td>Curso</td>
-			<td>Turno</td>
-			<td>Semestre</td>
+			<td><strong>Nome</strong></td>
+			<td><strong>Curso</strong></td>
+			<td><strong>Turno</strong></td>
+			<td><strong>Semestre</strong></td>
 			<td></td>
 		</thead>
 
