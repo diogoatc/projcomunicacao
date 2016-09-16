@@ -107,7 +107,7 @@ section {
  font-family:sans-serif;
  font-size:14pt;
  color:white !important;
-}
+ }
 
 .form-group{
   width: 100% !important;
@@ -130,7 +130,7 @@ a#ativo{
 color:#000000 !important;
 background: #f79f38;
 font-family:sans-serif; 
-border-radius:2px;
+
 font-size:11pt;
 }
 a#font-white{
@@ -142,19 +142,6 @@ a#font-white{
 .form-control{
     font-size:13pt;
 }
-/*--------------------------------------
-
-.footer{
-    border-radius:0px; 
-    background:#20205a;
-    display: table !important;
-    position: fixed;
-
-}
-*/
-
-/* Sticky footer styles
--------------------------------------------------- */
 html,
 body {
     height: 100%;
@@ -167,32 +154,28 @@ body {
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height */
-    margin: 0 auto -30px;
+    margin: 0 auto 30px;
 }
-
 /* Set the fixed height of the footer here */
 #push,
 #footer {
     height: auto;
-
 }
-
 #footer {
     background-color: #20205a;
-    padding: 10px 0 5px;
+    padding: 15px 0 5px;
     text-align: center;
     color:#fff;
     font-size: 12pt;
    font-family: 'Cabin', sans-serif;
 }
-
 /* Lastly, apply responsive CSS fixes as necessary */
-@media (max-width:920px) {
+@media (max-width:940px) {
     #footer {
         margin-left: -20px;
         margin-right: -20px;
         padding-left: 20px;
         padding-right: 20px;
-
     }
 }
+
