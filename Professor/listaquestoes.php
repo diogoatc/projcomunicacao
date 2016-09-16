@@ -65,13 +65,13 @@ $retorno = $x->selectQuestaoByDisciplina($PDO,$iddisciplina);
   <table class="table table-bordered table table-hover">
 
 <thead> 
-	<td>Enunciado</td>
-	<td>Resposta A</td>
-	<td>Resposta B</td>
-	<td>Resposta C</td>
-	<td>Resposta D</td>
-	<td>Resposta E</td>
-	<td>Resposta Certa</td>
+	<td><strong>Enunciado</strong></td>
+	<td><strong>Resposta A</strong></td>
+	<td><strong>Resposta B</strong></td>
+	<td><strong>Resposta C</strong></td>
+	<td><strong>Resposta D</strong></td>
+	<td><strong>Resposta E</strong></td>
+	<td><strong>Resposta Certa</strong></td>
 	<td></td>
 	<td></td>
     <td></td>

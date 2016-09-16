@@ -35,7 +35,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<title>Cadastro de Questões</title>
+		<title>Edita Questões</title>
 		<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -82,7 +82,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
   </div>
 </nav>
 
-	<legend class="text-center">Cadastrar de Questão</legend>
+	<legend class="text-center">Editar Questão</legend>
 
 	<form class="form-horizontal" id="questcad" enctype="multipart/form-data" action="cadastraquestoes.php" method="post">
 
