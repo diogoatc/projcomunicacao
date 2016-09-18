@@ -53,8 +53,8 @@
   <div id="wrap">
 	<div class="geral">
   <div class="container">
-	  <div class="row">
-		<h1 class="text-center">Seja bem-vindo professor(a): <?php echo $_SESSION['UsuarioNome'];?></h1>
+	  <div class="row text-center">
+		<h1>Seja bem-vindo professor(a): <?php echo $_SESSION['UsuarioNome'];?></h1>
 
 		  </div>
 		</div>
