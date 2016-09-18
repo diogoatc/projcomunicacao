@@ -11,47 +11,105 @@
 <head>
     <title>Alterar Senha</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	    <script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+	      <link rel="stylesheet" href="../assets/css/normalize.css">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+	      <link rel="stylesheet" href="../assets/css/newstyle.css">
 </head>
 
 <body>
 
-    <div class="container">
-    <div class="header">
-        <img src="../assets/img/UNASP.png" alt="logo unasp">
-    </div>    
+    <nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
-        <nav id="menu">
-            <h1>Menu Principal</h1>
-            <ul type="disc">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="pre-cadastra.php">Cadastrar Questões</a></li>
-                <li><a href="notasalunos.php">Notas Alunos</a></li>
-            </ul>
-        </nav>
+  <div class="container-fluid">
+    
+	      <div class="col-sm-2">
+	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+	     </div>
+          
+	      <div class="col-sm-3">
+	        <h3 class="areadoprofessor">ÁREA DO PROFESSOR</h3>
+	      </div>
 
-        <div style="height:370px;" class="content">
-        <div class="login">Alterar Senha</div>
-        <div class="form">
-                <form action="alterarsenha.php" method="post">
+    <div class="col-sm-7">
+    <ul class="nav navbar-nav">
+      <li ><a id="font-white" href="index.php">Home</a></li>
+<li><a id="font-white" href="pre-cadastra.php">Cadastrar Questões</a></li>
+      <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
+                    Relatorios de todas as disciplinas
+                </a></li>
+           </ul>
+      </li>
+      <li><a id="font-white" href="listadisciplinas.php">Editar/Visualizar Questões</a></li>
+	        <li class="active"><a id="ativo" href="alterarsenha.php">Alterar Senha</a></li>
+	        <li><a id="font-white" href="../logout.php">Logout</a></li>
+    </ul>
+  </div>
+  </div>
+</nav>
 
-                    <input type="password" name="senhaatual" required="Digite a senha atual" placeholder="Digite a Senha Atual" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite a senha atual'">
-                    <input type="password" name="novasenha" required="Digite nova senha" placeholder="Digite a Nova Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite nova senha'">
-                    <input type="password" name="confsenha" required="Confirme a senha" placeholder="Confirme a Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirme a senha'">
-                    <br/>
+<div id="wrap">
+       <legend class="text-center">ALTERAR SENHA</legend>
+       
+    <form class="form-horizontal" action="alterarsenha.php" method="post">
+<fieldset>
 
-                        <button name="envia" class="button">CONFIRMAR</button>
-                </form>
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="senhaatual">Digite a Senha Atual:</label>
+  <div class="col-md-4">
+    <input name="senhaatual" type="password" placeholder="Digite a Senha Atual" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite a Senha Atual'" class="form-control input-md" required="">
+    <span class="help-block">insira a senha atual</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="novasenha">Digite a Nova Senha:</label>  
+  <div class="col-md-4">
+  <input name="novasenha" type="password" placeholder="Digite a Nova Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite a Nova Senha'" class="form-control input-md" required="">
+  <span class="help-block">Insira a nova senha</span>  
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="confsenha">Confirme a Senha:</label>
+  <div class="col-md-4">
+    <input name="confsenha" type="password" placeholder="Confirme a Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirme a Senha'" class="form-control input-md" required="">
+    <span class="help-block">Confirme a senha novamente</span>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="envia"></label>
+  <div class="col-md-4">
+    <button style="font-size:13pt;" name="envia" type="submit" class="btn btn-success">Confirmar</button>
+  </div>
+  
+</div>
+ 
+</fieldset>
+</form>
+
             </div>
 
-            </div>
-
-            <footer id="rodape">
-
-                <p><b>Copyright &copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
-
-            </footer>
+<div id="push"></div>
+     <div id="footer">
+      <div class="container">
+        <p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+      </div>
     </div>
+           
 
 </body>
 </html>  

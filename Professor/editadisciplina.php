@@ -8,7 +8,6 @@ $iddisciplina = $_GET['id'];
 <head>
 	<title>Editar Disciplina</title>
 	<meta charset="utf-8">
-	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,7 +108,7 @@ $iddisciplina = $_GET['id'];
 	</fieldset>	
 	</form>
 	</div>
-
+	
 <div id="push">
 </div>
     <div id="footer">
