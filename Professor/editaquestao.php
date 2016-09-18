@@ -173,6 +173,21 @@ $x= new questao();
 
 if(isset($_POST['envia'])){
 
+	$imagem = $_FILES["imagem"];
+		if($imagem['error'] == 1 or $imagem['error'] == 2){
+
+			echo "
+				<script>
+					alert('O tamanho da imagem é maior que o suportado. Por favor insira uma imagem de até 1MB');
+					window.location='listadisciplinas.php';
+				</script>
+
+			";
+		}else{
+			$img_src = $imagem['tmp_name'];
+			$imgbinary = fread(fopen($img_src, "r"), filesize($img_src));
+			$img_base64 = base64_encode($imgbinary);
+
 		$idquestao = $_POST['idquestao'];
 		$iddisciplina = $_POST['iddisciplina'];
 		$titulo = $_POST['titulo'];
@@ -185,9 +200,9 @@ if(isset($_POST['envia'])){
 		
 		
 		$x = new questao();
-		$edita = $x->editaQuestaoById($PDO,$idquestao,$iddisciplina,$titulo,$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta);
+		$edita = $x->editaQuestaoById($PDO,$idquestao,$iddisciplina,$titulo,$img_base64,$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta);
 
-
+	}
 	}
 }
 	?>

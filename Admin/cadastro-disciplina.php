@@ -73,8 +73,8 @@ include('../model/conexao.php');
   <div class="col-md-3">
     <select required="" type="text" name="curso" class="form-control">
       <option value="">Selecione uma das opções</option>
-      <option value="1">PP</option>
-      <option value=2>RTV</option>
+      <option value="PP">PP</option>
+      <option value="RTV">RTV</option>
     </select>
   </div>
 </div>
@@ -101,6 +101,7 @@ include('../model/conexao.php');
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
+      <option value="5">4</option>
     </select>
   </div>
 </div>

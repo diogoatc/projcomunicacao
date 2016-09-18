@@ -206,7 +206,7 @@
 			$resp4 = $_POST['resp4'];
 			$resp5 = $_POST['resp5'];
 			$respcorreta = $_POST['respcorreta'];
-			$semestre = $_POST['semestre'];
+			$semestre = $_COOKIE['semestre'];
 			$idusuario = $_POST['idusuario'];
 			$curso=$_COOKIE['curso'];
 			$turno=$_COOKIE['turno'];

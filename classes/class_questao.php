@@ -95,10 +95,11 @@ class questao {
 		$conn=null;
 	}
 
-	function editaQuestaoById($pdo,$idquestao,$iddisciplina,$titulo,
+	function editaQuestaoById($pdo,$idquestao,$iddisciplina,$titulo,$imagem,
 	$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta){
 		$conn = $pdo->prepare("UPDATE questao SET iddisciplina = :iddisciplina,
 			titulo = :titulo,
+			imagem = :imagem,
 			resposta1 = :resposta1,
 			resposta2 = :resposta2,
 			resposta3 = :resposta3,
@@ -108,6 +109,7 @@ class questao {
 			WHERE id=:id");
 			$conn->bindParam(":iddisciplina",$iddisciplina,PDO::PARAM_STR);
 			$conn->bindParam(":titulo",$titulo,PDO::PARAM_STR);
+			$conn->bindParam(":imagem",$imagem,PDO::PARAM_STR);
 			$conn->bindParam(":resposta1",$resp1,PDO::PARAM_STR);
 			$conn->bindParam(":resposta2",$resp2,PDO::PARAM_STR);
 			$conn->bindParam(":resposta3",$resp3,PDO::PARAM_STR);
