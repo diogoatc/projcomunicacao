@@ -2,46 +2,69 @@
 include('../classes/class_disciplina.php');
 include('verifica_sessao_professor.php');
 $iddisciplina = $_GET['id'];
-
-
 ?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Editar Disciplina</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../assets/css/style.css">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	    <script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+	      <link rel="stylesheet" href="../assets/css/normalize.css">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+	      <link rel="stylesheet" href="../assets/css/newstyle.css">
 </head>
 
 <body>
-		<div class="container">
-		<div class="header">
-    	  	<img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
-   		</div>
+		<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
-   		<nav id="menu">
-            <h1>Menu Principal</h1>
-            <ul type="disc">
-          		<li><a href="index.php">MENU</a></li>
-            </ul>
-           	
-           	<ul id="logout" type="disc">
-           		<li><a href="../logout.php">Logout</a></li>
-            </ul>
-        </nav>
+  <div class="container-fluid">
+    
+	      <div class="col-sm-2">
+	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+	     </div>
+          
+	      <div class="col-sm-3">
+	        <h3 class="areadoprofessor">ÁREA DO PROFESSOR</h3>
+	      </div>
 
-            <div class="content" style="top: 44%; height: 300px;width: 900px; left:35%">
-            <div class="login" style="font-family:sans-serif; font-size:16pt;">ALTERE O SEMESTRE,CURSO OU TURNO DA DISCIPLINA SELECIONADA</div>
-            <div class="form" style="top: 26%; width: 50%;left:40%;">
+    <div class="col-sm-7">
+    <ul class="nav navbar-nav">
+      <li ><a id="font-white" href="index.php">Home</a></li>
+<li class="active"><a id="ativo" href="pre-cadastra.php">Cadastrar Questões</a></li>
+      <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
+                    Relatorios de todas as disciplinas
+                </a></li>
+           </ul>
+      </li>
+      <li><a id="font-white" href="listadisciplinas.php">Editar/Visualizar Questões</a></li>
+	        <li><a id="font-white" href="alterarsenha.php">Alterar Senha</a></li>
+	        <li><a id="font-white" href="../logout.php">Logout</a></li>
+    </ul>
+  </div>
 
-	<form method="post" action="editadisciplina.php">
+  </div>
+</nav>
 
-		<input type="hidden" name="iddisciplina" value="<?php echo $iddisciplina; ?>">
-		<label style="font-size:28;margin-left: -15px;padding:-12%;" for="semestre">Semestre:</label>
-			
-			<select class="imobSelect" style="width:40%;font-size: 28px;" required="" name="semestre" id="semestre">
+<div id="wrap">
+<legend class="text-center">ALTERE O SEMESTRE,CURSO OU TURNO DA DISCIPLINA SELECIONADA</legend>
+          
+	<form class="form-horizontal" method="post" action="editadisciplina.php">
+		<fieldset>
+		<div class="form-group">
+		<label class="col-md-5 control-label" for="semestre">Semestre:</label>
+		<div class="col-md-5">
+		<input type="hidden" name="iddisciplina" value="<?php echo $iddisciplina;?>">
+			<select required="" name="semestre" id="semestre">
+					<option value="">Selecione o Semestre</option>
 					<option value="1">1º Semestre</option>
 					<option value="2">2º Semestre</option>
 					<option value="3">3º Semestre</option>
@@ -50,42 +73,56 @@ $iddisciplina = $_GET['id'];
 					<option value="6">6º Semestre</option>
 					<option value="7">7º Semestre</option>
 					<option value="8">8º Semestre</option>
-			</select><br/>
+			</select>
+			</div>
+			</div>
 
-		<label style="font-size:28; padding:10px;" for="curso">Curso:</label>
-			
-			<select class="imobSelect" style="width:40%;font-size: 28px;" required="" name="curso" id="curso">
-				<option value="PP">PP</option>
-				<option value="RTV">RTV</option>
-			</select><br/>
+				<div class="form-group">
+					<label class="col-md-5 control-label" for="curso">Curso:</label>
+				<div class="col-md-5">
+					<select required="" name="curso" id="curso">
+						<option value="">Selecione o Curso</option>
+						<option value="PP">PP</option>
+						<option value="RTV">RTV</option>
+					</select>
+				</div>
+				</div>
 
-		<label style="font-size:28; padding:10px;" for="turno">Turno:</label>
-			
-			<select class="imobSelect" style="width:40%;font-size: 28px;" required="" name="turno" id="turno">
+				<div class="form-group">
+					<label class="col-md-5 control-label" for="turno">Turno:</label>
+				<div class="col-md-5">
+			<select required="" name="turno" id="turno">
+					<option value="">Selecione o Turno</option>
 					<option value="Diurno">Diurno</option>
 					<option value="Noturno">Noturno</option>
-			</select><br/></br>
+			</select>
+				</div>
+				</div>
+	<!-- Button -->
+	<div class="form-group">
+	  <label class="col-md-5 control-label" for="singlebutton"></label>
+	  <div class="col-md-5">
+	    <input style="font-size:13pt;" name="envia" type="submit" class="btn btn-primary"></input>
+	  </div>
+	</div>
 
-		<input style="width:41%; font-size:22px;margin-left:20%;" type="submit" name="envia">
-		
+	</fieldset>	
 	</form>
-	
-</div>
-</div>
- <footer id="rodape">
+	</div>
 
-                    <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
-
-                </footer>
+<div id="push">
 </div>
-
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+      </div>
+    </div>
 </body>
 </html>
 
 <?php 
 
 if(isset($_POST['envia'])){
-
 	$iddisciplina = $_POST['iddisciplina'];
 	$semestre = $_POST['semestre'];
 	$curso = $_POST['curso'];
@@ -93,9 +130,5 @@ if(isset($_POST['envia'])){
 
 	$x = new disciplina();
 	$x->editaDisciplinaByID($PDO,$iddisciplina,$semestre,$curso,$turno);
-
 }
-
-
-
 ?>

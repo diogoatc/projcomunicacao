@@ -87,8 +87,7 @@ $retorno = $x->selectDisciplinaByProfessor($PDO, $idusuario);
 
 
 	<div id="push"></div>
-    </div>
- 		 <div id="footer">
+     <div id="footer">
       <div class="container">
         <p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
       </div>
