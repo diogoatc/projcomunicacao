@@ -236,14 +236,4 @@
                
                
 
-               
-                <input type="password" name="senhaatual" required="Digite a senha atual" placeholder="Digite a Senha Atual" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite a senha atual'"></input>
-                
-                
-                <input type="password" name="novasenha" required="Digite nova senha" placeholder="Digite a Nova Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite nova senha'"></input>
-                
-                
-                <input type="password" name="confsenha" required="Confirme a senha" placeholder="Confirme a Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirme a senha'"></input>
-                
-                
-        <button name="envia" class="button">CONFIRMAR</button>
+              
