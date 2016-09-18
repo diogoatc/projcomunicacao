@@ -8,82 +8,144 @@ include('../model/conexao.php');
 <head>
 	<title>Cadastro de Usuário</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../assets/css/style.css">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+		  <link rel="stylesheet" href="../assets/css/normalize.css">
+		  <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+		  <link rel="stylesheet" href="../assets/css/newstyle.css">
 </head>
 <body>
+<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
-		  <div class="container">
-			<div class="header">
-      	<img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
-   		</div>
+  <div class="container-fluid">
 
-          <nav id="menu">
-              <h1>Menu Principal</h1>
-            <ul type="disc">
-              <li><a href="index.php">MENU</a></li>
-            </ul>
+		  <div class="col-sm-2">
+			<a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+		 </div>
 
-            <ul id="logout" type="disc">
-              <li><a href="../logout.php">Logout</a></li>
-            </ul>
-          </nav>
-
- 			<div class="content" style="top: 44%; height: 500px;">
-
-    	<div class="login" style="font-family:sans-serif; font-size:20pt;">Cadastro de Disciplina</div>
-
-    	<div class="form" style="top: 20%; width: 80%;left:60%;">
-
-  				  <form action="" id="cadastro" method="post">
-
-                 <label style="font-size:20px;font-family: sans-serif;" for="nome">Nome da Disciplina: </label>
-      			     <input type="text" name="nome" required="Nome da Disciplina Obrigatório" placeholder="Exemplo: Atendimento Publicitário"><br/></br>
-
-                 <label style="font-size:20px;font-family: sans-serif;height: 10%;" for="curso">Curso: </label>
-
-                <select class="imobSelect" type="text" name="curso">
-                 <option value="PP">PP</option>
-                 <option value="RTV">RTV</option>
-                </select> <br/>
-
-                  <label style="font-size:20px;font-family: sans-serif;" for="turno">Turno: </label>
-                <select class="imobSelect" type="text" name="turno">
-                  <option value="Matutino">Manhã</option>
-                  <option value="Noturno">Noite</option>
-                </select> <br/>
-
-                  <label style="font-size:20px;font-family: sans-serif;" for="credito">Quantidade de créditos da Disciplina: </label>
-                <select class="imobSelect" type="text" name="credito">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select> <br/>
-
-                <select class="imobSelect" style="width:70%;font-size:20px;" required="" id="semestre" name="semestre" class="form-control">
-                <label for="semestre">Semestre: </label> 
-              <option value="">Selecione uma das opções</option>
-              <option value="1">1º Semestre</option>
-              <option value="2">2º Semestre</option>
-              <option value="3">3º Semestre</option>
-              <option value="4">4º Semestre</option>
-              <option value="5">5º Semestre</option>
-              <option value="6">6º Semestre</option>
-              <option value="7">7º Semestre</option>
-              <option value="8">8º Semestre</option>
-          </select>
-					      <input style="font-size:18px;" type="submit" name="envia" value="Cadastrar" />
-
-  				</form>
-      </div>
-     	</div>
-        <footer id="rodape">
-          <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
-        </footer>
+		  <div class="col-sm-4">
+			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
 		  </div>
 
+	<div class="col-sm-6">
+	<ul class="nav navbar-nav">
+	  <li><a id="font-white"  href="index.php">Home</a></li>
+<li class="active"><a id="ativo" href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
+<li><a id="font-white" href="cadastro-professor.php">Cadastrar Professor</a></li>
+	  <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+		  <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
+					Relatorios de todas as disciplinas
+				</a></li>
+		   </ul>
+	  </li>
+	  <li><a id="font-white" href="../logout.php">Logout</a></li>
+	</ul>
+  </div>
+  </div>
+</nav>
+		  
+<div id="wrap">
+ 			
+<form class="form-horizontal" action="" id="cadastro" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend class="text-center">Cadastrar Disciplina</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="nome">Nome da Disciplina</label>  
+  <div class="col-md-3">
+  <input name="nome" type="text" placeholder="Nome da Disciplina" class="form-control input-md" required="">
+  <span class="help-block">Exemplo: Atendimento Publicitário</span>  
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="curso">Curso</label>
+  <div class="col-md-3">
+    <select required="" type="text" name="curso" class="form-control">
+      <option value="">Selecione uma das opções</option>
+      <option value="1">PP</option>
+      <option value=2>RTV</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="turno">Turno</label>
+  <div class="col-md-3">
+    <select required="" type="text" name="turno" class="form-control">
+      <option value="">Selecione uma das opções</option>
+      <option value="Matutino">Matutino</option>
+      <option value="Noturno">Noturno</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="credito">Quantidade de Créditos da Disciplina</label>
+  <div class="col-md-3">
+    <select required="" type="text" name="credito" class="form-control">
+      <option value="">Selecione uma das opções</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="semestre">Semestre</label>
+  <div class="col-md-3">
+    <select required="" id="semestre" name="semestre" class="form-control">
+      <option value="">Selecione uma das opções</option>
+      <option value="1">1º Semestre</option>
+      <option value="2">2º Semestre</option>
+      <option value="3">3º Semestre</option>
+      <option value="4">4º Semestre</option>
+      <option value="5">5º Semestre</option>
+      <option value="6">6º Semestre</option>
+      <option value="7">7º Semestre</option>
+      <option value="8">8º Semestre</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button style="font-size:13pt;" name="envia" type="submit" class="btn btn-primary">Finalizar Cadastro</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+</div>
+
+       <div id="push"></div>
+		<div id="footer">
+	  <div class="container">
+		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+	  </div>
+	</div>
+        
 </body>
 </html>
+
 <?php
   if(isset($_POST['envia'])){
     $nome = $_POST['nome'];

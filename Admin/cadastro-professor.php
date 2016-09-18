@@ -8,46 +8,101 @@ include('../classes/class_usuario.php');
 <head>
 	<title>Cadastro de Usuário</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../assets/css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+		  <link rel="stylesheet" href="../assets/css/normalize.css">
+		  <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+		  <link rel="stylesheet" href="../assets/css/newstyle.css">
 </head>
 <body>
-		<div class="container">
-		<div class="header">
-            <img src="../assets/img/UNASP.png" alt="logo unasp">
-		</div>
-        <nav id="menu">
-		  <h1>Menu Principal</h1>
-            <ul type="disc">
-		          <li><a href="index.php">MENU</a></li>
-		     </ul>
-        </nav>
+		<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
-       	<div id="cad-prof" class="content">
-        <div id="cadastro-prof" class="login">Cadastro de Professores</div>
-		<div id="form-cad-prof" class="form">
+  <div class="container-fluid">
 
-			<form action="cadastro-professor.php" id="cadastro" method="post">
+		  <div class="col-sm-2">
+			<a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+		 </div>
 
-				<label for="txUsuario">Usuário</label>
-        			<input type="text" required="Favor Preencher o campo com o seu usuário" name="usuario" id="txUsuario" maxlength="25" /> </br>
+		  <div class="col-sm-4">
+			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
+		  </div>
 
-				<label for="txSenha">Senha</label>
-        			<input type="password" required="Favor Preencher o campo com a sua senha" name="senha" id="txSenha" /></br>
+	<div class="col-sm-6">
+	<ul class="nav navbar-nav">
+	  <li><a id="font-white"  href="index.php">Home</a></li>
+<li><a id="font-white" href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
+<li class="active"><a id="ativo" href="cadastro-professor.php">Cadastrar Professor</a></li>
+	  <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+		  <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
+					Relatorios de todas as disciplinas
+				</a></li>
+		   </ul>
+	  </li>
+	  <li><a id="font-white" href="../logout.php">Logout</a></li>
+	</ul>
+  </div>
+  </div>
+</nav>
+<div id="wrap">
+       	
+	<form class="form-horizontal" action="cadastro-professor.php" id="cadastro" method="post">
+<fieldset>
 
-				<label id="nome" for="txNome">Nome Completo</label>
-        			<input type="text" required="Favor Preencher o campo com o seu nome completo" name="nome" id="txNome" /></br>
+<!-- Form Name -->
+<legend class="text-center">Cadastrar Professor</legend>
 
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="txUsuario">Usuário</label>  
+  <div class="col-md-3">
+  <input id="txUsuario" name="usuario" type="text" placeholder="Insira nome do usuário" class="form-control input-md" required="">
+  <span class="help-block">Exemplo: joao.francisco</span>  
+  </div>
+</div>
 
-  				<input id="btn-cad" type="submit" name="enviar" value="Cadastrar"/>
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="txSenha">Senha</label>
+  <div class="col-md-3">
+    <input id="txSenha" name="senha" type="password" placeholder="Digite a senha" class="form-control input-md" required="">
+    <span class="help-block">Insira a Senha</span>
+  </div>
+</div>
 
-			</form>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="txNome">Nome Completo</label>  
+  <div class="col-md-3">
+  <input id="txNome" name="nome" type="text" placeholder="Insira nome completo" class="form-control input-md" required="">
+  <span class="help-block">Exemplo: João Matheus Francisco</span>  
+  </div>
+</div>
 
-		</div>
-        </div>
-            <footer id="rodape">
-		      <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
-            </footer>
-		</div>
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="btn-cad"></label>
+  <div class="col-md-3">
+    <button style="font-size:13pt;" type="submit" id="btn-cad" name="enviar" class="btn btn-primary">Finalizar Cadastro</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+</div>
+
+	<div id="push"></div>
+		<div id="footer">
+	  <div class="container">
+		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+	  </div>
+	</div>	
 
 </body>
 </html>

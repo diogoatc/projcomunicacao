@@ -48,6 +48,7 @@ include('verifica_sessao_admin.php');
   </div>
   </div>
 </nav>
+
   <div id="wrap">
 	<div class="geral">
   <div class="container">
