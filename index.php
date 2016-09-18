@@ -2,54 +2,52 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/newstyle.css">
-    <script src="assets/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+		  <link rel="stylesheet" href="assets/css/normalize.css">
+		  <link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/js/newjs.js">
+		  <link rel="stylesheet" href="assets/css/newstyle.css">
 </head>
-<body>
-    <div class="wrapper-index">
-        <header>
-            <a href="index.php"><img src="assets/img/UNASP.png" alt="logo unasp"></a>
-        </header>
-        <section>
-            <a href="aluno/index.php"><img src="assets/img/art.png" onMouseOver="this.src='assets/img/click.png'" onMouseOut="this.src='assets/img/art.png'" onClick="location='#'"></a>
-        </section>
 
-        <div class="login-area">
-            <div class="container">
-                <div class="box-texto">
-                    <h1>Bem-vindo</h1>
-                    <br>Se você for aluno, basta clicar na imagem para fazer a prova. Se for professor ou administrador, apenas faça o Login.
-                </div>
-                <div class="form">
-                    <form action="model/validacao.php" method="post">
-                        <div class="form-group">
-                            <label for="text">Usuário:</label>
-                            <input type="text" name="usuario" class="form-control" id="email" required="Favor Preencher o campo com o seu usuário">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Senha:</label>
-                            <input type="password" name="senha" class="form-control" id="pwd" required="Favor Preencher o campo com a sua senha">
-                        </div>
-                        <button type="submit" class="btn">Acessar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+<body>
+
+<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
+
+  <div class="container-fluid">
+
+		  <div class="col-sm-7">
+			<a  class="navbar-brand pull-right" href="index.php"><img style="margin-top:-13px;width:70%;"  src="assets/img/UNASP.png" alt="logo unasp"></a>
+		 </div>
+</nav>
+
+   <div id="wrap">
+
+<div class="container">
+  <div class="jumbotron">
+  
+    <h1 class="text-center">Prova Unificada</h1>
+    <h2 class="text-center">Bem-vindo</h2><br>
+  </div>
+  <strong><h4><p class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova. Se for professor ou administrador, apenas faça o Login.</p>
+  </h4></strong>
+  </div>
+    <div class="col-md-4 pull-xs-right">
+    <section>
+            <a href="aluno/index.php"><img class="responsivo" src="assets/img/art.png" onMouseOver="this.src='assets/img/click.png'" onMouseOut="this.src='assets/img/art.png'" onClick="location='#'"></a>
+        </section>
     </div>
-     <div id="footer">
-      <div class="container">
-        <p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
-      </div>
-    </div>
+</div>
+
+     <div id="push"></div>
+		<div id="footer">
+	  <div class="container">
+		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+	  </div>
+	</div>	
 </body>
 </html>

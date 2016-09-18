@@ -17,11 +17,6 @@ header {
     text-align: center;
 }
 
-header img {
-    width: 150px;
-    max-height: 100%;
-}
-
 section {
     width: 100%;
     text-align: center;
@@ -89,6 +84,7 @@ section {
     transition: 0.5s ease-in;
 }
 
+
 /*footer {
     font-family: 'Cabin', sans-serif;
     color: #fff;
@@ -103,60 +99,65 @@ section {
 
 }
 */
-.areadoprofessor{
- font-family:sans-serif;
- font-size:14pt;
- color:white !important;
- }
 
-.form-group{
-  width: 100% !important;
-  font-size:16pt;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  
+.areadoprofessor {
+    font-family: sans-serif;
+    font-size: 14pt;
+    color: white !important;
 }
 
-.form-horizontal{
-  padding: 30px 0 30px;
+.form-group {
+    width: 100% !important;
+    font-size: 16pt;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
-legend{
-  font-size:20pt !important;
-  padding-bottom: 25px;
-}
-legend#noline{
-  font-size:20pt !important;
-
-}
-h4#min{
-  font-size:10pt !important;
-  color:red;
-}
-a#ativo{
-color:#000000 !important;
-background: #f79f38;
-font-family:sans-serif; 
-
-font-size:11pt;
-}
-a#font-white{
- font-size:11pt;
- font-family: sans-serif;
- color:#ffffff;   
+.form-horizontal {
+    padding: 30px 0 30px;
 }
 
-.form-control{
-    font-size:13pt;
+legend {
+    font-size: 20pt !important;
+    padding-bottom: 25px;
 }
+
+legend#noline {
+    font-size: 20pt !important;
+}
+
+h4#min {
+    font-size: 10pt !important;
+    color: red;
+}
+
+a#ativo {
+    color: #000000 !important;
+    background: #f79f38;
+    font-family: sans-serif;
+    font-size: 11pt;
+}
+
+a#font-white {
+    font-size: 11pt;
+    font-family: sans-serif;
+    color: #ffffff;
+}
+
+.form-control {
+    font-size: 13pt;
+}
+
 html,
 body {
     height: 100%;
     /* The html and body elements cannot have any padding or margin. */
 }
 
+
 /* Wrapper for page content to push down footer */
+
 #wrap {
     min-height: 100%;
     height: auto !important;
@@ -164,20 +165,27 @@ body {
     /* Negative indent footer by it's height */
     margin: 0 auto 30px;
 }
+
+
 /* Set the fixed height of the footer here */
+
 #push,
 #footer {
     height: auto;
 }
+
 #footer {
     background-color: #20205a;
     padding: 15px 0 5px;
     text-align: center;
-    color:#fff;
+    color: #fff;
     font-size: 12pt;
-   font-family: 'Cabin', sans-serif;
+    font-family: 'Cabin', sans-serif;
 }
+
+
 /* Lastly, apply responsive CSS fixes as necessary */
+
 @media (max-width:940px) {
     #footer {
         margin-left: -20px;
@@ -188,7 +196,29 @@ body {
 }
 
 td {
- font-size:16pt;
- font-family: sans-serif;
-  color:#000000;
- }
+    font-size: 16pt;
+    font-family: sans-serif;
+    color: #000000;
+}
+
+.jumbotron {
+    height: 200px;
+}
+
+.responsivo img {
+    max-width: 845px;
+    /* Máximo da largura da imagem */
+    width: 100%;
+    max-height: 281px;
+    /* Máximo da altura da imagem */
+    min-height: auto;
+    /* Mínimo da altura, por padrão “auto” */
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.responsivo {
+    max-width: 845px;
+    width: 100%;
+    height: auto;
+}
