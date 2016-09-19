@@ -1,67 +1,123 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <title>Área do Aluno</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <title>Aluno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	    <script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+	      <link rel="stylesheet" href="../assets/css/normalize.css">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+	      <link rel="stylesheet" href="../assets/css/newstyle.css">
+   
   </head>
 <body>
+ <nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
-      <div class="container">
-      <div class="header">
-        <img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
-      </div>
-      
-            <nav id="menu">
-                <h1>Menu Principal</h1>
-                <ul type="disc">
-                    <li><a href="../index.php">MENU</a></li>
-                </ul>      
-            </nav>
+  <div class="container-fluid">
+    
+	      <div class="col-sm-5">
+	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+	     </div>
+          
+	      <div class="col-sm-3">
+	        <h2 style="color:#ffffff;">ÁREA DO ALUNO</h2>
+	      </div>
+    
+    </ul>
+  </div>
+  </div>
+</nav>
+ 
+<div id="wrap">  
+<form class="form-horizontal" action="aluno.php" method="post">
+<fieldset>
 
+<!-- Form Name -->
+<legend class="text-center"><h2>Prova Unificada de Comunicação Social</h2></legend>
 
-      <div class="content" style="top: 44%; height: 380px;width: 380px; left:53%">
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Nome</label>  
+  <div class="col-md-4">
+  <input name="nome" type="text" placeholder="Insira seu Nome" class="form-control input-md" required="">
+  <span class="help-block">Exemplo: João Barbosa Fransciso</span>  
+  </div>
+</div>
 
-      <div class="login" style="font-family:sans-serif; font-size:16pt;">Prova Unificada
-      </div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">RA</label>  
+  <div class="col-md-4">
+  <input name="ra" type="text" placeholder="Insira seu RA" class="form-control input-md" required="">
+  <span class="help-block">Exemplo: 777777</span>  
+  </div>
+</div>
 
-      <div class="form" style="top: 10%; width:70%;left:50%;">
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label">Semestre</label>
+  <div class="col-md-4">
+    <select id="semestre" name="semestre" class="form-control" required="">
+      <option value="">Selecione uma das opções</option>
+      <option value="1">1º Semestre</option>
+      <option value="2">2º Semestre</option>
+      <option value="3">3º Semestre</option>
+      <option value="4">4º Semestre</option>
+      <option value="5">5º Semestre</option>
+      <option value="6">6º Semestre</option>
+      <option value="7">7º Semestre</option>
+      <option value="8">8º Semestre</option>
+    </select>
+  </div>
+</div>
 
-          <form class="" action="aluno.php" method="post">
-                <input type="text" name="nome" value="" placeholder="Nome"><br>
-                <input type="text" name="ra" value="" placeholder="RA"><br></br>
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label">Curso</label>
+  <div class="col-md-4">
+    <select id="curso" name="curso" class="form-control" required="">
+      <option value="">Selecione uma das opções</option>
+      <option value="PP">PP</option>
+      <option value="RTV">RTV</option>
+    </select>
+  </div>
+</div>
 
-              <select class="imobSelect" style="font-size: 28px;width:68%;" required="" name="semestre" id="semestre">
-        				<option value="1">1º Semestre</option>
-        				<option value="2">2º Semestre</option>
-        				<option value="3">3º Semestre</option>
-        				<option value="4">4º Semestre</option>
-        				<option value="5">5º Semestre</option>
-        				<option value="6">6º Semestre</option>
-        				<option value="7">7º Semestre</option>
-        				<option value="8">8º Semestre</option>
-    			    </select></br>
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label">Turno</label>
+  <div class="col-md-4">
+    <select id="turno" name="turno" class="form-control" required="">
+      <option value="">Selecione uma das opções</option>
+      <option value="Matutino">Matutino</option>
+      <option value="Noturno">Noturno</option>
+    </select>
+  </div>
+</div>
 
-              <select class="imobSelect" style="font-size: 28px;width:68%" name="curso" id="curso">
-            		<option value="PP">PP</option>
-            		<option value="RTV">RTV</option>
-      		    </select><br>
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button style="font-size:13pt;" name="envia" type="submit" class="btn btn-warning">CONFIRMAR</button>
+  </div>
+</div>
 
-              <select class="imobSelect" style="font-size: 28px;width:68%" name="turno" id="turno">
-            		<option value="Matutino">Matutino</option>
-            		<option value="Noturno">Noturno</option>
-      		    </select>
-
-
-                <input style="width:60%; font-size:22px;left:35px;padding:15px;" type="submit" name="fazerprova" value="Fazer prova">
-          </form>
-      
-      </div>
-      </div>
-          <footer id="rodape">
-           <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
-          </footer>
-      </div>
+</fieldset>
+</form>
+</div>
+    
+     <div id="push"></div>
+		<div id="footer">
+	  <div class="container">
+		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+	  </div>
+          
 
 </body>
 </html>
