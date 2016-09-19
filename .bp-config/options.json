@@ -1,0 +1,13 @@
+{
+"PHP_VERSION": "{PHP_55_LATEST}",
+"COMPOSER_VENDOR_DIR": "htdocs/vendor",
+"WEBDIR": "htdocs/public",
+"PHP_EXTENSIONS": [
+"pdo",
+"mysqli",
+"pdo_mysql",
+"mysql",
+"pgsql",
+"pdo_pgsql"
+]
+}
