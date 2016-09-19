@@ -29,31 +29,31 @@
    <div id="wrap">
 
 <div class="container">
+
   <div class="jumbotron">
+  
     <h2 class="text-center">Prova Unificada de Comunicação Social</h2>
     <h3 class="text-center">Seja Bem-vindo</h3><br>
   </div>
   <h4><p class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova, professor ou administrador, realize o Login.</p>
-  </h4>
+  </h4><br>
   </div>
-
-    <div class="col-sm-4">
+      <div class="col-sm-7">
     <section>
             <a href="aluno/index.php"><img class="responsivo" src="assets/img/art.png" onMouseOver="this.src='assets/img/click.png'" onMouseOut="this.src='assets/img/art.png'" onClick="location='#'"></a>
         </section>
     </div>
-
-  
 <form class="form-horizontal" action="model/validacao.php" method="post">
 <fieldset>
 
 <!-- Form Name -->
-<legend class="text-center" style="width:450px;"><strong>Área de Login</strong></legend>
+<h2 class="text-center"><strong>Área de Login</strong></h2>
+<br>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-5 control-label" for="text">Usuário:</label>  
-  <div class="col-md-4">
+  <label class="col-md-4 control-label" for="text">Usuário:</label>  
+  <div class="col-md-6">
   <input name="usuario" type="text" placeholder="Insira o Usuário" class="form-control input-md" required="Por favor,preencher o campo com o seu usuário">
   <span class="help-block">Exemplo: joao.francisco</span>  
   </div>
@@ -61,18 +61,18 @@
 
 <!-- Password input-->
 <div class="form-group">
-  <label class="col-md-5 control-label" for="pwd">Senha:</label>
-  <div class="col-md-4">
+  <label class="col-md-4 control-label" for="pwd">Senha:</label>
+  <div class="col-md-6">
     <input id="pwd" name="senha" type="password" placeholder="Insira sua Senha" class="form-control input-md" required="Por Favor, preencher o campo com a sua senha">
-    <span class="help-block">Qualquer dúvida entrar em contato Coordenação</span>
+    <span class="help-block">Qualquer dúvida entrar em contato com a Coordenação</span>
   </div>
 </div>
 
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-5 control-label" for="submit"></label>
-  <div class="col-md-4">
-    <button type="submit" class="btn btn-warning">ENTRAR</button>
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-6">
+    <button style="font-size:13pt;"type="submit" class="btn btn-primary">ENTRAR</button>
   </div>
 </div>
 

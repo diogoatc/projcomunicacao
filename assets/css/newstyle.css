@@ -202,6 +202,7 @@ td {
 }
 
 .jumbotron {
+    width: 100%;
     height: 200px;
     background: #20205a;
     color: #ffffff;
@@ -218,6 +219,7 @@ td {
     background-size: 100%;
     background-repeat: no-repeat;
 }
+
 
 .responsivo {
     max-width: 400px;
