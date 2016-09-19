@@ -42,8 +42,8 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label">Nome</label>  
-  <div class="col-md-4">
+  <label class="col-md-5 control-label">Nome</label>  
+  <div class="col-md-3">
   <input name="nome" type="text" placeholder="Insira seu Nome" class="form-control input-md" required="">
   <span class="help-block">Exemplo: João Barbosa Fransciso</span>  
   </div>
@@ -51,8 +51,8 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label">RA</label>  
-  <div class="col-md-4">
+  <label class="col-md-5 control-label">RA</label>  
+  <div class="col-md-3">
   <input name="ra" type="text" placeholder="Insira seu RA" class="form-control input-md" required="">
   <span class="help-block">Exemplo: 777777</span>  
   </div>
@@ -60,8 +60,8 @@
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label">Semestre</label>
-  <div class="col-md-4">
+  <label class="col-md-5 control-label">Semestre</label>
+  <div class="col-md-3">
     <select id="semestre" name="semestre" class="form-control" required="">
       <option value="">Selecione uma das opções</option>
       <option value="1">1º Semestre</option>
@@ -78,8 +78,8 @@
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label">Curso</label>
-  <div class="col-md-4">
+  <label class="col-md-5 control-label">Curso</label>
+  <div class="col-md-3">
     <select id="curso" name="curso" class="form-control" required="">
       <option value="">Selecione uma das opções</option>
       <option value="PP">PP</option>
@@ -90,8 +90,8 @@
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label">Turno</label>
-  <div class="col-md-4">
+  <label class="col-md-5 control-label">Turno</label>
+  <div class="col-md-3">
     <select id="turno" name="turno" class="form-control" required="">
       <option value="">Selecione uma das opções</option>
       <option value="Matutino">Matutino</option>
@@ -102,8 +102,8 @@
 
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label"></label>
-  <div class="col-md-4">
+  <label class="col-md-5 control-label"></label>
+  <div class="col-md-3">
     <button style="font-size:13pt;" name="envia" type="submit" class="btn btn-warning">CONFIRMAR</button>
   </div>
 </div>
