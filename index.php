@@ -16,12 +16,12 @@
 
 <body>
 
-<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
+<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a; height:80px;">
 
   <div class="container-fluid">
 
-		  <div class="col-sm-4">
-			<a  class="navbar-brand pull-left" href="index.php"><img style="margin-top:-13px;width:70%;"  src="assets/img/UNASP.png" alt="logo unasp"></a>
+		  <div class="col-sm-7">
+			<a  class="navbar-brand pull-right" href="index.php"><img style="margin-top:-13px;width:100%;"  src="assets/img/UNASP.png" alt="logo unasp"></a>
 		 </div>
          </div>
 </nav>
@@ -30,11 +30,11 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1 class="text-center">Prova Unificada</h1>
-    <h2 class="text-center">Bem-vindo</h2><br>
+    <h2 class="text-center">Prova Unificada de Comunicação Social</h2>
+    <h3 class="text-center">Seja Bem-vindo</h3><br>
   </div>
-  <strong><h4><p class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova. Se for professor ou administrador, apenas faça o Login.</p>
-  </h4></strong>
+  <h4><p class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova, professor ou administrador, realize o Login.</p>
+  </h4>
   </div>
 
     <div class="col-sm-4">
@@ -48,11 +48,11 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend class="text-center" style="width:450px;">Área de Login</legend>
+<legend class="text-center" style="width:450px;"><strong>Área de Login</strong></legend>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-5 control-label" for="text">Usuário</label>  
+  <label class="col-md-5 control-label" for="text">Usuário:</label>  
   <div class="col-md-4">
   <input name="usuario" type="text" placeholder="Insira o Usuário" class="form-control input-md" required="Por favor,preencher o campo com o seu usuário">
   <span class="help-block">Exemplo: joao.francisco</span>  

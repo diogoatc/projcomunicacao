@@ -203,6 +203,8 @@ td {
 
 .jumbotron {
     height: 200px;
+    background: #20205a;
+    color: #ffffff;
 }
 
 .responsivo img {
