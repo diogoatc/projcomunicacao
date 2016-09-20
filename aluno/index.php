@@ -104,7 +104,7 @@
 <div class="form-group">
   <label class="col-md-5 control-label"></label>
   <div class="col-md-3">
-    <button style="font-size:13pt;" name="envia" type="submit" class="btn btn-warning">CONFIRMAR</button>
+    <button style="font-size:13pt;" name="fazerprova" type="submit" class="btn btn-warning">CONFIRMAR</button>
   </div>
 </div>
 

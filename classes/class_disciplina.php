@@ -127,16 +127,22 @@ class disciplina {
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 		}
 
-		function selectDisciplinaByAluno($pdo, $curso, $turno, $semestre){
+		function selectDisciplinaByAluno($pdo, $curso, $turno, $semestre,$datainicio){
 			$conn = $pdo->prepare("SELECT D.id, D.nome as 'nomedisciplina', D.curso, D.turno,
 				D.semestre, P.nome as 'nomeprofessor'
 				FROM disciplina D	INNER JOIN usuario P
 				ON D.idusuario = P.id
 				WHERE D.flgativo = 1
+				AND D.dataprova BETWEEN :datainicio AND :datafim
 				AND D.curso = :curso
 				AND D.turno = :turno
 				AND D.semestre = :semestre");
-
+			
+				$datafimformatada = date_create($datainicio); //PEGA A STRING E TRANSFORMA PRO TIPO DATE
+				date_add($datafimformatada, date_interval_create_from_date_string('2 hours')); //ADICIONA 2 HORAS A DATA INFORMADA
+				$datafim = date_format($datafimformatada, 'Y-m-d H:i:s'); //FORMATA DE VOLTA PARA O PADRÃO DATETIME
+				$conn->bindParam(":datainicio",$datainicio,PDO::PARAM_STR);
+				$conn->bindParam(":datafim",$datafim,PDO::PARAM_STR);
 				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
 				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
 				$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
