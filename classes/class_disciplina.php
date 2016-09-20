@@ -58,6 +58,31 @@ class disciplina {
 		return $this->flgativo = $flgativo;
 	}
 
+	function insereDataDisciplina($pdo,$curso,$turno,$semestre,$data){
+
+		$conn = $pdo->prepare("UPDATE disciplina SET dataprova=:data
+		 WHERE
+			curso=:curso AND
+			turno=:turno AND
+			semestre=:semestre");
+		$conn->bindParam(":data",$data,PDO::PARAM_STR);
+		$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+		$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+		$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
+
+		if($conn->execute()){
+			echo "<script>
+				alert('Data Inserida Com Sucesso!');
+				window.location='index.php';
+				</script>";
+			}else{
+				echo "<script> alert('ERRO INSERE DATA');</script>";
+			}
+			$conn=null;
+
+		}
+	}
+
 	function editaDisciplinaByID($pdo,$iddisciplina,$semestre,$curso,$turno){
 		$conn = $pdo->prepare("UPDATE disciplina
 			SET curso = :curso,
