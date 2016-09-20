@@ -79,9 +79,13 @@ include('verifica_sessao_admin.php');
  	$data=$_POST['data'];
  	$dataformat=date_create($data);
  	$ndata = date_format($dataformat, 'Y-m-d H:i:s');
+  $datafimformatada = date_create($ndata);
+  $ndatafim = date_add($datafimformatada, date_interval_create_from_date_string('4 hours'));
+  $datafim = date_format($ndatafim, 'Y-m-d H:i:s');
+
 
  	$x=new disciplina();
- 	$x->insereDataDisciplina($PDO,$curso,$turno,$semestre,$ndata);
+ 	$x->insereDataDisciplina($PDO,$curso,$turno,$semestre,$ndata,$datafim);
 
  	
  }

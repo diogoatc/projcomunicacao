@@ -22,13 +22,11 @@ if (isset($_POST['fazerprova'])) {
   $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre,$dtainicio);
 
   if ($retorno == null) {
-    /*echo "<script>
+    echo "<script>
     alert('Não há nenhuma prova disponível');
     window.location='index.php';
-    </script>"; */
-    echo $dtainicio."<br/>";
-    echo $turno."<br/>";
-    echo $curso."<br/>";
+    </script>"; 
+    
 
   }
 ?>
