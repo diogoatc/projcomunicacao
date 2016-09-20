@@ -13,6 +13,7 @@ CREATE TABLE `disciplina` (
   `curso` varchar(45) NOT NULL,
   `turno` varchar(20) NOT NULL,
   `semestre` int(11) NOT NULL,
+  `dataprova` datetime DEFAULT NULL,
   `flgativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_disciplina_usuario_idx` (`idusuario`),
@@ -102,4 +103,4 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2016-09-14 23:15:52
+-- 2016-09-20 00:41:02
