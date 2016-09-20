@@ -80,7 +80,7 @@ class disciplina {
 			}
 			$conn=null;
 
-		}
+		
 	}
 
 	function editaDisciplinaByID($pdo,$iddisciplina,$semestre,$curso,$turno){
