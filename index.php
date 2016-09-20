@@ -28,16 +28,12 @@
 
    <div id="wrap">
 
-<div class="container">
-
-  <div class="jumbotron">
-  
     <h2 class="text-center">Prova Unificada de Comunicação Social</h2>
     <h3 class="text-center">Seja Bem-vindo</h3><br>
-  </div>
-  <h4><p class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova, professor ou administrador, realize o Login.</p>
+   <h4><p class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova, professor ou administrador, realize o Login.</p>
   </h4><br>
-  </div>
+ 
+
       <div class="col-sm-7">
     <section>
             <a href="aluno/index.php"><img class="responsivo" src="assets/img/art.png" onMouseOver="this.src='assets/img/click.png'" onMouseOut="this.src='assets/img/art.png'" onClick="location='#'"></a>
