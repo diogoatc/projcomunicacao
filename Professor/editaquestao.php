@@ -17,7 +17,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 $x= new questao();
     $key = $x->selectQuestaoById($PDO,$idquestao);
 ?>
-
+ 
 	<!DOCTYPE html>
 	<html>
 	<head>

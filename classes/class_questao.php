@@ -81,19 +81,24 @@ class questao {
 	}
 
 	function deletaQuestao($pdo,$id,$iddisciplina){
+		
 		$conn = $pdo->prepare("DELETE FROM questao WHERE id=:id");
 		$conn->bindParam(":id",$id,PDO::PARAM_INT);
 
-		if($conn->execute()){
+		try{
+			$conn->execute();
 			echo "<script>
 			alert('Questão Excluída com Sucesso');
 			window.location='listaquestoes.php?id=".$iddisciplina."';
 			</script>";
-		}else{
-			echo "<script> alert('ERRO EXCLUI QUESTÃO');</script>";
+		}catch(Exception $e){
+			echo "<script> alert('".$e."');</script>";
+
 		}
 		$conn=null;
-	}
+	
+}
+
 
 	function editaQuestaoById($pdo,$idquestao,$iddisciplina,$titulo,$imagem,
 	$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta){
