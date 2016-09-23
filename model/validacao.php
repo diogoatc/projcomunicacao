@@ -45,7 +45,7 @@ if(!empty($resultado)){
                "diogol_l@hotmail.com");
   echo "<script>
   alert('Usuário e/ou senha incorretos');
-  window.location='../login.php';
+  window.location='../index.php';
   </script>";
 }
 ?>
