@@ -87,14 +87,17 @@ class questao {
 
 		try{
 			$conn->execute();
+			}catch(Exception $e){
+			echo "<script> alert('".$e."');</script>";
+
+			}
 			echo "<script>
 			alert('Questão Excluída com Sucesso');
 			window.location='listaquestoes.php?id=".$iddisciplina."';
 			</script>";
-		}catch(Exception $e){
-			echo "<script> alert('".$e."');</script>";
+		
 
-		}
+		
 		$conn=null;
 	
 }
