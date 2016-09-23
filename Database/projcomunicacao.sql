@@ -13,7 +13,8 @@ CREATE TABLE `disciplina` (
   `curso` varchar(45) NOT NULL,
   `turno` varchar(20) NOT NULL,
   `semestre` int(11) NOT NULL,
-  `dataprova` datetime DEFAULT NULL,
+  `dataprovainicio` datetime DEFAULT NULL,
+  `dataprovafim` datetime DEFAULT NULL,
   `flgativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_disciplina_usuario_idx` (`idusuario`),
@@ -70,6 +71,7 @@ CREATE TABLE `questao` (
   `resposta4` mediumtext NOT NULL,
   `resposta5` mediumtext NOT NULL,
   `respostacorreta` varchar(1) NOT NULL,
+  `flgativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_questao_disciplina1_idx` (`iddisciplina`),
   CONSTRAINT `fk_questao_disciplina1` FOREIGN KEY (`iddisciplina`) REFERENCES `disciplina` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -103,4 +105,4 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2016-09-20 00:41:02
+-- 2016-09-23 01:47:55
