@@ -67,7 +67,6 @@ $retorno = $x->selectDisciplinaByProfessor($PDO, $idusuario);
 			<td><strong>Curso</strong></td>
 			<td><strong>Turno</strong></td>
 			<td><strong>Semestre</strong></td>
-			<td></td>
 		</thead>
 
 	<?php foreach ($retorno as $key) {   ?>
@@ -76,7 +75,6 @@ $retorno = $x->selectDisciplinaByProfessor($PDO, $idusuario);
 				<td> <?php echo $key['curso']; ?></td>
 				<td> <?php echo $key['turno']; ?></td>
 				<td> <?php echo $key['semestre']; ?></td>
-				<td> <a href="editadisciplina.php?id=<?php echo $key['id']; ?>">Editar</a></td>
 			</tr>
 
 <?php } ?>

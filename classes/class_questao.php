@@ -81,27 +81,19 @@ class questao {
 	}
 
 	function deletaQuestao($pdo,$id,$iddisciplina){
-		
-		$conn = $pdo->prepare("DELETE FROM questao WHERE id=:id");
+		$conn = $pdo->prepare("UPDATE questao set flgativo = 0  WHERE id=:id");
 		$conn->bindParam(":id",$id,PDO::PARAM_INT);
 
-		try{
-			$conn->execute();
-			}catch(Exception $e){
-			echo "<script> alert('".$e."');</script>";
-
-			}
+		if($conn->execute()){
 			echo "<script>
 			alert('Questão Excluída com Sucesso');
 			window.location='listaquestoes.php?id=".$iddisciplina."';
 			</script>";
-		
-
-		
+		}else{
+			echo "<script> alert('ERRO EXCLUI QUESTÃO');</script>";
+		}
 		$conn=null;
-	
-}
-
+	}
 
 	function editaQuestaoById($pdo,$idquestao,$iddisciplina,$titulo,$imagem,
 	$resp1,$resp2,$resp3,$resp4,$resp5,$respcorreta){
@@ -138,7 +130,7 @@ class questao {
 		}
 
 		function selectQuestaoByDisciplina($pdo,$id){
-			$conn = $pdo->prepare("SELECT * FROM questao WHERE iddisciplina=:id");
+			$conn = $pdo->prepare("SELECT * FROM questao WHERE iddisciplina=:id and flgativo = 1");
 			$conn->bindParam(":id",$id,PDO::PARAM_INT);
 			$conn->execute();
 			return $conn->fetchAll(PDO::FETCH_ASSOC);
