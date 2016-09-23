@@ -9,6 +9,6 @@
 "mysql",
 "pgsql",
 "pdo_pgsql",
-"mb_string"
+"mbstring"
 ]
 }
