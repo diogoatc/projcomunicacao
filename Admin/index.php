@@ -35,6 +35,7 @@ include('verifica_sessao_admin.php');
 	<ul class="nav navbar-nav">
 	  <li class="active"><a id="ativo" href="index.php">Home</a></li>
 <li><a id="font-white" href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
+<li><a id="font-white" href="liberarprova.php">Liberar Prova</a></li>
 <li><a id="font-white" href="cadastro-professor.php">Cadastrar Professor</a></li>
 	  <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
 		<ul class="dropdown-menu">

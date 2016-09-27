@@ -7,6 +7,7 @@ include('verifica_sessao_admin.php');
  <!DOCTYPE html>
  <html>
  <head>
+ <title>Liberar Prova</title>
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -18,12 +19,44 @@ include('verifica_sessao_admin.php');
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		  <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
 		  <link rel="stylesheet" href="../assets/css/newstyle.css">
- 	<title>Liberar Prova</title>
- </head>
+ 	 </head>
  <body>
- 
+ <nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
+
+  <div class="container-fluid">
+
+		  <div class="col-sm-2">
+			<a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+		 </div>
+
+		  <div class="col-sm-4">
+			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
+		  </div>
+
+	<div class="col-sm-6">
+	<ul class="nav navbar-nav">
+	  <li><a id="font-white"  href="index.php">Home</a></li>
+<li><a id="font-white" href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
+<li class="active"><a id="ativo" href="liberarprova.php">Liberar Prova</a></li>
+<li><a id="font-white" href="cadastro-professor.php">Cadastrar Professor</a></li>
+	  <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+		  <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
+					Relatorios de todas as disciplinas
+				</a></li>
+		   </ul>
+	  </li>
+	  <li><a id="font-white" href="../logout.php">Logout</a></li>
+	</ul>
+  </div>
+  </div>
+</nav>
+<div id="wrap">
+
 <form class="form-horizontal" action="" id="cadastro" method="post">
+<fieldset>
 	<div class="form-group">
+
   <label class="col-md-5 control-label" for="curso">Curso</label>
   <div class="col-md-3">
     <select required="" type="text" name="curso" class="form-control">
@@ -45,6 +78,7 @@ include('verifica_sessao_admin.php');
     </select>
   </div>
 </div>
+
 <div class="form-group">
   <label class="col-md-5 control-label" for="semestre">Semestre</label>
   <div class="col-md-3">
@@ -61,12 +95,34 @@ include('verifica_sessao_admin.php');
     </select>
   </div>
 </div>
-<input type="datetime-local" name="data">
 
-<input type="submit" name="envia">
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-5 control-label">Data e horário de Liberação da Prova</label>  
+  <div class="col-md-3">
+  <input name="data" type="datetime-local" placeholder="" class="form-control input-md">
+   </div>
+</div>
 
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-5 control-label" for="btn-cad"></label>
+  <div class="col-md-3">
+    <button style="font-size:13pt;" type="submit" id="btn-cad" name="envia" class="btn btn-primary">ENVIA</button>
+  </div>
+</div>
+
+</fieldset>
 </form>
+</div>
 
+	<div id="push"></div>
+		<div id="footer">
+	  <div class="container">
+		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+	  </div>
+	</div>	
+  
  </body>
  </html>
 
