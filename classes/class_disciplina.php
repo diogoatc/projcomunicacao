@@ -201,7 +201,6 @@ class disciplina {
 			$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
 
 			if($conn->execute()){
-				echo "<script>alert('DISCIPLINA CADASTRADA COM SUCESSO!');</script>";
 			}else{
 				echo "<script> alert('ERRO CADASTRA DISCIPLINA');</script>";
 			}

@@ -136,7 +136,7 @@ include('verifica_sessao_admin.php');
  	$dataformat=date_create($data);
  	$ndata = date_format($dataformat, 'Y-m-d H:i:s');
   $datafimformatada = date_create($ndata);
-  $ndatafim = date_add($datafimformatada, date_interval_create_from_date_string('4 hours'));
+  $ndatafim = date_add($datafimformatada, date_interval_create_from_date_string('120 minutes'));
   $datafim = date_format($ndatafim, 'Y-m-d H:i:s');
 
 

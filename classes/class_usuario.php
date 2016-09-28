@@ -83,7 +83,7 @@ class usuario {
 			if($tb->execute()){
 				echo "<script>
 				alert('USUARIO CRIADO COM SUCESSO!');
-				window.location='index.php';
+				window.location='cadastro-professor.php';
 				</script>";
 			}else {
 				echo "ERRO, usuário não cadastrado: ";
