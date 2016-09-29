@@ -46,6 +46,16 @@ include('verifica_sessao_admin.php');
 				</a></li>
 		   </ul>
 	  </li>
+    <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Listar<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a href="visualizadisciplinas.php">
+        Todas as Disciplinas
+        </a></li>
+      <li><a href="visualizaprofessores.php">
+        Todas os Professores
+      </a></li>
+       </ul>
+    </li>
 	  <li><a id="font-white" href="../logout.php">Logout</a></li>
 	</ul>
   </div>

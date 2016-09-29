@@ -1,6 +1,6 @@
 <?php 
 include('../classes/class_disciplina.php');
-include('verifica_sessao_professor.php');
+include('verifica_sessao_admin.php');
 $iddisciplina = $_GET['id'];
 ?>
 <!DOCTYPE html>
@@ -21,42 +21,51 @@ $iddisciplina = $_GET['id'];
 </head>
 
 <body>
-		<nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
+		<nav class="navbar navbar-inverse" style='border-radius:0px; background:#20205a;'>
 
   <div class="container-fluid">
-    
-	      <div class="col-sm-2">
-	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
-	     </div>
-          
-	      <div class="col-sm-3">
-	        <h3 class="areadoprofessor">ÁREA DO PROFESSOR</h3>
-	      </div>
+    	
+  		 <div class="col-sm-2">
+			<a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+		 </div>
 
-    <div class="col-sm-7">
-    <ul class="nav navbar-nav">
-      <li ><a id="font-white" href="index.php">Home</a></li>
-<li class="active"><a id="ativo" href="pre-cadastra.php">Cadastrar Questões</a></li>
-      <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
-                    Relatorios de todas as disciplinas
-                </a></li>
-           </ul>
-      </li>
-      <li><a id="font-white" href="listadisciplinas.php">Editar/Visualizar Questões</a></li>
-	        <li><a id="font-white" href="alterarsenha.php">Alterar Senha</a></li>
-	        <li><a id="font-white" href="../logout.php">Logout</a></li>
-    </ul>
+	      <div class="col-sm-4">
+			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
+		  </div>
+
+	<div class="col-sm-6">
+	<ul class="nav navbar-nav">
+	  <li><a id="font-white"  href="index.php">Home</a></li>
+	<li><a id="font-white" href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
+	<li><a id="font-white" href="liberarprova.php">Liberar Prova</a></li>
+	<li><a id="font-white" href="cadastro-professor.php">Cadastrar Professor</a></li>
+	  <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+		  <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
+					Relatorios de todas as disciplinas
+				</a></li>
+		   </ul>
+	  </li>
+	  <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Listar<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+		  <li><a href="visualizadisciplinas.php">
+				Todas as Disciplinas
+				</a></li>
+			<li><a href="visualizaprofessores.php">
+				Todas os Professores
+			</a></li>
+		   </ul>
+	  </li>
+	  <li><a id="font-white" href="../logout.php">Logout</a></li>
+	</ul>
   </div>
-
   </div>
 </nav>
 
 <div id="wrap">
 <legend class="text-center">ALTERE O SEMESTRE,CURSO OU TURNO DA DISCIPLINA SELECIONADA</legend>
           
-	<form class="form-horizontal" method="post" action="editadisciplina.php">
+	<form class="form-horizontal" method="post" action="">
 		<fieldset>
 		<div class="form-group">
 		<label class="col-md-5 control-label" for="semestre">Semestre:</label>
@@ -92,11 +101,25 @@ $iddisciplina = $_GET['id'];
 				<div class="col-md-5">
 			<select required="" name="turno" id="turno">
 					<option value="">Selecione o Turno</option>
-					<option value="Diurno">Diurno</option>
+					<option value="Matutino">Diurno</option>
 					<option value="Noturno">Noturno</option>
 			</select>
 				</div>
 				</div>
+
+				<div class="form-group">
+  		<label class="col-md-5 control-label" for="credito">Quantidade de Créditos da Disciplina</label>
+  		<div class="col-md-3">
+    		<select required="" type="text" name="credito" class="form-control">
+      			<option value="">Selecione uma das opções</option>
+      			<option value="1">1</option>
+      			<option value="2">2</option>
+      			<option value="3">3</option>
+      			<option value="4">4</option>
+      			<option value="5">5</option>
+    		</select>
+  </div>
+</div>
 	<!-- Button -->
 	<div class="form-group">
 	  <label class="col-md-5 control-label" for="singlebutton"></label>
@@ -126,8 +149,9 @@ if(isset($_POST['envia'])){
 	$semestre = $_POST['semestre'];
 	$curso = $_POST['curso'];
 	$turno = $_POST['turno'];
+	$credito=$_POST['credito'];
 
 	$x = new disciplina();
-	$x->editaDisciplinaByID($PDO,$iddisciplina,$semestre,$curso,$turno);
+	$x->editaDisciplinaByID($PDO,$iddisciplina,$semestre,$curso,$turno,$credito);
 }
 ?>
