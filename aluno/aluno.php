@@ -19,13 +19,15 @@ if (isset($_POST['fazerprova'])) {
   $_SESSION['dtainicio'] = $dtainicio;
 
   $x = new disciplina();
-  $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre);
+  $retorno = $x->selectDisciplinaByAluno($PDO, $curso, $turno, $semestre,$dtainicio);
 
   if ($retorno == null) {
     echo "<script>
     alert('Não há nenhuma prova disponível');
     window.location='index.php';
-    </script>";
+    </script>"; 
+    
+
   }
 ?>
 <!DOCTYPE html>
