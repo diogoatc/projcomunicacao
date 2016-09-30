@@ -27,12 +27,12 @@ include('verifica_sessao_admin.php');
 			<a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
 		 </div>
 
-		  <div class="col-sm-4">
-			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
+		  <div class="col-sm-2">
+			<h3 class="areadoprofessor pull-left">ÁREA DO ADMINISTRADOR</h3>
 		  </div>
 
-	<div class="col-sm-6">
-	<ul class="nav navbar-nav">
+	<div class="col-sm-8">
+	<ul class="nav navbar-nav pull-right">
 	  <li class="active"><a id="ativo" href="index.php">Home</a></li>
 <li><a id="font-white" href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
 <li><a id="font-white" href="liberarprova.php">Liberar Prova</a></li>

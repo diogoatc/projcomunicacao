@@ -108,7 +108,7 @@ include('verifica_sessao_admin.php');
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-5 control-label">Data e horário de Liberação da Prova</label>  
+  <label class="col-md-5 control-label">Data e Horário de Liberação da Prova</label>  
   <div class="col-md-3">
   <input name="data" type="datetime-local" placeholder="" class="form-control input-md">
    </div>
