@@ -58,22 +58,50 @@ class disciplina {
 		return $this->flgativo = $flgativo;
 	}
 
-	function editaDisciplinaByID($pdo,$iddisciplina,$semestre,$curso,$turno){
-		$conn = $pdo->prepare("UPDATE disciplina
+	function insereDataDisciplina($pdo,$curso,$turno,$semestre,$datainicio,$datafim){
+
+		$conn = $pdo->prepare("UPDATE disciplina SET dataprovainicio=:datainicio, dataprovafim=:datafim
+		 WHERE
+			curso=:curso AND
+			turno=:turno AND
+			semestre=:semestre");
+		$conn->bindParam(":datainicio",$datainicio,PDO::PARAM_STR);
+		$conn->bindParam(":datafim",$datafim,PDO::PARAM_STR);
+		$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+		$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+		$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
+
+		if($conn->execute()){
+			echo "<script>
+				alert('Data Inserida Com Sucesso!');
+				window.location='index.php';
+				</script>";
+			}else{
+				echo "<script> alert('ERRO INSERE DATA');</script>";
+			}
+			$conn=null;
+
+		
+	}
+
+	function editaDisciplinaByID($pdo,$iddisciplina,$semestre,$curso,$turno,$credito){
+		$conn = $pdo->prepare("UPDATE itemdisciplina
 			SET curso = :curso,
 			turno = :turno,
-			semestre = :semestre
-			WHERE id=:id");
+			semestre = :semestre,
+			credito = :credito
+			WHERE iditemdisciplina=:id");
 
 			$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
 			$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
 			$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
+			$conn->bindParam(":credito",$credito,PDO::PARAM_INT);
 			$conn->bindParam(":id",$iddisciplina,PDO::PARAM_INT);
 
 			if($conn->execute()){
 				echo "<script>
 				alert('DISCIPLINA ALTERADA COM SUCESSO!');
-				window.location='index.php';
+				window.location='visualizadisciplinas.php';
 				</script>";
 			}else{
 				echo "<script> alert('ERRO CADASTRO DISCIPLINA');</script>";
@@ -102,16 +130,21 @@ class disciplina {
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 		}
 
-		function selectDisciplinaByAluno($pdo, $curso, $turno, $semestre){
+		function selectDisciplinaByAluno($pdo, $curso, $turno, $semestre,$dataprova){
 			$conn = $pdo->prepare("SELECT D.id, D.nome as 'nomedisciplina', D.curso, D.turno,
 				D.semestre, P.nome as 'nomeprofessor'
 				FROM disciplina D	INNER JOIN usuario P
 				ON D.idusuario = P.id
 				WHERE D.flgativo = 1
+				AND :dataprova BETWEEN D.dataprovainicio AND D.dataprovafim
 				AND D.curso = :curso
 				AND D.turno = :turno
 				AND D.semestre = :semestre");
-
+			
+				$datafimformatada = date_create($datainicio); //PEGA A STRING E TRANSFORMA PRO TIPO DATE
+				date_add($datafimformatada, date_interval_create_from_date_string('2 hours')); //ADICIONA 2 HORAS A DATA INFORMADA
+				$datafim = date_format($datafimformatada, 'Y-m-d H:i:s'); //FORMATA DE VOLTA PARA O PADRÃO DATETIME
+				$conn->bindParam(":dataprova",$dataprova,PDO::PARAM_STR);
 				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
 				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
 				$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
@@ -170,10 +203,16 @@ class disciplina {
 			$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
 
 			if($conn->execute()){
-				echo "<script>alert('DISCIPLINA CADASTRADA COM SUCESSO!');</script>";
 			}else{
 				echo "<script> alert('ERRO CADASTRA DISCIPLINA');</script>";
 			}
+		}
+
+		function lista_itemdisciplina($pdo){
+			$conn = $pdo->prepare("SELECT * FROM itemdisciplina WHERE flgativo=1 ORDER BY nome ASC");
+			$conn->execute();
+
+			return $conn->fetchAll();
 		}
 	}
 ?>

@@ -81,7 +81,7 @@ class questao {
 	}
 
 	function deletaQuestao($pdo,$id,$iddisciplina){
-		$conn = $pdo->prepare("DELETE FROM questao WHERE id=:id");
+		$conn = $pdo->prepare("UPDATE questao set flgativo = 0  WHERE id=:id");
 		$conn->bindParam(":id",$id,PDO::PARAM_INT);
 
 		if($conn->execute()){
@@ -130,7 +130,7 @@ class questao {
 		}
 
 		function selectQuestaoByDisciplina($pdo,$id){
-			$conn = $pdo->prepare("SELECT * FROM questao WHERE iddisciplina=:id");
+			$conn = $pdo->prepare("SELECT * FROM questao WHERE iddisciplina=:id and flgativo = 1");
 			$conn->bindParam(":id",$id,PDO::PARAM_INT);
 			$conn->execute();
 			return $conn->fetchAll(PDO::FETCH_ASSOC);

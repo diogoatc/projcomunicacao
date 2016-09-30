@@ -67,7 +67,11 @@ class usuario {
 		$conn->execute();
 		return $conn->fetch(PDO::FETCH_ASSOC);
 	}
-
+	function listaprofessores($pdo){
+		$conn = $pdo->prepare("SELECT * FROM usuario WHERE flgativo = 1 AND nivel = 2 ORDER BY usuario ASC");
+		$conn->execute();
+		return $conn->fetchAll();
+	}
 	function registrarProfessor($pdo,$nome, $usuario, $senha,
 	$nivel, $flgativo){
 		try{
@@ -83,7 +87,7 @@ class usuario {
 			if($tb->execute()){
 				echo "<script>
 				alert('USUARIO CRIADO COM SUCESSO!');
-				window.location='index.php';
+				window.location='cadastro-professor.php';
 				</script>";
 			}else {
 				echo "ERRO, usuário não cadastrado: ";
@@ -109,5 +113,6 @@ class usuario {
 			echo "ERRO, SENHA NÃO ALTERADA";
 		}
 	}
+
 }
 ?>

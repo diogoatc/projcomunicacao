@@ -17,7 +17,7 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 $x= new questao();
     $key = $x->selectQuestaoById($PDO,$idquestao);
 ?>
-
+ 
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -137,7 +137,7 @@ $x= new questao();
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="respcorreta">Alternativa Correta:</label>
 	  <div class="col-md-3">
-	    <select id="respcorreta" name="respcorreta" class="form-control" style="font-size:14pt;">
+	    <select id="respcorreta" required="" name="respcorreta" class="form-control" style="font-size:14pt;">
 	    		<option value="">Selecione uma alternativa</option>
 					<option value="A">A</option>
 					<option value="B">B</option>
