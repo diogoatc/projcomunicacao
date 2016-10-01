@@ -58,6 +58,7 @@ class prova {
 		$conn->bindParam(":nomealuno", $nomealuno, PDO::PARAM_STR);
 		$conn->bindParam(":nota", $nota, PDO::PARAM_STR);
 		$conn->bindParam(":dtainicio", $dtainicio, PDO::PARAM_STR);
+		date_default_timezone_set('America/Sao_Paulo');
 		$dtafim = date('Y-m-d H:i:s');
 		$conn->bindParam(":dtafim", $dtafim, PDO::PARAM_STR);
 
