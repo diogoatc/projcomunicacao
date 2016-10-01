@@ -13,27 +13,27 @@
 	 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
 	      <link rel="stylesheet" href="../assets/css/newstyle.css">
-   
+
   </head>
 <body>
  <nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
   <div class="container-fluid">
-    
+
 	      <div class="col-sm-5">
-	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+	        <a  class="navbar-brand" href="../index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
 	     </div>
-          
+
 	      <div class="col-sm-3">
 	        <h2 style="color:#ffffff;">ÁREA DO ALUNO</h2>
 	      </div>
-    
+
     </ul>
   </div>
   </div>
 </nav>
- 
-<div id="wrap">  
+
+<div id="wrap">
 <form class="form-horizontal" action="aluno.php" method="post">
 <fieldset>
 
@@ -42,19 +42,19 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-5 control-label">Nome</label>  
+  <label class="col-md-5 control-label">Nome</label>
   <div class="col-md-3">
   <input name="nome" type="text" placeholder="Insira seu Nome" class="form-control input-md" required="">
-  <span class="help-block">Exemplo: João Barbosa Fransciso</span>  
+  <span class="help-block">Exemplo: João Barbosa Fransciso</span>
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-5 control-label">RA</label>  
+  <label class="col-md-5 control-label">RA</label>
   <div class="col-md-3">
   <input name="ra" type="text" placeholder="Insira seu RA" class="form-control input-md" required="">
-  <span class="help-block">Exemplo: 777777</span>  
+  <span class="help-block">Exemplo: 777777</span>
   </div>
 </div>
 
@@ -111,13 +111,13 @@
 </fieldset>
 </form>
 </div>
-    
+
      <div id="push"></div>
 		<div id="footer">
 	  <div class="container">
 		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
 	  </div>
-          
+
 
 </body>
 </html>

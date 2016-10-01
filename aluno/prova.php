@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION)) session_start();
 if (!empty($_SESSION['nome']) and !empty($_SESSION['ra'])){
-  
+
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
 
@@ -13,6 +13,8 @@ if(!empty($_POST['check_list'])) {
   $numResposta = 1;
   $numQuestao = 1;
   $check_list=$_POST['check_list'];
+
+  $questoesEmbaralhadas = array();
 
   foreach($check_list as $id) {
     $questao = new questao();
@@ -59,29 +61,43 @@ if(!empty($_POST['check_list'])) {
       <div class="form" style="top: 36%; width: 50%;left:55%;">
 
     <?php foreach ($questoes as $key) {
-      echo "<h4>Questão ".$numQuestao++."</h4>";
-      echo $key['titulo'];
+
       if (!empty($key['imagem'])){
-        echo'<img src="data:image/jpg;base64,'.$key['imagem'].'" />';
+        $img = '<img src="data:image/jpg;base64,'.$key['imagem'].'" />';
       }else{
-        echo "";
+        $img = "";
       }
-      ?><br>
 
-          <form class="" action="nota.php" method="post">
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="A" required><?php print_r($key['resposta1']) ?><br>
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="B"><?php print_r($key['resposta2']) ?><br>
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="C"><?php print_r($key['resposta3']) ?><br>
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="D"><?php print_r($key['resposta4']) ?><br>
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="E"><?php print_r($key['resposta5']) ?><br>
+      $printQuestao = ''.$key['titulo'].'<br>'
+                       .$img.'<br>
+                       <form class="" action="nota.php" method="post">
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="A" required>'.$key['resposta1'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="B">'.$key['resposta2'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="C">'.$key['resposta3'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="D">'.$key['resposta4'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="E">'.$key['resposta5'].'<br>';
 
-        <?php $numResposta++;} ?><br>
+        $numResposta++;
+        array_push($questoesEmbaralhadas, $printQuestao);
+      }
 
-              <input type="submit" name="finalizar" value="Finalizar Prova">
-            </form>
+      shuffle($questoesEmbaralhadas);
+
+      foreach ($questoesEmbaralhadas as $key) {
+        echo '<h4>Questão '.$numQuestao++.'</h4><br>';
+        echo $key;
+      }
+
+      ?>
+      <br>
+            <input type="submit" name="finalizar" value="Finalizar Prova">
+          </form>
+          <br>
+          <br>
+          <br>
       </div>
       </div>
-          
+
       </div>
           <footer id="rodape">
              <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
