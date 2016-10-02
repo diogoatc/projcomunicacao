@@ -47,4 +47,7 @@ $dtainicio = $_SESSION['dtainicio'];
 
 $x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas, $idquestoes, $respostaAluno);
 
+
+unset($_SESSION['nome']);
+unset($_SESSION['ra']);
 ?>
