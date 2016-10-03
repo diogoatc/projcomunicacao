@@ -1,16 +1,16 @@
 <?php
 //Servidor de produção
-/*$host = "169.44.117.18:3306";
+$host = "169.44.117.18:3306";
 $user ="root";
 $pswrd = "unasp";
-$dbname = "projcomunicacao";*/
+$dbname = "projcomunicacao";
 
 //Servidor de testes
 
-$host = "us-cdbr-iron-east-04.cleardb.net";
+/*$host = "us-cdbr-iron-east-04.cleardb.net";
 $user ="b74daafaa1c67b";
 $pswrd = "30316046";
-$dbname = "ad_ef0ae188db8c966";
+$dbname = "ad_ef0ae188db8c966";*/
 
 //Servidor Local
 /*
