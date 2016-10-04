@@ -34,12 +34,12 @@ $retorno = $x->lista_itemdisciplina($PDO);
 			<a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
 		 </div>
 
-	      <div class="col-sm-4">
+	      <div class="col-sm-2">
 			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
 		  </div>
 
-	<div class="col-sm-6">
-	<ul class="nav navbar-nav">
+	<div class="col-sm-8">
+	<ul class="nav navbar-nav pull-right">
 	  <li><a id="font-white"  href="index.php">Home</a></li>
 	<li><a id="font-white" href="cadastro-disciplina.php">Cadastrar Disciplina</a></li>
 	<li><a id="font-white" href="liberarprova.php">Liberar Prova</a></li>
@@ -51,7 +51,7 @@ $retorno = $x->lista_itemdisciplina($PDO);
 				</a></li>
 		   </ul>
 	  </li>
-	  <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Listar<span class="caret"></span></a>
+	  <li class="dropdown active"><a id="ativo" class="dropdown-toggle" data-toggle="dropdown" href="#">Listar<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="visualizadisciplinas.php">
         Todas as Disciplinas
@@ -86,8 +86,8 @@ $retorno = $x->lista_itemdisciplina($PDO);
 				<td><?php echo $key['nome']; ?></a></td>
 				<td><?php echo $key['curso']; ?></td>
 				<td><?php echo $key['turno']; ?></a></td>
-				<td><?php echo $key['semestre']; ?></td>
-				<td><?php echo $key['credito']; ?></a></td>
+				<td class="text-center"><?php echo $key['semestre']; ?></td>
+				<td class="text-center"><?php echo $key['credito']; ?></a></td>
 				<td><a href='editadisciplina.php?id=<?php echo $key['iditemdisciplina']; ?>'>Editar Disciplina </a></td>
 			</tr>
 
