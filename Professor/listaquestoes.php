@@ -67,12 +67,12 @@ $retorno = $x->selectQuestaoByDisciplina($PDO,$iddisciplina);
 
 <thead> 
 	<td><strong>Enunciado</strong></td>
-	<td><strong>Resposta A</strong></td>
-	<td><strong>Resposta B</strong></td>
-	<td><strong>Resposta C</strong></td>
-	<td><strong>Resposta D</strong></td>
-	<td><strong>Resposta E</strong></td>
-	<td><strong>Resposta Certa</strong></td>
+	<td><strong>Alternativa A</strong></td>
+	<td><strong>Alternativa B</strong></td>
+	<td><strong>Alternativa C</strong></td>
+	<td><strong>Alternativa D</strong></td>
+	<td><strong>Alternativa E</strong></td>
+	<td><strong>Alternativa Correta</strong></td>
 	<td></td>
 	<td></td>
     <td></td>
