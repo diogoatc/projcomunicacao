@@ -8,5 +8,6 @@
 <h3><a href='testegeolocation.php'> Teste Geolocation </a></h3>
 <h3><a href='testedata.php'> Teste data </a></h3>
 <h2><a href='../index.php'> Voltar para o Index </a></h2>
+<h2><a href='../prova.php'> Testar Prova </a></h2>
 </body>
 </html>
