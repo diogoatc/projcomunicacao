@@ -15,13 +15,7 @@ header {
     padding: 10 0 10px;
     text-align: center;
 }
-section {
-    width: 100%;
-    text-align: center;
-    padding-top: 105px;
-    padding-bottom: 55px;
-    background-color: #fff;
-}
+
 .login-area {
     width: 100%;
     padding-top: 50px;
@@ -164,8 +158,6 @@ td {
     background-size: 100%;
     background-repeat: no-repeat;
 }
-
-
 .responsivo {
     max-width: 600px;
     width: 100%;
@@ -173,7 +165,6 @@ td {
     margin-top:-50px;
 }
 /*Config. Scrollspy */
-
 img#imgprova{
     max-width: 300px;
     /* Máximo da largura da imagem */
@@ -185,7 +176,6 @@ img#imgprova{
     background-size: 50%;
     background-repeat: no-repeat;
 }
-
 #espaco {
     min-height: 3%;
     height: auto !important;
@@ -193,3 +183,26 @@ img#imgprova{
     /* Negative indent footer by it's height */
     margin: 0 auto 30px;
 }
+img#confimgprova{
+    max-width: 300px;
+    /* Máximo da largura da imagem */
+    width: 50%;
+    max-height: 200px;
+    /* Máximo da altura da imagem */
+    min-height: auto;
+    /* Mínimo da altura, por padrão “auto” */
+    background-size: 50%;
+    background-repeat: no-repeat; 
+    }
+   #espacoum {
+height: 70px;
+}
+.text-center .confimgprova {
+    margin: 0 auto;
+}
+.responsiva {
+    max-width: 1000px;
+    width: 60%;
+    height: auto;
+    margin-top:-50px;
+    }
