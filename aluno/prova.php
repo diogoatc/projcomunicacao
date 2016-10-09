@@ -1,29 +1,55 @@
 <?php
 if (!isset($_SESSION)) session_start();
 if (!empty($_SESSION['nome']) and !empty($_SESSION['ra'])){
-  
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
-
+include('../classes/class_disciplina.php');
 if(!empty($_POST['check_list'])) {
-
   $questoes = array();
   $respcorretaquestoes = array();
   $idquestoes = array();
   $numResposta = 1;
   $numQuestao = 1;
-  $check_list=$_POST['check_list'];
+  $check_list = $_POST['check_list'];
+  $questoesEmbaralhadas = array();
+  $nomeDisciplinas = array();
 
   foreach($check_list as $id) {
     $questao = new questao();
-    $retorno = $questao->selectQuestaoByDisciplina($PDO,$id);
+    $retorno = $questao->selectQuestaoByDisciplina($PDO, $id);
+    $disciplina = new disciplina();
+    $retornoNome = $disciplina->selectNomeDisciplinaById($PDO, $id);
+    $nomeDisciplinas['nome'] = $retornoNome;
 
     foreach ($retorno as $key) {
       array_push($questoes, $key);
       array_push($respcorretaquestoes,$key['respostacorreta']);
       array_push($idquestoes, $key['id']);
     }
+
+    shuffle($retorno);
+
+    foreach ($retorno as $key) {
+      if (!empty($key['imagem'])){
+        $img = '<img src="data:image/jpg;base64,'.$key['imagem'].'" />';
+      }else{
+        $img = "";
+      }
+      $printQuestao = ''.$key['titulo'].'<br>'
+                       .$img.'<br>
+                       <form class="" action="nota.php" method="post">
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="A" required>'.$key['resposta1'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="B">'.$key['resposta2'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="C">'.$key['resposta3'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="D">'.$key['resposta4'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="E">'.$key['resposta5'].'<br>';
+        $numResposta++;
+        $nomeDisciplinas['print'] = $printQuestao;
+        array_push($questoesEmbaralhadas, $nomeDisciplinas);
+      }
+
   }
+
   setcookie('idquestoes',serialize($idquestoes));
   setcookie('respquestoes',serialize($respcorretaquestoes));
   setcookie('check_list',serialize($check_list));
@@ -58,30 +84,27 @@ if(!empty($_POST['check_list'])) {
       <div class="login" style="font-family:sans-serif; font-size:16pt;">Prova Unificada</div>
       <div class="form" style="top: 36%; width: 50%;left:55%;">
 
-    <?php foreach ($questoes as $key) {
-      echo "<h4>Questão ".$numQuestao++."</h4>";
-      echo $key['titulo'];
-      if (!empty($key['imagem'])){
-        echo'<img src="data:image/jpg;base64,'.$key['imagem'].'" />';
-      }else{
-        echo "";
+    <?php
+      $nome = "";
+      foreach ($questoesEmbaralhadas as $key) {
+        if ($key['nome'] != $nome) {
+          $nome = $key['nome'];
+          echo '<h4>'.$nome.'</h4><br>';
+        }
+
+        echo '<h4>Questão '.$numQuestao++.'</h4><br>';
+        echo $key['print'];
       }
-      ?><br>
-
-          <form class="" action="nota.php" method="post">
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="A" required><?php print_r($key['resposta1']) ?><br>
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="B"><?php print_r($key['resposta2']) ?><br>
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="C"><?php print_r($key['resposta3']) ?><br>
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="D"><?php print_r($key['resposta4']) ?><br>
-              <input type="radio" name="respQuestao<?php echo $numResposta; ?>" value="E"><?php print_r($key['resposta5']) ?><br>
-
-        <?php $numResposta++;} ?><br>
-
-              <input type="submit" name="finalizar" value="Finalizar Prova">
-            </form>
+      ?>
+      <br>
+            <input type="submit" name="finalizar" value="Finalizar Prova">
+          </form>
+          <br>
+          <br>
+          <br>
       </div>
       </div>
-          
+
       </div>
           <footer id="rodape">
              <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
