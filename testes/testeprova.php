@@ -1,3 +1,59 @@
+<?php
+if (!isset($_SESSION)) session_start();
+if (!empty($_SESSION['nome']) and !empty($_SESSION['ra'])){
+include_once('../model/conexao.php');
+include('../classes/class_questao.php');
+include('../classes/class_disciplina.php');
+if(!empty($_POST['check_list'])) {
+  $questoes = array();
+  $respcorretaquestoes = array();
+  $idquestoes = array();
+  $numResposta = 1;
+  $numQuestao = 1;
+  $check_list = $_POST['check_list'];
+  $questoesEmbaralhadas = array();
+  $nomeDisciplinas = array();
+
+  foreach($check_list as $id) {
+    $questao = new questao();
+    $retorno = $questao->selectQuestaoByDisciplina($PDO, $id);
+    $disciplina = new disciplina();
+    $retornoNome = $disciplina->selectNomeDisciplinaById($PDO, $id);
+    $nomeDisciplinas['nome'] = $retornoNome;
+
+    foreach ($retorno as $key) {
+      array_push($questoes, $key);
+      array_push($respcorretaquestoes,$key['respostacorreta']);
+      array_push($idquestoes, $key['id']);
+    }
+
+    shuffle($retorno);
+
+    foreach ($retorno as $key) {
+      if (!empty($key['imagem'])){
+        $img = '<img src="data:image/jpg;base64,'.$key['imagem'].'" />';
+      }else{
+        $img = "";
+      }
+      $printQuestao = ''.$key['titulo'].'<br>'
+                       .$img.'<br>
+                       <form class="" action="nota.php" method="post">
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="A" required>'.$key['resposta1'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="B">'.$key['resposta2'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="C">'.$key['resposta3'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="D">'.$key['resposta4'].'<br>
+                       <input type="radio" name="respQuestao'.$numResposta.'" value="E">'.$key['resposta5'].'<br>';
+        $numResposta++;
+        $nomeDisciplinas['print'] = $printQuestao;
+        array_push($questoesEmbaralhadas, $nomeDisciplinas);
+      }
+
+  }
+
+  setcookie('idquestoes',serialize($idquestoes));
+  setcookie('respquestoes',serialize($respcorretaquestoes));
+  setcookie('check_list',serialize($check_list));
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +101,9 @@
     </div>
   </div>
 </nav>
+<form class="form-horizontal">
 
+<!-- Começa aqui -->
 <div id="espaco"></div>
 
 <div id="section1" class="container-fluid text-center">
@@ -65,13 +123,11 @@
     <div class="row">
         <div class="col-md-5 col-md-offset-2">
             <img class="responsiva" src="../assets/img/pdf.png" alt="Imagem"/> <!--chamar a imagem no php-->
-        </div>              
+        </div>
     </div>
 
 <div style="top-margin:30px;"></div>
 
-<!--iNICIO DO FORM-->
-<form class="form-horizontal">
 <fieldset>
 
 <!-- Multiple Radios -->
@@ -86,7 +142,7 @@
 	</div>
   <div class="radio">
     <label for="radios-1">
-      <input type="radio" name="radios" id=" value="">
+      <input type="radio" name="radios" id="" value="">
       Alternativa B
     </label>
 	</div>
@@ -112,7 +168,7 @@
 </div>
 </fieldset>
 <legend></legend>
-</form>
+<!-- Termina aqui -->
 
 <!-- Button -->
 <div class="form-group" style="margin-top:-40px;">
@@ -121,6 +177,7 @@
     <button id="singlebutton" name="singlebutton" class="btn btn-success">FINALIZAR A PROVA</button>
   </div>
 </div>
+</form>
      <div id="espacoum"></div>
 		<div id="footer">
 	  <div class="container">

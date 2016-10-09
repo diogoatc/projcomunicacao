@@ -31,18 +31,58 @@ if(!empty($_POST['check_list'])) {
 
     foreach ($retorno as $key) {
       if (!empty($key['imagem'])){
-        $img = '<img src="data:image/jpg;base64,'.$key['imagem'].'" />';
+        $img = '<div id="espacoum"></div>
+                <div class="col-md-5 col-md-offset-2">
+                <img class="responsiva" alt="imagem" src="data:image/jpg;base64,'.$key['imagem'].'" />
+                </div>';
       }else{
         $img = "";
       }
-      $printQuestao = ''.$key['titulo'].'<br>'
-                       .$img.'<br>
-                       <form class="" action="nota.php" method="post">
-                       <input type="radio" name="respQuestao'.$numResposta.'" value="A" required>'.$key['resposta1'].'<br>
-                       <input type="radio" name="respQuestao'.$numResposta.'" value="B">'.$key['resposta2'].'<br>
-                       <input type="radio" name="respQuestao'.$numResposta.'" value="C">'.$key['resposta3'].'<br>
-                       <input type="radio" name="respQuestao'.$numResposta.'" value="D">'.$key['resposta4'].'<br>
-                       <input type="radio" name="respQuestao'.$numResposta.'" value="E">'.$key['resposta5'].'<br>';
+      $printQuestao = '<h4 style="text-align:justify;">'.$key['titulo'].'</h4>
+                      </div>
+                      </div>
+                      <div class="row">
+                      '.$img.'
+                      </div>
+                      <div style="top-margin:30px;"></div>
+                      <fieldset>
+                      <div class="form-group">
+                        <label class="col-md-2 control-label" for=""></label>
+                        <div class="col-md-7">
+                        <div class="radio">
+                          <label for="radios-0">
+                            <input type="radio" name="respQuestao'.$numResposta.'" id="" value="A" required>
+                            '.$key['resposta1'].'
+                          </label>
+                      	</div>
+                        <div class="radio">
+                          <label for="radios-1">
+                            <input type="radio" name="respQuestao'.$numResposta.'" id="" value="B">
+                            '.$key['resposta2'].'
+                          </label>
+                      	</div>
+                        <div class="radio">
+                          <label for="radios-2">
+                            <input type="radio" name="respQuestao'.$numResposta.'" id="" value="C">
+                            '.$key['resposta3'].'
+                          </label>
+                      	</div>
+                        <div class="radio">
+                          <label for="radios-3">
+                            <input type="radio" name="respQuestao'.$numResposta.'" id="" value="D">
+                            '.$key['resposta4'].'
+                          </label>
+                      	</div>
+                        <div class="radio">
+                          <label for="radios-4">
+                            <input type="radio" name="respQuestao'.$numResposta.'" id="" value="E">
+                            '.$key['resposta5'].'
+                          </label>
+                      	</div>
+                        </div>
+                      </div>
+                      </fieldset>
+                      <legend></legend>';
         $numResposta++;
         $nomeDisciplinas['print'] = $printQuestao;
         array_push($questoesEmbaralhadas, $nomeDisciplinas);
@@ -56,59 +96,100 @@ if(!empty($_POST['check_list'])) {
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+		  <link rel="stylesheet" href="../assets/css/normalize.css">
+		  <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+		  <link rel="stylesheet" href="../assets/css/newstyle.css">
+  <style>
+  body {
+      position: relative;
+  }
+  #section1 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section2 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section3 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section4 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section5 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section6 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section7 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Prova Unificada</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-  </head>
-
-  <body>
-      <div class="container">
-      <div class="header">
-        <img src="../assets/img/UNASP.png" height="66" width="199" alt="logo unasp">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background:#20205a;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+      <img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp">
+         </a>
+    </div>
+    <div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+         <?php
+         $section = "";
+         $contador = 1;
+         foreach ($questoesEmbaralhadas as $key) {
+           if ($key['nome'] != $section) {
+             $section = $key['nome'];
+             echo '<ul class="nav navbar-nav">
+             <li><a href="#section'.$contador.'">'.$section.'</a></li></ul>';
+             $contador++;
+           }
+         }
+         $contador = 1;
+         ?>
       </div>
+    </div>
+  </div>
+</nav>
+<form class="form-horizontal" action="nota.php" method="post">
 
-          <nav id="menu">
-              <h1>Menu Principal</h1>
-                <ul type="disc">
-                    <li><a href="index.php">MENU</a></li>
-                </ul>
+<?php
+$nome = "";
+foreach ($questoesEmbaralhadas as $key) {
+  if ($key['nome'] != $nome) {
+    $nome = $key['nome'];
+    echo '<div id="espaco"></div>
+          <div id="section'.$contador.'" class="container-fluid text-center">
+          <legend id="alinhamento" class="text-center">'.$nome.'</legend>';
+    $contador++;
+  }
 
-                <ul id="logout" type="disc">
-                    <li><a href="../logout.php">Logout</a></li>
-                </ul>
-          </nav>
+  echo '</div>
+        <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        <h2>Questão '.$numQuestao++.'</h2>';
+  echo $key['print'];
+}
+?>
+<!-- Button -->
+<div class="form-group" style="margin-top:-40px;">
+  <label class="col-md-5 control-label" for="singlebutton"></label>
+  <div class="col-md-3">
+    <button id="singlebutton" type="submit" name="finalizar" class="btn btn-success">FINALIZAR A PROVA</button>
+  </div>
+</div>
+</form>
+     <div id="espacoum"></div>
+		<div id="footer">
+	  <div class="container">
+		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+	  </div>
+	</div>
 
-      <div class="content" style="top: 44%; height: 200px;width: 800px; left:40%">
-      <div class="login" style="font-family:sans-serif; font-size:16pt;">Prova Unificada</div>
-      <div class="form" style="top: 36%; width: 50%;left:55%;">
-
-    <?php
-      $nome = "";
-      foreach ($questoesEmbaralhadas as $key) {
-        if ($key['nome'] != $nome) {
-          $nome = $key['nome'];
-          echo '<h4>'.$nome.'</h4><br>';
-        }
-
-        echo '<h4>Questão '.$numQuestao++.'</h4><br>';
-        echo $key['print'];
-      }
-      ?>
-      <br>
-            <input type="submit" name="finalizar" value="Finalizar Prova">
-          </form>
-          <br>
-          <br>
-          <br>
-      </div>
-      </div>
-
-      </div>
-          <footer id="rodape">
-             <p><b>Copyright&copy; 2016 - by Ana Carla Moraes, Diogo Lopes, Gabriel Tagliari, Matheus Hofart, Wesley R. Silva.<br>
-          </footer>
 </body>
 </html>
 <?php

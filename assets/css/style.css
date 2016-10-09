@@ -255,7 +255,7 @@ height: 34px;
     border: 1px solid #cbcbcb;
     padding-left: 17px;
     padding-top: 12px;
-    
+
 }
 
 .imobSelect {
@@ -264,7 +264,7 @@ height: 34px;
     overflow: hidden;
     background: url(../img/arrow.jpg) no-repeat right;
     border-radius: 3px;
-    
+
 }
 
     select{
@@ -275,10 +275,10 @@ height: 34px;
     font-size:25px;
 
 }
-textarea{ 
-    width:510px; 
-    margin-top:5px; 
-    border-radius:15px; 
+textarea{
+    width:510px;
+    margin-top:5px;
+    border-radius:15px;
     padding: 5px 15px
 }
 html, body {
@@ -296,7 +296,7 @@ html, body {
     width: 80px;
     height: 10px;
     position: fixed;
-    
+
 }
 
 .dropdown {
