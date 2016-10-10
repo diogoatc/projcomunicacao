@@ -51,13 +51,18 @@ class prova {
 	}
 
 	function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas,$idquestoes,$respostaAluno){
+		
+		date_default_timezone_set('America/Sao_Paulo');
+  		$dtafim = date('Y-m-d H:i:s');
+
 		$conn = $pdo->prepare("INSERT INTO prova (ra,nomealuno,nota,dtainicio,dtafim)
-		VALUES (:ra, :nomealuno, :nota, :dtainicio, now()) ");
+		VALUES (:ra, :nomealuno, :nota, :dtainicio, :dtafim) ");
 
 		$conn->bindParam(":ra", $ra, PDO::PARAM_INT);
 		$conn->bindParam(":nomealuno", $nomealuno, PDO::PARAM_STR);
 		$conn->bindParam(":nota", $nota, PDO::PARAM_STR);
 		$conn->bindParam(":dtainicio", $dtainicio, PDO::PARAM_STR);
+		$conn->bindParam(":dtafim", $dtafim, PDO::PARAM_STR);
 
 		if($conn->execute()){
 			echo "<script>alert('PROVA SALVA');</script>";
