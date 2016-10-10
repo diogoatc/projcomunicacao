@@ -159,10 +159,10 @@ td {
     background-repeat: no-repeat;
 }
 .responsivo {
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     height: auto;
-    margin-top:-50px;
+    margin-top:50px;
 }
 /*Config. Scrollspy */
 img#imgprova{
@@ -201,8 +201,7 @@ height: 70px;
     margin: 0 auto;
 }
 .responsiva {
-    max-width: 1000px;
-    width: 60%;
-    height: auto;
+    max-width: 100%;
+    max-width: auto;
     margin-top:-50px;
     }
