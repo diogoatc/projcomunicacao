@@ -26,8 +26,38 @@ if (isset($_POST['finalizar'])) {
 <head>
   <meta charset="utf-8">
   <title>Nota Prova Unificada</title>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	    <script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+	      <link rel="stylesheet" href="../assets/css/normalize.css">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	      <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+	      <link rel="stylesheet" href="../assets/css/newstyle.css">
+   
 </head>
 <body>
+ <nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
+
+  <div class="container-fluid">
+    
+	      <div class="col-sm-5">
+	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+	     </div>
+          
+	      <div class="col-sm-3">
+	        <h2 style="color:#ffffff;">ÁREA DO ALUNO</h2>
+	      </div>
+    
+    </ul>
+  </div>
+  </div>
+</nav>
+<div id="wrap"> 
+<div class="text-center" style="margin-top:50px;">
   <h3>Suas respostas: <?php foreach ($respostaAluno as $key) {
     echo $key." | ";
   } ?></h3>
@@ -35,6 +65,13 @@ if (isset($_POST['finalizar'])) {
     echo $key." | ";
   } ?></h3>
   <h3>Sua nota é: <?php echo round($nota, 1); ?></h3>
+</div>
+</div>
+    <div id="push"></div>
+		<div id="footer">
+	  <div class="container">
+		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+	  </div>
 </body>
 </html>
 <?php

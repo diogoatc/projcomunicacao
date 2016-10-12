@@ -33,20 +33,20 @@ if(!empty($_POST['check_list'])) {
       if (!empty($key['imagem'])){
         $img = '<div id="espacoum"></div>
                 <div class="col-md-5 col-md-offset-2">
-                <img class="responsiva" alt="imagem" src="data:image/jpg;base64,'.$key['imagem'].'" />
+                <img class="responsiva" style="margin-bottom:20px;" alt="imagem" src="data:image/jpg;base64,'.$key['imagem'].'" />
                 </div>';
       }else{
         $img = "";
       }
-      $printQuestao = '<h4 style="text-align:justify;">'.$key['titulo'].'</h4>
+      $printQuestao = '<h3 style="text-align:justify;">'.$key['titulo'].'</h3>
                       </div>
                       </div>
                       <div class="row">
                       '.$img.'
                       </div>
                       <div style="top-margin:30px;"></div>
-                      <fieldset>
                       <div class="form-group">
+                      <fieldset>
                         <label class="col-md-2 control-label" for=""></label>
                         <div class="col-md-7">
                         <div class="radio">
@@ -97,7 +97,7 @@ if(!empty($_POST['check_list'])) {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Example</title>
+  <title>Prova Unificada</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -164,17 +164,19 @@ foreach ($questoesEmbaralhadas as $key) {
     $nome = $key['nome'];
     echo '<div id="espaco"></div>
           <div id="section'.$contador.'" class="container-fluid text-center">
-          <legend id="alinhamento" class="text-center">'.$nome.'</legend>';
+          <legend id="alinhamento" class="text-center"><strong>'.$nome.'</strong></legend>';
     $contador++;
   }
 
   echo '</div>
         <div class="row">
         <div class="col-md-8 col-md-offset-2">
-        <h2>Questão '.$numQuestao++.'</h2>';
+        <h2><strong>Questão '.$numQuestao++.'</strong></h2>';
   echo $key['print'];
 }
 ?>
+<br>
+<br>
 <!-- Button -->
 <div class="form-group" style="margin-top:-40px;">
   <label class="col-md-5 control-label" for="singlebutton"></label>
@@ -183,7 +185,7 @@ foreach ($questoesEmbaralhadas as $key) {
   </div>
 </div>
 </form>
-     <div id="espacoum"></div>
+    
 		<div id="footer">
 	  <div class="container">
 		<p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>

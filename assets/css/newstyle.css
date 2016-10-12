@@ -1,6 +1,7 @@
 .wrapper-index {
     height: 100%;
 }
+
 header {
     top: 0;
     right: 0;
@@ -20,6 +21,7 @@ header {
     width: 100%;
     padding-top: 50px;
 }
+
 .box-texto {
     width: 50%;
     height: auto;
@@ -28,31 +30,37 @@ header {
     float: left;
     text-align: center;
 }
+
 .box-texto h1 {
     font-family: 'lato', sans-serif;
     color: #20205a;
     font-weight: 500;
     font-size: 45px;
 }
+
 .form {
     width: 50%;
     float: left;
 }
+
 .form label {
     color: #20205a;
     font-size: 'lato', sans-serif !important;
     font-weight: 500;
 }
+
 .form form {
     width: 350px;
     position: relative;
     left: 50%;
     margin-left: -175px;
 }
+
 .form input {
     width: 350px;
     border-radius: 0px;
 }
+
 .form button {
     border: 1px solid #20205a;
     color: white;
@@ -60,18 +68,23 @@ header {
     background-color: transparent;
     color: #20205a;
 }
+
 .form button:hover {
     background-color: #20205a;
     border: 1px solid #0c6ebe;
     color: #fff;
     transition: 0.5s ease-in;
 }
+
+
 /*START WESLEY EDIT*/
+
 .areadoprofessor {
     font-family: sans-serif;
     font-size: 11pt;
     color: white !important;
 }
+
 .form-group {
     width: 100% !important;
     font-size: 16pt;
@@ -79,40 +92,51 @@ header {
     bottom: 0;
     left: 0;
 }
+
 .form-horizontal {
     padding: 30px 0 30px;
 }
+
 legend {
     font-size: 20pt !important;
     padding-bottom: 25px;
 }
+
 legend#noline {
     font-size: 20pt !important;
 }
+
 h4#min {
     font-size: 10pt !important;
     color: red;
 }
+
 a#ativo {
     color: #000000 !important;
     background: #f79f38;
     font-family: sans-serif;
     font-size: 11pt;
 }
+
 a#font-white {
     font-size: 11pt;
     font-family: sans-serif;
     color: #ffffff;
 }
+
 .form-control {
     font-size: 13pt;
 }
+
 html,
 body {
     height: 100%;
     /* The html and body elements cannot have any padding or margin. */
 }
+
+
 /* Wrapper for page content to push down footer */
+
 #wrap {
     min-height: 100%;
     height: auto !important;
@@ -120,11 +144,15 @@ body {
     /* Negative indent footer by it's height */
     margin: 0 auto 30px;
 }
+
+
 /* Set the fixed height of the footer here */
+
 #push,
 #footer {
     height: auto;
 }
+
 #footer {
     background-color: #20205a;
     padding: 15px 0 5px;
@@ -133,7 +161,10 @@ body {
     font-size: 12pt;
     font-family: 'Cabin', sans-serif;
 }
+
+
 /* Lastly, apply responsive CSS fixes as necessary */
+
 @media (max-width:940px) {
     #footer {
         margin-left: -20px;
@@ -142,11 +173,13 @@ body {
         padding-right: 20px;
     }
 }
+
 td {
     font-size: 16pt;
     font-family: sans-serif;
     color: #000000;
 }
+
 .responsivo img {
     max-width: 500px;
     /* Máximo da largura da imagem */
@@ -158,14 +191,18 @@ td {
     background-size: 100%;
     background-repeat: no-repeat;
 }
+
 .responsivo {
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     height: auto;
-    margin-top:-50px;
+    margin-top: 50px;
 }
+
+
 /*Config. Scrollspy */
-img#imgprova{
+
+img#imgprova {
     max-width: 300px;
     /* Máximo da largura da imagem */
     width: 50%;
@@ -176,6 +213,7 @@ img#imgprova{
     background-size: 50%;
     background-repeat: no-repeat;
 }
+
 #espaco {
     min-height: 3%;
     height: auto !important;
@@ -183,7 +221,8 @@ img#imgprova{
     /* Negative indent footer by it's height */
     margin: 0 auto 30px;
 }
-img#confimgprova{
+
+img#confimgprova {
     max-width: 300px;
     /* Máximo da largura da imagem */
     width: 50%;
@@ -192,17 +231,23 @@ img#confimgprova{
     min-height: auto;
     /* Mínimo da altura, por padrão “auto” */
     background-size: 50%;
-    background-repeat: no-repeat; 
-    }
-   #espacoum {
-height: 70px;
+    background-repeat: no-repeat;
 }
+
+#espacoum {
+    height: 70px;
+}
+
 .text-center .confimgprova {
     margin: 0 auto;
 }
+
 .responsiva {
-    max-width: 1000px;
-    width: 60%;
-    height: auto;
-    margin-top:-50px;
-    }
+    max-width: 100%;
+    max-width: auto;
+    margin-top: -50px;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}

@@ -20,8 +20,7 @@
       position: relative;
   }
   #section1 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
-  #section2 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
-  #section3 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+
   </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -47,15 +46,15 @@
     </div>
   </div>
 </nav>
-<form class="form-horizontal">
+
 
 <!-- Começa aqui -->
 <div id="espaco"></div>
 
 <div id="section1" class="container-fluid text-center">
- <legend id="alinhamento" class="text-center">Nome da Disciplina</legend> <!--chamar função php nome da disciplina -->
+ <legend id="alinhamento" class="text-center"><strong>Nome da Disciplina</strong></legend> <!--chamar função php nome da disciplina -->
  </div>
-<?php
+ <?php
   include('../classes/class_questao.php');
   include('../model/conexao.php');
   $idquestao = $_GET['idquestao'];
@@ -67,8 +66,8 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-  <h2>Questão 1</h2><!--chamar função php número da questão -->
-  <h4 style="text-align:justify;"><?php echo $key['titulo']; ?> </h4> <!--chamar função php Enunciado -->
+  <h2><strong>Questão<strong></h2><!--chamar função php número da questão -->
+  <h3 style="text-align:justify;"><?php echo $key['titulo']; ?> </h3> <!--chamar função php Enunciado -->
  </div>
   </div>
 
@@ -86,10 +85,9 @@
         </div>
     </div>
 
-<div style="top-margin:30px;"></div>
-
+<div style="top-margin:40px;"></div>
+<form class="form-horizontal">
 <fieldset>
-
 <!-- Multiple Radios -->
 <div class="form-group">
   <label class="col-md-2 control-label" for=""></label>
@@ -128,16 +126,17 @@
 </div>
 </fieldset>
 <legend></legend>
-<!-- Termina aqui -->
+</form>
 
+<!-- Termina aqui -->
 <!-- Button -->
 <div class="form-group" style="margin-top:-40px;">
   <label class="col-md-5 control-label" for="singlebutton"></label>
   <div class="col-md-3">
-    <button id="singlebutton" name="singlebutton" class="btn btn-success">VOLTAR PARA O MENU PRINCIPAL</button>
+    <button id="singlebutton" name="singlebutton" class="btn btn-success" onclick="window.location='index.php'">VOLTAR PARA O MENU PRINCIPAL</button>
   </div>
 </div>
-</form>
+
      <div id="espacoum"></div>
     <div id="footer">
     <div class="container">

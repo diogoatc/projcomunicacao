@@ -34,7 +34,7 @@
   </h4><br>
  
 
-      <div class="col-sm-7">
+      <div class="col-sm-4 col-md-offset-2">
     <section>
             <a href="aluno/index.php"><img class="responsivo" src="assets/img/art.png" onMouseOver="this.src='assets/img/click.png'" onMouseOut="this.src='assets/img/art.png'" onClick="location='#'"></a>
         </section>
