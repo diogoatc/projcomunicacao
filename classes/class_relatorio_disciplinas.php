@@ -21,12 +21,16 @@
           $curso = "PP";
           $turno = "Noturno";
           $semestre = "1";
-          $consulta = $PDO->prepare("SELECT P.ra, P.nomealuno, ROUND(P.nota, 1) AS nota
-                                    FROM disciplina D
-                                    INNER JOIN prova_disciplina PD
-                                    ON D.id = PD.iddisciplina
-                                    INNER JOIN prova P
-                                    ON P.id = PD.idprova WHERE D.curso=:curso AND D.turno=:turno AND D.semestre=:semestre ORDER BY P.nomealuno ASC");
+          $consulta = $PDO->prepare("SELECT DISTINCT P.id, P.ra, P.nomealuno, ROUND(P.nota, 1) AS nota
+                                      FROM prova P
+                                      INNER JOIN prova_disciplina PD
+                                      ON P.id = PD.idprova
+                                      INNER JOIN disciplina D
+                                      ON D.id = PD.iddisciplina
+                                      AND D.curso=:curso 
+                                      AND D.turno=:turno
+                                      AND D.semestre=:semestre
+                                      ORDER BY P.nomealuno ASC;");
             $consulta->bindParam(":curso",$curso,PDO::PARAM_STR);
             $consulta->bindParam(":turno",$turno,PDO::PARAM_STR);
             $consulta->bindParam(":semestre",$semestre,PDO::PARAM_STR);
