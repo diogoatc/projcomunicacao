@@ -4,10 +4,11 @@
         "silex/silex": "~1.0@dev",
         "chh/cache-service-provider": "~1.0",
         "ext-curl": "*",
+        "ext-zlib": "*",
+        "ext-zip": "*",
         "ext-mbstring": "*",
         "ext-pdo": "*",
-        "ext-pdo_mysql": "*",
-        "ext-zlib": "*"
+        "ext-pdo_mysql": "*"
     },
     "extra": {
         "heroku": {
