@@ -81,7 +81,7 @@ class disciplina {
 			}
 			$conn=null;
 
-		
+
 	}
 
 	function editaDisciplinaByID($pdo,$iddisciplina,$semestre,$curso,$turno,$credito){
@@ -108,7 +108,7 @@ class disciplina {
 			}
 			$conn=null;
 		}
-		
+
 		function selectAtivo($pdo,$curso,$turno,$semestre){
 			$conn = $pdo->prepare("SELECT * FROM itemdisciplina
 				WHERE curso=:curso AND turno=:turno AND semestre=:semestre");
@@ -140,10 +140,7 @@ class disciplina {
 				AND D.curso = :curso
 				AND D.turno = :turno
 				AND D.semestre = :semestre");
-			
-				$datafimformatada = date_create($datainicio); //PEGA A STRING E TRANSFORMA PRO TIPO DATE
-				date_add($datafimformatada, date_interval_create_from_date_string('2 hours')); //ADICIONA 2 HORAS A DATA INFORMADA
-				$datafim = date_format($datafimformatada, 'Y-m-d H:i:s'); //FORMATA DE VOLTA PARA O PADRÃO DATETIME
+
 				$conn->bindParam(":dataprova",$dataprova,PDO::PARAM_STR);
 				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
 				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
@@ -151,6 +148,18 @@ class disciplina {
 				$conn->execute();
 				return $conn->fetchAll(PDO::FETCH_ASSOC);
 				$conn=null;
+		}
+
+		function selectNomeDisciplinaById($pdo, $id){
+			$conn = $pdo->prepare("SELECT nome FROM disciplina
+				WHERE id= :id");
+				$conn->bindParam(":id",$id,PDO::PARAM_INT);
+
+				if($conn->execute()){
+					return $conn->fetchColumn();
+				}else{
+					echo "<script> alert('ERRO NOME DISCIPLINA');</script>";
+				}
 		}
 
 		function cadastra_itemdisciplina($con, $nome, $curso, $turno, $credito, $semestre, $flgativo){

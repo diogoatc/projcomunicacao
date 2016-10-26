@@ -51,7 +51,7 @@ class prova {
 	}
 
 	function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas,$idquestoes,$respostaAluno){
-
+		
 		date_default_timezone_set('America/Sao_Paulo');
   		$dtafim = date('Y-m-d H:i:s');
 
