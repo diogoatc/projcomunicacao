@@ -9,6 +9,7 @@
 "mysql",
 "pgsql",
 "pdo_pgsql",
-"mbstring"
+"mbstring",
+"zlib"
 ]
 }
