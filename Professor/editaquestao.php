@@ -53,13 +53,7 @@ $x= new questao();
     <ul class="nav navbar-nav">
       <li ><a id="font-white" href="index.php">Home</a></li>
 <li><a  id="font-white" href="pre-cadastra.php">Cadastrar Questões</a></li>
-      <li class="dropdown"><a id="font-white" class="dropdown-toggle" data-toggle="dropdown" href="#">Relatório de Prova<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a target="_blank" href="../classes/class_relatorio_disciplinas.php?idusuario=<?php echo $_SESSION['UsuarioID'] ?>">
-                    Relatorios de todas as disciplinas
-                </a></li>
-           </ul>
-      </li>
+     <li><a id="font-white" href="pre_relatorio.php"> Relatórios de Notas</a></li>
       <li  class="active"><a id="ativo" href="listadisciplinas.php">Editar/Visualizar Questões</a></li>
 	        <li><a id="font-white" href="alterarsenha.php">Alterar Senha</a></li>
 	        <li><a id="font-white" href="../logout.php">Logout</a></li>

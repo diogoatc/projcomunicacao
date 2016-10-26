@@ -18,9 +18,9 @@
           </thead>
           <tbody>';
           include '../model/conexao.php';
-          $curso = "PP";
-          $turno = "Noturno";
-          $semestre = "1";
+          $curso = $_POST['curso'];
+          $turno = $_POST['turno'];
+          $semestre = $_POST['semestre'];
           $consulta = $PDO->prepare("SELECT DISTINCT P.id, P.ra, P.nomealuno, ROUND(P.nota, 1) AS nota
                                       FROM prova P
                                       INNER JOIN prova_disciplina PD

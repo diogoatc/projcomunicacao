@@ -1,24 +1,7 @@
 <?php
-include('verifica_sessao_professor.php');
-if(isset($_POST['envia'])){
-	
-
-$curso = $_POST['curso'];
-$turno = $_POST['turno'];
-$semestre = $_POST['semestre'];
-echo $curso;
-echo $turno;
-echo $semestre;
-
-
-
-setcookie('curso', $curso);
-setcookie('turno', $turno);
-setcookie('semestre', $semestre);
-
-header("Location: cadastraquestoes.php"); exit;
-}
+include("verifica_sessao_professor.php");
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,8 +34,8 @@ header("Location: cadastraquestoes.php"); exit;
     <div class="col-sm-7">
     <ul class="nav navbar-nav">
       <li><a id="font-white" href="index.php">Home</a></li>
-<li class="active"><a id="ativo" href="pre-cadastra.php">Cadastrar Questões</a></li>
-      <li><a id="font-white" href="pre_relatorio.php"> Relatórios de Notas</a></li>s
+<li> <a id="font-white" href="pre-cadastra.php">Cadastrar Questões</a></li>
+     <li class="active"><a id="ativo" href="pre_relatorio.php"> Relatórios de Notas</a></li>
       <li><a id="font-white" href="listadisciplinas.php">Editar/Visualizar Questões</a></li>
 	        <li><a id="font-white" href="alterarsenha.php">Alterar Senha</a></li>
 	        <li><a id="font-white" href="../logout.php">Logout</a></li>
@@ -61,9 +44,9 @@ header("Location: cadastraquestoes.php"); exit;
   </div>
 </nav>
 <div id="wrap">
-       <legend class="text-center">SELECIONE O CURSO, O TURNO E O SEMESTRE QUE DESEJA INSERIR AS QUESTÕES</legend>
+       <legend class="text-center">SELECIONE A TURMA QUE DESEJA VER O RELATÓRIO</legend>
        
-       <form class="form-horizontal" id="questcad" enctype="multipart/form-data" action="pre-cadastra.php" method="post">
+       <form class="form-horizontal" id="questcad" enctype="multipart/form-data" action="../relatorios/relatorio_notas_professor.php" method="post">
 
         <fieldset>
 
@@ -126,4 +109,3 @@ header("Location: cadastraquestoes.php"); exit;
     </div>
 </body>
 </html>
-
