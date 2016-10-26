@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a0e83c84e777e5771a299c0bf58c475e",
-    "content-hash": "fdfb4cb5269bce6c4d5430b1adf75acf",
+    "hash": "79fef3bd72c9567be98c3cb723568664",
+    "content-hash": "bbd83b458b74cf5890f4d2cdd73aeca1",
     "packages": [
         {
             "name": "chh/cache-service-provider",
@@ -694,11 +694,12 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0",
+        "php": ">=7.0.1",
         "ext-curl": "*",
         "ext-mbstring": "*",
         "ext-pdo": "*",
-        "ext-pdo_mysql": "*"
+        "ext-pdo_mysql": "*",
+        "ext-zlib": "*"
     },
     "platform-dev": []
 }
