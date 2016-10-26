@@ -1,8 +1,9 @@
 <?php
   require_once ("../assets/mPDF/vendor/autoload.php");
+  include ("../Professor/verifica_sessao_professor.php");
 
       $html = '
-      <link rel="license" href="../assets/reports/css/style.css">
+      <link rel="stylesheet" type="text/css" href="../assets/reports/css/style.css">
       <header class="clearfix">
         <h1 style="">Relatório de Notas</h1>
       </header>
@@ -10,14 +11,13 @@
         <table>
           <thead>
             <tr>
-              <th class="desc" colspan="4">RA</th>
-              <th class="desc" colspan="4">Aluno</th>
-              <th class="desc" colspan="4">Nota</th>
+              <th class="desc" colspan="2">RA</th>
+              <th class="desc" colspan="2">Aluno</th>
+              <th class="desc" colspan="2">Nota</th>
             </tr>
           </thead>
           <tbody>';
           include '../model/conexao.php';
-          $idusuario = $_GET['idusuario'];
           $curso = "PP";
           $turno = "Noturno";
           $semestre = "1";
@@ -41,11 +41,11 @@
               $html .= '
               <tr>';
                 $html .= '
-                <td class="desc" colspan="4">'.$linha['ra'].'</td>';
+                <td class="desc" colspan="2">'.$linha['ra'].'</td>';
                 $html .= '
-                <td class="desc" colspan="4">'.$linha['nomealuno'].'</td>';
+                <td class="desc" colspan="2">'.$linha['nomealuno'].'</td>';
                 $html .= '
-                <td class="desc" colspan="4">'.$linha['nota'].'</td>';
+               <strong> <td class="desc nota" colspan="2">'.$linha['nota'].'</td> </strong>';
               $html .= '
               </tr>';
             }

@@ -23,7 +23,7 @@ body {
 
 header {
   padding: 10px 0;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 #logo {
@@ -74,7 +74,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 table tr:nth-child(2n-1) td {
@@ -92,17 +92,17 @@ table th {
   border-bottom: 1px solid #C1CED9;
   white-space: nowrap;        
   font-weight: normal;
-  text-align: right;
+  text-align: center;
 }
 
 table .service,
 table .desc {
-  text-align: left;
+  text-align: center;
 }
 
 table td {
-  padding: 20px;
-  text-align: right;
+  padding: 10px;
+  text-align: center;
 }
 
 table td.service,
@@ -134,4 +134,7 @@ footer {
   border-top: 1px solid #C1CED9;
   padding: 8px 0;
   text-align: center;
+}
+.nota{
+  color: red;
 }
