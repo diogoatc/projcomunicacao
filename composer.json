@@ -6,7 +6,8 @@
         "ext-curl": "*",
         "ext-mbstring": "*",
         "ext-pdo": "*",
-        "ext-pdo_mysql": "*"
+        "ext-pdo_mysql": "*",
+        "ext-zlib": "*"
     },
     "extra": {
         "heroku": {
