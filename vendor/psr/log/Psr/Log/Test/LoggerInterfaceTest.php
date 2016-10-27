@@ -84,13 +84,8 @@ abstract class LoggerInterfaceTest extends \PHPUnit_Framework_TestCase
 
     public function testObjectCastToString()
     {
-<<<<<<< HEAD
-        if (method_exists($this, 'createPartialMock')) {
-            $dummy = $this->createPartialMock('Psr\Log\Test\DummyTest', array('__toString'));
-=======
         if (method_exists($this, 'createMock')) {
             $dummy = $this->createMock('Psr\Log\Test\DummyTest', array('__toString'));
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
         } else {
             $dummy = $this->getMock('Psr\Log\Test\DummyTest', array('__toString'));
         }

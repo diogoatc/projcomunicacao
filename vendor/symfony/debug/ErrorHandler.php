@@ -348,19 +348,10 @@ class ErrorHandler
     /**
      * Handles errors by filtering then logging them according to the configured bit fields.
      *
-<<<<<<< HEAD
-     * @param int    $type      One of the E_* constants
-     * @param string $message
-     * @param string $file
-     * @param int    $line
-     * @param array  $context
-     * @param array  $backtrace
-=======
      * @param int    $type    One of the E_* constants
      * @param string $file
      * @param int    $line
      * @param array  $context
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
      *
      * @return bool Returns false when no handling happens so that the PHP engine can handle the error itself
      *

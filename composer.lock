@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "f4c721427443d2f3898065e43cc3bf26",
-    "content-hash": "c4819051698c7e1dabadbe230ba5afad",
-=======
     "hash": "25bea4729a01beab4af89b52d4abbcbd",
     "content-hash": "fdfb4cb5269bce6c4d5430b1adf75acf",
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
     "packages": [
         {
             "name": "chh/cache-service-provider",
@@ -181,7 +176,6 @@
         },
         {
             "name": "psr/log",
-<<<<<<< HEAD
             "version": "1.0.2",
             "source": {
                 "type": "git",
@@ -192,18 +186,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-=======
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
                 "shasum": ""
             },
             "require": {
@@ -237,11 +219,8 @@
                 "psr",
                 "psr-3"
             ],
-<<<<<<< HEAD
-            "time": "2016-10-10 12:19:37"
-=======
+
             "time": "2016-09-19 16:02:08"
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
         },
         {
             "name": "silex/silex",
@@ -249,21 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-<<<<<<< HEAD
-                "reference": "09afa63e7d98b1751bd44db83145b69d67d4dd97"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/09afa63e7d98b1751bd44db83145b69d67d4dd97",
-                "reference": "09afa63e7d98b1751bd44db83145b69d67d4dd97",
-=======
                 "reference": "6bb64c08c7e2842e22b273b0c57c1864aa3bc9d6"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/silexphp/Silex/zipball/6bb64c08c7e2842e22b273b0c57c1864aa3bc9d6",
                 "reference": "6bb64c08c7e2842e22b273b0c57c1864aa3bc9d6",
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
                 "shasum": ""
             },
             "require": {
@@ -327,22 +297,6 @@
             "keywords": [
                 "microframework"
             ],
-<<<<<<< HEAD
-            "time": "2016-10-12 02:12:04"
-        },
-        {
-            "name": "symfony/debug",
-            "version": "v3.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/debug.git",
-                "reference": "e2b3f74a67fc928adc3c1b9027f73e1bc01190a8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/e2b3f74a67fc928adc3c1b9027f73e1bc01190a8",
-                "reference": "e2b3f74a67fc928adc3c1b9027f73e1bc01190a8",
-=======
             "time": "2016-09-26 20:55:41"
         },
         {
@@ -357,7 +311,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/debug/zipball/34f6ac18c2974ca5fce68adf419ee7d15def6f11",
                 "reference": "34f6ac18c2974ca5fce68adf419ee7d15def6f11",
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
                 "shasum": ""
             },
             "require": {
@@ -401,11 +354,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-            "time": "2016-09-06 11:02:40"
-=======
             "time": "2016-08-23 13:39:15"
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
         },
         {
             "name": "symfony/event-dispatcher",
@@ -746,15 +695,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-<<<<<<< HEAD
         "php": ">=7.0.1",
         "ext-curl": "*",
         "ext-zlib": "*",
         "ext-zip": "*",
-=======
-        "php": ">=5.6.0",
-        "ext-curl": "*",
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
         "ext-mbstring": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*"
