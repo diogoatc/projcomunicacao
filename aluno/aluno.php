@@ -69,46 +69,38 @@ if (isset($_POST['fazerprova'])) {
 </nav>
 
 <div id="wrap"> 
+<!-- Form Name -->
 <form class="form-horizontal" action="prova.php" method="post">
 <fieldset>
-<!-- Form Name -->
+
 <legend class="text-center"><h1><strong>Prova Unificada de Comunicação Social<strong></h1></legend>
 
-<div class="row">
-  <div class="col-sm-3 col-md-offset-2" style="border-width: thin;
-    border-style: solid;
-    border-color:#D3D3D3">
-    
-    <div class="card card-block" style="height:190px;">
-    <div class="span4">
-      <h2 class="card-title text-center"><legend>Disciplina</legend></h2><!--Inserir disciplina -->
-      <h3 class="card-text text-center">Professor</h3> <!--Inserir nome professor -->
-      <input type="checkbox" style="transform: scale(3.5); margin-left:50%;margin-top:40px;">
-         
-    </div>
-    </div>
-  </div>
-</div>
 
 
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="disciplina"><h2><strong>Selecione as Disciplinas</strong></h2></label>            
 <div class="col-md-6">
+<div class="row">
+  
 <?php
 foreach ($retorno as $key) {
 ?>
-
-<input style="width:3%;" type="checkbox" name="check_list[]" value="<?php echo $key['id'] ?>">
+      <div class="col-sm-3 col-md-offset-2" style="border-width: thin; border-style: solid; border-color:#D3D3D3;">
+    <div class="card card-block" style="height:190px;">
+    <div class="span4">
+      <h2 class="card-title text-center"><legend><?php echo $key['nomedisciplina']; ?></legend></h2><!--Inserir disciplina -->
+      <h3 class="card-text text-center"><?php echo $key['nomeprofessor']; ?></h3> <!--Inserir nome professor -->
+      <input type="checkbox" name="check_list[]" value="<?php echo $key['id'] ?>" style="transform: scale(3.5); margin-left:50%;margin-top:40px;">
+         
+    </div>
+    </div>
+   </div>
 <?php
-echo $key['nomedisciplina']." | ".$key['nomeprofessor']." | ".$key['curso']." | ".$key['turno']." | ".$key['id'];
-echo "<br>";
 }
 ?>
+ 
 </div>
-</div>
-<legend></legend>
-<!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-3">
