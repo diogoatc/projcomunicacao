@@ -65,7 +65,7 @@ class prova {
 		$conn->bindParam(":dtafim", $dtafim, PDO::PARAM_STR);
 
 		if($conn->execute()){
-			echo "<script>alert('PROVA SALVA');</script>";
+			
 		}else{
 			echo "ERRO SALVAR PROVA";
 		}
@@ -81,7 +81,7 @@ class prova {
 			$conn->bindParam(":iddisciplina", $key, PDO::PARAM_INT);
 
 			if($conn->execute()){
-				echo "<script>alert('PROVA_DISCIPLINA SALVA');</script>";
+				
 			}else{
 				echo "ERRO SALVAR PROVA_DISCIPLINA: ".$key;
 			}
@@ -97,7 +97,7 @@ class prova {
 			$conn->bindParam(":respostaaluno", $respostaAluno[$i], PDO::PARAM_STR);
 
 			if($conn->execute()){
-				echo "<script>alert('QUESTOES_ALUNO SALVA');</script>";
+				
 			}else{
 				echo "ERRO SALVAR QUESTOES_ALUNO";
 			}

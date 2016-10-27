@@ -123,7 +123,7 @@ class disciplina {
 
 		function selectDisciplinaByProfessor($pdo, $id){
 			$conn = $pdo->prepare("SELECT * FROM disciplina
-				WHERE idusuario=:id AND flgativo=1");
+				WHERE idusuario=:id AND flgativo=1 ORDER BY nome ASC");
 				$conn->bindParam(":id",$id,PDO::PARAM_INT);
 
 				$conn->execute();

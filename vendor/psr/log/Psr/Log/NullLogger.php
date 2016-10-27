@@ -19,7 +19,11 @@ class NullLogger extends AbstractLogger
      * @param string $message
      * @param array  $context
      *
+<<<<<<< HEAD
      * @return void
+=======
+     * @return null
+>>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
      */
     public function log($level, $message, array $context = array())
     {

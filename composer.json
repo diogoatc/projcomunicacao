@@ -1,5 +1,6 @@
 {
     "require": {
+<<<<<<< HEAD
         "php": ">=7.0.1",
         "silex/silex": "~1.0@dev",
         "chh/cache-service-provider": "~1.0",
@@ -9,6 +10,16 @@
         "ext-mbstring": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*"
+=======
+        "php": ">=5.6.0",
+        "silex/silex": "~1.0@dev",
+        "chh/cache-service-provider": "~1.0",
+        "ext-curl": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-zlib": "*"
+>>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
     },
     "extra": {
         "heroku": {
