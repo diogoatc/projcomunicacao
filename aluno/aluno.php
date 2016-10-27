@@ -69,13 +69,6 @@ if (isset($_POST['fazerprova'])) {
 </nav>
 
 <div id="wrap"> 
-<<<<<<< HEAD
-<form class="form-horizontal" action="prova.php" method="post">
-<fieldset>
-<!-- Form Name -->
-<legend class="text-center"><h1><strong>Prova Unificada de Comunicação Social<strong></h1></legend>
-
-=======
 <!-- Form Name -->
 <form class="form-horizontal" action="prova.php" method="post">
 <fieldset>
@@ -84,18 +77,12 @@ if (isset($_POST['fazerprova'])) {
 
 
 
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
+
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="disciplina"><h2><strong>Selecione as Disciplinas</strong></h2></label>            
 <div class="col-md-6">
-<<<<<<< HEAD
-<?php
-foreach ($retorno as $key) {
-?>
 
-<input style="width:3%;" type="checkbox" name="check_list[]" value="<?php echo $key['id'] ?>">
-=======
 <div class="row">
   
 <?php
@@ -111,19 +98,18 @@ foreach ($retorno as $key) {
     </div>
     </div>
    </div>
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
+
 <?php
 }
 ?>
-<<<<<<< HEAD
+
 </div>
 </div>
 <legend></legend>
 <!-- Button -->
-=======
+
  
 </div>
->>>>>>> da9ddcdcaf58574c96195396b7d792ac372646cb
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-3">
