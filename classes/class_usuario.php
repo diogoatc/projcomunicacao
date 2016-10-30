@@ -86,7 +86,7 @@ class usuario {
 
 			if($tb->execute()){
 				echo "<script>
-				alert('USUARIO CRIADO COM SUCESSO!');
+				alert('Professor Cadastrado!');
 				window.location='cadastro-professor.php';
 				</script>";
 			}else {
@@ -106,7 +106,7 @@ class usuario {
 
 		if($tb->execute()){
 			echo "<script>
-			alert('SENHA ALTERADA COM SUCESSO!');
+			alert('Senha Alterada com Sucesso!');
 			window.location='index.php';
 			</script>";
 		}else{
