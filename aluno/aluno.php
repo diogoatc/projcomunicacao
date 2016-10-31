@@ -88,7 +88,9 @@ if (isset($_POST['fazerprova'])) {
 foreach ($retorno as $key) {
   
 ?>
+   
       <div class="col-sm-1 col-md-offset-1" style="border-width: thin; border-style: solid; border-color:#D3D3D3;width:400px;height:200px;">
+    <div style="height:20px;">
      <div class="card card-block">
      <div class="span4">
       <h2 class="card-title text-center"><legend><?php echo $key['nomedisciplina']; ?></legend></h2>
@@ -97,7 +99,7 @@ foreach ($retorno as $key) {
         </div>
         </div>
         </div>
-  <!--<div style="height:20px;"> </div> PRECISO QUE REPITA ESSA DIV PARA SEPARAR AS CARDS--> 
+     </div> 
 <?php
 }
 ?>
