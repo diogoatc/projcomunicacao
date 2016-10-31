@@ -78,31 +78,34 @@ if (isset($_POST['fazerprova'])) {
 
 
 <!-- Text input-->
+
 <div class="form-group">
-  <label class="col-md-4 control-label" for="disciplina"><h2><strong>Selecione as Disciplinas</strong></h2></label>            
-<div class="col-md-6">
+  <label class="col-md-3 control-label" for="disciplina"><h3><strong>Selecione as Disciplinas</strong></h3></label>            
+<div class="col-md-9">
 <div class="row">
   
 <?php
 foreach ($retorno as $key) {
+  
 ?>
-      <div class="col-sm-3 col-md-offset-2" style="border-width: thin; border-style: solid; border-color:#D3D3D3;">
-    <div class="card card-block" style="height:190px;">
-    <div class="span4">
-      <h2 class="card-title text-center"><legend><?php echo $key['nomedisciplina']; ?></legend></h2><!--Inserir disciplina -->
-      <h3 class="card-text text-center"><?php echo $key['nomeprofessor']; ?></h3> <!--Inserir nome professor -->
-      <input type="checkbox" name="check_list[]" value="<?php echo $key['id'] ?>" style="transform: scale(3.5); margin-left:50%;margin-top:40px;">
-         
-    </div>
-    </div>
-   </div>
+      <div class="col-sm-1 col-md-offset-1" style="border-width: thin; border-style: solid; border-color:#D3D3D3;width:400px;height:200px;">
+     <div class="card card-block">
+     <div class="span4">
+      <h2 class="card-title text-center"><legend><?php echo $key['nomedisciplina']; ?></legend></h2>
+      <h3 class="card-text text-center"><?php echo $key['nomeprofessor']; ?></h3>
+      <input type="checkbox" name="check_list[]" value="<?php echo $key['id'] ?>" style="transform: scale(3.5); margin-left:50%;margin-top:30px;">
+        </div>
+        </div>
+        </div>
+  <!--<div style="height:20px;"> </div> PRECISO QUE REPITA ESSA DIV PARA SEPARAR AS CARDS--> 
 <?php
 }
 ?>
- 
+
 </div>
+<div style="height:40px;"> </div>
 <div class="form-group">
-  <label class="col-md-4 control-label"></label>
+  <label class="col-md-5 control-label"></label>
   <div class="col-md-3">
     <button style="font-size:16pt;" name="prova" type="submit" class="btn btn-warning">AVANÇAR</button>
   </div>
