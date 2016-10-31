@@ -73,7 +73,7 @@ class disciplina {
 
 		if($conn->execute()){
 			echo "<script>
-				alert('Data Inserida Com Sucesso!');
+				alert('Prova Liberada!');
 				window.location='index.php';
 				</script>";
 			}else{
@@ -100,7 +100,7 @@ class disciplina {
 
 			if($conn->execute()){
 				echo "<script>
-				alert('DISCIPLINA ALTERADA COM SUCESSO!');
+				alert('Disciplina Alterada com Sucesso!');
 				window.location='visualizadisciplinas.php';
 				</script>";
 			}else{
@@ -175,7 +175,7 @@ class disciplina {
 
 			if($conn->execute()){
 				echo "<script>
-				alert('DISCIPLINA CADASTRADA COM SUCESSO!');
+				alert('Disciplina Cadastrada com Sucesso!');
 				window.location='../Admin/cadastro-disciplina.php';
 				</script>";
 			}else{
