@@ -1,6 +1,5 @@
 <?php
   require_once ("../assets/mPDF/vendor/autoload.php");
-  include ("../Professor/verifica_sessao_professor.php");
 
       $html = '
       <link rel="stylesheet" type="text/css" href="../assets/reports/css/style.css">
