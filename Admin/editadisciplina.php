@@ -64,8 +64,8 @@ $iddisciplina = $_GET['id'];
 		<div class="form-group">
 		<label class="col-md-5 control-label" for="semestre">Semestre:</label>
 		<div class="col-md-5">
-		<input type="hidden" name="iddisciplina" value="<?php echo $iddisciplina;?>">
-			<select required="" name="semestre" id="semestre">
+		<input type="hidden" name="iddisciplina"  value="<?php echo $iddisciplina;?>">
+			<select required="" name="semestre" class="form-control" id="semestre">
 					<option value="">Selecione o Semestre</option>
 					<option value="1">1º Semestre</option>
 					<option value="2">2º Semestre</option>
@@ -82,7 +82,7 @@ $iddisciplina = $_GET['id'];
 				<div class="form-group">
 					<label class="col-md-5 control-label" for="curso">Curso:</label>
 				<div class="col-md-5">
-					<select required="" name="curso" id="curso">
+					<select required="" class="form-control" name="curso" id="curso">
 						<option value="">Selecione o Curso</option>
 						<option value="PP">PP</option>
 						<option value="RTV">RTV</option>
@@ -93,7 +93,7 @@ $iddisciplina = $_GET['id'];
 				<div class="form-group">
 					<label class="col-md-5 control-label" for="turno">Turno:</label>
 				<div class="col-md-5">
-			<select required="" name="turno" id="turno">
+			<select required="" name="turno" class="form-control" id="turno">
 					<option value="">Selecione o Turno</option>
 					<option value="Matutino">Diurno</option>
 					<option value="Noturno">Noturno</option>
