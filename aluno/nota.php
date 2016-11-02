@@ -58,13 +58,15 @@ if (isset($_POST['finalizar'])) {
 </nav>
 <div id="wrap"> 
 <div class="text-center" style="margin-top:50px;">
-  <h3>Suas respostas: <?php foreach ($respostaAluno as $key) {
+<div class="panel panel-default" style="margin-left: 30%; margin-right: 30%">
+  <h2>Você selecionou as seguintes alternativas:</h2> <h3><?php foreach ($respostaAluno as $key) {
     echo $key." | ";
   } ?></h3>
-  <h3>Respostas corretas: <?php foreach ($respquestoes as $key) {
-    echo $key." | ";
-  } ?></h3>
-  <h3>Sua nota é: <?php echo round($nota, 1); ?></h3>
+  </div>
+  <br/>
+  <div class="panel panel-default" style="margin-left: 40%; margin-right: 40%">
+  <h2>Sua nota é:</h2><h2 class="span6 offset3"> <?php echo round($nota, 1); ?></h2>
+  </div>
 </div>
 </div>
     <div id="push"></div>
