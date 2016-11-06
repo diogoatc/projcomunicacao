@@ -5,7 +5,7 @@ include("verifica_sessao_professor.php");
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cadastro de Questões</title>
+	<title>Relatório de Provas</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

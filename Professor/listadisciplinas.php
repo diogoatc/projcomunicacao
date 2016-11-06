@@ -11,7 +11,7 @@ $retorno = $x->selectDisciplinaByProfessor($PDO, $idusuario);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Lista de Disciplina</title>
+	<title>Lista de Disciplinas</title>
 	<meta charset="utf-8">
 			<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
