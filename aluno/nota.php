@@ -65,7 +65,11 @@ if (isset($_POST['finalizar'])) {
   </div>
   <br/>
   <div class="panel panel-default" style="margin-left: 40%; margin-right: 40%">
-  <h2>Sua nota é:</h2><h2 class="span6 offset3"> <?php echo round($nota, 1); ?></h2>
+  <h2>Sua nota é:</h2><strong><h2 class="span6 text-danger offset3"> <?php echo round($nota, 1); ?></h2></strong>
+  </div>
+  <br/>
+  <div class=" center-block" style="margin-left: 18%; margin-right: 18%"> 
+    <h2 class="bg-primary">Prova Concluída com Sucesso! Você já pode fechar essa tela.</h2>
   </div>
 </div>
 </div>

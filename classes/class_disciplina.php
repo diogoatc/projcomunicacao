@@ -84,15 +84,17 @@ class disciplina {
 
 	}
 
-	function editaDisciplinaByID($pdo,$iddisciplina,$semestre,$curso,$turno,$credito){
+	function editaDisciplinaByID($pdo,$iddisciplina,$nome,$semestre,$curso,$turno,$credito){
 		$conn = $pdo->prepare("UPDATE itemdisciplina
 			SET curso = :curso,
+			nome = :nome,
 			turno = :turno,
 			semestre = :semestre,
 			credito = :credito
 			WHERE iditemdisciplina=:id");
 
 			$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+			$conn->bindParam(":nome",$nome,PDO::PARAM_STR);
 			$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
 			$conn->bindParam(":semestre",$semestre,PDO::PARAM_STR);
 			$conn->bindParam(":credito",$credito,PDO::PARAM_INT);
@@ -216,7 +218,15 @@ class disciplina {
 				echo "<script> alert('ERRO CADASTRA DISCIPLINA');</script>";
 			}
 		}
-
+		function excluiDisciplinaById($pdo,$id){
+			$tb = $pdo->prepare("UPDATE itemdisciplina SET flgativo = 0 WHERE iditemdisciplina = :id");
+			$tb->bindParam(":id", $id, PDO::PARAM_INT);
+			if($tb->execute()){
+				echo "<script>window.location='visualizadisciplinas.php'</script>";
+			}else{
+				echo "<script> alert('ERRO, DISCIPLINA NAO EXCLUIDA')</script>";
+			}
+		}
 		function lista_itemdisciplina($pdo){
 			$conn = $pdo->prepare("SELECT * FROM itemdisciplina WHERE flgativo=1 ORDER BY nome ASC");
 			$conn->execute();

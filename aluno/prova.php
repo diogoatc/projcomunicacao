@@ -27,7 +27,7 @@ if(!empty($_POST['check_list'])) {
       array_push($idquestoes, $key['id']);
     }
 
-    shuffle($retorno);
+    //shuffle($retorno);
 
     foreach ($retorno as $key) {
       if (!empty($key['imagem'])){
@@ -38,7 +38,7 @@ if(!empty($_POST['check_list'])) {
       }else{
         $img = "";
       }
-      $printQuestao = '<h3 style="text-align:justify;">'.$key['titulo'].'</h3>
+      $printQuestao = '<h3 style="white-space: pre-wrap; text-align:justify;">'.$key['titulo'].'</h3>
                       </div>
                       </div>
                       <div class="row">

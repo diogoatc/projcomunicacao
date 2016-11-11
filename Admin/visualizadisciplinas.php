@@ -73,6 +73,7 @@ $retorno = $x->lista_itemdisciplina($PDO);
 			<td><strong>Semestre</strong></td>
 			<td><strong>Número de Créditos</strong></td>
 			<td><strong></strong></td>
+			<td><strong></strong></td>
 		</thead>
 
 	<?php foreach ($retorno as $key) {   ?>
@@ -83,6 +84,7 @@ $retorno = $x->lista_itemdisciplina($PDO);
 				<td class="text-center"><?php echo $key['semestre']; ?></td>
 				<td class="text-center"><?php echo $key['credito']; ?></a></td>
 				<td><a href='editadisciplina.php?id=<?php echo $key['iditemdisciplina']; ?>'>Editar Disciplina </a></td>
+				<td><a href='visualizadisciplinas.php?id=<?php echo $key['iditemdisciplina']; ?>'>Excluir Disciplina </a></td>
 			</tr>
 
 <?php } ?>
@@ -100,3 +102,11 @@ $retorno = $x->lista_itemdisciplina($PDO);
     </div>	
 </body>
 </html>
+
+<?php
+if(isset($_GET['id'])){
+	require_once('../classes/class_disciplina.php');
+	$id = $_GET['id'];
+	$x = new disciplina();
+	$x->excluiDisciplinaById($PDO,$id);
+}

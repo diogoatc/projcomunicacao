@@ -94,7 +94,6 @@ foreach ($retorno as $key) {
      <div class="card card-block">
      <div class="span4">
       <h2 class="card-title text-center"><legend><?php echo $key['nomedisciplina']; ?></legend></h2>
-      <h3 class="card-text text-center"><?php echo $key['nomeprofessor']; ?></h3>
       <input type="checkbox" name="check_list[]" value="<?php echo $key['id'] ?>" style="transform: scale(3.5); margin-left:50%;margin-top:30px;">
         </div>
         </div>

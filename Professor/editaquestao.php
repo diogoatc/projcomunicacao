@@ -17,11 +17,11 @@ $retorno = $x->deletaQuestao($PDO,$idquestao,$iddisciplina);
 $x= new questao();
     $key = $x->selectQuestaoById($PDO,$idquestao);
 ?>
- 
+  
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<title>Editar Questões</title>
+		<title>Edita Questões</title>
 		<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -61,6 +61,15 @@ $iddisciplina = $_GET['id'];
           
 	<form class="form-horizontal" method="post" action="">
 		<fieldset>
+
+		<div class="form-group">
+ 		<label class="col-md-5 control-label" for="txDisciplina">Disciplina</label>  
+ 		<div class="col-md-3">
+ 		<input id="txDisciplina" name="nome" type="text" placeholder="Insira nome da disciplina" class="form-control input-md" required="">
+  		<span class="help-block">Exemplo: Atendimento Publicitário</span>  
+  		</div>
+		</div>
+
 		<div class="form-group">
 		<label class="col-md-5 control-label" for="semestre">Semestre:</label>
 		<div class="col-md-5">
@@ -140,12 +149,13 @@ $iddisciplina = $_GET['id'];
 
 if(isset($_POST['envia'])){
 	$iddisciplina = $_POST['iddisciplina'];
+	$nome = $_POST['nome'];
 	$semestre = $_POST['semestre'];
 	$curso = $_POST['curso'];
 	$turno = $_POST['turno'];
 	$credito=$_POST['credito'];
 
 	$x = new disciplina();
-	$x->editaDisciplinaByID($PDO,$iddisciplina,$semestre,$curso,$turno,$credito);
+	$x->editaDisciplinaByID($PDO,$iddisciplina,$nome,$semestre,$curso,$turno,$credito);
 }
 ?>

@@ -98,6 +98,16 @@ class usuario {
 		}
 	}
 
+	function excluiProfessorById($pdo,$usuarioid){
+		$tb = $pdo->prepare("UPDATE usuario SET flgativo = 0 WHERE id = :id");
+		$tb->bindParam(":id", $usuarioid, PDO::PARAM_INT);
+			if($tb->execute()){
+				echo "<script>window.location='visualizaprofessores.php'</script>";
+			}else{
+				echo "ERRO, USUARIO NAO EXCLUIDO";
+			}
+	}
+
 	function alterarsenha($pdo,$usuarioid,$senhanova){
 		$tb = $pdo->prepare("UPDATE usuario SET senha = :senhanova WHERE id = :id ");
 

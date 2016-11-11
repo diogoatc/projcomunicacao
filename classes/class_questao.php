@@ -141,7 +141,7 @@ class questao {
 			$conn = $pdo->prepare("SELECT * FROM questao WHERE id=:id");
 			$conn->bindParam(":id",$id,PDO::PARAM_INT);
 			$conn->execute();
-			return $conn->fetch();
+			return $conn->fetchAll(PDO::FETCH_ASSOC);
 			$conn=null;
 		}
 

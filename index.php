@@ -1,6 +1,6 @@
 <html lang="pt-br">
 <head>
-    <title>Prova Unificada de Comunicação Social</title>
+    <title>Prova Unificada</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -30,13 +30,12 @@
 
     <h2 class="text-center">Prova Unificada de Comunicação Social</h2>
     <h3 class="text-center">Seja Bem-vindo</h3><br>
-   <h4><p class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova, professor ou administrador, realize o Login.</p>
-  </h4><br>
+   <h3 class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova. Professor ou administrador, realize o Login. </h3><br/>
  
 
       <div class="col-sm-4 col-md-offset-2">
     <section>
-            <a href="aluno/index.php"><img class="responsivo" src="assets/img/art.png" onMouseOver="this.src='assets/img/click.png'" onMouseOut="this.src='assets/img/art.png'" onClick="location='#'"></a>
+            <a href="aluno/index.php"><img class="responsivo" src="assets/img/click.png" onMouseOver="this.src='assets/img/art.png'" onMouseOut="this.src='assets/img/click.png'" onClick="location='#'"></a>
         </section>
     </div>
 <form class="form-horizontal" action="model/validacao.php" method="post">

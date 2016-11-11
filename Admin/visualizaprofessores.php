@@ -70,6 +70,7 @@ $retorno = $x->listaprofessores($PDO);
 			<td><strong>Usuário</strong></td>
 			<td><strong>Nome Completo</strong></td>
 			<td><strong></strong></td>
+			<td><strong></strong></td>
 		</thead>
 
 	<?php foreach ($retorno as $key) {   ?>
@@ -77,6 +78,7 @@ $retorno = $x->listaprofessores($PDO);
 				<td><?php echo $key['usuario']; ?></a></td>
 				<td><?php echo $key['nome']; ?></td>
 				<td><a href='resetarsenha.php?id=<?php echo $key['id']; ?>'>Redefinir Senha </a></td>
+				<td><a href='visualizaprofessores?id=<?php echo $key['id']; ?>'>Excluir Professor </a></td>
 
 			</tr>
 
@@ -95,3 +97,13 @@ $retorno = $x->listaprofessores($PDO);
     </div>	
 </body>
 </html>
+
+<?php
+if(isset($_GET['id'])){
+	require_once('../classes/class_usuario.php');
+	$idprofessor = $_GET['id'];
+	$x = new usuario();
+	$x->excluiProfessorById($PDO,$idprofessor);
+}
+
+?>
