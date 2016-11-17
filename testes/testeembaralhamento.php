@@ -6,37 +6,48 @@ include('../classes/class_disciplina.php');
 $check_list = array(1,2,3,4,5);
 
 $array_questoes = array();
-  foreach($check_list as $id) {
-    $questao = new questao();
-    $retorno = $questao->selectQuestaoByDisciplina($PDO, $id);
-    foreach ($retorno as $key) {
-    	array_push($array_questoes, $key);
-    }
-    
-	}
-	shuffle($array_questoes);
-	$respostascertas = array();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Teste embaralhamento</title>
+	<style>
+  body {
+      position: relative;
+  }
+  #section1 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section2 {padding-top:50px;height:auto;color: black; background -color: #ffffff}
+  #section3 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section4 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section5 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section6 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  #section7 {padding-top:50px;height:auto;color: black; background-color: #ffffff}
+  </style>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 <form method="POST" action="recebe.php">
 	<?php 
-	
-	foreach ($array_questoes as $questoes) {
-		echo "<h3> {$questoes['titulo']}</h3>"; 	
-		echo "<input type='radio' name='questaoid{$questoes['id']}' value='A'> {$questoes['resposta1']} <br/>" ;
-		echo "<input type='radio' name='questaoid{$questoes['id']}' value='B'> {$questoes['resposta2']} <br/>" ;
-		echo "<input type='radio' name='questaoid{$questoes['id']}' value='C'> {$questoes['resposta3']} <br/>" ;
-		echo "<input type='radio' name='questaoid{$questoes['id']}' value='D'> {$questoes['resposta4']} <br/>" ;
-		echo "<input type='radio' name='questaoid{$questoes['id']}' value='E'> {$questoes['resposta5']} <br/>" ;
-		$id = $questoes['id'];
-		$respostascertas[$id] = $questoes['respostacorreta'];
-		
+	foreach ($check_list as $id) {
+    	$disciplina = new disciplina();
+   		$retornonome= $disciplina->selectNomeDisciplinaById($PDO,$id);
+    	echo "<h3> Disciplina: ".$retornonome;
+   		
+   		$questao = new questao();
+    	$retorno = $questao->selectQuestaoByDisciplina($PDO, $id);
+    	shuffle($retorno);
+    	foreach ($retorno as $questoes) {
+    	
+    		echo "<h3> {$questoes['titulo']}</h3>"; 	
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='A'> {$questoes['resposta1']} <br/>" ;
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='B'> {$questoes['resposta2']} <br/>" ;
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='C'> {$questoes['resposta3']} <br/>" ;
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='D'> {$questoes['resposta4']} <br/>" ;
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='E'> {$questoes['resposta5']} <br/>" ;
+			$id = $questoes['id'];
+			$respostascertas[$id] = $questoes['respostacorreta'];
+
+    	}
 	}
 	$_SESSION['resps']=$respostascertas;
 	print_r($_SESSION['resps']);

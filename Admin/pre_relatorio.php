@@ -111,6 +111,29 @@ include("verifica_sessao_admin.php");
 				</form>
 </div>	
 
+	<legend class="text-center">INSIRA O RA DO ALUNO QUE DESEJA PESQUISAR</legend>
+
+	<form class="form-horizontal" id="questcad" action="../relatorios/relatorio_notas_aluno.php" method="POST">
+		 <fieldset>
+			<div class="form-group">
+	  		<label class="col-md-4 control-label" for="curso">RA: </label>
+			<div class="col-md-3">
+				<input type="text" name="ra" required="Insira o RA do Aluno">
+			</div>
+			</div>
+
+			<div class="form-group">
+	  		<label class="col-md-4 control-label" for="singlebutton"></label>
+	  		<div class="col-md-1">
+
+	    		<input style="font-size:13pt;" name="envia" type="submit" class="btn btn-primary"></input>
+	    	</div>
+	    	</div>
+		</fieldset>
+	</form>
+
+
+
 <div id="push"></div>
       <div id="footer">
       <div class="container">
