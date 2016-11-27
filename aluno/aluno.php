@@ -3,7 +3,6 @@ if (!empty($_POST['nome']) and !empty($_POST['ra'])){
 if (!isset($_SESSION)) session_start();
 
 include('../classes/class_disciplina.php');
-
 if (isset($_POST['fazerprova'])) {
 
   $nome = $_POST['nome'];
@@ -13,7 +12,6 @@ if (isset($_POST['fazerprova'])) {
   $turno = $_POST['turno'];
   $timezone=date_default_timezone_set('America/Sao_Paulo');
   $dtainicio = date('Y-m-d H:i:s');
-
   $_SESSION['nome'] = $nome;
   $_SESSION['ra'] = $ra;
   $_SESSION['dtainicio'] = $dtainicio;

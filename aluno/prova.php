@@ -4,6 +4,7 @@ if (!empty($_SESSION['nome']) and !empty($_SESSION['ra'])){
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
 include('../classes/class_disciplina.php');
+require_once('../classes/class_prova.php');
 if(!empty($_POST['check_list'])) {
   $questoes = array();
   $respcorretaquestoes = array();
@@ -13,7 +14,20 @@ if(!empty($_POST['check_list'])) {
   $check_list = $_POST['check_list'];
   $questoesEmbaralhadas = array();
   $nomeDisciplinas = array();
-
+  //verifica se aluno já fez a prova -----------------------------------------------------
+  $ra = $_SESSION['ra'];
+  $verifica_prova = FALSE;
+    $prova = new prova();
+    $retornoverif = $prova->verificaProva($PDO,$ra);
+    foreach ($retornoverif as $iddisc) {
+      if(in_array($iddisc['id'], $check_list)){
+        $verifica_prova= TRUE;
+      }
+    }
+    if($verifica_prova){
+      echo "<script> alert('Você já esgotou o limite de tentativas da PU'); window.location='index.php'; </script>";
+    }
+  //----------------------------------------------------------------------------------
   foreach($check_list as $id) {
     $questao = new questao();
     $retorno = $questao->selectQuestaoByDisciplina($PDO, $id);

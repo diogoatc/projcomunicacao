@@ -49,7 +49,18 @@ class prova {
 	public function setNota($nota){
 		return $this->nota = $nota;
 	}
+	//Verifica se aluno já fez a prova
+	function verificaProva($pdo,$ra){
+		$conn = $pdo->prepare("SELECT P.nomealuno, PD.iddisciplina as id FROM prova P INNER JOIN prova_disciplina PD on P.id = PD.idprova WHERE ra = :ra");
 
+		$conn->bindParam(":ra",$ra, PDO::PARAM_INT);
+
+		if($conn->execute()){
+			return $conn->fetchAll();
+		}else{
+			echo "ERRO VERIFICA Prova";
+		}
+	}
 	function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas,$idquestoes,$respostaAluno){
 		
 		date_default_timezone_set('America/Sao_Paulo');
