@@ -15,7 +15,7 @@ class prova {
 		$this->semestre = "";
 		$this->nota = "";
 	}
-
+ 
 	//metodos Gets
 	public function getId($id){
 		return $this->id = $id;
@@ -61,6 +61,20 @@ class prova {
 			echo "ERRO VERIFICA Prova";
 		}
 	}
+	function geraRelatorioPorRa($pdo,$ra){
+		$conn = $pdo->prepare("SELECT p.nomealuno, p.nota, qa.*, q.respostacorreta 
+                                FROM questoes_aluno qa
+                                INNER JOIN questao q
+                                ON qa.idquestao = q.id
+                                INNER JOIN prova p
+                                ON qa.idprova = p.id
+                                WHERE p.ra = :ra");
+        $conn->bindParam(":ra",$ra,PDO::PARAM_INT);
+        $conn->execute();
+        return $conn->fetchAll(PDO::FETCH_ASSOC);
+       $conn=null;
+		$pdo=null;
+		}
 	function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas,$idquestoes,$respostaAluno){
 		
 		date_default_timezone_set('America/Sao_Paulo');
@@ -113,6 +127,9 @@ class prova {
 				echo "ERRO SALVAR QUESTOES_ALUNO";
 			}
 		}
+
+		$conn=null;
+		$pdo=null;
 	}
 }
 ?>

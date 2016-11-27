@@ -1,64 +1,74 @@
-<?php
-  require_once ("../assets/mPDF/vendor/autoload.php");
+<?php 
 
-      include '../model/conexao.php';
-          $ra = $_POST['ra'];
-          $consulta = $PDO->prepare("SELECT p.nomealuno, p.nota, qa.*, q.respostacorreta 
-                                    FROM questoes_aluno qa
-                                    INNER JOIN questao q
-                                    ON qa.idquestao = q.id
-                                    INNER JOIN prova p
-                                    ON qa.idprova = p.id
-                                    WHERE p.ra = :ra");
-            $consulta->bindParam(":ra",$ra,PDO::PARAM_INT);
-            $consulta->execute();
-            $resultado=$consulta->fetchAll(PDO::FETCH_ASSOC);
+require_once("../classes/class_prova.php");
+require_once("../model/conexao.php");
+$ra = $_POST['ra'];
+$x = new prova();
+$retorno = $x->geraRelatorioPorRa($PDO,$ra);
+?>
 
-      $html = '
-      <link rel="stylesheet" type="text/css" href="../assets/reports/css/style.css">
-      <header class="clearfix">
-        <h1 style="">Relatório do Aluno</h1>
-      </header>
-      <main>
-      <h2>Nome do Aluno: '.$resultado[0]['nomealuno'].'</h2>
-      <h2>Nota da PU: '.round($resultado[0]['nota'],1).'</h2>
-        <table>
-          <thead>
-            <tr>
-              <th class="desc" colspan="2">Id Questão</th>
-              <th class="desc" colspan="2">Alt. Selecionada</th>
-              <th class="desc" colspan="2">Alt. Correta</th>
-            </tr>
-          </thead>
-          <tbody>';
-          
-            
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Questões feitas pelo Aluno</title>
+  <meta charset="utf-8">
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+      <script src="../assets/bootstrap-3.3.7-dist/js/newjs.js"></script>
+        <link rel="stylesheet" href="../assets/css/normalize.css">
+        <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/js/newjs.js">
+        <link rel="stylesheet" href="../assets/css/newstyle.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="border-radius:0px; background:#20205a;">
 
-             foreach ($resultado as $linha) {
-              $html .= '
-              <tr>';
-                $html .= '
-                <td class="desc" colspan="2">'.$linha['idquestao'].'</td>';
-                $html .= '
-               <strong> <td class="desc" colspan="2">'.$linha['respostaaluno'].'</td> </strong>';
-                $html .= '
-               <strong> <td class="desc nota" colspan="2">'.$linha['respostacorreta'].'</td> </strong>';
-              $html .= '
-              </tr>';
-            }
-          $html .= '
-          </tbody>
-        </table>
-      </main>';
+  <div class="container-fluid">
+      
+       <div class="col-sm-2">
+      <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
+     </div>
 
-  $pdf = new mPDF('utf-8', 'A4');
-  $file = "relatorio_notas.pdf";
-  $pdf->SetHeader('Prova Unificada|Relatório de notas|{PAGENO}');
-  $pdf->SetFooter('Turma de Sistemas para Internet@2016||{DATE j-m-Y}');
-  $pdf->WriteHTML($html);
-  $md = strcode2utf($file);
-  $pdf->SetTitle($md);
-  $pdf->Output($file, 'I');
+  </div>
+</nav>
 
-  $css = file_get_contents('../assets/reports/css/style.css');
-  $pdf->WriteHTML($css,1);
+  <div id="wrap">
+  <h3> Aluno: <?php echo $retorno[0]['nomealuno']; ?></h3>
+   <h3> Nota da PU: <?php echo round($retorno[0]['nota'], 1); ?></h3>
+  <div class="table-responsive">
+  <table class="table table-hover">
+      
+    <thead>
+      <td class="text-center"><strong>Resposta do Aluno</strong></td>
+      <td class="text-center"><strong>Resposta Correta</strong></td>
+      <td><strong></strong></td>
+    </thead>
+ 
+  <?php foreach ($retorno as $key) {   ?>
+      <tr>
+        <td class="text-center"><?php echo $key['respostaaluno']; ?></a></td>
+        <td class="text-center text-danger offset3"><?php echo $key['respostacorreta']; ?></td>
+        <td><a href='../Professor/visualizaquestao.php?idquestao=<?php echo $key['idquestao']; ?>'>Visualizar Questão </a></td>
+
+      </tr>
+
+<?php } ?>
+
+  </table>
+  </div>
+  </div>
+
+
+  <div id="push"></div>
+     <div id="footer">
+      <div class="container">
+        <p class="muted credit"> Unasp - Centro Universitário Adventista de São Paulo - © 2016 - Todos os direitos reservados.</a></p>
+      </div>
+    </div>  
+</body>
+</html>
+

@@ -58,7 +58,7 @@
   include('../classes/class_questao.php');
   include('../model/conexao.php');
   $idquestao = $_GET['idquestao'];
-  $iddisciplina = $_GET['iddisciplina'];
+
     $x= new questao();
     $key = $x->selectQuestaoById($PDO,$idquestao);
 
@@ -66,8 +66,8 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-  <h2><strong>Questão<strong></h2><!--chamar função php número da questão -->
-  <h3 style=" white-space: pre-wrap;  text-align:justify;"><?php echo $key[0]['titulo']; ?></h3> <!--chamar função php Enunciado -->
+  <h2><strong>Questão<strong></h2>
+  <h3 style=" white-space: pre-wrap;  text-align:justify;"><?php echo $key[0]['titulo']; ?></h3> 
  </div>
   </div>
 
@@ -94,7 +94,7 @@
   <div class="col-md-7">
   <div class="radio">
     <label for="radios-0">
-      <input type="radio" name="radios" id="" value="" checked="checked">
+      <input type="radio" name="radios" id="" value="">
       <?php echo $key[0]['resposta1'] ?>
     </label>
   </div>
@@ -133,7 +133,7 @@
 <div class="form-group" style="margin-top:-40px;">
   <label class="col-md-5 control-label" for="singlebutton"></label>
   <div class="col-md-3">
-    <button id="singlebutton" name="singlebutton" class="btn btn-success" onclick="window.location='index.php'">VOLTAR PARA O MENU PRINCIPAL</button>
+    <button id="singlebutton" name="singlebutton" class="btn btn-success" onclick="history.go(-1)">VOLTAR</button>
   </div>
 </div>
 
