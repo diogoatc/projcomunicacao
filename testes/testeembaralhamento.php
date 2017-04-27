@@ -3,7 +3,7 @@ if (!isset($_SESSION)) session_start();
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
 include('../classes/class_disciplina.php');
-$check_list = array(1,2,3,4,5);
+$check_list = array(1,6,11,12,13,14,32);
 
 $array_questoes = array();
 ?>
@@ -100,7 +100,9 @@ $array_questoes = array();
         echo '<div id="espacoum"></div>
                 <div class="col-md-5 col-md-offset-2">
                 <img class="responsiva" style="margin-bottom:20px;" alt="imagem" src="data:image/jpg;base64,'.$questoes['imagem'].'" />
-                </div>';
+
+                </div>
+                <br/>';
        }else{
         echo "";
        }

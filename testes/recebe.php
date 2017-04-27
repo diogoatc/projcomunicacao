@@ -8,19 +8,19 @@ $idquestoes = array();
 $qtdquestoes = 0;
 $incorretas = 0;
 
+//conta a quantidade de questões e de respostas incorretas
 foreach ($respostas as $key => $value) {
 	$respostaaluno = $_POST['questaoid'.$key];
+	if($respostaaluno !== $value){
+		$incorretas++;
+	}
+	
 	$qtdquestoes++;
 	array_push($respostasaluno,$respostaaluno);
 	array_push($gabarito,$value);
 	array_push($idquestoes,$key);
-	if($respostaaluno !== $value){
-		$incorretas++;
-	}
-
-	echo "Resposta correta: ".$value ."<br/>";
-	echo"resposta escolhida: ".$_POST['questaoid'.$key]."<br/>";
 
 }
-print_r($idquestoes);
+$nota = (($qtdquestoes-$incorretas)/$qtdquestoes)*10;
+echo "Sua nota é: ",round($nota, 1);
 ?>
