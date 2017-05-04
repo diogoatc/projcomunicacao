@@ -1,7 +1,9 @@
 <?php
+include '../model/conexao.php';
 if (!isset($_SESSION)) session_start();
 
 $respostas=($_SESSION['resps']);
+$disciplinas=($_SESSION['check_list']);
 $gabarito = array();
 $respostasaluno = array();
 $idquestoes = array();
@@ -21,6 +23,11 @@ foreach ($respostas as $key => $value) {
 	array_push($idquestoes,$key);
 
 }
+
 $nota = (($qtdquestoes-$incorretas)/$qtdquestoes)*10;
-echo "Sua nota é: ",round($nota, 1);
+echo var_dump($idquestoes);
+echo "<br/>";
+echo "-------------------------------------------";
+echo var_dump($disciplinas);
+//*echo "Sua nota é: ",round($nota, 1);
 ?>

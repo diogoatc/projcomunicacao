@@ -142,6 +142,7 @@ class questao {
 			$conn->bindParam(":id",$id,PDO::PARAM_INT);
 			$conn->execute();
 			return $conn->fetchAll(PDO::FETCH_ASSOC);
+			$pdo=null;
 			$conn=null;
 		}
 

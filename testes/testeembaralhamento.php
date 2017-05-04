@@ -3,7 +3,7 @@ if (!isset($_SESSION)) session_start();
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
 include('../classes/class_disciplina.php');
-$check_list = array(1,6,11,12,13,14,32);
+$check_list = array(1,6,11,12,14,32);
 
 $array_questoes = array();
 ?>
@@ -106,17 +106,19 @@ $array_questoes = array();
        }else{
         echo "";
        }
-			echo "<input type='radio' name='questaoid{$questoes['id']}' value='A'> {$questoes['resposta1']} <br/>" ;
+      echo "<input type='radio' name='questaoid{$questoes['id']}' value='A'> {$questoes['resposta1']} <br/>" ;
 			echo "<input type='radio' name='questaoid{$questoes['id']}' value='B'> {$questoes['resposta2']} <br/>" ;
 			echo "<input type='radio' name='questaoid{$questoes['id']}' value='C'> {$questoes['resposta3']} <br/>" ;
 			echo "<input type='radio' name='questaoid{$questoes['id']}' value='D'> {$questoes['resposta4']} <br/>" ;
 			echo "<input type='radio' name='questaoid{$questoes['id']}' value='E'> {$questoes['resposta5']} <br/>" ;
 			$id = $questoes['id'];
 			$respostascertas[$id] = $questoes['respostacorreta'];
-      
+      echo "</div>";
+      echo "</div>";
     	}
 	}
 	$_SESSION['resps']=$respostascertas;
+  $_SESSION['check_list']=$check_list;
 	print_r($_SESSION['resps']);
 	?>
 	<input type="submit" name="envia" value="ENVIA">

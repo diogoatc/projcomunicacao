@@ -1,0 +1,3 @@
+[27-Apr-2017 16:26:00 UTC] PHP Notice:  Undefined index: usuario in C:\www\diogoatc\projcomunicacao\model\validacao.php on line 9
+[27-Apr-2017 16:26:00 UTC] PHP Notice:  Undefined index: senha in C:\www\diogoatc\projcomunicacao\model\validacao.php on line 10
+[27-Apr-2017 16:26:02 UTC] PHP Warning:  error_log(): SMTP server response: 530 SMTP authentication is required. in C:\www\diogoatc\projcomunicacao\model\validacao.php on line 45

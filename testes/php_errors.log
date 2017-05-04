@@ -7,3 +7,33 @@
 [27-Apr-2017 19:37:21 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\www\diogoatc\projcomunicacao\classes\class_questao.php on line 136
 [27-Apr-2017 20:08:12 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\www\diogoatc\projcomunicacao\classes\class_questao.php on line 136
 [27-Apr-2017 20:35:03 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\www\diogoatc\projcomunicacao\classes\class_questao.php on line 136
+[27-Apr-2017 21:36:55 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\www\diogoatc\projcomunicacao\classes\class_questao.php on line 136
+[27-Apr-2017 21:40:55 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\www\diogoatc\projcomunicacao\classes\class_questao.php on line 136
+[04-May-2017 12:58:46 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in C:\www\diogoatc\projcomunicacao\testes\recebe.php on line 27
+[04-May-2017 12:59:35 UTC] PHP Warning:  Unterminated comment starting line 30 in C:\www\diogoatc\projcomunicacao\testes\recebe.php on line 30
+[04-May-2017 14:16:19 UTC] PHP Notice:  Undefined variable: feijão in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 8
+[04-May-2017 14:16:19 UTC] PHP Notice:  Undefined variable: feijão in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 8
+[04-May-2017 14:16:19 UTC] PHP Notice:  Undefined variable: feijão in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 8
+[04-May-2017 14:16:19 UTC] PHP Notice:  Undefined variable: feijão in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 8
+[04-May-2017 14:16:19 UTC] PHP Notice:  Undefined variable: feijão in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 8
+[04-May-2017 14:16:53 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 8
+[04-May-2017 14:28:56 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 16
+[04-May-2017 14:39:43 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 19
+[04-May-2017 14:39:48 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 17
+[04-May-2017 14:39:48 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 17
+[04-May-2017 14:39:48 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 17
+[04-May-2017 14:40:37 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 18
+[04-May-2017 14:40:37 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 18
+[04-May-2017 14:40:37 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 18
+[04-May-2017 14:42:17 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 19
+[04-May-2017 14:42:17 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 19
+[04-May-2017 14:42:17 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 19
+[04-May-2017 14:42:17 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 19
+[04-May-2017 14:42:17 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 19
+[04-May-2017 14:42:17 UTC] PHP Notice:  Array to string conversion in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 19
+[04-May-2017 14:48:30 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in C:\www\diogoatc\projcomunicacao\testes\testesalvadisciplina.php on line 5
+[04-May-2017 15:25:44 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\www\diogoatc\projcomunicacao\testes\salva.php on line 21
+[04-May-2017 15:26:03 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\www\diogoatc\projcomunicacao\testes\salva.php on line 21
+[04-May-2017 15:26:05 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\www\diogoatc\projcomunicacao\testes\salva.php on line 21
+[04-May-2017 15:26:06 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\www\diogoatc\projcomunicacao\testes\salva.php on line 21
+[04-May-2017 15:26:06 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\www\diogoatc\projcomunicacao\testes\salva.php on line 21

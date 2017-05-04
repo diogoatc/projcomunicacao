@@ -97,9 +97,39 @@ class prova {
 
 		$lastId = $pdo->lastInsertId();
 
+
+
 		//Insere na tabela de relacionamento prova_disciplina
 		$conn = $pdo->prepare("INSERT INTO prova_disciplina (idprova, iddisciplina)
 		VALUES (:lastId, :iddisciplina)");
+
+		//TESTE
+		$conn=$PDO->prepare("SELECT id,respostacorreta FROM questao WHERE iddisciplina=:iddisc");
+		$check=$disciplinas;
+		$respostascertas=$respostaAluno;
+		foreach ($check as $key) {
+			$conn->bindParam(":iddisc",$key, PDO::PARAM_INT);
+
+			if($conn->execute()){
+				$retorno=$conn->fetchAll();
+			}else{
+				echo "ERRO VERIFICA Prova";
+			}
+			$totalquestoes=count($retorno);
+			$incorretas=0;
+			foreach ($retorno as $questao) {
+	
+				foreach ($respostascertas as $id => $resposta) {
+					if($questao['id']==$id){
+						if($questao['respostacorreta']!=$resposta){
+							$incorretas++;
+						}
+					}
+				}
+			}
+			$nota = (($totalquestoes-$incorretas)/$totalquestoes)*10;
+		}
+		//TESTE
 
 		foreach ($disciplinas as $key) {
 			$conn->bindParam(":lastId",$lastId, PDO::PARAM_INT);
@@ -112,6 +142,7 @@ class prova {
 			}
 		}
 
+		$conn = $pdo->
 		//Insere na tabela de relacionamento questoes_aluno
 		$conn = $pdo->prepare("INSERT INTO questoes_aluno (idprova, idquestao, respostaaluno)
 		VALUES (:lastId, :idquestao, :respostaaluno)");
