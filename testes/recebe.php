@@ -1,5 +1,6 @@
 <?php
 include '../model/conexao.php';
+require_once('../classes/class_prova.php');
 if (!isset($_SESSION)) session_start();
 
 $respostas=($_SESSION['resps']);
@@ -24,10 +25,13 @@ foreach ($respostas as $key => $value) {
 
 }
 
+
 $nota = (($qtdquestoes-$incorretas)/$qtdquestoes)*10;
-echo var_dump($idquestoes);
-echo "<br/>";
-echo "-------------------------------------------";
-echo var_dump($disciplinas);
-//*echo "Sua nota é: ",round($nota, 1);
+$ra= "104696";
+$nome="Testeembaralha";
+$timezone=date_default_timezone_set('America/Sao_Paulo');
+$dtainicio = date('Y-m-d H:i:s');
+
+$x = new prova();
+$x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas, $idquestoes, $respostasaluno);
 ?>

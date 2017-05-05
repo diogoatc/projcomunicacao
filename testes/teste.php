@@ -1,8 +1,11 @@
 <?php
 
-$numQuestoes = 17;
-$respIncorretas = 5;
-	$nota = (($numQuestoes-$respIncorretas)/$numQuestoes)*10;
+$arrayName = array('teste' =>'batata' , 'teste2' => 'feijão', 'teste3' => 'banana');
 
-echo $nota;
+$contador=0;
+foreach ($arrayName as $key => $value) {
+	array_push($arrayName, $value);
+}
+
+var_dump($arrayName);
 ?>

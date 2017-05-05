@@ -100,40 +100,38 @@ class prova {
 
 
 		//Insere na tabela de relacionamento prova_disciplina
-		$conn = $pdo->prepare("INSERT INTO prova_disciplina (idprova, iddisciplina)
-		VALUES (:lastId, :iddisciplina)");
+		$conn = $pdo->prepare("INSERT INTO prova_disciplina (idprova, iddisciplina,notadisciplina)
+		VALUES (:lastId, :iddisciplina, :notadisciplina)");
 
 		//TESTE
-		$conn=$PDO->prepare("SELECT id,respostacorreta FROM questao WHERE iddisciplina=:iddisc");
-		$check=$disciplinas;
+		$sel=$PDO->prepare("SELECT id,respostacorreta FROM questao WHERE iddisciplina=:iddisc");
 		$respostascertas=$respostaAluno;
-		foreach ($check as $key) {
-			$conn->bindParam(":iddisc",$key, PDO::PARAM_INT);
-
-			if($conn->execute()){
-				$retorno=$conn->fetchAll();
-			}else{
-				echo "ERRO VERIFICA Prova";
-			}
-			$totalquestoes=count($retorno);
-			$incorretas=0;
-			foreach ($retorno as $questao) {
-	
-				foreach ($respostascertas as $id => $resposta) {
-					if($questao['id']==$id){
-						if($questao['respostacorreta']!=$resposta){
-							$incorretas++;
-						}
-					}
-				}
-			}
-			$nota = (($totalquestoes-$incorretas)/$totalquestoes)*10;
-		}
-		//TESTE
 
 		foreach ($disciplinas as $key) {
+
+			$sel->bindParam(":iddisc",$key, PDO::PARAM_INT);
+
+						if($sel->execute()){
+							$retorno=$sel->fetchAll();
+						}else{
+							echo "ERRO VERIFICA Prova";
+						}
+						$totalquestoes=count($retorno);
+						$incorretas=0;
+						foreach ($retorno as $questao) {
+				
+							foreach ($respostascertas as $id => $resposta) {
+								if($questao['id']==$id){
+									if($questao['respostacorreta']!=$resposta){
+										$incorretas++;
+									}
+								}
+							}
+						}
+						$notadisc = (($totalquestoes-$incorretas)/$totalquestoes)*10;
 			$conn->bindParam(":lastId",$lastId, PDO::PARAM_INT);
 			$conn->bindParam(":iddisciplina", $key, PDO::PARAM_INT);
+			$conn->bindParam(":notadisciplina", $notadisc, PDO::PARAM_INT);
 
 			if($conn->execute()){
 				
