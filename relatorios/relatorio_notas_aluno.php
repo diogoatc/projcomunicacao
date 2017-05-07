@@ -40,9 +40,9 @@
                 $html .= '
                 <td class="desc" colspan="2">'.$key['respostaaluno'].'</td>';
                 $html .= '
-                <td class="desc" colspan="2">'.$key['respostacorreta'].'</td>';
+                <td class="desc nota" colspan="2">'.$key['respostacorreta'].'</td>';
                 $html .= '
-               <strong> <td class="desc nota" colspan="2">'.$titulo.'</td> </strong>';
+               <strong> <td class="desc " colspan="2">'.$titulo.'...</td> </strong>';
               $html .= '
               </tr>';
             }
