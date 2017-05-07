@@ -15,6 +15,7 @@
         $conn->execute();
         $retorno = $conn->fetchAll(PDO::FETCH_ASSOC);
        $conn=null;
+       $nota = round($retorno[0]['nota'],1);
       $html = '
       <link rel="stylesheet" type="text/css" href="../assets/reports/css/style.css">
       <header class="clearfix">
