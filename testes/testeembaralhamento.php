@@ -102,15 +102,15 @@ $array_questoes = array();
                 <img class="responsiva" style="margin-bottom:20px;" alt="imagem" src="data:image/jpg;base64,'.$questoes['imagem'].'" />
 
                 </div>
-                <br/>';
+                <div id="espacoum"></div>';
        }else{
         echo "";
        }
-      echo "<input type='radio' name='questaoid{$questoes['id']}' value='A'> {$questoes['resposta1']} <br/>" ;
-			echo "<input type='radio' name='questaoid{$questoes['id']}' value='B'> {$questoes['resposta2']} <br/>" ;
-			echo "<input type='radio' name='questaoid{$questoes['id']}' value='C'> {$questoes['resposta3']} <br/>" ;
-			echo "<input type='radio' name='questaoid{$questoes['id']}' value='D'> {$questoes['resposta4']} <br/>" ;
-			echo "<input type='radio' name='questaoid{$questoes['id']}' value='E'> {$questoes['resposta5']} <br/>" ;
+      echo "<input type='radio' name='questaoid{$questoes['id']}' value='A'> {$questoes['resposta1']} <br>" ;
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='B'> {$questoes['resposta2']} <br>" ;
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='C'> {$questoes['resposta3']} <br>" ;
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='D'> {$questoes['resposta4']} <br>" ;
+			echo "<input type='radio' name='questaoid{$questoes['id']}' value='E'> {$questoes['resposta5']} <br>" ;
 			$id = $questoes['id'];
 			$respostascertas[$id] = $questoes['respostacorreta'];
       echo "</div>";
