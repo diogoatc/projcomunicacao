@@ -45,12 +45,12 @@ $x= new questao();
 	        <a  class="navbar-brand" href="index.php"><img style="margin-top:-13px;width:70%;"  src="../assets/img/UNASP.png" alt="logo unasp"></a>
 	     </div>
           
-	      <div class="col-sm-3">
+	      <div class="col-sm-2">
 	        <h3 class="areadoprofessor">ÁREA DO PROFESSOR</h3>
 	      </div>
 
-    <div class="col-sm-7">
-    <ul class="nav navbar-nav">
+    <div class="col-sm-8">
+    <ul class="nav navbar-nav pull-right">
       <li ><a id="font-white" href="index.php">Home</a></li>
 <li><a  id="font-white" href="pre-cadastra.php">Cadastrar Questões</a></li>
      <li><a id="font-white" href="pre_relatorio.php"> Relatórios de Notas</a></li>
