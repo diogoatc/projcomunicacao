@@ -1,24 +1,31 @@
 <?php
 if (!isset($_SESSION)) session_start();
 if (isset($_POST['finalizar'])) {
-  $idquestoes = unserialize($_COOKIE['idquestoes']);
-  $respquestoes = unserialize($_COOKIE['respquestoes']);
-  $disciplinas = unserialize($_COOKIE['check_list']);
-  $numQuestoes = count($respquestoes);
-  $respostaAluno = array();
-  $respIncorretas = 0;
+$respostas=($_SESSION['resps']);
+$disciplinas=($_SESSION['check_list']);
+$gabarito = array();
+$respostasaluno = array();
+$idquestoes = array();
+$qtdquestoes = 0;
+$incorretas = 0;
+$numQuestoes = count($respostas);
 
-  for ($i=1; $i < $numQuestoes+1; $i++) {
-    array_push($respostaAluno, $_POST['respQuestao'.$i.'']);
-  }
 
-  for ($i=0; $i < $numQuestoes; $i++) {
-    if ($respostaAluno[$i] !== $respquestoes[$i]) {
-      $respIncorretas++;
-    }
+  foreach ($respostas as $key => $value) {
+  $respostaaluno = $_POST['questaoid'.$key];
+  if($respostaaluno !== $value){
+    $incorretas++;
   }
-  $nota = (($numQuestoes-$respIncorretas)/$numQuestoes)*10;
+  
+  $qtdquestoes++;
+  array_push($respostasaluno,$respostaaluno);
+  array_push($gabarito,$value);
+  array_push($idquestoes,$key);
+
 }
+
+
+$nota = (($qtdquestoes-$incorretas)/$qtdquestoes)*10;
 
 ?>
 <!DOCTYPE html>

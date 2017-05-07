@@ -1,7 +1,7 @@
 <?php
 
-/*//Servidor de produção
-$host = "169.44.117.18:3306";
+//Servidor de produção
+/*$host = "169.44.117.18:3306";
 $user ="root";
 $pswrd = "unasp";
 $dbname = "projcomunicacao";

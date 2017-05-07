@@ -3,7 +3,7 @@ if (!isset($_SESSION)) session_start();
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
 include('../classes/class_disciplina.php');
-$check_list = array(1,6,11,12,14,32);
+$check_list = array(1,6,11,12,42,32);
 
 $array_questoes = array();
 ?>

@@ -62,7 +62,7 @@ class prova {
 		}
 	}
 	function geraRelatorioPorRa($pdo,$ra){
-		$conn = $pdo->prepare("SELECT p.nomealuno, p.nota, qa.*, q.respostacorreta 
+		$conn = $pdo->prepare("SELECT p.nomealuno, p.nota, qa.*, q.respostacorreta, q.titulo 
                                 FROM questoes_aluno qa
                                 INNER JOIN questao q
                                 ON qa.idquestao = q.id
@@ -104,8 +104,10 @@ class prova {
 		VALUES (:lastId, :iddisciplina, :notadisciplina)");
 
 		//TESTE
-		$sel=$PDO->prepare("SELECT id,respostacorreta FROM questao WHERE iddisciplina=:iddisc");
+		$sel=$pdo->prepare("SELECT id,respostacorreta FROM questao WHERE iddisciplina=:iddisc");
 		$respostascertas=$respostaAluno;
+		
+		
 
 		foreach ($disciplinas as $key) {
 
@@ -140,7 +142,7 @@ class prova {
 			}
 		}
 
-		$conn = $pdo->
+	
 		//Insere na tabela de relacionamento questoes_aluno
 		$conn = $pdo->prepare("INSERT INTO questoes_aluno (idprova, idquestao, respostaaluno)
 		VALUES (:lastId, :idquestao, :respostaaluno)");
