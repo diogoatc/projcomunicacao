@@ -70,7 +70,7 @@ $array_questoes = array();
     </div>
   </div>
 </nav>
-  <form method="POST" action="recebe.php">
+  <form method="POST" class="form-horizontal" action="recebe.php">
   <?php
   $cont=1;
   $nome="";
@@ -80,6 +80,7 @@ $array_questoes = array();
    		$retornonome= $disciplina->selectNomeDisciplinaById($PDO,$id);
     	if ($retornonome !== $nome) {
     $nome = $retornonome;
+    echo '</div>';
     echo '<div id="espaco"></div>
           <div id="section'.$cont.'" class="container-fluid text-center">
           <legend id="alinhamento" class="text-center"><strong>'.$nome.'</strong></legend>';
@@ -91,26 +92,57 @@ $array_questoes = array();
     	shuffle($retorno);
       
     	foreach ($retorno as $questoes) {
-    	echo "</div>
+    	echo "
+        </div>
         <div class='row'>
         <div class='col-md-8 col-md-offset-2'>
         <h2><strong>Questão ".$contquestao++."</strong></h2>";
     	echo "<h3 style='white-space: pre-wrap; text-align:justify;'> {$questoes['titulo']}</h3>"; 	
        if (!empty($questoes['imagem'])){
-        echo '<div id="espacoum"></div>
+        echo '<div class="row">
+        <div id="espacoum"></div>
                 <div class="col-md-5 col-md-offset-2">
-                <img class="responsiva" style="margin-bottom:20px;" alt="imagem" src="data:image/jpg;base64,'.$questoes['imagem'].'" />
+                <img class="img-responsive" style="margin-bottom:20px;" alt="imagem" src="data:image/jpg;base64,'.$questoes['imagem'].'" />
 
+                </div>
                 </div>
                 <br/>';
        }else{
-        echo "";
+        echo "<div class='row'></div>";
        }
+       echo' <div style="margin-top:30px;"></div>
+                      <div class="form-group">
+                      <fieldset>
+                        <div class="col-md-7">
+                        <div class="radio">
+                          <label for="radios-0">';
       echo "<input type='radio' name='questaoid{$questoes['id']}' value='A'> {$questoes['resposta1']} <br/>" ;
-			echo "<input type='radio' name='questaoid{$questoes['id']}' value='B'> {$questoes['resposta2']} <br/>" ;
-			echo "<input type='radio' name='questaoid{$questoes['id']}' value='C'> {$questoes['resposta3']} <br/>" ;
+			echo '</label>
+              </div>';
+      echo '<div class="radio">
+            <label for="radios-1">';
+      echo "<input type='radio' name='questaoid{$questoes['id']}' value='B'> {$questoes['resposta2']} <br/>" ;
+			echo '</label>
+            </div>';
+       echo '<div class="radio">
+            <label for="radios-2">';
+      echo "<input type='radio' name='questaoid{$questoes['id']}' value='C'> {$questoes['resposta3']} <br/>" ;
+      echo '</label>
+            </div>';
+      echo '<div class="radio">
+            <label for="radios-3">';      
 			echo "<input type='radio' name='questaoid{$questoes['id']}' value='D'> {$questoes['resposta4']} <br/>" ;
+      echo '</label>
+            </div>';
+               echo '<div class="radio">
+            <label for="radios-4">';
 			echo "<input type='radio' name='questaoid{$questoes['id']}' value='E'> {$questoes['resposta5']} <br/>" ;
+      echo '</label>
+            </div>';
+      echo '</div>
+            </fieldset>
+            </div>';
+
 			$id = $questoes['id'];
 			$respostascertas[$id] = $questoes['respostacorreta'];
       echo "</div>";
@@ -121,7 +153,13 @@ $array_questoes = array();
   $_SESSION['check_list']=$check_list;
 	print_r($_SESSION['resps']);
 	?>
-	<input type="submit" name="envia" value="ENVIA">
+  <!-- Button -->
+<div class="form-group" style="margin-top:-40px;">
+  <label class="col-md-5 control-label" for="singlebutton"></label>
+  <div class="col-md-3">
+    <button id="singlebutton" name="envia" class="btn btn-success">FINALIZAR A PROVA</button>
+  </div>
+</div>
 </form>
 </body>
 </html>

@@ -15,7 +15,7 @@ $numQuestoes = count($respostas);
   $respostaaluno = $_POST['questaoid'.$key];
   if($respostaaluno !== $value){
     $incorretas++;
-  }
+  } 
   
   $qtdquestoes++;
   array_push($respostasaluno,$respostaaluno);
