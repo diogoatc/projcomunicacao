@@ -20,9 +20,16 @@
 
   <div class="container-fluid">
 
-		  <div class="col-sm-7">
-			<a  class="navbar-brand pull-right" href="index.php"><img style="margin-top:-13px;width:100%;"  src="assets/img/UNASP.png" alt="logo unasp"></a>
+<div class="col-sm-1">
+  <ul class="nav navbar-nav">
+    <li><a href="testes/gabarito.php"><h1>Gabarito</h1></a></li>
+  </ul>
+  </div>
+
+		  <div class="col-sm-6">
+			<a  class="navbar-brand pull-right" href="index.php"><img class="img-responsive" style="margin-top:-13px;width:100%;"  src="assets/img/UNASP.png" alt="logo unasp"></a>
 		 </div>
+
          </div>
 </nav>
 
