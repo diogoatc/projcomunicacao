@@ -39,7 +39,7 @@
 
 
     
-<form class="form-horizontal" action="relatorios/relatorio_notas_aluno.php" method="post">
+<form class="form-horizontal" action="../relatorios/relatorio_notas_aluno.php" method="post">
 <fieldset>
 
 <!-- Text input-->
