@@ -88,7 +88,7 @@ $array_questoes = array();
     </div>
   </div>
 </nav>
-  <form method="POST" class="form-horizontal" action="nota.php">
+  <form method="POST" class="form-horizontal" action="recebe.php">
   <?php
   $cont=1;
   $nome="";
@@ -178,7 +178,7 @@ $array_questoes = array();
 <div class="form-group" style="margin-top:-40px;">
   <label class="col-md-5 control-label" for="singlebutton"></label>
   <div class="col-md-3">
-    <button id="singlebutton" name="finalizar" class="btn btn-success">FINALIZAR A PROVA</button>
+    <button id="singlebutton" name="envia" class="btn btn-success">FINALIZAR A PROVA</button>
   </div>
 </div>
 </form>
