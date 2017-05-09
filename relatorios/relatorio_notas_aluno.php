@@ -2,8 +2,8 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
 $dataatual = date('Y-m-d');
-$datainicial= strtotime('2017-05-05'); // RTV
-$datafinal= strtotime('2017-05-20');  // RTV
+$datainicial= date('Y-m-d',strtotime('2017-05-05')); // RTV
+$datafinal=  date('Y-m-d',strtotime('2017-05-20')); // RTV
 /*
 $datainicial= strtotime('2017-06-02'); // PP
 $datafinal= strtotime('2017-06-04');  // PP
