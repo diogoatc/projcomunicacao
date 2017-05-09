@@ -1,8 +1,6 @@
 <?php
-include '../model/conexao.php';
-require_once('../classes/class_prova.php');
 if (!isset($_SESSION)) session_start();
-
+if (isset($_POST['finalizar'])) {
 $respostas=($_SESSION['resps']);
 $disciplinas=($_SESSION['check_list']);
 $gabarito = array();
@@ -10,26 +8,26 @@ $respostasaluno = array();
 $idquestoes = array();
 $qtdquestoes = 0;
 $incorretas = 0;
+$numQuestoes = count($respostas);
 
-//conta a quantidade de questões e de respostas incorretas
-foreach ($respostas as $key => $value) {
-	$respostaaluno = $_POST['questaoid'.$key];
-	if($respostaaluno !== $value){
-		$incorretas++;
-	}
-	
-	$qtdquestoes++;
-	array_push($respostasaluno,$respostaaluno);
-	array_push($gabarito,$value);
-	array_push($idquestoes,$key);
+
+  foreach ($respostas as $key => $value) {
+  $respostaaluno = $_POST['questaoid'.$key];
+  if($respostaaluno !== $value){
+    $incorretas++;
+  } 
+  
+  $qtdquestoes++;
+  array_push($respostasaluno,$respostaaluno);
+  array_push($gabarito,$value);
+  array_push($idquestoes,$key);
 
 }
 
 
-
 $nota = (($qtdquestoes-$incorretas)/$qtdquestoes)*10;
-?>
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +66,7 @@ $nota = (($qtdquestoes-$incorretas)/$qtdquestoes)*10;
 <div id="wrap"> 
 <div class="text-center" style="margin-top:50px;">
 <div class="panel panel-default" style="margin-left: 30%; margin-right: 30%">
-  <h2>Você selecionou as seguintes alternativas:</h2> <h3><?php foreach ($respostasaluno as $key) {
+  <h2>Você selecionou as seguintes alternativas:</h2> <h3><?php foreach ($respostaAluno as $key) {
     echo $key." | ";
   } ?></h3>
   </div>
@@ -89,13 +87,14 @@ $nota = (($qtdquestoes-$incorretas)/$qtdquestoes)*10;
 	  </div>
 </body>
 </html>
-
 <?php
-$ra= "104696";
-$nome="Testeembaralha";
-$timezone=date_default_timezone_set('America/Sao_Paulo');
-$dtainicio = date('Y-m-d H:i:s');
-echo "Sua nota é: ".$nota;
+require_once('../classes/class_prova.php');
+include ('../model/conexao.php');
 $x = new prova();
-$x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas, $idquestoes, $respostasaluno);
+$ra = $_SESSION['ra'];
+$nome = $_SESSION['nome'];
+$dtainicio = $_SESSION['dtainicio'];
+
+$x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas, $idquestoes, $respostaAluno);
+
 ?>

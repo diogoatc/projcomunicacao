@@ -4,6 +4,7 @@ if (!empty($_SESSION['nome']) and !empty($_SESSION['ra'])){
 include_once('../model/conexao.php');
 include('../classes/class_questao.php');
 include('../classes/class_disciplina.php');
+include('../classes/class_prova.php');
 $check_list = $_POST['check_list'];
 
 $array_questoes = array();
