@@ -1,5 +1,15 @@
 
 <?php
+date_default_timezone_set('America/Sao_Paulo');
+$dataatual = date('Y-m-d');
+$datainicial= strtotime('2017-05-26'); // RTV
+$datafinal= strtotime('2017-05-28');  // RTV
+/*
+$datainicial= strtotime('2017-06-02'); // PP
+$datafinal= strtotime('2017-06-04');  // PP
+*/
+if($dataatual > $datainicial && $dataatual < $datafinal){
+
   require_once ("../assets/mPDF/vendor/autoload.php");
   require_once("../classes/class_prova.php");
   require_once("../model/conexao.php");
@@ -63,3 +73,7 @@
 
   $css = file_get_contents('../assets/reports/css/style.css');
   $pdf->WriteHTML($css,1);
+}else{
+  echo "<script> alert('O gabarito Não está disponível.');</script>";
+  header("Location: ../index.php"); exit; 
+}

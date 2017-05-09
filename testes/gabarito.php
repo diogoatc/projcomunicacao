@@ -33,20 +33,20 @@
 
 <div class="col-md-3">
 <h4 class="text-left">Gabarito disponível a partir de:</h4>
-<h4 class="text-left">RTV: 07/05</h4>
-<h4 class="text-left">PP: 07/05</h4>
+<h4 class="text-left">RTV: 26/05</h4>
+<h4 class="text-left">PP: 02/05</h4>
 </div>
 
 
     
-<form class="form-horizontal" method="post">
+<form class="form-horizontal" action="relatorios/relatorio_notas_aluno.php" method="post">
 <fieldset>
 
 <!-- Text input-->
 <div class="form-group pull-right">
   <label class="col-md-2 control-label" for="text">R.A:</label>  
   <div class="col-md-3">
-  <input name="usuario" type="text" placeholder="Insira o R.A" class="form-control input-md" required="Por favor,preencher o campo com o seu R.A">
+  <input name="ra" type="text" placeholder="Insira o R.A" class="form-control input-md" required="Por favor,preencher o campo com o seu R.A">
   <span class="help-block">Exemplo: 777777</span>  
   </div>
 </div>
