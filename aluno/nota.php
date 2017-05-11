@@ -92,10 +92,9 @@ $nota = (($qtdquestoes-$incorretas)/$qtdquestoes)*10;
 </html>
 
 <?php
-$ra= "104696";
-$nome="Testeembaralha";
-$timezone=date_default_timezone_set('America/Sao_Paulo');
-$dtainicio = date('Y-m-d H:i:s');
+$ra = $_SESSION['ra'];
+$nome = $_SESSION['nome'];
+$dtainicio = $_SESSION['dtainicio'];
 echo "Sua nota é: ".$nota;
 $x = new prova();
 $x->salvarProva($PDO, $ra, $nome, $nota, $dtainicio, $disciplinas, $idquestoes, $respostasaluno);

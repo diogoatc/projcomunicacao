@@ -846,3 +846,4 @@ Stack trace:
 [07-May-2017 19:30:46 UTC] PHP Notice:  Undefined variable: nota in C:\www\diogoatc\projcomunicacao\relatorios\relatorio_notas_aluno.php on line 23
 [09-May-2017 00:00:35 UTC] PHP Notice:  Undefined offset: 0 in C:\www\diogoatc\projcomunicacao\relatorios\relatorio_notas_aluno.php on line 18
 [09-May-2017 00:00:35 UTC] PHP Notice:  Undefined offset: 0 in C:\www\diogoatc\projcomunicacao\relatorios\relatorio_notas_aluno.php on line 23
+[11-May-2017 13:15:22 UTC] PHP Notice:  Undefined offset: 9 in C:\www\diogoatc\projcomunicacao\relatorios\relatorio_turma.php on line 85

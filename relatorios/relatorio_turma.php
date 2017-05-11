@@ -62,7 +62,7 @@ $html .= '<th class="desc" colspan="2">Nota PU</th>
                $html .= '
                <tr>';
                  $html .= '
-                 <td class="desc" colspan="2">'.$retorno[$i]['id'].'</td>';
+                 <td class="desc" colspan="2">'.$retorno[$i]['ra'].'</td>';
                  $html .= '
                  <td class="desc nota" colspan="2">'.$retorno[$i]['nomealuno'].'</td>';
 
