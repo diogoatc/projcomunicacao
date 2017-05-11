@@ -164,6 +164,28 @@ class disciplina {
 				}
 		}
 
+		function selectDisciplinasByCursoTurnoAndSemestre($con, $curso, $turno, $semestre){
+
+				$conn= $con->prepare(
+					"SELECT nome
+					FROM disciplina
+					WHERE curso = :curso
+					AND turno = :turno
+					AND semestre = :semestre
+					AND flgativo = 1"
+				);
+
+				$conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+				$conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+				$conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
+
+				if($conn->execute()){
+					return $conn->fetchAll(PDO::FETCH_ASSOC);
+				}else{
+					echo "<script> alert('ERRO AO ENCONTRAR DISCIPLINA');</script>";
+				}
+		}
+
 		function cadastra_itemdisciplina($con, $nome, $curso, $turno, $credito, $semestre, $flgativo){
 			$conn = $con->prepare("INSERT INTO itemdisciplina (nome, curso, turno, credito, semestre, flgativo)
 			VALUES(:nome, :curso, :turno, :credito, :semestre, :flgativo)");
