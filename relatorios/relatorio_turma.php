@@ -4,9 +4,9 @@ require_once ("../assets/mPDF/vendor/autoload.php");
 require_once("../model/conexao.php");
 require_once("../classes/class_disciplina.php");
 
-$curso = 'PP';
-$turno = 'Noturno';
-$semestre = 1;
+$curso = $_POST['curso'];
+$turno = $_POST['turno'];
+$semestre = $_POST['semestre'];
 
 $classeDisciplina = new disciplina();
 $disciplinas = $classeDisciplina->selectDisciplinasByCursoTurnoAndSemestre($PDO, $curso, $turno, $semestre);
