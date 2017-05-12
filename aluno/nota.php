@@ -20,7 +20,7 @@ foreach ($respostas as $key => $value) {
 	} 
 	
 	$qtdquestoes++;
-	array_push($respostasaluno,$respostaaluno);
+	$respostasaluno[$key] = $respostaaluno;
 	array_push($gabarito,$value);
 	array_push($idquestoes,$key);
 

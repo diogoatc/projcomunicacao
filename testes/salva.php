@@ -2,8 +2,8 @@
 include '../model/conexao.php';
 
 $conn=$PDO->prepare("SELECT id,respostacorreta FROM questao WHERE iddisciplina=:iddisc");
-$check=array(1,6,11,);
-$respostascertas=array(1=>"B",2=>"b",15=>"b",22=>"b"); // O GABARITO é: B A D B
+$check=array(1,6);
+$respostascertas=array(2=>"A",1=>"B",15=>"D"); // O GABARITO é: B A D B
 foreach ($check as $key) {
 	$conn->bindParam(":iddisc",$key, PDO::PARAM_INT);
 
@@ -14,6 +14,7 @@ if($conn->execute()){
 		}
 		$totalquestoes=count($retorno);
 		$incorretas=0;
+		var_dump($retorno);
 foreach ($retorno as $questao) {
 	
 		foreach ($respostascertas as $id => $resposta) {

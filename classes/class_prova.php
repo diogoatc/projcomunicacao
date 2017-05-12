@@ -77,6 +77,8 @@ class prova {
 		}
 	function salvarProva($pdo,$ra,$nomealuno,$nota,$dtainicio,$disciplinas,$idquestoes,$respostaAluno){
 		
+
+
 		date_default_timezone_set('America/Sao_Paulo');
   		$dtafim = date('Y-m-d H:i:s');
 
@@ -147,10 +149,11 @@ class prova {
 		$conn = $pdo->prepare("INSERT INTO questoes_aluno (idprova, idquestao, respostaaluno)
 		VALUES (:lastId, :idquestao, :respostaaluno)");
 
-		for ($i=0; $i < count($idquestoes); $i++) {
+			foreach ($respostaAluno as $key => $value) {
+				
 			$conn->bindParam(":lastId", $lastId, PDO::PARAM_INT);
-			$conn->bindParam(":idquestao", $idquestoes[$i], PDO::PARAM_INT);
-			$conn->bindParam(":respostaaluno", $respostaAluno[$i], PDO::PARAM_STR);
+			$conn->bindParam(":idquestao", $key, PDO::PARAM_INT);
+			$conn->bindParam(":respostaaluno", $value, PDO::PARAM_STR);
 
 			if($conn->execute()){
 				
@@ -161,6 +164,6 @@ class prova {
 
 		$conn=null;
 		$pdo=null;
-	}
+		}
 }
 ?>
