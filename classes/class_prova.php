@@ -49,6 +49,35 @@ class prova {
 	public function setNota($nota){
 		return $this->nota = $nota;
 	}
+
+	function selectProvasByCursoAndTurnoAndSemestre($pdo, $curso, $turno, $semestre) {
+        $conn = $pdo->prepare(
+            "SELECT p.id, p.ra, p.nomealuno, round(p.nota, 1) as notaPu
+				FROM prova p
+				INNER JOIN prova_disciplina pd
+				ON pd.idprova = p.id
+				INNER JOIN disciplina d
+				ON d.id = pd.iddisciplina
+				AND d.curso = :curso
+				AND d.turno = :turno
+				AND d.semestre = :semestre 
+				AND pd.notadisciplina is not null
+				GROUP BY p.id
+				ORDER BY p.id ASC;"
+        );
+
+        $conn->bindParam(":curso",$curso,PDO::PARAM_STR);
+        $conn->bindParam(":turno",$turno,PDO::PARAM_STR);
+        $conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
+
+        if($conn->execute()){
+            return $conn->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+            echo "ERRO BUSCAR PROVA BY CURSO TURNO E SEMESTRE";
+        }
+        $conn=null;
+	}
+
 	//Verifica se aluno já fez a prova
 	function verificaProva($pdo,$ra){
 		$conn = $pdo->prepare("SELECT P.nomealuno, PD.iddisciplina as id FROM prova P INNER JOIN prova_disciplina PD on P.id = PD.idprova WHERE ra = :ra");

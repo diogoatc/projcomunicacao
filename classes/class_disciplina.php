@@ -164,10 +164,28 @@ class disciplina {
 				}
 		}
 
-		function selectDisciplinasByCursoTurnoAndSemestre($con, $curso, $turno, $semestre){
+		function selectNotasDisciplinasByIdProva($pdo, $idprova) {
+            $conn = $pdo->prepare (
+                "SELECT pd.iddisciplina, pd.notadisciplina 
+					FROM prova_disciplina pd
+					WHERE pd.idprova = :idprova
+					ORDER BY pd.iddisciplina;"
+            );
 
-				$conn= $con->prepare(
-					"SELECT nome
+            $conn->bindParam(":idprova",$idprova,PDO::PARAM_INT);
+
+            if($conn->execute()){
+                return $conn->fetchAll(PDO::FETCH_ASSOC);
+            }else{
+                echo "<script> alert('ERRO AO BUSCAR NOTA DISCIPLINA');</script>";
+            }
+            $conn=null;
+		}
+
+		function selectDisciplinasByCursoTurnoAndSemestre($pdo, $curso, $turno, $semestre){
+
+				$conn= $pdo->prepare(
+					"SELECT id, nome
 					FROM disciplina
 					WHERE curso = :curso
 					AND turno = :turno
