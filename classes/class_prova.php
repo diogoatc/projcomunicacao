@@ -65,7 +65,7 @@ class prova {
 				GROUP BY p.id
 				ORDER BY p.id ASC;"
         );
-
+   
         $conn->bindParam(":curso",$curso,PDO::PARAM_STR);
         $conn->bindParam(":turno",$turno,PDO::PARAM_STR);
         $conn->bindParam(":semestre",$semestre,PDO::PARAM_INT);
@@ -164,7 +164,7 @@ class prova {
 						$notadisc = (($totalquestoes-$incorretas)/$totalquestoes)*10;
 			$conn->bindParam(":lastId",$lastId, PDO::PARAM_INT);
 			$conn->bindParam(":iddisciplina", $key, PDO::PARAM_INT);
-			$conn->bindParam(":notadisciplina", $notadisc, PDO::PARAM_INT);
+			$conn->bindParam(":notadisciplina", $notadisc, PDO::PARAM_STR);
 
 			if($conn->execute()){
 				

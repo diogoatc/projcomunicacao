@@ -11,7 +11,7 @@ $array_questoes = array();
 
 //verifica se aluno já fez a prova -----------------------------------------------------
   $ra = $_SESSION['ra'];
-  $verifica_prova = FALSE;
+    $verifica_prova = FALSE;
     $prova = new prova();
     $retornoverif = $prova->verificaProva($PDO,$ra);
     foreach ($retornoverif as $iddisc) {
@@ -29,7 +29,7 @@ $array_questoes = array();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Teste embaralhamento</title>
+	<title>Prova Unificada</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -134,7 +134,7 @@ $array_questoes = array();
                         <div class="col-md-7">
                         <div class="radio">
                           <label for="radios-0">';
-      echo "<input type='radio' name='questaoid{$questoes['id']}' value='A'> {$questoes['resposta1']} <br/>" ;
+      echo "<input type='radio' name='questaoid{$questoes['id']}' value='A' required> {$questoes['resposta1']} <br/>" ;
 			echo '</label>
               </div>';
       echo '<div class="radio">

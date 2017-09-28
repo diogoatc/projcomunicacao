@@ -78,7 +78,7 @@ if (isset($_POST['fazerprova'])) {
 <!-- Text input-->
 
 <div class="form-group">
-  <label class="col-md-3 control-label" for="disciplina"><h3><strong>Selecione as Disciplinas</strong></h3></label>            
+  <label class="col-md-3 control-label" for="disciplina"><h3><strong>Selecione todas as Disciplinas que você está cursando</strong></h3></label>            
 <div class="col-md-9">
 <div class="row">
   

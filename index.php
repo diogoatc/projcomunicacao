@@ -22,7 +22,7 @@
 
 <div class="col-sm-1">
   <ul class="nav navbar-nav">
-    <li><a href="testes/gabarito.php"><h1>Gabarito</h1></a></li>
+    <li><a href="/gabarito.php"><h1>Gabarito</h1></a></li> 
   </ul>
   </div>
 

@@ -166,7 +166,7 @@ class disciplina {
 
 		function selectNotasDisciplinasByIdProva($pdo, $idprova) {
             $conn = $pdo->prepare (
-                "SELECT pd.iddisciplina, pd.notadisciplina 
+                "SELECT pd.iddisciplina, round(pd.notadisciplina, 1) as notadisciplina
 					FROM prova_disciplina pd
 					WHERE pd.idprova = :idprova
 					ORDER BY pd.iddisciplina;"

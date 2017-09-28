@@ -29,7 +29,7 @@ include('../model/conexao.php');
 		 </div>
 
 		  <div class="col-sm-2">
-			<h4 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h4>
+			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
 		  </div>
 
 	<div class="col-sm-8">
@@ -107,6 +107,7 @@ include('../model/conexao.php');
       <option value="3">3</option>
       <option value="4">4</option>
       <option value="5">5</option>
+      <option value="6">6</option>
     </select>
   </div>
 </div>

@@ -32,9 +32,9 @@ if (!empty($provas)){
         <thead>
           <tr>
           <th class="desc" colspan="2">RA</th>
-          <th class="desc" colspan="2">Nome Aluno</th>
+          <th class="desc" colspan="2">Aluno</th>
           ';
-    foreach ($disciplinas as $key) {
+      foreach ($disciplinas as $key) {
         $html .= '<th class="desc" colspan="2">'.$key['nome'].'</th>';
     }
 
@@ -69,6 +69,7 @@ if (!empty($provas)){
         $html .= '</tr>';
     }
     $html .= '
+
         </tbody>
       </table>
     </main>';

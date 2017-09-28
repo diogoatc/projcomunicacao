@@ -28,7 +28,7 @@ include("verifica_sessao_admin.php");
 	     </div>
           
 	      <div class="col-sm-2">
-			<h4 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h4>
+			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
 		  </div>
 
 	<div class="col-sm-8">
@@ -113,7 +113,7 @@ include("verifica_sessao_admin.php");
 
 	<legend class="text-center">INSIRA O RA DO ALUNO QUE DESEJA PESQUISAR</legend>
 
-	<form class="form-horizontal" id="questcad" action="../relatorios/relatorio_notas_aluno.php" method="POST">
+	<form class="form-horizontal" id="questcad" action="../relatorios/relatorio_notas_aluno_admin.php" method="POST">
 		 <fieldset>
 			<div class="form-group">
 	  		<label class="col-md-4 control-label" for="curso">RA: </label>

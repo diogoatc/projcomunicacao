@@ -34,7 +34,7 @@
 	     </div>
           
 	      <div class="col-sm-3">
-	        <h4 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h4>
+	        <h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
 	      </div>
 
   <div class="col-sm-8">

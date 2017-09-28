@@ -35,7 +35,7 @@ $retorno = $x->lista_itemdisciplina($PDO);
 		 </div>
 
 	      <div class="col-sm-2">
-			<h4 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h4>
+			<h3 class="areadoprofessor">ÁREA DO ADMINISTRADOR</h3>
 		  </div>
 
 	<div class="col-sm-8">
