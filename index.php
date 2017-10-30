@@ -20,12 +20,6 @@
 
   <div class="container-fluid">
 
-<div class="col-sm-1">
-  <ul class="nav navbar-nav">
-    <li><a href="/gabarito.php"><h1>Gabarito</h1></a></li> 
-  </ul>
-  </div>
-
 		  <div class="col-sm-6">
 			<a  class="navbar-brand pull-right" href="index.php"><img class="img-responsive" style="margin-top:-13px;width:100%;"  src="assets/img/UNASP.png" alt="logo unasp"></a>
 		 </div>
@@ -34,52 +28,9 @@
 </nav>
 
    <div id="wrap">
-
-    <h2 class="text-center">Prova Unificada de Comunicação Social</h2>
-    <h3 class="text-center">Seja Bem-vindo</h3><br>
-   <h3 class="text-center">Se você for aluno, basta clicar na imagem para fazer a prova. Professor ou administrador, realize o Login. </h3><br/>
- 
-
-      <div class="col-sm-4 col-md-offset-2">
-    <section>
-            <a href="aluno/index.php"><img class="responsivo" src="assets/img/click.png" onMouseOver="this.src='assets/img/art.png'" onMouseOut="this.src='assets/img/click.png'" onClick="location='#'"></a>
-        </section>
-    </div>
-<form class="form-horizontal" action="model/validacao.php" method="post">
-<fieldset>
-
-<!-- Form Name -->
-<h2 class="text-center"><strong>Área de Login</strong></h2>
+      
+<h2 class="text-center"><strong>Esse Sistema está desativado. Para acessar a prova unificada por favor acesse: <a href="http://ec2.unasp.br/prova-unificada/">http://ec2.unasp.br/prova-unificada/ </a></strong></h2>
 <br>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="text">Usuário:</label>  
-  <div class="col-md-6">
-  <input name="usuario" type="text" placeholder="Insira o Usuário" class="form-control input-md" required="Por favor,preencher o campo com o seu usuário">
-  <span class="help-block">Exemplo: joao.francisco</span>  
-  </div>
-</div>
-
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="pwd">Senha:</label>
-  <div class="col-md-6">
-    <input id="pwd" name="senha" type="password" placeholder="Insira sua Senha" class="form-control input-md" required="Por Favor, preencher o campo com a sua senha">
-    <span class="help-block">Qualquer dúvida entrar em contato com a Coordenação</span>
-  </div>
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-6">
-    <button style="font-size:13pt;"type="submit" class="btn btn-primary">ENTRAR</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
 
 </div>
 
